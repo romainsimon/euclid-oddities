@@ -1,0 +1,2 @@
+# Keep bytes exact so the SHA-256 hashes of the pre-registrations verify after checkout
+* -text
