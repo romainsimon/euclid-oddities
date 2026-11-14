@@ -1,4 +1,4 @@
-# Looking for the unexpected in Euclid DR1 with Claude
+# Euclid Oddities: looking for the unexpected in Euclid DR1 with Claude
 
 Romain Simon, independent researcher, Nice, France. November 2026.
 
@@ -76,3 +76,7 @@ Code will be released separately.
 ## Licence
 
 Text and tables: CC BY 4.0. Euclid data are © ESA/Euclid Consortium under CC BY-NC 3.0 IGO; the ECLIPSE catalogue is CC BY 4.0. This is a non-commercial research project.
+
+## Note on names
+
+Folder and file paths inside the frozen pre-registrations mention `claudestronomy`, the name of the grant programme that prompted this work. They are left unchanged because the files are hashed. This project is independent and is not run by that programme.
