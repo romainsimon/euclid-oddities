@@ -1,0 +1,13 @@
+model,metric,k,n,rate
+Haiku 5.5,planted oddities found,2,24,0.083
+Haiku 5.5,known lenses found,5,10,0.5
+Haiku 5.5,false features on untouched,3,20,0.15
+Haiku 5.5,artefacts called astrophysics,0,6,0.0
+Sonnet 5.5,planted oddities found,8,24,0.333
+Sonnet 5.5,known lenses found,4,10,0.4
+Sonnet 5.5,false features on untouched,2,20,0.1
+Sonnet 5.5,artefacts called astrophysics,0,6,0.0
+Fable 5.2,planted oddities found,9,24,0.375
+Fable 5.2,known lenses found,5,10,0.5
+Fable 5.2,false features on untouched,4,20,0.2
+Fable 5.2,artefacts called astrophysics,1,6,0.167

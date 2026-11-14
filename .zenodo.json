@@ -1,0 +1,10 @@
+{
+  "title": "Looking for the unexpected in Euclid DR1 with Claude: pre-registered tests of an LLM anomaly inspector and a compact lensed-quasar search (first results)",
+  "upload_type": "dataset",
+  "description": "Pre-registrations (with SHA-256 hashes), amendments, reports and null results from two probes on Euclid DR1 (public since 12 November 2026). Track D tests whether a vision-language model (Claude Haiku 5.5; exploratory comparison with Sonnet 5.5 and Fable 5.2) can flag unusual objects in Euclid cutouts, using planted fakes under a sealed key, unlabelled known lenses, and thresholds fixed in advance. Track A tests a one-versus-two point-source fit for sub-arcsecond lensed quasars with injection-calibrated completeness and separately calibrated false alarms. Both tracks fail some of their pre-registered bars; the failures and sensitivities are reported in full.",
+  "creators": [{"name": "Simon, Romain", "affiliation": "Independent researcher"}],
+  "keywords": ["Euclid", "DR1", "anomaly detection", "vision-language models", "Claude", "pre-registration", "null results", "gravitational lensing", "lensed quasars"],
+  "license": "cc-by-4.0",
+  "access_right": "open",
+  "language": "eng"
+}

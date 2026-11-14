@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "If you use these materials, please cite them."
+title: "Looking for the unexpected in Euclid DR1 with Claude: first results"
+authors:
+  - family-names: Simon
+    given-names: Romain
+date-released: 2026-11-14
+license: CC-BY-4.0
