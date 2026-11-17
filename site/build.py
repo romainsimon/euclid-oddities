@@ -81,6 +81,9 @@ footer{color:var(--dim);font-size:.8rem;padding:4px 0 48px}footer a{color:var(--
 .detail{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:14px;padding-bottom:14px;align-items:start}
 .viewer{background:var(--card);border-radius:var(--r-xl);padding:12px}
 .viewer img{display:block;width:100%;height:auto;border-radius:30px;background:#000}
+.zoomwrap{position:relative;cursor:none}@media (hover:none){.zoomwrap{cursor:auto}}
+.lens{position:absolute;width:200px;height:200px;border-radius:50%;pointer-events:none;background-repeat:no-repeat;background-color:#000;box-shadow:0 0 0 2px rgba(236,238,242,.85),0 24px 60px -12px rgba(0,0,0,.9);transform:translate(-50%,-50%);opacity:0;transition:opacity .2s}
+.zoomwrap.on .lens{opacity:1}
 .under{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:12px 6px 4px}
 .legend{display:grid;grid-template-columns:1fr 1fr;gap:4px 16px;color:var(--dim);font-size:.76rem;padding:8px 10px 8px}
 .info{background:var(--card);border-radius:var(--r-xl);padding:34px}
@@ -208,7 +211,7 @@ def detail(f, prev, nxt, base):
              ("Effort", f'{e(f.get("effort", "not recorded"))} · {f.get("thinking_tokens", 0)} thinking tokens'),
              ("Harness", e(f.get("harness", ""))), ("Run", f'{e(f["run"])}, {e(f["rendering"])}')]
     body = f"""<main class="wrap"><div class="crumbs"><a href="{base}/">All finds</a> / {e(f["name"])}</div>
-<div class="detail"><div class="viewer"><img id="im" src="{base}/img/{f["slug"]}-marked.jpg" width="1072" height="1072" alt="Euclid cutout of {e(f["name"])}: visible band, colour composite, hard stretch and 3x zoom, with the model's chosen point circled">
+<div class="detail"><div class="viewer"><div class="zoomwrap" id="zw"><img id="im" src="{base}/img/{f["slug"]}-marked.jpg" width="1072" height="1072" alt="Euclid cutout of {e(f["name"])}: visible band, colour composite, hard stretch and 3x zoom, with the model's chosen point circled"><div class="lens" id="lens" aria-hidden="true"></div></div>
 <div class="under"><button class="btn" type="button" aria-pressed="true" id="mk">Model's point shown</button></div>
 <div class="legend"><span>Top left · visible band (VIS)</span><span>Top right · colour: 1.8 µm, 1.1 µm, visible</span>
 <span>Bottom left · hard stretch for faint light</span><span>Bottom right · 3× zoom on the brightest galaxy</span><span>Field 32″ × 32″, north up</span></div></div>
@@ -219,7 +222,12 @@ def detail(f, prev, nxt, base):
 <div class="links">{"".join(f'<a class="btn" href="{u}" rel="noopener">{n} ↗</a>' for n, u in links(f))}</div>
 <p class="small">Unverified model suggestion. Recognise it, or can rule it out? <a href="{REPO}/issues/new?title={e(f["name"])}">Tell us on GitHub</a>.</p></div></div>
 <nav class="pager">{f'<a class="btn" href="{base}/{prev["slug"]}/">← {e(prev["name"])}</a>' if prev else '<span></span>'}{f'<a class="btn" href="{base}/{nxt["slug"]}/">{e(nxt["name"])} →</a>' if nxt else ''}</nav></main>
-<script>const b=document.getElementById('mk'),im=document.getElementById('im');b.addEventListener('click',()=>{{const m=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',m);b.textContent=m?"Model's point shown":"Show the model's point";im.src=im.src.replace(/(-marked)?\\.jpg$/,m?'-marked.jpg':'.jpg')}});</script>"""
+<script>const zw=document.getElementById('zw'),lens=document.getElementById('lens'),Z=3;
+if(matchMedia('(hover:hover)').matches){{zw.addEventListener('pointermove',ev=>{{const r=im.getBoundingClientRect(),x=ev.clientX-r.left,y=ev.clientY-r.top;
+if(x<0||y<0||x>r.width||y>r.height){{zw.classList.remove('on');return}}zw.classList.add('on');lens.style.left=x+'px';lens.style.top=y+'px';
+lens.style.backgroundImage=`url("${{im.currentSrc||im.src}}")`;lens.style.backgroundSize=`${{r.width*Z}}px ${{r.height*Z}}px`;
+lens.style.backgroundPosition=`${{100-x*Z}}px ${{100-y*Z}}px`}});zw.addEventListener('pointerleave',()=>zw.classList.remove('on'))}}
+const b=document.getElementById('mk'),im=document.getElementById('im');b.addEventListener('click',()=>{{const m=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',m);b.textContent=m?"Model's point shown":"Show the model's point";im.src=im.src.replace(/(-marked)?\\.jpg$/,m?'-marked.jpg':'.jpg')}});</script>"""
     title = f"{f['name']}: {FEATURE.get(f['feature'], f['feature']).lower()} flagged by Claude in Euclid DR1"
     return page(title, f["description"], body, base, f"{base}/{f['slug']}", f"{base}/img/{f['slug']}-thumb.jpg")
 
