@@ -57,11 +57,6 @@ border-radius:var(--r-lg);padding:12px 14px;display:flex;flex-wrap:wrap;gap:10px
 .lbl{font:500 .6rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin:0 4px 0 2px}
 .chip{appearance:none;border:0;background:var(--card2);color:var(--silver);border-radius:999px;padding:7px 13px;font-size:.84rem;cursor:pointer;transition:background .25s,color .2s}
 .chip:hover{background:var(--card3);color:var(--fg)}.chip[aria-pressed=true]{background:var(--accent-soft);color:var(--accent)}
-select{appearance:none;border:0;background:var(--card2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23868c97' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat right 12px center;
-border-radius:999px;padding:7px 30px 7px 13px;font-size:.84rem;cursor:pointer}
-select:hover{background-color:var(--card3)}
-input[type=range]{accent-color:var(--accent);width:110px}
-output{font-family:var(--mono);font-size:.8rem;color:var(--fg)}
 .count{margin-left:auto;font:500 .66rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;padding:16px 0 56px}
 .card{display:flex;flex-direction:column;text-decoration:none;color:inherit;background:var(--card);border-radius:var(--r-lg);padding:10px;transition:transform .5s var(--ease),background .25s}
@@ -112,11 +107,14 @@ def e(s):
 
 
 def page(title, desc, body, base, canonical, image=None):
-    og = f'<meta property="og:image" content="{SITE}{image}">' if image else ""
+    og = f'<meta data-route-meta property="og:image" content="{SITE}{image}">' if image else ""
     return f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{e(title)}</title><meta name="description" content="{e(desc)}"><link rel="canonical" href="{SITE}{canonical}">
-<meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:type" content="website">{og}
-<meta name="twitter:card" content="summary_large_image">{FONTS}<style>{CSS}</style></head><body>
+<meta name="theme-color" content="#070908" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/galaxy-32.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/assets/favicons/galaxy-180.png" />
+<title>{e(title)}</title><meta name="description" content="{e(desc)}"><link data-route-meta rel="canonical" href="{SITE}{canonical}">
+<meta data-route-meta property="og:title" content="{e(title)}"><meta data-route-meta property="og:description" content="{e(desc)}"><meta data-route-meta property="og:type" content="website"><meta data-route-meta property="og:url" content="{SITE}{canonical}">{og}
+<meta data-route-meta name="twitter:card" content="summary_large_image">{FONTS}<style>{CSS}</style></head><body>
 <header class="top"><div class="bar"><a class="brand" href="{base}/">Euclid Oddities <span class="badge">Beta</span></a>
 <nav class="top"><a href="{base}/#method">Method</a><a href="{REPO}">Data &amp; rules</a><a class="keep" href="/">SpaceSim</a></nav></div></header>
 {body}
@@ -129,6 +127,11 @@ def tags(f):
     hi = " hi" if f["confidence"] in ("medium", "high") else ""
     return (f'<span class="tag">{e(FEATURE.get(f["feature"], f["feature"]))}</span>'
             f'<span class="tag{hi}">{e(f["confidence"])} conf.</span><span class="tag">interest {f["interest"]}</span>')
+
+
+def seg(key, label, opts):
+    return (f'<div class="group seg" data-k="{key}" role="group" aria-label="{e(label)}"><span class="lbl">{e(label)}</span>'
+            + "".join(f'<button class="chip" type="button" data-v="{e(v)}" aria-pressed="false">{e(t)}</button>' for v, t in opts) + "</div>")
 
 
 def card(f, base):
@@ -148,12 +151,12 @@ def index(F, meta, base):
 <p class="lede">Claude looked at Euclid images and flagged whatever seemed odd. These are its suggestions, unverified. Fake objects were hidden among the real ones to measure how far to trust it: <a href="#method">how it works</a>.</p></div></div>
 <div class="filters" role="region" aria-label="Filters">
 <div class="group" aria-label="Feature"><span class="lbl">Feature</span>{chips}</div>
-<div class="group"><label class="lbl" for="conf">Confidence</label><select id="conf"><option value="">Any</option><option value="medium">Medium or high</option><option value="low">Low only</option></select></div>
-<div class="group"><label class="lbl" for="cat">Catalogue</label><select id="cat"><option value="">Any</option><option value="no">No named entry</option><option value="yes">Already catalogued</option></select></div>
-<div class="group"><label class="lbl" for="int">Interest ≥ <output id="intv">2.6</output></label><input id="int" type="range" min="2.6" max="5" step="0.1" value="2.6"></div>
-<div class="group"><label class="lbl" for="date">Found</label><select id="date"><option value="">Any date</option>{"".join(f'<option>{d}</option>' for d in dates)}</select></div>
-<div class="group"><label class="lbl" for="model">Model</label><select id="model"><option value="">Any</option>{"".join(f'<option>{e(m)}</option>' for m in models)}</select></div>
-<div class="group"><label class="lbl" for="sort">Sort</label><select id="sort"><option value="interest">Interest</option><option value="date">Newest</option></select></div>
+{seg("conf", "Confidence", [("", "Any"), ("medium", "Medium+"), ("low", "Low")])}
+{seg("cat", "Catalogue", [("", "Any"), ("no", "Not catalogued"), ("yes", "Catalogued")])}
+{seg("int", "Interest", [("", "Any"), ("3", "≥ 3.0"), ("3.5", "≥ 3.5")])}
+{seg("date", "Found", [("", "Any")] + [(d, d) for d in dates])}
+{seg("model", "Model", [("", "Any")] + [(m, m.replace("Claude ", "")) for m in models])}
+{seg("sort", "Sort", [("interest", "Interest"), ("date", "Newest")])}
 <span class="count" id="count" aria-live="polite"></span></div>
 <div class="grid" id="grid">{"".join(card(f, base) for f in F)}</div><p class="empty" id="empty" hidden>Nothing matches these filters.</p>
 <section class="method" id="method"><div class="panel"><span class="eyebrow"><b>01</b>Method</span><h2>How it <em>works</em></h2>
@@ -168,20 +171,21 @@ def index(F, meta, base):
 <p>Small samples: the two views differ by five objects. Full results, failures included, are on <a href="{REPO}">GitHub</a>.</p></div></section></main>
 <script>
 const cards=[...document.querySelectorAll('.card')],grid=document.getElementById('grid'),on=new Set();
-const q=id=>document.getElementById(id);
-function apply(){{const c=q('conf').value,k=q('cat').value,m=+q('int').value,d=q('date').value,md=q('model').value;q('intv').textContent=m.toFixed(1);let n=0;
-for(const el of cards){{const ok=(!on.size||on.has(el.dataset.feature))&&(!c||(c==='low'?el.dataset.conf==='low':el.dataset.conf!=='low'))&&(!k||el.dataset.cat===k)&&(+el.dataset.interest>=m-1e-9)&&(!d||el.dataset.date===d)&&(!md||el.dataset.model===md);el.hidden=!ok;n+=ok}}
-q('count').textContent=n+' of '+cards.length+' shown';q('empty').hidden=n>0;
-const s=q('sort').value;[...cards].sort((a,b)=>s==='date'?b.dataset.date.localeCompare(a.dataset.date)||b.dataset.interest-a.dataset.interest:b.dataset.interest-a.dataset.interest).forEach(el=>grid.appendChild(el));
-const p=new URLSearchParams();if(on.size)p.set('feature',[...on].join(','));if(c)p.set('confidence',c);if(k)p.set('catalogued',k);if(m>2.6)p.set('interest',m);if(d)p.set('date',d);if(md)p.set('model',md);
-history.replaceState(null,'',(p.toString()?'?'+p:location.pathname))}}
-document.querySelectorAll('.chip').forEach(b=>b.addEventListener('click',()=>{{const f=b.dataset.f;on.has(f)?on.delete(f):on.add(f);b.setAttribute('aria-pressed',on.has(f));apply()}}));
-['conf','cat','int','date','model','sort'].forEach(id=>q(id).addEventListener('input',apply));
+const st={{conf:'',cat:'',int:'',date:'',model:'',sort:'interest'}};
+function sync(){{document.querySelectorAll('.seg').forEach(g=>g.querySelectorAll('.chip').forEach(b=>b.setAttribute('aria-pressed',st[g.dataset.k]===b.dataset.v)))}}
+function apply(){{let n=0;const m=+st.int||0;
+for(const el of cards){{const ok=(!on.size||on.has(el.dataset.feature))&&(!st.conf||(st.conf==='low'?el.dataset.conf==='low':el.dataset.conf!=='low'))&&(!st.cat||el.dataset.cat===st.cat)&&(+el.dataset.interest>=m-1e-9)&&(!st.date||el.dataset.date===st.date)&&(!st.model||el.dataset.model===st.model);el.hidden=!ok;n+=ok}}
+document.getElementById('count').textContent=n+' of '+cards.length+' shown';document.getElementById('empty').hidden=n>0;
+[...cards].sort((a,b)=>st.sort==='date'?b.dataset.date.localeCompare(a.dataset.date)||b.dataset.interest-a.dataset.interest:b.dataset.interest-a.dataset.interest).forEach(el=>grid.appendChild(el));
+const p=new URLSearchParams();if(on.size)p.set('feature',[...on].join(','));for(const k in st)if(st[k]&&!(k==='sort'&&st[k]==='interest'))p.set(k,st[k]);
+history.replaceState(null,'',(p.toString()?'?'+p:location.pathname));sync()}}
+document.querySelectorAll('.chip[data-f]').forEach(b=>b.addEventListener('click',()=>{{const f=b.dataset.f;on.has(f)?on.delete(f):on.add(f);b.setAttribute('aria-pressed',on.has(f));apply()}}));
+document.querySelectorAll('.seg').forEach(g=>g.querySelectorAll('.chip').forEach(b=>b.addEventListener('click',()=>{{st[g.dataset.k]=b.dataset.v;apply()}})));
 const p=new URLSearchParams(location.search);(p.get('feature')||'').split(',').filter(Boolean).forEach(f=>{{on.add(f);const b=document.querySelector(`.chip[data-f="${{f}}"]`);b&&b.setAttribute('aria-pressed','true')}});
-if(p.get('confidence'))q('conf').value=p.get('confidence');if(p.get('catalogued'))q('cat').value=p.get('catalogued');if(p.get('interest'))q('int').value=p.get('interest');if(p.get('date'))q('date').value=p.get('date');if(p.get('model'))q('model').value=p.get('model');
+for(const k in st)if(p.get(k))st[k]=p.get(k);
 apply();
 </script>"""
-    return page("Euclid Oddities: what an AI notices in Euclid DR1", meta["note"], body, base, f"{base}/",
+    return page("Euclid Oddities: what an AI notices in Euclid DR1", meta["note"], body, base, base,
                 f"{base}/img/{F[0]['slug']}-thumb.jpg")
 
 
@@ -217,7 +221,7 @@ def detail(f, prev, nxt, base):
 <nav class="pager">{f'<a class="btn" href="{base}/{prev["slug"]}/">← {e(prev["name"])}</a>' if prev else '<span></span>'}{f'<a class="btn" href="{base}/{nxt["slug"]}/">{e(nxt["name"])} →</a>' if nxt else ''}</nav></main>
 <script>const b=document.getElementById('mk'),im=document.getElementById('im');b.addEventListener('click',()=>{{const m=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',m);b.textContent=m?"Model's point shown":"Show the model's point";im.src=im.src.replace(/(-marked)?\\.jpg$/,m?'-marked.jpg':'.jpg')}});</script>"""
     title = f"{f['name']}: {FEATURE.get(f['feature'], f['feature']).lower()} flagged by Claude in Euclid DR1"
-    return page(title, f["description"], body, base, f"{base}/{f['slug']}/", f"{base}/img/{f['slug']}-thumb.jpg")
+    return page(title, f["description"], body, base, f"{base}/{f['slug']}", f"{base}/img/{f['slug']}-thumb.jpg")
 
 
 def main():
