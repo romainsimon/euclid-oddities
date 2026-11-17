@@ -62,7 +62,7 @@ header.top{position:sticky;top:0;z-index:20;padding:12px 16px 0}@media (min-widt
 border-radius:999px;background:rgba(21,23,28,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
 .brand{font:700 1.02rem/1 var(--display);letter-spacing:-.02em;text-decoration:none;color:var(--fg);display:flex;align-items:center;gap:10px}
 .badge{font:500 .58rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;padding:5px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
-nav.top{display:flex;gap:2px}nav.top a{font-size:.86rem;color:var(--silver);text-decoration:none;padding:8px 14px;border-radius:999px;transition:background .25s,color .2s}
+nav.top{display:flex;gap:2px}.site-header__actions{display:flex;align-items:center;gap:6px;min-width:0}.bar .spacesim-account{height:40px;min-height:40px;border-radius:999px;background:var(--card2)}.bar .spacesim-account:hover{background:var(--card3)}nav.top a{font-size:.86rem;color:var(--silver);text-decoration:none;padding:8px 14px;border-radius:999px;transition:background .25s,color .2s}
 nav.top a:hover{background:var(--card2);color:var(--fg)}
 .intro{padding:44px 0 4px;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 32px}
 .eyebrow{display:inline-block;font:500 .64rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--silver);background:var(--card2);padding:7px 11px;border-radius:999px}
@@ -169,7 +169,7 @@ def page(title, desc, body, base, canonical, image=None):
 <meta data-route-meta property="og:title" content="{e(title)}"><meta data-route-meta property="og:description" content="{e(desc)}"><meta data-route-meta property="og:type" content="website"><meta data-route-meta property="og:url" content="{SITE}{canonical}">{og}
 <meta data-route-meta name="twitter:card" content="summary_large_image">{FONTS}<style>{FONT_FACES}{CSS}</style></head><body>
 <header class="top"><div class="bar"><a class="brand" href="{base}/">Euclid Oddities</a>
-<nav class="top"><a href="{base}/#method">Method</a><a href="{REPO}">Data &amp; rules</a><a class="keep" href="/">SpaceSim</a></nav></div></header>
+<div class="site-header__actions"><nav class="top"><a href="{base}/#method">Method</a><a href="{REPO}">Data &amp; rules</a><a class="keep" href="/">SpaceSim</a></nav></div></div></header>
 {body}
 <footer><div class="wrap">Images: ESA Euclid DR1 (ESA/Euclid/Euclid Consortium), rendered by this project. Catalogue checks: SIMBAD, NED, ECLIPSE.
 Every entry is an unverified suggestion made by a language model. Code, pre-registration and raw results on <a href="{REPO}">GitHub</a>.</div></footer>
