@@ -180,6 +180,8 @@ Every entry is an unverified suggestion made by a language model. Code, pre-regi
 
 
 def tags(f):
+    if "confidence" in f.get("not_asked", []):
+        return f'<span class="tag">{e(FEATURE.get(f["feature"], f["feature"]))}</span><span class="tag">wide-field lead</span>'
     hi = " hi" if f["confidence"] in ("medium", "high") else ""
     return (f'<span class="tag">{e(FEATURE.get(f["feature"], f["feature"]))}</span>'
             f'<span class="tag{hi}">{e(f["confidence"])} conf.</span>')
@@ -211,6 +213,10 @@ def vt(slug):
     return slug.replace("+", "p").replace(".", "_")
 
 
+RUNS = {"Fable pass 1 (A-fable)": "outliers", "Two-stage test (A-twostage), development field": "twostage",
+        "Wide-field pass (A-wide)": "wide"}
+
+
 def promise(f):
     """Ranking for "Most promising": votes for a closer look first, then a penalty when most reviewers call it
     ordinary or a star, then the finder's interest score."""
@@ -230,7 +236,7 @@ def card(f, base):
           + (f'<span class="sparks">{sp}</span>' if rk == "legendary" else "")
           + '<span class="glare"></span></span>')
     return (f'<a class="card r-{rk}" style="view-transition-name:c-{vt(f["slug"])}" href="{base}/{f["slug"]}/" data-feature="{e(f["feature"])}" data-conf="{e(f["confidence"])}" data-rarity="{rk}" '
-            f'data-interest="{f["interest"]}" data-cat="{"yes" if f["catalogued"] else "no"}" data-date="{e(f["date_found"])}" data-model="{e(f["model"])}" data-score="{promise(f)}" data-rev="{ck or "none"}">{fx}'
+            f'data-interest="{f["interest"]}" data-cat="{"yes" if f["catalogued"] else "no"}" data-date="{e(f["date_found"])}" data-model="{e(f["model"])}" data-run="{e(RUNS.get(f.get("run", ""), "other"))}" data-score="{promise(f)}" data-rev="{ck or "none"}">{fx}'
             f'<img style="view-transition-name:i-{vt(f["slug"])}" src="{base}/img/{f["slug"]}-thumb.jpg" width="360" height="360" loading="lazy" alt="Euclid visible-band cutout of {e(f["name"])}">'
             f'<div class="body"><div class="hd"><h3 style="view-transition-name:t-{vt(f["slug"])}">{icon(f["feature"])}{e(f["name"])}</h3>{stars(f["interest"])}</div><div class="meta">{tags(f)}{rv}</div><p>{e(f["description"])}</p></div></a>')
 
@@ -246,6 +252,7 @@ def index(F, meta, base):
 <a class="doi" href="https://doi.org/10.5281/zenodo.24304793" rel="noopener"><img src="{base}/img/doi-badge.svg" alt="DOI 10.5281/zenodo.24304793" height="20"></a></section>
 <div class="filters" role="region" aria-label="Filters">
 <div class="group" aria-label="Feature"><span class="lbl">Feature</span>{chips}</div>
+{seg("run", "Search", [("", "Any"), ("outliers", "Catalogue outliers"), ("wide", "Wide fields"), ("twostage", "Test fields")])}
 {seg("rev", "Second opinion", [("", "Any"), ("closer", "Closer look"), ("split", "Split"), ("ordinary", "Ordinary"), ("star", "Star")])}
 {seg("conf", "Confidence", [("", "Any"), ("medium", "Medium+"), ("low", "Low")])}
 {seg("cat", "Catalogue", [("", "Any"), ("no", "Not catalogued"), ("yes", "Catalogued")])}
@@ -269,10 +276,10 @@ def index(F, meta, base):
 <p>Small samples: the two views differ by five objects. Full results, failures included, are on <a href="{REPO}">GitHub</a>.</p></div></section></main>
 <script>
 const cards=[...document.querySelectorAll('.card')],grid=document.getElementById('grid'),on=new Set();
-const st={{rev:'',conf:'',cat:'',int:'',date:'',model:'',sort:'promising'}};
+const st={{run:'',rev:'',conf:'',cat:'',int:'',date:'',model:'',sort:'promising'}};
 function sync(){{document.querySelectorAll('.seg').forEach(g=>g.querySelectorAll('.chip').forEach(b=>b.setAttribute('aria-pressed',st[g.dataset.k]===b.dataset.v)))}}
 function apply(){{let n=0;const m=+st.int||0;
-for(const el of cards){{const ok=(!st.rev||el.dataset.rev===st.rev)&&(!on.size||on.has(el.dataset.feature))&&(!st.conf||(st.conf==='low'?el.dataset.conf==='low':el.dataset.conf!=='low'))&&(!st.cat||el.dataset.cat===st.cat)&&(+el.dataset.interest>=m-1e-9)&&(!st.date||el.dataset.date===st.date)&&(!st.model||el.dataset.model===st.model);el.hidden=!ok;n+=ok}}
+for(const el of cards){{const ok=(!st.run||el.dataset.run===st.run)&&(!st.rev||el.dataset.rev===st.rev)&&(!on.size||on.has(el.dataset.feature))&&(!st.conf||(st.conf==='low'?el.dataset.conf==='low':el.dataset.conf!=='low'))&&(!st.cat||el.dataset.cat===st.cat)&&(+el.dataset.interest>=m-1e-9)&&(!st.date||el.dataset.date===st.date)&&(!st.model||el.dataset.model===st.model);el.hidden=!ok;n+=ok}}
 document.getElementById('count').textContent=n+' of '+cards.length+' shown';document.getElementById('empty').hidden=n>0;
 const RV={{closer:0,split:1,ordinary:2,artefact:3,star:3,other:2,none:1}};[...cards].sort((a,b)=>st.sort==='promising'?(b.dataset.score-a.dataset.score)||b.dataset.interest-a.dataset.interest:st.sort==='date'?b.dataset.date.localeCompare(a.dataset.date)||b.dataset.interest-a.dataset.interest:b.dataset.interest-a.dataset.interest).forEach(el=>grid.appendChild(el));
 const p=new URLSearchParams();if(on.size)p.set('feature',[...on].join(','));for(const k in st)if(st[k]&&!(k==='sort'&&st[k]==='promising'))p.set(k,st[k]);
@@ -411,8 +418,15 @@ def detail(f, prev, nxt, base):
     cat = ", ".join(e(n) for n in f["catalogue_names"]) or "No named entry (survey detections only)"
     sim = ", ".join(e(n["name"]) for n in f["simbad"]) or "None within 10″"
     ned = ", ".join(e(n["name"]) for n in f["ned"]) or "None within 10″"
-    facts = [("Position (ICRS)", f'RA {f["ra"]:.5f}°, Dec {f["dec"]:+.5f}°'), ("Weirdness", f'{f["weirdness"]} / 5'),
-             ("Model's reading", e(NATURE.get(f["nature"], f["nature"]))), ("Why inspected", e(f["selection"])),
+    na = f.get("not_asked", [])
+    facts = [("Position (ICRS)", f'RA {f["ra"]:.5f}°, Dec {f["dec"]:+.5f}°')]
+    if "weirdness" not in na:
+        facts.append(("Weirdness", f'{f["weirdness"]} / 5'))
+    if "nature" not in na:
+        facts.append(("Model's reading", e(NATURE.get(f["nature"], f["nature"]))))
+    if "passes_checks" in f:
+        facts.append(("Fixed checks", "all passed" if f["passes_checks"] else "failed: " + e(f.get("failed_checks", ""))))
+    facts += [("Why inspected", e(f["selection"])),
              ("Catalogued as", cat), ("SIMBAD", sim), ("NED", ned), ("ECLIPSE lenses ≤ 10″", f["eclipse_within_10as"]),
              ("Found", f'{e(f["date_found"])} by ' + model_badge(f.get("model_id", ""), f'Effort: {f.get("effort", "not recorded")} · {f.get("thinking_tokens", 0)} thinking tokens · {f.get("harness", "")} · {f["run"]}, {f["rendering"]}'))]
     body = f"""<main class="wrap"><div class="crumbs"><a href="{base}/">All finds</a> / {e(f["name"])}</div>
@@ -422,7 +436,7 @@ def detail(f, prev, nxt, base):
 <span>Bottom left · hard stretch for faint light</span><span>Bottom right · 3× zoom on the brightest galaxy</span><span>Field 32″ × 32″, north up</span></div></div>
 <div class="info"><h1 style="view-transition-name:t-{vt(f["slug"])}">{icon(f["feature"], 34)}{e(f["name"])}</h1>
 <div class="meta">{stars(f["interest"], True)}<span class="ival">Fable interest {f["interest"]} / 5</span>{tags(f)}</div>
-<p class="quote">“{e(f["description"])}”</p><p class="explain">Ordinary explanation offered by the model: {e(f["ordinary_explanation"])}</p>{review_teaser(f["slug"])}
+<p class="quote">“{e(f["description"])}”{' <span class="small">(short label from a one-look scan of a 107″ field)</span>' if f.get("not_asked") else ""}</p>{"" if "ordinary_explanation" in f.get("not_asked", []) else '<p class="explain">Ordinary explanation offered by the model: ' + e(f["ordinary_explanation"]) + '</p>'}{review_teaser(f["slug"])}
 <div class="facts">{"".join(f'<div class="fact"><span>{k}</span><span>{v}</span></div>' for k, v in facts)}</div>
 <div class="links">{"".join(f'<a class="btn" href="{u}" rel="noopener">{n} ↗</a>' for n, u in links(f))}</div>
 <p class="small">Unverified model suggestion. Recognise it, or can rule it out? <a href="{REPO}/issues/new?title={e(f["name"])}">Tell us on GitHub</a>.</p></div></div>

@@ -12,6 +12,7 @@ TRAILER="Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
 # 1. Export finds from the research pipeline (catalogue checks are cached), then build checks
 "$TRACKD/.venv/Scripts/python" "$TRACKD/fexport.py" "$REPO/site/data"
 "$TRACKD/.venv/Scripts/python" "$TRACKD/fexport_ftwo.py" "$REPO/site/data"
+(cd "$TRACKD" && .venv/Scripts/python fwide.py export "$(cygpath -m "$REPO")/site/data")
 python -c "import json,sys; d=json.load(open('$(cygpath -m "$REPO")/site/data/finds.json',encoding='utf-8')); assert d['finds'], 'no finds'; print(len(d['finds']), 'finds')"
 
 # 2. GitHub: commit and push this repository
