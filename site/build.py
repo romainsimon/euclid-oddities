@@ -146,6 +146,7 @@ footer{color:var(--dim);font-size:.8rem;padding:4px 0 48px}footer a{color:var(--
 .btn:hover{background:var(--card3);color:var(--fg)}.btn.primary{background:var(--fg);color:var(--bg)}.btn.primary:hover{background:#fff;color:var(--bg)}
 .btn[aria-pressed=true]{background:var(--accent-soft);color:var(--accent)}
 .small{color:var(--dim);font-size:.82rem}.small a{color:var(--silver)}
+.reviews{background:var(--card);border-radius:var(--r-xl);padding:30px 34px;margin:0 0 14px}.reviews h2{font:700 1.5rem/1.1 var(--display);letter-spacing:-.03em;margin:0 0 6px}.reviews>.small{margin:0 0 18px}.review+.review{margin-top:18px}.rv-hd{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:10px}.verdict{font:500 .66rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;background:var(--card3);color:var(--fg);border-radius:999px;padding:7px 11px}
 .pager{display:flex;justify-content:space-between;gap:12px;padding:10px 0 50px}
 @media (max-width:900px){.method,.detail{grid-template-columns:1fr}.count{margin-left:0;width:100%}.filters{position:static}
 nav.top a:not(.keep){display:none}.fact{grid-template-columns:1fr;gap:0;padding:4px 16px}.panel,.info{padding:24px}.legend{grid-template-columns:1fr}}
@@ -208,6 +209,7 @@ def vt(slug):
 
 def card(f, base):
     rk, rt = rarity(f)
+    rv = '<span class="tag">2nd opinion</span>' if (HERE / "data" / "reviews" / (f["slug"] + ".json")).exists() else ""
     sp = "".join(f'<i style="left:{x}%;top:{y}%;animation-delay:{d}s"></i>' for x, y, d in SPARKS)
     fx = ('<span class="fx" aria-hidden="true"><span class="foil"></span>'
           + (f'<span class="sparks">{sp}</span>' if rk == "legendary" else "")
@@ -215,7 +217,7 @@ def card(f, base):
     return (f'<a class="card r-{rk}" style="view-transition-name:c-{vt(f["slug"])}" href="{base}/{f["slug"]}/" data-feature="{e(f["feature"])}" data-conf="{e(f["confidence"])}" data-rarity="{rk}" '
             f'data-interest="{f["interest"]}" data-cat="{"yes" if f["catalogued"] else "no"}" data-date="{e(f["date_found"])}" data-model="{e(f["model"])}">{fx}'
             f'<img style="view-transition-name:i-{vt(f["slug"])}" src="{base}/img/{f["slug"]}-thumb.jpg" width="360" height="360" loading="lazy" alt="Euclid visible-band cutout of {e(f["name"])}">'
-            f'<div class="body"><div class="hd"><h3 style="view-transition-name:t-{vt(f["slug"])}">{icon(f["feature"])}{e(f["name"])}</h3>{stars(f["interest"])}</div><div class="meta">{tags(f)}</div><p>{e(f["description"])}</p></div></a>')
+            f'<div class="body"><div class="hd"><h3 style="view-transition-name:t-{vt(f["slug"])}">{icon(f["feature"])}{e(f["name"])}</h3>{stars(f["interest"])}</div><div class="meta">{tags(f)}{rv}</div><p>{e(f["description"])}</p></div></a>')
 
 
 def index(F, meta, base):
@@ -280,6 +282,29 @@ def links(f):
             ("ESASky", f"https://sky.esa.int/esasky/?target={ra}%20{dec}&fov=0.02")]
 
 
+def reviews_html(slug):
+    d = HERE / "data" / "reviews"
+    R = []
+    for fp in sorted(d.glob("*.json")) if d.exists() else []:
+        try:
+            r = json.loads(fp.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        if r.get("slug") == slug:
+            R.append(r)
+    if not R:
+        return ""
+    out = []
+    for r in R:
+        rows = [("What it sees", r.get("what_i_see")), ("Most likely", r.get("most_likely")), ("Against that", r.get("against_it")),
+                ("Would settle it", r.get("decisive_test")), ("Catalogues", r.get("catalogue_notes"))]
+        out.append(f"""<article class="review"><div class="rv-hd"><span class="verdict">{e(r.get("verdict", ""))}</span>
+<span class="small">Blind review by {e(r.get("reviewer_model", "an AI model"))} · {e(r.get("date", ""))} · {e(r.get("confidence", ""))} confidence</span></div>
+<div class="facts">{"".join(f'<div class="fact"><span>{k}</span><span>{e(v)}</span></div>' for k, v in rows if v)}</div></article>""")
+    return (f'<section class="reviews"><h2>Second opinions</h2><p class="small">Independent AI reviewers saw the image and checked public catalogues, '
+            f'without seeing the original model\'s description. These are not expert opinions.</p>{"".join(out)}</section>')
+
+
 def detail(f, prev, nxt, base):
     cat = ", ".join(e(n) for n in f["catalogue_names"]) or "No named entry (survey detections only)"
     sim = ", ".join(e(n["name"]) for n in f["simbad"]) or "None within 10″"
@@ -301,6 +326,7 @@ def detail(f, prev, nxt, base):
 <div class="facts">{"".join(f'<div class="fact"><span>{k}</span><span>{v}</span></div>' for k, v in facts)}</div>
 <div class="links">{"".join(f'<a class="btn" href="{u}" rel="noopener">{n} ↗</a>' for n, u in links(f))}</div>
 <p class="small">Unverified model suggestion. Recognise it, or can rule it out? <a href="{REPO}/issues/new?title={e(f["name"])}">Tell us on GitHub</a>.</p></div></div>
+{reviews_html(f["slug"])}
 <nav class="pager">{f'<a class="btn" href="{base}/{prev["slug"]}/">← {e(prev["name"])}</a>' if prev else '<span></span>'}{f'<a class="btn" href="{base}/{nxt["slug"]}/">{e(nxt["name"])} →</a>' if nxt else ''}</nav></main>
 <script>const zw=document.getElementById('zw'),lens=document.getElementById('lens'),Z=3;
 if(matchMedia('(hover:hover)').matches){{zw.addEventListener('pointermove',ev=>{{const r=im.getBoundingClientRect(),x=ev.clientX-r.left,y=ev.clientY-r.top;

@@ -1,0 +1,8 @@
+{"slug": "j0413005-525304", "reviewer_model": "claude-opus-5-5", "date": "2026-11-17",
+ "what_i_see": "A bright, smooth, red elliptical galaxy with an extended halo fills the field. About 2.4 arcsec south-west of its core is a faint, thin streak, roughly 1.5 arcsec long. It shows up mainly in VIS, looks slightly bluish in the colour tile, and lies roughly tangential to the galaxy. No counter-image is obvious. The surrounding field contains ordinary small galaxies.",
+ "most_likely": "A faint edge-on or elongated background galaxy seen through the elliptical's halo by chance. A weakly lensed or strongly lensed arc from a luminous early-type at photo-z about 0.28 is the alternative.",
+ "against_it": "The streak is thin, bluish and roughly tangential at a radius that suits a massive elliptical's Einstein radius, which a lens would produce. But it is a single feature with no counter-image and needs sigma near 340 km/s.",
+ "verdict": "worth a closer look",
+ "decisive_test": "Subtract a smooth model of the elliptical in VIS to look for a counter-image or curvature. Or take a spectrum of the streak to see whether its redshift is well above 0.28.",
+ "catalogue_notes": "Host galaxy WISEA J041300.68-525302.4 (Gaia DR3 4780238406483345664, G=21.1, no parallax) is 2.4 arcsec NE. LS DR10 lists it as SER, r=18.0, z_phot=0.28. Nothing in SIMBAD within 60 arcsec, no DES/DECaLS lens catalogue hits within 30-60 arcsec, and no Abell or redMaPPer cluster within 5 arcmin.",
+ "confidence": "low"}

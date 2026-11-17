@@ -1,0 +1,8 @@
+{"slug": "j0414016-531138", "reviewer_model": "claude-opus-5-5", "date": "2026-11-17",
+ "what_i_see": "A thin, S-shaped, roughly 10-12 arcsec long filament running north-south, bluish-white with a brighter orange knot near its middle and a faint diffuse southern end. About 5 arcsec to its NE sits a compact knotty galaxy, close to the filament's northern hook. Faint compact sources nearby; no obvious red central lens galaxy.",
+ "most_likely": "A tidally disturbed or warped edge-on disc / tidal tail in an interacting pair with the NE neighbour; photo-z of filament (0.61+-0.14) and neighbour (0.46+-0.08) are consistent.",
+ "against_it": "Very long and thin (~70 kpc if z~0.6) with an inflected S-shape; a lensed arc is less likely (no central deflector, curvature not tangential), but no spectroscopy confirms the pair is physical.",
+ "verdict": "likely ordinary",
+ "decisive_test": "Spectroscopic redshifts of the filament knot and the NE companion; matching redshifts confirm an interaction, a large mismatch or multiple images would reopen lensing.",
+ "catalogue_notes": "Legacy DR10 photo-z (VII/292): COMP source at 0.65\" z=0.61+-0.14; EXP at 5.2\" NE z=0.46+-0.08; PSF at 6.1\" S z=0.23. NED: WISEA J041401.59-531138.1 at 0.2\", no z. SIMBAD nothing within 60\". Gaia DR3 nothing within 30\".",
+ "confidence": "medium"}

@@ -1,0 +1,8 @@
+{"slug": "j1002117+662715", "reviewer_model": "claude-opus-5-5", "date": "2026-11-17",
+ "what_i_see": "A bright, smooth, red elliptical with a bright core and extended round halo (~10 arcsec) dominates the field, surrounded by small faint galaxies. About 6 arcsec NW of its centre lies a faint, slightly curved, roughly tangential smudge, visible mainly in the enlarged VIS panel. No tidal features, dust lanes or obvious counter-images.",
+ "most_likely": "A luminous early-type galaxy at z_phot ~0.24, probably in a group linked to WHL J100159.4+662739 (same z, 77 arcsec away). The faint curved feature is most likely a small background galaxy seen at low S/N.",
+ "against_it": "The faint feature is curved and roughly tangential at ~6 arcsec, so a weak group-scale lensed arc cannot be excluded. There is no counter-image, and the feature has too little S/N to judge.",
+ "verdict": "likely ordinary",
+ "decisive_test": "Deeper or PSF-subtracted VIS imaging with a galaxy-light model removed, looking for a counter-image opposite the arc; or a spectroscopic redshift of the arc above the lens redshift.",
+ "catalogue_notes": "SDSS J100212.42+662710.9 (r=17.8, zph 0.243), with Gaia/AllWISE/2MASS counterparts at 5.85 arcsec SE of the given position. Clusters WHL J100159.4+662739 (zph 0.233) at 77 arcsec and Wen+2024 J100157.7+662631 (z 0.43) at ~85 arcsec. No SIMBAD object within 150 arcsec.",
+ "confidence": "medium"}

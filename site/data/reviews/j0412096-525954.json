@@ -1,0 +1,8 @@
+{"slug": "j0412096-525954", "reviewer_model": "claude-opus-5-5", "date": "2026-11-17",
+ "what_i_see": "A bright, saturated point source at field centre, with eight-arm VIS diffraction spikes and a magenta saturation mask in the composite. It looks yellow-orange, so it is red in NISP. Several small, faint galaxies sit 1-3 arcsec north and northeast of it, partly along the spikes. The rest of the field holds ordinary background galaxies.",
+ "most_likely": "A foreground red (probably M-dwarf) star. Gaia gives G=18.3 and BP-RP=3.5, and the X-ray source fits an active M dwarf. The nearby knots are probably unrelated background galaxies seen in projection.",
+ "against_it": "Gaia, 2MASS, WISE and 4XMM all place the star about 2.4 arcsec south of the stated coordinates, but the cutout is centred on it. Gaia has only a 2-parameter solution, so no parallax confirms it is nearby.",
+ "verdict": "likely star or foreground",
+ "decisive_test": "Check the Euclid catalogue point-source flag and position against Gaia, or take an optical spectrum to confirm an M-dwarf spectral type (TiO bands).",
+ "catalogue_notes": "Gaia DR3 4780145046778374912 at 2.4 arcsec: G=18.32, BP-RP=3.48, no parallax. 2MASS J04120948-5259576 at 3.2 arcsec, WISEA J041209.51-525957.2 at 2.8 arcsec. 4XMM J041209.5-525956 at 2.4 arcsec (weak). SIMBAD: nothing within 60 arcsec. NED: only WISE/2MASS IDs.",
+ "confidence": "medium"}
