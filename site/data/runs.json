@@ -12,6 +12,7 @@
   {"id": "A-wide", "label": "Wide-field pass 1", "date": "2026-11-17", "model": "Claude Fable 5.2", "effort": "high",
    "fields": 300, "calls_ok": 300, "leads": 189, "published": 189, "weekly_start": 0.06, "weekly_end": 0.08,
    "status": "finished", "tiles": [102013965, 102015996, 102018683, 102021030, 102036791, 102047437]},
-  {"id": "A-loop-1", "label": "Wide-field pass 2", "date": "2026-11-17 14:20 UTC", "model": "Claude Fable 5.2", "effort": "high", "fields": 171, "calls_ok": 171, "leads": 28, "published": 3, "weekly_start": 0.09, "weekly_end": 0.11, "status": "finished", "tiles": [102009155, 102011219, 102023430, 102032129, 102160564, 102160565]}
+  {"id": "A-loop-1", "label": "Wide-field pass 2", "date": "2026-11-17 14:20 UTC", "model": "Claude Fable 5.2", "effort": "high", "fields": 171, "calls_ok": 171, "leads": 28, "published": 3, "weekly_start": 0.09, "weekly_end": 0.11, "status": "finished", "tiles": [102009155, 102011219, 102023430, 102032129, 102160564, 102160565]},
+  {"id": "A-loop-2", "label": "Wide-field pass 3", "date": "2026-11-17 21:27 UTC", "model": "Claude Fable 5.2", "effort": "high", "fields": 300, "calls_ok": 3, "leads": 0, "published": 0, "weekly_start": 0.22, "weekly_end": 0.22, "status": "stopped: quota, waiting for the window reset (weekly window 0.22 >= ceiling 0.13)", "tiles": [102033268, 102046794, 102139805, 102158775, 102161549, 102162507]}
  ]
 }
