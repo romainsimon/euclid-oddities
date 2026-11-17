@@ -139,7 +139,7 @@ footer{color:var(--dim);font-size:.8rem;padding:4px 0 48px}footer a{color:var(--
 .info h1{font-size:clamp(1.7rem,3vw,2.4rem);margin:16px 0 14px}
 .quote{font-size:1.04rem;color:var(--fg);margin:20px 0 8px}
 .explain{color:var(--dim);font-size:.9rem;margin:0 0 20px}
-.facts{display:grid;border-radius:var(--r);overflow:hidden}
+.facts{display:grid;border-radius:var(--r)}.fact:first-child{border-radius:var(--r) var(--r) 0 0}.fact:last-child{border-radius:0 0 var(--r) var(--r)}.fact:only-child{border-radius:var(--r)}
 .fact{display:grid;grid-template-columns:150px 1fr;gap:14px;padding:6px 18px;font-size:.84rem;line-height:1.45;background:var(--card2)}.fact:nth-child(even){background:#202329}
 .fact span:first-child{color:var(--dim)}code{font:500 .78rem var(--mono);color:var(--silver)}
 .links{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 16px}
@@ -147,8 +147,9 @@ footer{color:var(--dim);font-size:.8rem;padding:4px 0 48px}footer a{color:var(--
 .btn:hover{background:var(--card3);color:var(--fg)}.btn.primary{background:var(--fg);color:var(--bg)}.btn.primary:hover{background:#fff;color:var(--bg)}
 .btn[aria-pressed=true]{background:var(--accent-soft);color:var(--accent)}
 .small{color:var(--dim);font-size:.82rem}.small a{color:var(--silver)}
-.reviews{background:var(--card);border-radius:var(--r-xl);padding:30px 34px;margin:0 0 14px}.reviews h2{font:700 1.5rem/1.1 var(--display);letter-spacing:-.03em;margin:0 0 6px}.reviews>.small{margin:0 0 18px}.rv-img{display:block;width:100%;max-width:720px;border-radius:var(--r);margin-top:12px}.review+.review{margin-top:18px}.rv-hd{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:10px}.tag.v-closer{background:var(--accent-soft);color:var(--accent)}.tag.v-split{color:var(--accent-strong)}.tag.v-star,.tag.v-artefact{color:var(--dim)}
-.model{display:inline-flex;align-items:center;gap:6px;position:relative;font-weight:500;color:var(--fg);white-space:nowrap}.mlogo{width:15px;height:15px;flex:none}.model[data-tip]{cursor:help}.model[data-tip]:hover::after,.model[data-tip]:focus-visible::after{content:attr(data-tip);position:absolute;left:0;bottom:calc(100% + 8px);z-index:30;width:max-content;max-width:320px;white-space:normal;background:var(--card3);color:var(--silver);font:400 .78rem/1.45 var(--body);padding:10px 12px;border-radius:var(--r-sm);box-shadow:0 18px 40px -18px rgba(0,0,0,.9)}
+.reviews{background:var(--card);border-radius:var(--r-xl);padding:30px 34px;margin:0 0 14px}.reviews h2{font:700 1.5rem/1.1 var(--display);letter-spacing:-.03em;margin:0 0 6px}.reviews>.small{margin:0 0 18px}.rv-img{display:block;width:100%;border-radius:var(--r)}.rv-zoom{max-width:720px;margin-top:12px}.review+.review{margin-top:18px}.rv-hd{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:10px}.tag.v-closer{background:var(--accent-soft);color:var(--accent)}.tag.v-split{color:var(--accent-strong)}.tag.v-star,.tag.v-artefact{color:var(--dim)}
+.model{display:inline-flex;align-items:center;gap:6px;position:relative;font-weight:500;color:var(--fg);white-space:nowrap}.mlogo{width:15px;height:15px;flex:none}.model[data-tip]{cursor:help}.fact .model[data-tip]::after{left:auto;right:0}.model[data-tip]:hover::after,.model[data-tip]:focus-visible::after{content:attr(data-tip);position:absolute;left:0;bottom:calc(100% + 8px);z-index:30;width:max-content;max-width:min(320px,80vw);white-space:normal;background:var(--card3);color:var(--silver);font:400 .78rem/1.45 var(--body);padding:10px 12px;border-radius:var(--r-sm);box-shadow:0 18px 40px -18px rgba(0,0,0,.9)}
+.model{vertical-align:middle;line-height:1}.model .mlogo{display:block}.rv-sum{display:grid;border-radius:var(--r);overflow:hidden;margin:4px 0 18px}.rv-row{display:grid;grid-template-columns:210px 120px 64px 1fr;gap:14px;align-items:center;padding:9px 16px;background:var(--card2);text-decoration:none;color:var(--silver);font-size:.86rem}.rv-row:nth-child(even){background:#202329}.rv-row:hover{background:var(--card3);color:var(--fg)}.rv-conf{color:var(--dim);font-size:.78rem}.rv-row .tag{justify-self:start}.rv-line{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.tabs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}.tab{appearance:none;border:0;background:var(--card2);color:var(--silver);border-radius:999px;padding:7px 14px;cursor:pointer;font:inherit;font-size:.86rem}.tab .model{color:inherit}.tab:hover{background:var(--card3)}.tab[aria-selected=true]{background:var(--accent-soft);color:var(--accent)}.rv-title{display:flex;flex-wrap:wrap;gap:10px;align-items:center;font:500 .95rem/1 var(--body);margin:4px 0 12px}.teaser{display:flex;flex-wrap:wrap;gap:10px;align-items:center;text-decoration:none;background:var(--card2);border-radius:var(--r-sm);padding:10px 14px;margin:0 0 18px}.teaser:hover{background:var(--card3)}.logos{display:inline-flex;gap:6px}.model.icon-only{font-size:0;gap:0}.model.icon-only .mlogo{width:16px;height:16px}@media (max-width:700px){.rv-row{grid-template-columns:1fr auto;}.rv-conf{display:none}.rv-line{grid-column:1/-1;white-space:normal}}
 .verdict{font:500 .66rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;background:var(--card3);color:var(--fg);border-radius:999px;padding:7px 11px}
 .pager{display:flex;justify-content:space-between;gap:12px;padding:10px 0 50px}
 @media (max-width:900px){.method,.detail{grid-template-columns:1fr}.count{margin-left:0;width:100%}.filters{position:static}
@@ -330,6 +331,7 @@ MODELS = {
     "claude-opus-5-5": ("Claude Opus 5.5", "claude"), "claude-fable-5-2": ("Claude Fable 5.2", "claude"),
     "claude-sonnet-5-5": ("Claude Sonnet 5.5", "claude"), "claude-haiku-5-5": ("Claude Haiku 5.5", "claude"),
     "gpt-6-astra": ("GPT-6 Astra", "openai"),
+    "galaxy-light subtraction (photutils isophotes, no AI model)": ("Galaxy-light subtraction", None),
 }
 
 
@@ -351,16 +353,39 @@ def reviews_html(slug):
     R = load_reviews(slug)
     if not R:
         return ""
-    out = []
-    for r in R:
+    # Order: closer look first, then the rest; AI reviewers before measurements kept as given.
+    summary, tabs, panels = [], [], []
+    for i, r in enumerate(R):
+        rid = f"rv-{i}"
+        badge = model_badge(r.get("reviewer_model", ""))
+        v = r.get("verdict", "")
+        vk = {"worth a closer look": "closer", "likely ordinary": "ordinary", "likely artefact": "artefact",
+              "likely star or foreground": "star"}.get(v, "other")
+        summary.append(f'<a class="rv-row" href="#{rid}" data-tab="{rid}"><span class="rv-who">{badge}</span><span class="tag v-{vk}">{e(VERDICT_SHORT.get(v, v))}</span>'
+                       f'<span class="rv-conf">{e(r.get("confidence", ""))}</span><span class="rv-line">{e(r.get("most_likely", ""))}</span></a>')
+        tabs.append(f'<button class="tab" type="button" role="tab" id="t-{rid}" aria-controls="{rid}" aria-selected="{"true" if i == 0 else "false"}">{badge}</button>')
         rows = [("What it sees", r.get("what_i_see")), ("Most likely", r.get("most_likely")), ("Against that", r.get("against_it")),
                 ("Would settle it", r.get("decisive_test")), ("Catalogues", r.get("catalogue_notes")), ("Note", r.get("note"))]
-        img = (f'<img class="rv-img" src="{BASE_URL}/img/{e(r["image"])}" alt="Residual images after galaxy-light subtraction" loading="lazy">' if r.get("image") else "")
-        out.append(f"""<article class="review"><div class="rv-hd"><span class="verdict">{e(r.get("verdict", ""))}</span>
-<span class="small">Blind review by {model_badge(r.get("reviewer_model", ""), r.get("note", ""))} · {e(r.get("date", ""))} · {e(r.get("confidence", ""))} confidence</span></div>
-<div class="facts">{"".join(f'<div class="fact"><span>{k}</span><span>{e(v)}</span></div>' for k, v in rows if v)}</div>{img}</article>""")
-    return (f'<section class="reviews"><h2>Second opinions</h2><p class="small">Independent reviewers (AI models from two families, plus measurements without AI) saw the image, without the original model\'s description. '
-            f'Claude reviewers also queried public catalogues themselves. These are not expert opinions.</p>{"".join(out)}</section>')
+        img = (f'<div class="zoomwrap rv-zoom"><img class="rv-img" src="{BASE_URL}/img/{e(r["image"])}" alt="Residual images after galaxy-light subtraction" loading="lazy"><div class="lens" aria-hidden="true"></div></div>' if r.get("image") else "")
+        panels.append(f"""<article class="review" role="tabpanel" id="{rid}" aria-labelledby="t-{rid}"{"" if i == 0 else " hidden"}>
+<h3 class="rv-title">{model_badge(r.get("reviewer_model", ""), r.get("note", ""))}<span class="tag v-{vk}">{e(VERDICT_SHORT.get(v, v))}</span><span class="small">{e(r.get("date", ""))} · {e(r.get("confidence", ""))} confidence</span></h3>
+<div class="facts">{"".join(f'<div class="fact"><span>{k}</span><span>{e(x)}</span></div>' for k, x in rows if x)}</div>{img}</article>""")
+    script = """<script>(()=>{const T=[...document.querySelectorAll('.reviews .tab')];function show(id){for(const t of T){const on=t.getAttribute('aria-controls')===id;t.setAttribute('aria-selected',on);document.getElementById(t.getAttribute('aria-controls')).hidden=!on}}
+T.forEach(t=>t.addEventListener('click',()=>{show(t.getAttribute('aria-controls'));history.replaceState(null,'','#'+t.getAttribute('aria-controls'))}));
+document.querySelectorAll('.rv-row').forEach(a=>a.addEventListener('click',ev=>{ev.preventDefault();show(a.dataset.tab);document.getElementById('t-'+a.dataset.tab).scrollIntoView({block:'nearest',behavior:'smooth'})}));
+if(location.hash.startsWith('#rv-')&&document.getElementById(location.hash.slice(1)))show(location.hash.slice(1));})()</script>"""
+    return (f'<section class="reviews" id="reviews"><h2>Second opinions</h2><p class="small">Independent reviewers (AI models from two families, plus measurements without AI) looked at the image without the original model\'s description. '
+            f'Claude reviewers also queried public catalogues themselves. These are not expert opinions.</p>'
+            f'<div class="rv-sum">{"".join(summary)}</div><div class="tabs" role="tablist" aria-label="Reviews">{"".join(tabs)}</div>{"".join(panels)}{script}</section>')
+
+
+def review_teaser(slug):
+    R = load_reviews(slug)
+    if not R:
+        return ""
+    ck, cl = consensus(R)
+    logos = "".join(model_badge(r.get("reviewer_model", "")).replace('class="model"', 'class="model icon-only"') for r in R)
+    return f'<a class="teaser" href="#reviews"><span class="tag v-{ck}">{e(cl)}</span><span class="logos">{logos}</span><span class="small">Read the second opinions ↓</span></a>'
 
 
 def detail(f, prev, nxt, base):
@@ -378,17 +403,18 @@ def detail(f, prev, nxt, base):
 <span>Bottom left · hard stretch for faint light</span><span>Bottom right · 3× zoom on the brightest galaxy</span><span>Field 32″ × 32″, north up</span></div></div>
 <div class="info"><h1 style="view-transition-name:t-{vt(f["slug"])}">{icon(f["feature"], 34)}{e(f["name"])}</h1>
 <div class="meta">{stars(f["interest"], True)}<span class="ival">Fable interest {f["interest"]} / 5</span>{tags(f)}</div>
-<p class="quote">“{e(f["description"])}”</p><p class="explain">Ordinary explanation offered by the model: {e(f["ordinary_explanation"])}</p>
+<p class="quote">“{e(f["description"])}”</p><p class="explain">Ordinary explanation offered by the model: {e(f["ordinary_explanation"])}</p>{review_teaser(f["slug"])}
 <div class="facts">{"".join(f'<div class="fact"><span>{k}</span><span>{v}</span></div>' for k, v in facts)}</div>
 <div class="links">{"".join(f'<a class="btn" href="{u}" rel="noopener">{n} ↗</a>' for n, u in links(f))}</div>
 <p class="small">Unverified model suggestion. Recognise it, or can rule it out? <a href="{REPO}/issues/new?title={e(f["name"])}">Tell us on GitHub</a>.</p></div></div>
 {reviews_html(f["slug"])}
 <nav class="pager">{f'<a class="btn" href="{base}/{prev["slug"]}/">← {e(prev["name"])}</a>' if prev else '<span></span>'}{f'<a class="btn" href="{base}/{nxt["slug"]}/">{e(nxt["name"])} →</a>' if nxt else ''}</nav></main>
-<script>const zw=document.getElementById('zw'),lens=document.getElementById('lens'),Z=3;
-if(matchMedia('(hover:hover)').matches){{zw.addEventListener('pointermove',ev=>{{const r=im.getBoundingClientRect(),x=ev.clientX-r.left,y=ev.clientY-r.top;
+<script>const Z=3;
+if(matchMedia('(hover:hover)').matches)document.querySelectorAll('.zoomwrap').forEach(zw=>{{const lens=zw.querySelector('.lens'),img=zw.querySelector('img');
+zw.addEventListener('pointermove',ev=>{{const r=img.getBoundingClientRect(),x=ev.clientX-r.left,y=ev.clientY-r.top;
 if(x<0||y<0||x>r.width||y>r.height){{zw.classList.remove('on');return}}zw.classList.add('on');lens.style.left=x+'px';lens.style.top=y+'px';
-lens.style.backgroundImage=`url("${{im.currentSrc||im.src}}")`;lens.style.backgroundSize=`${{r.width*Z}}px ${{r.height*Z}}px`;
-lens.style.backgroundPosition=`${{100-x*Z}}px ${{100-y*Z}}px`}});zw.addEventListener('pointerleave',()=>zw.classList.remove('on'))}}
+lens.style.backgroundImage=`url("${{img.currentSrc||img.src}}")`;lens.style.backgroundSize=`${{r.width*Z}}px ${{r.height*Z}}px`;
+lens.style.backgroundPosition=`${{100-x*Z}}px ${{100-y*Z}}px`}});zw.addEventListener('pointerleave',()=>zw.classList.remove('on'))}});
 const b=document.getElementById('mk'),im=document.getElementById('im');b.addEventListener('click',()=>{{const m=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',m);b.textContent=m?"Model's point shown":"Show the model's point";im.src=im.src.replace(/(-marked)?\\.jpg$/,m?'-marked.jpg':'.jpg')}});</script>"""
     title = f"{f['name']}: {FEATURE.get(f['feature'], f['feature']).lower()} flagged by Claude in Euclid DR1"
     return page(title, f["description"], body, base, f"{base}/{f['slug']}", f"{base}/img/{f['slug']}-thumb.jpg")
