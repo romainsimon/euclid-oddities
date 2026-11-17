@@ -19,6 +19,16 @@ SITE = "https://spacesim.co"
 
 FEATURE = {"arc": "Arc", "ring": "Ring", "straight_line": "Straight line", "pair": "Pair", "diffuse_patch": "Diffuse patch",
            "irregular": "Irregular", "other": "Other", "none": "None"}
+ICON = {"arc": "black-hole", "ring": "black-hole", "pair": "binary-star", "irregular": "galaxy", "diffuse_patch": "nebula",
+        "straight_line": "comet", "other": "catalog-object", "none": "catalog-object"}
+ICON_DIR = "/assets/icons/object-types"
+
+
+def icon(feature, size=20):
+    return (f'<img class="ico" src="{ICON_DIR}/{ICON.get(feature, "catalog-object")}.webp" width="{size}" height="{size}" alt="" '
+            f'aria-hidden="true" loading="lazy">')
+
+
 NATURE = {"ordinary": "Ordinary", "artefact": "Artefact", "known_rare_class": "Known rare class", "cannot_explain": "Cannot explain"}
 
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
@@ -71,26 +81,24 @@ border-radius:var(--r-lg);padding:12px 14px;display:flex;flex-wrap:wrap;gap:10px
 .r-common .fx{display:none}
 .card.r-uncommon,.card.r-rare,.card.r-legendary{transform:perspective(900px) rotateX(var(--rx)) rotateY(var(--ry));transition:transform .9s cubic-bezier(.34,1.56,.64,1),background .25s,box-shadow .4s}
 .card.on{transition:transform .12s linear,box-shadow .3s}
-.card.r-uncommon{background:linear-gradient(160deg,#20232a 0%,#15171c 60%)}
-.card.r-rare{background:radial-gradient(ellipse 90% 60% at 100% 100%,rgba(255,107,26,.2),transparent 60%),linear-gradient(160deg,#262a32 0%,#15171c 55%,#1d1410 100%)}
-.card.r-legendary{background:radial-gradient(ellipse 90% 70% at 100% 100%,rgba(255,107,26,.34),transparent 60%),radial-gradient(ellipse 80% 60% at 0% 0%,rgba(255,255,255,.08),transparent 60%),linear-gradient(160deg,#2a2c33 0%,#15171c 55%,#24150d 100%);box-shadow:0 30px 80px -28px rgba(255,107,26,.45)}
-.fx .foil{display:none;background:repeating-linear-gradient(115deg,#ff6b1a 0%,#ffd36b 6%,#7dffcf 12%,#6fb7ff 18%,#c58bff 24%,#ff6b9e 30%,#ff6b1a 36%);background-size:300% 300%;background-position:var(--mx) var(--my);mix-blend-mode:color-dodge;opacity:calc(.05 + var(--hyp)*.12);animation:holo-idle 9s ease-in-out infinite alternate;transition:opacity .4s}
+
+.card.r-rare{background:radial-gradient(ellipse 80% 45% at 100% 100%,rgba(255,107,26,.05),transparent 70%),var(--card)}
+.card.r-legendary{background:radial-gradient(ellipse 90% 55% at 100% 100%,rgba(255,107,26,.09),transparent 70%),var(--card);box-shadow:0 30px 80px -40px rgba(255,107,26,.18)}
+.fx .foil{display:none;background:repeating-linear-gradient(115deg,#ff6b1a 0%,#ffd36b 6%,#7dffcf 12%,#6fb7ff 18%,#c58bff 24%,#ff6b9e 30%,#ff6b1a 36%);background-size:300% 300%;background-position:var(--mx) var(--my);mix-blend-mode:color-dodge;opacity:calc(.015 + var(--hyp)*.05);animation:holo-idle 9s ease-in-out infinite alternate;transition:opacity .4s}
 .r-rare .fx .foil,.r-legendary .fx .foil{display:block}
-.r-legendary .fx .foil{opacity:calc(.1 + var(--hyp)*.2)}
+.r-legendary .fx .foil{opacity:calc(.03 + var(--hyp)*.08)}
 .card.on .fx .foil{animation:none}
 @keyframes holo-idle{from{background-position:0% 30%}to{background-position:100% 70%}}
-.fx .glare{background:radial-gradient(circle at var(--mx) var(--my),rgba(255,255,255,.32) 0%,rgba(255,255,255,.07) 28%,transparent 55%);mix-blend-mode:overlay;opacity:0;transition:opacity .4s;z-index:3}
+.fx .glare{background:radial-gradient(circle at var(--mx) var(--my),rgba(255,255,255,.14) 0%,rgba(255,255,255,.03) 28%,transparent 55%);mix-blend-mode:overlay;opacity:0;transition:opacity .4s;z-index:3}
 .card.on .fx .glare{opacity:1}
 .fx .sparks i{position:absolute;width:10px;height:10px;margin:-5px;background:#fff;clip-path:polygon(50% 0,60% 40%,100% 50%,60% 60%,50% 100%,40% 60%,0 50%,40% 40%);opacity:0;animation:twinkle 3.8s ease-in-out infinite;z-index:2}
-@keyframes twinkle{0%,70%,100%{opacity:0;transform:scale(.3) rotate(0)}80%{opacity:.9;transform:scale(1) rotate(45deg)}}
-.tag.rar{background:var(--card3);color:var(--fg)}.r-common .tag.rar{background:var(--card2);color:var(--dim)}
-.r-rare .tag.rar{background:linear-gradient(90deg,rgba(255,107,26,.22),rgba(197,139,255,.22));color:#ffd9bf}
-.r-legendary .tag.rar{background:linear-gradient(90deg,#ff6b1a,#ffd36b);color:#1a0f08}
+@keyframes twinkle{0%,70%,100%{opacity:0;transform:scale(.3) rotate(0)}80%{opacity:.45;transform:scale(.8) rotate(45deg)}}
 
-.card img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:var(--r);background:#000}
+.card>img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:var(--r);background:#000}
 .card .body{padding:14px 10px 8px}.card h3{font:600 1rem/1.25 var(--display);letter-spacing:-.01em;margin:0 0 10px}
 .meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
-.hd{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}.hd h3{margin:0 0 10px}
+.ico{display:inline-block;vertical-align:-.18em;margin-right:.45em;object-fit:contain;opacity:.92}.chip .ico{vertical-align:-3px;margin-right:6px}.hd h3 .ico{vertical-align:-4px;margin-right:8px}.info h1 .ico{vertical-align:-.12em;margin-right:12px}
+.hd{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}.hd h3{margin:0 0 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
 .stars{position:relative;display:inline-block;flex:none;font-size:.95rem;line-height:1;letter-spacing:1px;white-space:nowrap}
 .stars .s-off{color:var(--card3)}.stars .s-on{position:absolute;inset:0 auto 0 0;overflow:hidden;color:var(--accent)}
 .stars.big{font-size:1.25rem;margin-right:6px}.ival{font:500 .66rem/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--dim);margin-right:8px}
@@ -192,20 +200,19 @@ def card(f, base):
     return (f'<a class="card r-{rk}" href="{base}/{f["slug"]}/" data-feature="{e(f["feature"])}" data-conf="{e(f["confidence"])}" data-rarity="{rk}" '
             f'data-interest="{f["interest"]}" data-cat="{"yes" if f["catalogued"] else "no"}" data-date="{e(f["date_found"])}" data-model="{e(f["model"])}">{fx}'
             f'<img src="{base}/img/{f["slug"]}-thumb.jpg" width="360" height="360" loading="lazy" alt="Euclid visible-band cutout of {e(f["name"])}">'
-            f'<div class="body"><div class="hd"><h3>{e(f["name"])}</h3>{stars(f["interest"])}</div><div class="meta"><span class="tag rar">{rt}</span>{tags(f)}</div><p>{e(f["description"])}</p></div></a>')
+            f'<div class="body"><div class="hd"><h3>{icon(f["feature"])}{e(f["name"])}</h3>{stars(f["interest"])}</div><div class="meta">{tags(f)}</div><p>{e(f["description"])}</p></div></a>')
 
 
 def index(F, meta, base):
     feats = sorted({f["feature"] for f in F}, key=lambda k: list(FEATURE).index(k))
     dates = sorted({f["date_found"] for f in F}, reverse=True)
     models = sorted({f["model"] for f in F})
-    chips = "".join(f'<button class="chip" type="button" aria-pressed="false" data-f="{k}">{e(FEATURE[k])}</button>' for k in feats)
+    chips = "".join(f'<button class="chip" type="button" aria-pressed="false" data-f="{k}">{icon(k, 16)}{e(FEATURE[k])}</button>' for k in feats)
     body = f"""<main class="wrap"><section class="hero">
 <h1>Unusual galaxies and lens candidates in <em>Euclid DR1</em></h1>
 <p class="lede">Claude Fable 5.2 searched fresh images from ESA's Euclid space telescope for anything that looked odd: tidal streams, possible gravitational lenses, oddly shaped galaxies. Fake objects were planted among the real ones to measure how far to trust it. None of these {len(F)} finds has been checked by an astronomer yet.</p></section>
 <div class="filters" role="region" aria-label="Filters">
 <div class="group" aria-label="Feature"><span class="lbl">Feature</span>{chips}</div>
-{seg("rar", "Rarity", [("", "Any"), ("legendary", "Legendary"), ("rare", "Rare+"), ("uncommon", "Uncommon+")])}
 {seg("conf", "Confidence", [("", "Any"), ("medium", "Medium+"), ("low", "Low")])}
 {seg("cat", "Catalogue", [("", "Any"), ("no", "Not catalogued"), ("yes", "Catalogued")])}
 {seg("int", "Interest", [("", "Any"), ("3", "≥ 3.0"), ("3.5", "≥ 3.5")])}
@@ -226,10 +233,10 @@ def index(F, meta, base):
 <p>Small samples: the two views differ by five objects. Full results, failures included, are on <a href="{REPO}">GitHub</a>.</p></div></section></main>
 <script>
 const cards=[...document.querySelectorAll('.card')],grid=document.getElementById('grid'),on=new Set();
-const st={{rar:'',conf:'',cat:'',int:'',date:'',model:'',sort:'interest'}};
+const st={{conf:'',cat:'',int:'',date:'',model:'',sort:'interest'}};
 function sync(){{document.querySelectorAll('.seg').forEach(g=>g.querySelectorAll('.chip').forEach(b=>b.setAttribute('aria-pressed',st[g.dataset.k]===b.dataset.v)))}}
 function apply(){{let n=0;const m=+st.int||0;
-for(const el of cards){{const RO={{common:0,uncommon:1,rare:2,legendary:3}};const ok=(!st.rar||RO[el.dataset.rarity]>=RO[st.rar])&&(!on.size||on.has(el.dataset.feature))&&(!st.conf||(st.conf==='low'?el.dataset.conf==='low':el.dataset.conf!=='low'))&&(!st.cat||el.dataset.cat===st.cat)&&(+el.dataset.interest>=m-1e-9)&&(!st.date||el.dataset.date===st.date)&&(!st.model||el.dataset.model===st.model);el.hidden=!ok;n+=ok}}
+for(const el of cards){{const ok=(!on.size||on.has(el.dataset.feature))&&(!st.conf||(st.conf==='low'?el.dataset.conf==='low':el.dataset.conf!=='low'))&&(!st.cat||el.dataset.cat===st.cat)&&(+el.dataset.interest>=m-1e-9)&&(!st.date||el.dataset.date===st.date)&&(!st.model||el.dataset.model===st.model);el.hidden=!ok;n+=ok}}
 document.getElementById('count').textContent=n+' of '+cards.length+' shown';document.getElementById('empty').hidden=n>0;
 [...cards].sort((a,b)=>st.sort==='date'?b.dataset.date.localeCompare(a.dataset.date)||b.dataset.interest-a.dataset.interest:b.dataset.interest-a.dataset.interest).forEach(el=>grid.appendChild(el));
 const p=new URLSearchParams();if(on.size)p.set('feature',[...on].join(','));for(const k in st)if(st[k]&&!(k==='sort'&&st[k]==='interest'))p.set(k,st[k]);
@@ -273,7 +280,7 @@ def detail(f, prev, nxt, base):
 <div class="under"><button class="btn" type="button" aria-pressed="true" id="mk">Model's point shown</button></div>
 <div class="legend"><span>Top left · visible band (VIS)</span><span>Top right · colour: 1.8 µm, 1.1 µm, visible</span>
 <span>Bottom left · hard stretch for faint light</span><span>Bottom right · 3× zoom on the brightest galaxy</span><span>Field 32″ × 32″, north up</span></div></div>
-<div class="info"><h1>{e(f["name"])}</h1>
+<div class="info"><h1>{icon(f["feature"], 34)}{e(f["name"])}</h1>
 <div class="meta">{stars(f["interest"], True)}<span class="ival">{f["interest"]} / 5 interest</span>{tags(f)}</div>
 <p class="quote">“{e(f["description"])}”</p><p class="explain">Ordinary explanation offered by the model: {e(f["ordinary_explanation"])}</p>
 <div class="facts">{"".join(f'<div class="fact"><span>{k}</span><span>{v}</span></div>' for k, v in facts)}</div>
