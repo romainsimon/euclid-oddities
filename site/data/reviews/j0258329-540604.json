@@ -1,0 +1,12 @@
+{
+ "slug": "j0258329-540604",
+ "reviewer_model": "claude-opus-5-5",
+ "date": "2026-11-17",
+ "what_i_see": "Small linear chain of three clumps ~3\" long running SE to NW at centre: an orange compact knot at the SE end, a whitish middle clump, and bluer elongated clumps to the NW.",
+ "most_likely": "A clumpy star-forming galaxy or small merger chain at z~1.",
+ "against_it": "Lens reading weak: the red knot sits at the end of the chain, not on its concave side.",
+ "verdict": "likely ordinary",
+ "decisive_test": "Resolved spectroscopy (or deeper multi-band photo-z per clump) to test a common redshift.",
+ "catalogue_notes": "Legacy DR8 photo-z EXP z=0.99+/-0.48 at 0.7\" (low quality). Nearest NED WISE sources ~11-12\". No SIMBAD/Gaia within 30\". No match in Jacobs+2019, Huang+2020/2021 (cone 10\"; Rojas+2022 query unvalidated).",
+ "confidence": "low"
+}

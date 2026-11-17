@@ -1,0 +1,12 @@
+{
+ "slug": "j0517370-564407",
+ "reviewer_model": "claude-fable-5-2",
+ "date": "2026-11-17",
+ "what_i_see": "A patchy blue clump with several compact knots, embedded in a broad diffuse band of light that runs from a very large bright galaxy off the top-right corner. Many faint knots are scattered through the band.",
+ "most_likely": "A star-forming complex in the outer disc or tidal arm of the nearby galaxy LEDA 147307 (z=0.034), roughly 20 kpc from its centre.",
+ "against_it": "Could be a separate dwarf companion or tidal dwarf rather than part of the arm; the image alone cannot tell.",
+ "verdict": "likely ordinary",
+ "decisive_test": "Emission-line velocity of the clump compared with the rotation of LEDA 147307 at that radius.",
+ "catalogue_notes": "SIMBAD LEDA 147307 at 29.7 arcsec; NED same galaxy, z=0.0338, at 29.9, plus WISEA source at 19.8. Nothing catalogued at centre. Legacy photo-z none within 5; Gaia none within 16. Four lens lists: no match within 60.",
+ "confidence": "medium"
+}

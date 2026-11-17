@@ -1,0 +1,12 @@
+{
+ "slug": "j0445310-510914",
+ "reviewer_model": "claude-opus-5-5",
+ "date": "2026-11-17",
+ "what_i_see": "Compact spiral/disturbed galaxy with bright core and a long, thin, straight tail extending ~5\" to the NNE. The tail looks redder/orange than the bluish-white disc in the colour panel.",
+ "most_likely": "A one-sided tidal tail of a z~0.4 galaxy, or an edge-on background galaxy projected onto its outskirts.",
+ "against_it": "The colour difference argues for a projection over a tidal tail; neither is unusual.",
+ "verdict": "likely ordinary",
+ "decisive_test": "Spectroscopy or photo-z of the tail separately from the disc: different redshift means projection.",
+ "catalogue_notes": "Legacy DR8 photo-z EXP z=0.37+/-0.12 at 0.75\". No SIMBAD/Gaia within 30\"; nearest NED WISE source ~22\". No match in Jacobs+2019, Huang+2020/2021 (cone 10\"; Rojas+2022 query unvalidated).",
+ "confidence": "medium"
+}

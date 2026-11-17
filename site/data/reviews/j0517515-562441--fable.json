@@ -1,0 +1,12 @@
+{
+ "slug": "j0517515-562441",
+ "reviewer_model": "claude-fable-5-2",
+ "date": "2026-11-17",
+ "what_i_see": "A thin curved streak about 4 arcsec long with a bright blue-white knot, lying between a disturbed galaxy to the north-east and a face-on spiral to the south. A compact orange point source sits at its northern end. The streak bows westward.",
+ "most_likely": "A tidal bridge or stretched arm linking two interacting galaxies that share photo-z near 0.33; the orange point is probably a foreground star.",
+ "against_it": "Legacy photo-z for the streak knot is 0.96±0.14 versus 0.32-0.34 for both neighbours, hinting at a background arc; but photometry of a blended streak is unreliable.",
+ "verdict": "worth a closer look",
+ "decisive_test": "One spectrum along the streak and both galaxies: same redshift means tidal bridge, higher streak redshift means background or lensed arc.",
+ "catalogue_notes": "Legacy photo-z: streak 0.96±0.14 at 1.6 arcsec; point source 2.3 N; galaxies 0.34 (4.5) and 0.32 (6.1). NED nearest WISEA source 10.8; SIMBAD LEDA 400379 at 44. Gaia: none within 16. Four lens lists: no match within 60.",
+ "confidence": "low"
+}

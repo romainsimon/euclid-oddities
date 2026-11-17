@@ -1,0 +1,12 @@
+{
+ "slug": "j0517515-562441",
+ "reviewer_model": "claude-opus-5-5",
+ "date": "2026-11-17",
+ "what_i_see": "Slightly curved, two-knot elongated feature ~2.5\" long just SW of centre, yellow-white, faint tail running north to a compact red point source (2.3\" N). It sits in a chain between a disturbed galaxy 4\" N and a galaxy 6\" S, together tracing a larger arc concave to the east.",
+ "most_likely": "A tidal bridge or debris between the two neighbouring galaxies, or a clumpy edge-on background galaxy projected into the chain.",
+ "against_it": "Lens reading weak: no plausible deflector on the concave side and the arc colour matches the neighbours.",
+ "verdict": "worth a closer look",
+ "decisive_test": "Spectra of arc and both neighbours: shared redshift means tidal bridge; a higher-redshift arc with a deflector would mean lensing.",
+ "catalogue_notes": "Legacy DR8 photo-z: EXP z=0.96+/-0.14 at 1.6\" (on arc); PSF pstar 0.92 at 2.3\" (red point, zphot 4.1 junk). Nearest NED WISE source ~11\". No SIMBAD/Gaia within 30\". No match in Jacobs+2019, Huang+2020/2021 (cone 10\"; Rojas+2022 query unvalidated).",
+ "confidence": "low"
+}

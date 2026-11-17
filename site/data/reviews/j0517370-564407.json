@@ -1,0 +1,12 @@
+{
+ "slug": "j0517370-564407",
+ "reviewer_model": "claude-opus-5-5",
+ "date": "2026-11-17",
+ "what_i_see": "Centre lies in diffuse, bluish outer light with a sharp SW edge, dotted with compact knots and a small diffuse clump slightly NE of centre. Bright galaxy light enters the top-right corner; red compact sources lie outside the diffuse region.",
+ "most_likely": "Star-forming knots/HII complexes in the outer disc of LEDA 147307, whose centre is ~30\" NNW, off-frame.",
+ "against_it": "A small dwarf satellite superposed on the disc cannot be excluded from this cutout.",
+ "verdict": "likely ordinary",
+ "decisive_test": "Wider Euclid field showing the whole of LEDA 147307; H-alpha or spectra of the knots at the galaxy's redshift.",
+ "catalogue_notes": "SIMBAD LEDA 147307 (galaxy, 0.5' size) 29.7\"; NED WISEA J051735.44-564422.1 ~19\". Gaia G=20.4 at 23.6\" only. No DR8 photo-z rows within 3\" (likely coverage/mask gap). No match in Jacobs+2019, Huang+2020/2021 (cone 10\"; Rojas+2022 query unvalidated).",
+ "confidence": "medium"
+}

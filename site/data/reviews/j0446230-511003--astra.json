@@ -1,0 +1,13 @@
+{
+ "slug": "j0446230-511003",
+ "reviewer_model": "gpt-6-astra",
+ "date": "2026-11-17",
+ "what_i_see": "The zoom shows a bright, saturated-looking source with a compact core, broad halo and prominent diffraction spikes. Several smaller extended galaxies appear elsewhere, including an irregular object near the upper right. No convincing gravitationally lensed arc or repeated-image configuration is apparent.",
+ "most_likely": "The zoomed source is most consistent with a foreground star whose instrumental halo and diffraction spikes create apparent extended structure.",
+ "against_it": "The selected coordinates are not marked on the image, so the flagged point could correspond to another object rather than the zoomed source.",
+ "verdict": "likely star or foreground",
+ "decisive_test": "Locate the exact flagged coordinates using the image WCS, then compare that source’s radial profile and spikes with unsaturated stellar PSFs in individual VIS exposures.",
+ "catalogue_notes": "Within 10 arcsec of the supplied position: no SIMBAD match, no NED match, and zero ECLIPSE Euclid strong-lens catalogue entries. These non-matches do not establish the object's nature.",
+ "confidence": "medium",
+ "note": "Image and catalogue cross-match supplied; this reviewer did not query catalogues itself."
+}

@@ -1,0 +1,12 @@
+{
+ "slug": "j0453062-483427",
+ "reviewer_model": "claude-fable-5-2",
+ "date": "2026-11-17",
+ "what_i_see": "A row of three galaxies spanning 9 arcsec: an orange edge-on disc to the east, a ragged blue clumpy galaxy in the middle at the centre, and a small spiral to the west. The middle one seems to touch the spiral.",
+ "most_likely": "A clumpy blue irregular galaxy interacting with, or merely projected next to, the neighbouring spiral.",
+ "against_it": "nothing",
+ "verdict": "likely ordinary",
+ "decisive_test": "Redshifts of the three galaxies to see whether they are a physical group.",
+ "catalogue_notes": "Legacy photo-z: 0.59±0.13 at 3.2 arcsec, 0.85±0.38 at 4.3 (poor quality). SIMBAD: nothing within 60; NED nearest WISEA source 15.9. Gaia none within 16. Four lens lists: no match within 60.",
+ "confidence": "medium"
+}

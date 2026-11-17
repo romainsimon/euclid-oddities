@@ -1,0 +1,12 @@
+{
+ "slug": "j0259335-540715",
+ "reviewer_model": "claude-opus-5-5",
+ "date": "2026-11-17",
+ "what_i_see": "Very faint, roughly round diffuse patch ~10\" across centred on the field, smooth with no nucleus, a few compact sources superposed. It appears blue in the colour panel while neighbours show NISP colour, so it is detected mainly in VIS.",
+ "most_likely": "A low-surface-brightness dwarf galaxy, or a faint VIS-only scattered-light feature.",
+ "against_it": "VIS-only detection fits an optical ghost; no catalogue entry; not visible in a Legacy DR10 cutout (inconclusive, DES is shallower).",
+ "verdict": "worth a closer look",
+ "decisive_test": "Check individual VIS exposures/dithers and a NISP stack: a real galaxy persists at fixed sky position and appears faintly in NISP; a ghost moves or vanishes.",
+ "catalogue_notes": "No SIMBAD, Gaia, or NED object at centre; nearest NED WISEA J025933.40-540729.3 14.5\" S. No DR8 photo-z rows within 12\" (likely coverage gap). Brightest nearby Gaia star G=10.6 at 414\". No match in Jacobs+2019, Huang+2020/2021 (cone 10\"; Rojas+2022 query unvalidated).",
+ "confidence": "low"
+}

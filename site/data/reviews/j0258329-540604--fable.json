@@ -1,0 +1,12 @@
+{
+ "slug": "j0258329-540604",
+ "reviewer_model": "claude-fable-5-2",
+ "date": "2026-11-17",
+ "what_i_see": "A 3-arcsec chain of small blue knots and short curved fragments, with a compact red galaxy about 2 arcsec to the east. The field is crowded with red early-type galaxies, suggesting a group or cluster.",
+ "most_likely": "A clumpy star-forming irregular or chain galaxy at z near 0.9, seen behind or beside a foreground group.",
+ "against_it": "Blue curved fragments beside a red galaxy in a rich field resemble faint lensed arclets; but the red galaxy looks too small for that image separation.",
+ "verdict": "worth a closer look",
+ "decisive_test": "Deeper high-resolution colour imaging or spectra: identical redshifts and mirrored structure in the fragments would indicate lensing.",
+ "catalogue_notes": "Legacy photo-z 0.99±0.48 at 0.7 arcsec (poor quality); 0.85±0.11 at 4.7. NED: WISEA sources 10.9, MRSS 154-018862 at 15.8. SIMBAD LEDA 422949 at 49.7. Gaia none within 16. Four lens lists: no match within 60.",
+ "confidence": "low"
+}

@@ -1,0 +1,12 @@
+{
+ "slug": "j0445310-510914",
+ "reviewer_model": "claude-fable-5-2",
+ "date": "2026-11-17",
+ "what_i_see": "A small spiral galaxy with a bright core and a straight, narrow spur about 3 arcsec long leaving its north-east side. The spur is distinctly redder than the bluish disc and has its own faint knot.",
+ "most_likely": "An edge-on red companion or background galaxy overlapping the spiral's edge, or a short tidal tail from a minor merger.",
+ "against_it": "nothing",
+ "verdict": "likely ordinary",
+ "decisive_test": "Separate photometry or spectrum of the spur: a different redshift means chance overlap, same redshift means tidal feature.",
+ "catalogue_notes": "Legacy photo-z 0.37±0.12 at 0.75 arcsec (extended). SIMBAD: nothing within 60; NED nearest WISEA source 22.1. Gaia none within 16. Four lens lists: no match within 60.",
+ "confidence": "medium"
+}

@@ -1,0 +1,12 @@
+{
+ "slug": "j0259335-540715",
+ "reviewer_model": "claude-fable-5-2",
+ "date": "2026-11-17",
+ "what_i_see": "A very faint, smooth patch about 11 arcsec across, seen in VIS and absent in the near-infrared bands. No nucleus; surface brightness is flat with a slightly brighter western rim and a fairly abrupt edge. A compact galaxy sits on its south-west rim.",
+ "most_likely": "A blue low-surface-brightness dwarf galaxy, of which Euclid sees many.",
+ "against_it": "Flat, rim-brightened profile with a sharp edge near 5.7 arcsec radius, VIS-only, same size as the j0446481 patch: an optical ghost is a real alternative.",
+ "verdict": "likely ordinary",
+ "decisive_test": "Check individual dithered VIS exposures and deep DES g,r images: a real galaxy stays fixed on the sky and appears in DES; a ghost does not.",
+ "catalogue_notes": "SIMBAD: nothing within 60 arcsec. NED nearest WISEA source 14.7. Legacy photo-z: only the rim source, 4.8, z 0.67. Gaia none within 16; G=13.2 star at 72 (not distinctive, most fields have one). Four lens lists: no match within 60.",
+ "confidence": "low"
+}

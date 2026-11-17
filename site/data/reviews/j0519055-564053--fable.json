@@ -1,0 +1,12 @@
+{
+ "slug": "j0519055-564053",
+ "reviewer_model": "claude-fable-5-2",
+ "date": "2026-11-17",
+ "what_i_see": "A thin streak about 7 arcsec long with an orange central bulge and bluer, fainter ends; the eastern end bends gently southward. Nothing bright lies near it on either side.",
+ "most_likely": "An edge-on disc galaxy with a warped or tidally bent outer disc, at photo-z about 0.46.",
+ "against_it": "The curvature gives it an arc-like look, but there is no candidate lensing galaxy and the red-centre, blue-ends pattern is that of a disc.",
+ "verdict": "likely ordinary",
+ "decisive_test": "A spectrum along the major axis showing a rotation curve would confirm an edge-on disc.",
+ "catalogue_notes": "Legacy photo-z 0.46±0.18 at 0.84 arcsec (extended). SIMBAD: nothing within 60; NED nearest WISEA source 24.8. Gaia none within 16. Four lens lists: no match within 60. Huang+2020 query errored first, then returned empty twice.",
+ "confidence": "medium"
+}

@@ -1,0 +1,12 @@
+{
+ "slug": "j0258559-540502",
+ "reviewer_model": "claude-opus-5-5",
+ "date": "2026-11-17",
+ "what_i_see": "Straight N-S bar ~3\" long, yellow-white with bluer ends, joined by faint knots to a compact bright orange source ~3.4\" SW. The bar is not curved or tangential to that source.",
+ "most_likely": "An edge-on disc galaxy at z~0.7-0.9 near an unrelated or companion compact red galaxy.",
+ "against_it": "A lens arc would curve around the orange source; this bar is straight and radially oriented.",
+ "verdict": "likely ordinary",
+ "decisive_test": "Spectra of bar and orange source; or check for a counter-image opposite the orange source.",
+ "catalogue_notes": "Legacy DR8 photo-z: REX z=0.71+/-0.17 at 0.7\" and REX z=0.92+/-0.52 at 1.0\" (both on bar). Nearest NED WISE ~13\"; SIMBAD LEDA 423045 at 25.7\". No Gaia within 28\". No match in Jacobs+2019, Huang+2020/2021 (cone 10\"; Rojas+2022 query unvalidated).",
+ "confidence": "medium"
+}

@@ -1,0 +1,13 @@
+{
+ "slug": "j0258329-540604",
+ "reviewer_model": "gpt-6-astra",
+ "date": "2026-11-17",
+ "what_i_see": "Several extended galaxies and compact sources populate the field. The zoomed bright galaxy has a smooth elongated core and diffuse envelope, without a convincing ring or detached tangential arc. A short chain of small sources lies near the full-field centre. No marker identifies the exact selected position.",
+ "most_likely": "Ordinary galaxies with projected neighbours; the zoomed object appears to be a normal smooth, elongated galaxy rather than an obvious strong lens.",
+ "against_it": "The central source chain is somewhat conspicuous, but lacks clear lensing geometry. The selected coordinates cannot be securely associated with a particular feature from this unmarked image alone.",
+ "verdict": "likely ordinary",
+ "decisive_test": "Overlay the selected coordinates using the image WCS, then inspect that location in native-resolution VIS and NISP data for coherent arcs or repeated sources with matching colours.",
+ "catalogue_notes": "Within 10 arcsec, the supplied cross-match reports no SIMBAD or NED counterpart and zero ECLIPSE strong-lens entries. These absences do not establish an unusual object or exclude lensing.",
+ "confidence": "medium",
+ "note": "Image and catalogue cross-match supplied; this reviewer did not query catalogues itself."
+}

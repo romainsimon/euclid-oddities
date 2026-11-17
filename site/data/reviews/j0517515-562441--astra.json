@@ -1,0 +1,13 @@
+{
+ "slug": "j0517515-562441",
+ "reviewer_model": "gpt-6-astra",
+ "date": "2026-11-17",
+ "what_i_see": "The brightest extended object has a bright central bulge, an oval diffuse envelope and faint curved, asymmetric structure resembling spiral arms. Several nearby sources are compact or narrowly elongated. No clear detached ring or repeated arc pattern is evident. The selected coordinate is not explicitly marked.",
+ "most_likely": "An ordinary inclined spiral galaxy, with nearby elongated galaxies or projected companions; the curved light most plausibly belongs to its own disk.",
+ "against_it": "The asymmetric outer structure and nearby narrow sources could merit checking for interaction or a separate arc, but their relationship is unclear at this resolution.",
+ "verdict": "likely ordinary",
+ "decisive_test": "Locate the exact flagged coordinate on native-resolution VIS and NISP cutouts; check whether curved features connect to the disk or form detached, colour-matched images around a foreground galaxy.",
+ "catalogue_notes": "Within 10 arcsec, the supplied cross-match reports no SIMBAD or NED counterpart and zero ECLIPSE strong-lens entries. These absences do not establish the object's nature.",
+ "confidence": "medium",
+ "note": "Image and catalogue cross-match supplied; this reviewer did not query catalogues itself."
+}

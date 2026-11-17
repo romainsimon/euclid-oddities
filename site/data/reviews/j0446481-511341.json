@@ -1,0 +1,12 @@
+{
+ "slug": "j0446481-511341",
+ "reviewer_model": "claude-opus-5-5",
+ "date": "2026-11-17",
+ "what_i_see": "Large, roughly round, smooth low-surface-brightness patch ~12\" across, with fairly defined edges and no nucleus; a spiral galaxy lies ~11\" N. Only VIS data here: the colour panel is pure blue (no NISP), so colour is uninformative.",
+ "most_likely": "A low-surface-brightness dwarf galaxy, or an optical ghost/scattered-light feature in VIS.",
+ "against_it": "Round, smooth, sharp-edged shape and no catalogue counterpart fit a ghost; Legacy DR10 cutout shows nothing (inconclusive, shallower).",
+ "verdict": "worth a closer look",
+ "decisive_test": "Inspect individual VIS exposures and later NISP coverage: a ghost shifts between dithers or is absent; a dwarf stays fixed.",
+ "catalogue_notes": "No SIMBAD, NED, or Gaia source within 30\". Nearest bright star 2MASS J04465649-5113146 (G=12.8, high proper motion) at 86\". No DR8 photo-z rows within 12\" (likely coverage gap). No match in Jacobs+2019, Huang+2020/2021 (cone 10\"; Rojas+2022 query unvalidated).",
+ "confidence": "low"
+}

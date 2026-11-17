@@ -1,0 +1,13 @@
+{
+ "slug": "j0519055-564053",
+ "reviewer_model": "gpt-6-astra",
+ "date": "2026-11-17",
+ "what_i_see": "The wide panels show a thin, elongated galaxy with a bright central region and slightly asymmetric ends, surrounded by compact sources. Its centre appears yellow-red in colour. The zoom instead centres on a compact, round source with nearby faint patches. No convincing ring, tangential arc, or repeated image pattern is apparent.",
+ "most_likely": "An ordinary highly inclined disk galaxy, with unrelated compact sources nearby. If the selected position corresponds to the zoom centre, that source looks more point-like than extended.",
+ "against_it": "The elongated galaxy has some curvature and uneven light, but these are not diagnostic of lensing. The selected coordinate is unmarked, and the zoom does not show that galaxy.",
+ "verdict": "likely ordinary",
+ "decisive_test": "Overlay the exact selected coordinate on the native-resolution images. Inspect a correctly centred VIS cutout and PSF profile to distinguish the inclined galaxy from the compact source.",
+ "catalogue_notes": "Within 10 arcsec of the supplied position, there are no SIMBAD or NED matches and zero entries in the ECLIPSE Euclid strong-lens catalogue.",
+ "confidence": "medium",
+ "note": "Image and catalogue cross-match supplied; this reviewer did not query catalogues itself."
+}

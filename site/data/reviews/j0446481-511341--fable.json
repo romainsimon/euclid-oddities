@@ -1,0 +1,12 @@
+{
+ "slug": "j0446481-511341",
+ "reviewer_model": "claude-fable-5-2",
+ "date": "2026-11-17",
+ "what_i_see": "A round, faint, uniform disc of light about 11 arcsec across with a faint point-like source near its middle and a fairly sharp edge. A brighter small galaxy lies 10 arcsec north. Only VIS data here; the colour panel has no near-infrared.",
+ "most_likely": "A nucleated low-surface-brightness dwarf galaxy, possibly a satellite of the galaxy to the north.",
+ "against_it": "Flat profile with abrupt edge near 5.7 arcsec, the same size as the j0259335 patch, could mean an optical ghost. No colour information to help.",
+ "verdict": "likely ordinary",
+ "decisive_test": "Check individual dithered VIS exposures and DES/Legacy deep images for the same patch at the same sky position.",
+ "catalogue_notes": "Nothing in SIMBAD within 60 arcsec or NED within 30. Legacy photo-z none within 5. Gaia none within 16; G=12.8 star at 86 (not distinctive). Four lens lists: no match within 60.",
+ "confidence": "low"
+}

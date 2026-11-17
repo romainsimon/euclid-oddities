@@ -1,0 +1,13 @@
+{
+ "slug": "j0517370-564407",
+ "reviewer_model": "gpt-6-astra",
+ "date": "2026-11-17",
+ "what_i_see": "A diffuse, asymmetric extended source near the field centre contains several compact bright knots and faint irregular emission. Other compact and elongated sources surround it. Bright emission intrudes from the upper edge. I see no convincing ring, repeated arc pattern, or clearly identifiable lensing configuration.",
+ "most_likely": "An ordinary clumpy galaxy, possibly disturbed or interacting, with star-forming regions and projected neighbouring sources.",
+ "against_it": "The irregular curved emission and multiple knots are ambiguous at this resolution. Nearby bright emission complicates interpretation, and the selected position is not explicitly marked.",
+ "verdict": "likely ordinary",
+ "decisive_test": "Inspect an astrometrically marked cutout and individual VIS/Y/H exposures to determine whether the knots belong to continuous galactic structure or form matching arcs around a separate foreground galaxy.",
+ "catalogue_notes": "Within 10 arcsec, the supplied cross-match reports no SIMBAD or NED counterpart and zero ECLIPSE strong-lens catalogue entries. These non-detections do not establish the object's nature.",
+ "confidence": "medium",
+ "note": "Image and catalogue cross-match supplied; this reviewer did not query catalogues itself."
+}

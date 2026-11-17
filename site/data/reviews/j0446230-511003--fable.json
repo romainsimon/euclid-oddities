@@ -1,0 +1,12 @@
+{
+ "slug": "j0446230-511003",
+ "reviewer_model": "claude-fable-5-2",
+ "date": "2026-11-17",
+ "what_i_see": "Almost nothing at the exact centre: a very faint diffuse plume that continues the line from a bright elliptical and its small companion 5-7 arcsec to the south-east. A spiked foreground star lies south-west. Only VIS data; no colour.",
+ "most_likely": "Faint tidal debris or a stellar plume from the elliptical-plus-companion pair, in the outskirts of a catalogued galaxy cluster.",
+ "against_it": "So faint it could be background noise structure or scattered light from the nearby star.",
+ "verdict": "likely ordinary",
+ "decisive_test": "Deeper stacked imaging (Euclid deep or DES) to see whether the plume is real and connects to the pair.",
+ "catalogue_notes": "SIMBAD: nine DES cluster-member galaxies 27-58 arcsec away, none at centre. NED nearest WISEA source 14.9, coincident with Gaia G=17.5 star at 14.7 (the spiked star). Legacy photo-z none within 5. Four lens lists: no match within 60.",
+ "confidence": "low"
+}

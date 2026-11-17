@@ -1,0 +1,12 @@
+{
+ "slug": "j0453062-483427",
+ "reviewer_model": "claude-opus-5-5",
+ "date": "2026-11-17",
+ "what_i_see": "Faint, clumpy, elongated low-surface-brightness feature at centre, between a red edge-on galaxy ~4\" E and a brighter compact galaxy ~3\" W, aligned with both.",
+ "most_likely": "A faint background galaxy projected between neighbours, or tidal debris in an interacting pair.",
+ "against_it": "nothing",
+ "verdict": "likely ordinary",
+ "decisive_test": "Redshifts of the three components: matching values would make it tidal debris; otherwise a chance alignment.",
+ "catalogue_notes": "No SIMBAD at centre; nearest NED WISEA J045305.41-483440.8 ~16\". Gaia G=20.7 at 24\" only. No DR8 photo-z rows even within 60\" (coverage gap). No match in Jacobs+2019, Huang+2020/2021 (cone 10\"; Rojas+2022 query unvalidated).",
+ "confidence": "medium"
+}

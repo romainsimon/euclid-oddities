@@ -1,0 +1,12 @@
+{
+ "slug": "j0258559-540502",
+ "reviewer_model": "claude-fable-5-2",
+ "date": "2026-11-17",
+ "what_i_see": "A straight, narrow bar about 3 arcsec long running north-south, with a faint trail of small knots curving from its southern end westward toward a compact orange point-like source 3.6 arcsec away. A single green speck there is one-band noise.",
+ "most_likely": "An edge-on or chain-like clumpy galaxy at z near 0.7 with small neighbours; the orange source is probably a foreground star.",
+ "against_it": "Bar plus curved knot trail loosely mimics a partial arc around the orange source, but that source is catalogued point-like, so no plausible lens.",
+ "verdict": "likely ordinary",
+ "decisive_test": "Confirm the orange source is a star (spectrum or proper motion); if it is a compact galaxy, the lens idea reopens.",
+ "catalogue_notes": "Legacy photo-z 0.71±0.17 at 0.7 arcsec, 0.92±0.52 at 1.0; orange source point-like at 3.6. NED nearest WISEA 12.7; SIMBAD LEDA 423045 at 25.7. Gaia none within 16. Four lens lists: no match within 60. Huang+2020 errored first, then empty twice.",
+ "confidence": "low"
+}

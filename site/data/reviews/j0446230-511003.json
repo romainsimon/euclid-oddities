@@ -1,0 +1,12 @@
+{
+ "slug": "j0446230-511003",
+ "reviewer_model": "claude-opus-5-5",
+ "date": "2026-11-17",
+ "what_i_see": "At centre only a very faint, diffuse smudge ~3\" across slightly W of centre; nothing compact. A spiked G=17.5 star lies ~15\" S and a compact galaxy pair ~6\" SE. VIS-only: colour panel is pure blue, so uninformative.",
+ "most_likely": "A faint low-surface-brightness background galaxy or noise fluctuation.",
+ "against_it": "Signal is marginal; could be faint scattered light, but the nearby star is too faint to make strong ghosts.",
+ "verdict": "likely ordinary",
+ "decisive_test": "Deeper or repeat VIS imaging: a persistent smooth detection at the same position confirms a faint galaxy.",
+ "catalogue_notes": "Gaia DR3 star G=17.5 (parallax 0.58 mas) at 14.7\" (the spiked star). Nearest NED WISEA J044622.32-511016.6 ~20\"; SIMBAD DES J044621.77-511027.6 (cluster galaxy) 27\". No DR8 photo-z within 12\". No match in Jacobs+2019, Huang+2020/2021 (cone 10\"; Rojas+2022 query unvalidated).",
+ "confidence": "low"
+}

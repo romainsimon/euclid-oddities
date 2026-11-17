@@ -1,0 +1,12 @@
+{
+ "slug": "j0519055-564053",
+ "reviewer_model": "claude-opus-5-5",
+ "date": "2026-11-17",
+ "what_i_see": "A thin, gently curved, elongated galaxy ~5\" long at centre, orange-red along the body with a bluer extension to the SE end. No compact red galaxy on its concave side.",
+ "most_likely": "A warped or slightly bent edge-on disc galaxy at z~0.5.",
+ "against_it": "A lensed arc would usually be bluer and need a deflector; neither is seen.",
+ "verdict": "likely ordinary",
+ "decisive_test": "Spectrum along the arc: a single redshift with disc rotation confirms a warped edge-on galaxy.",
+ "catalogue_notes": "Legacy DR8 photo-z EXP z=0.46+/-0.18 at 0.84\". Gaia G=16.5 star at 24.7\" (= nearest NED WISE source, off-frame). No SIMBAD within 30\". No match in Jacobs+2019, Huang+2020/2021 (cone 10\"; Rojas+2022 query unvalidated).",
+ "confidence": "medium"
+}

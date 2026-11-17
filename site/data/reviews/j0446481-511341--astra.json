@@ -1,0 +1,13 @@
+{
+ "slug": "j0446481-511341",
+ "reviewer_model": "gpt-6-astra",
+ "date": "2026-11-17",
+ "what_i_see": "A bright elongated galaxy north of the field centre has a compact core and asymmetric, curved outer light in the zoom. A separate broad, faint, mottled patch lies nearer the centre. Several compact sources are scattered nearby. No convincing detached arc or repeated-image configuration is visible.",
+ "most_likely": "Ordinary galaxy structure: a bright inclined or barred spiral with uneven arms, plus a possible low-surface-brightness galaxy near the centre. The displayed morphology does not compellingly suggest strong lensing.",
+ "against_it": "The central diffuse patch is poorly resolved, and the bright galaxy’s outer structure is asymmetric. Without a coordinate marker, associating the flagged position with either feature is uncertain.",
+ "verdict": "likely ordinary",
+ "decisive_test": "Overlay the exact flagged coordinate, then inspect individual VIS exposures and matched NISP cutouts to establish whether the diffuse structure is persistent galaxy light and whether any detached arcs exist.",
+ "catalogue_notes": "Within 10 arcsec of the supplied position, there are no SIMBAD or NED matches and zero ECLIPSE strong-lens catalogue entries. These absences do not establish the object's nature.",
+ "confidence": "medium",
+ "note": "Image and catalogue cross-match supplied; this reviewer did not query catalogues itself."
+}

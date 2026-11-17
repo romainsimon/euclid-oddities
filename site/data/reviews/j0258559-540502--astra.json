@@ -1,0 +1,13 @@
+{
+ "slug": "j0258559-540502",
+ "reviewer_model": "gpt-6-astra",
+ "date": "2026-11-17",
+ "what_i_see": "A narrow, roughly north–south extended feature has a slight bend and several bright knots. Compact sources lie immediately southeast, while a larger diffuse galaxy lies farther east. The narrow feature appears in both VIS stretches and the colour panel. No convincing ring or matching counterimage is apparent.",
+ "most_likely": "An ordinary clumpy, nearly edge-on galaxy, possibly disturbed, with nearby projected compact sources rather than a strong gravitational lens.",
+ "against_it": "The narrow feature’s curvature and bright end knots are somewhat arc-like. This image alone cannot securely distinguish an irregular galaxy from a lensed background source.",
+ "verdict": "likely ordinary",
+ "decisive_test": "Inspect native-resolution VIS and PSF-matched NISP cutouts for a continuous galaxy body, then test whether any nearby source has a matching-colour counterimage consistent with a plausible lens centre.",
+ "catalogue_notes": "Within 10 arcsec of the supplied position, there are no SIMBAD or NED matches and zero ECLIPSE strong-lens catalogue entries. These non-matches do not establish the object's nature.",
+ "confidence": "medium",
+ "note": "Image and catalogue cross-match supplied; this reviewer did not query catalogues itself."
+}

@@ -1,0 +1,13 @@
+{
+ "slug": "j0259335-540715",
+ "reviewer_model": "gpt-6-astra",
+ "date": "2026-11-17",
+ "what_i_see": "A faint, diffuse, irregular patch occupies the central field, with a much brighter compact source toward its southeast edge. The diffuse light is clearer in the hard VIS stretch but poorly defined in colour. Several other compact sources surround it. No convincing thin arc, ring, or repeated-image configuration is visible.",
+ "most_likely": "An ordinary low-surface-brightness galaxy with a compact source projected nearby; the apparent unusual structure is amplified by noise and aggressive stretching.",
+ "against_it": "The diffuse emission lacks a clearly resolved nucleus or coherent morphology. These cutouts alone cannot establish whether the compact source belongs to it or whether all the faint structure is real.",
+ "verdict": "likely ordinary",
+ "decisive_test": "Check independent VIS exposures for repeatable diffuse structure, then model and subtract compact sources to assess the underlying galaxy morphology.",
+ "catalogue_notes": "No SIMBAD or NED match within 10 arcsec of the supplied position; the ECLIPSE Euclid strong-lens catalogue has zero entries there. These non-matches do not establish an unusual nature.",
+ "confidence": "medium",
+ "note": "Image and catalogue cross-match supplied; this reviewer did not query catalogues itself."
+}
