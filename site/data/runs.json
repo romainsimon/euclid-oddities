@@ -1,0 +1,16 @@
+{
+ "runs": [
+  {"id": "A-fable", "label": "Catalogue outliers, larger view", "date": "2026-11-17", "model": "Claude Fable 5.2", "effort": "Claude Code default",
+   "fields": 126, "calls_ok": 124, "leads": 24, "published": 24, "weekly_start": 0.98, "weekly_end": 1.0,
+   "status": "stopped: weekly quota (previous week) and reset deadline", "tiles": [102015586, 102016883, 102159389]},
+  {"id": "A-twostage", "label": "Two-stage test on development fields", "date": "2026-11-17", "model": "Claude Fable 5.2", "effort": "high",
+   "fields": 16, "calls_ok": 144, "leads": 20, "published": 20, "weekly_start": 0.02, "weekly_end": 0.04,
+   "status": "finished; read-out rule not met (9/24 planted found)", "tiles": [102163137, 102163380]},
+  {"id": "A-twostage-b", "label": "Two-stage test, targeted close look", "date": "2026-11-17", "model": "Claude Fable 5.2", "effort": "high",
+   "fields": 16, "calls_ok": 128, "leads": 0, "published": 0, "weekly_start": 0.04, "weekly_end": 0.06,
+   "status": "finished; read-out rule not met (7/24 planted found)", "tiles": [102163137, 102163380]},
+  {"id": "A-wide", "label": "Wide-field pass 1", "date": "2026-11-17", "model": "Claude Fable 5.2", "effort": "high",
+   "fields": 300, "calls_ok": 300, "leads": 189, "published": 189, "weekly_start": 0.06, "weekly_end": 0.08,
+   "status": "finished", "tiles": [102013965, 102015996, 102018683, 102021030, 102036791, 102047437]}
+ ]
+}

@@ -124,6 +124,8 @@ border-radius:var(--r-lg);padding:12px 14px;display:flex;flex-wrap:wrap;gap:10px
 .rows{display:grid;gap:8px;margin:16px 0}
 .row{display:grid;grid-template-columns:1fr 64px 64px;gap:12px;align-items:center;background:var(--card2);border-radius:var(--r-sm);padding:12px 16px;font-size:.88rem}
 .row.head{background:none;padding:0 16px;font:500 .6rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.row.log{grid-template-columns:minmax(0,2fr) 64px 64px 64px minmax(0,2fr)}.row.log .small{color:var(--dim)}
+@media (max-width:700px){.row.log{grid-template-columns:1fr 48px 48px 48px}.row.log>span:last-child{grid-column:1/-1}}
 .row .num{font:700 1.05rem/1 var(--display);text-align:right}.row .num.acc{color:var(--accent)}.row.head span:not(:first-child){text-align:right}
 footer{color:var(--dim);font-size:.8rem;padding:4px 0 48px}footer a{color:var(--silver)}
 .crumbs{font:500 .64rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--dim);padding:36px 0 16px}.crumbs a{color:var(--silver);text-decoration:none}
@@ -172,7 +174,7 @@ def page(title, desc, body, base, canonical, image=None):
 <meta data-route-meta property="og:title" content="{e(title)}"><meta data-route-meta property="og:description" content="{e(desc)}"><meta data-route-meta property="og:type" content="website"><meta data-route-meta property="og:url" content="{SITE}{canonical}">{og}
 <meta data-route-meta name="twitter:card" content="summary_large_image">{FONTS}<style>{FONT_FACES}{CSS}</style></head><body>
 <header class="top"><div class="bar"><a class="brand" href="{base}/">Euclid Oddities</a>
-<div class="site-header__actions"><nav class="top"><a href="{base}/#method">Method</a><a href="{REPO}">Data &amp; rules</a><a class="keep" href="/">SpaceSim</a></nav></div></div></header>
+<div class="site-header__actions"><nav class="top"><a href="{base}/#log">Log</a><a href="{base}/#method">Method</a><a href="{REPO}">Data &amp; rules</a><a class="keep" href="/">SpaceSim</a></nav></div></div></header>
 {body}
 <footer><div class="wrap">Images: ESA Euclid DR1 (ESA/Euclid/Euclid Consortium), rendered by this project. Catalogue checks: SIMBAD, NED, ECLIPSE.
 Every entry is an unverified suggestion made by a language model. Code, pre-registration and raw results on <a href="{REPO}">GitHub</a>, archived with DOI <a href="https://doi.org/10.5281/zenodo.24304793">10.5281/zenodo.24304793</a>.</div></footer>
@@ -241,6 +243,21 @@ def card(f, base):
             f'<div class="body"><div class="hd"><h3 style="view-transition-name:t-{vt(f["slug"])}">{icon(f["feature"])}{e(f["name"])}</h3>{stars(f["interest"])}</div><div class="meta">{tags(f)}{rv}</div><p>{e(f["description"])}</p></div></a>')
 
 
+def runs_html():
+    fp_ = HERE / "data" / "runs.json"
+    if not fp_.exists():
+        return ""
+    R = json.loads(fp_.read_text(encoding="utf-8")).get("runs", [])
+    rows = "".join(
+        f'<div class="row log"><span><b>{e(r.get("label", r.get("id", "")))}</b><br><span class="small">{e(r.get("date", ""))} · {e(r.get("model", ""))} · effort {e(r.get("effort", ""))}</span></span>'
+        f'<span class="num">{r.get("fields", 0)}</span><span class="num">{r.get("leads", 0)}</span><span class="num">{r.get("published", 0)}</span>'
+        f'<span class="small">{round((r.get("weekly_end", 0) - r.get("weekly_start", 0)) * 100)} pts · {e(r.get("status", ""))}</span></div>'
+        for r in reversed(R))
+    return (f'<section class="panel" id="log" style="margin-bottom:40px"><h2>Search <em>log</em></h2><p>Every pass, newest first, including the ones that '
+            f'stopped or failed. Quota is the share of a weekly Claude subscription window used by the pass.</p><div class="rows">'
+            f'<div class="row head log"><span>Pass</span><span>Fields</span><span>Leads</span><span>Listed</span><span>Quota · status</span></div>{rows}</div></section>')
+
+
 def index(F, meta, base):
     feats = sorted({f["feature"] for f in F}, key=lambda k: list(FEATURE).index(k))
     dates = sorted({f["date_found"] for f in F}, reverse=True)
@@ -273,7 +290,7 @@ def index(F, meta, base):
 <div class="row"><span>Same, close look aimed at the stage-1 point (of 24)</span><span class="num"></span><span class="num">14 / 7</span></div>
 <div class="row"><span>Fresh-sky outliers inspected</span><span class="num"></span><span class="num">117</span></div>
 <div class="row"><span>Flagged and listed here</span><span class="num"></span><span class="num">{len(F)}</span></div></div>
-<p>Small samples: the two views differ by five objects. Full results, failures included, are on <a href="{REPO}">GitHub</a>.</p></div></section></main>
+<p>Small samples: the two views differ by five objects. Full results, failures included, are on <a href="{REPO}">GitHub</a>.</p></div></section>{runs_html()}</main>
 <script>
 const cards=[...document.querySelectorAll('.card')],grid=document.getElementById('grid'),on=new Set();
 const st={{run:'',rev:'',conf:'',cat:'',int:'',date:'',model:'',sort:'promising'}};
