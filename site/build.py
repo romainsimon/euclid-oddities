@@ -53,17 +53,40 @@ h1 em,h2 em{font-style:normal;color:var(--accent)}
 .intro .side{color:var(--dim);font-size:.86rem;max-width:34ch}.intro .side a{color:var(--silver)}
 .hero{text-align:center;padding:64px 0 12px}
 .hero h1{font:700 clamp(2rem,4.2vw,3.4rem)/1.04 var(--display);letter-spacing:-.04em;margin:0 auto 16px;max-width:20ch}
-.hero .lede{font-size:1rem;color:var(--silver);max-width:60ch;margin:0 auto}
+.hero .lede{font-size:1rem;color:var(--silver);max-width:76ch;margin:0 auto}
 .filters{position:sticky;top:72px;z-index:10;margin:24px 0 0;background:rgba(21,23,28,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
 border-radius:var(--r-lg);padding:12px 14px;display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}
 .group{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
 .lbl{font:500 .6rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin:0 4px 0 2px}
-.chip{appearance:none;border:0;background:var(--card2);color:var(--silver);border-radius:999px;padding:7px 13px;font-size:.84rem;cursor:pointer;transition:background .25s,color .2s}
+.chip{appearance:none;border:0;background:var(--card2);color:var(--silver);border-radius:999px;padding:4px 12px;font-size:.84rem;cursor:pointer;transition:background .25s,color .2s}
 .chip:hover{background:var(--card3);color:var(--fg)}.chip[aria-pressed=true]{background:var(--accent-soft);color:var(--accent)}
 .count{margin-left:auto;font:500 .66rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px;padding:16px 0 56px}
 .card{display:flex;flex-direction:column;text-decoration:none;color:inherit;background:var(--card);border-radius:var(--r-lg);padding:10px;transition:transform .5s var(--ease),background .25s}
-.card:hover{background:var(--card2);transform:translateY(-4px);color:inherit}
+.card:hover{background:var(--card2);color:inherit}.card.r-common:hover{transform:translateY(-4px)}
+.card{position:relative;isolation:isolate;--mx:50%;--my:50%;--rx:0deg;--ry:0deg;--hyp:0}
+.card>img,.card>.body{position:relative;z-index:1}
+.fx{position:absolute;inset:0;border-radius:inherit;overflow:hidden;pointer-events:none;z-index:0}
+.fx .foil,.fx .glare,.fx .sparks{position:absolute;inset:0}
+.r-common .fx{display:none}
+.card.r-uncommon,.card.r-rare,.card.r-legendary{transform:perspective(900px) rotateX(var(--rx)) rotateY(var(--ry));transition:transform .9s cubic-bezier(.34,1.56,.64,1),background .25s,box-shadow .4s}
+.card.on{transition:transform .12s linear,box-shadow .3s}
+.card.r-uncommon{background:linear-gradient(160deg,#20232a 0%,#15171c 60%)}
+.card.r-rare{background:radial-gradient(ellipse 90% 60% at 100% 100%,rgba(255,107,26,.2),transparent 60%),linear-gradient(160deg,#262a32 0%,#15171c 55%,#1d1410 100%)}
+.card.r-legendary{background:radial-gradient(ellipse 90% 70% at 100% 100%,rgba(255,107,26,.34),transparent 60%),radial-gradient(ellipse 80% 60% at 0% 0%,rgba(255,255,255,.08),transparent 60%),linear-gradient(160deg,#2a2c33 0%,#15171c 55%,#24150d 100%);box-shadow:0 30px 80px -28px rgba(255,107,26,.45)}
+.fx .foil{display:none;background:repeating-linear-gradient(115deg,#ff6b1a 0%,#ffd36b 6%,#7dffcf 12%,#6fb7ff 18%,#c58bff 24%,#ff6b9e 30%,#ff6b1a 36%);background-size:300% 300%;background-position:var(--mx) var(--my);mix-blend-mode:color-dodge;opacity:calc(.05 + var(--hyp)*.12);animation:holo-idle 9s ease-in-out infinite alternate;transition:opacity .4s}
+.r-rare .fx .foil,.r-legendary .fx .foil{display:block}
+.r-legendary .fx .foil{opacity:calc(.1 + var(--hyp)*.2)}
+.card.on .fx .foil{animation:none}
+@keyframes holo-idle{from{background-position:0% 30%}to{background-position:100% 70%}}
+.fx .glare{background:radial-gradient(circle at var(--mx) var(--my),rgba(255,255,255,.32) 0%,rgba(255,255,255,.07) 28%,transparent 55%);mix-blend-mode:overlay;opacity:0;transition:opacity .4s;z-index:3}
+.card.on .fx .glare{opacity:1}
+.fx .sparks i{position:absolute;width:10px;height:10px;margin:-5px;background:#fff;clip-path:polygon(50% 0,60% 40%,100% 50%,60% 60%,50% 100%,40% 60%,0 50%,40% 40%);opacity:0;animation:twinkle 3.8s ease-in-out infinite;z-index:2}
+@keyframes twinkle{0%,70%,100%{opacity:0;transform:scale(.3) rotate(0)}80%{opacity:.9;transform:scale(1) rotate(45deg)}}
+.tag.rar{background:var(--card3);color:var(--fg)}.r-common .tag.rar{background:var(--card2);color:var(--dim)}
+.r-rare .tag.rar{background:linear-gradient(90deg,rgba(255,107,26,.22),rgba(197,139,255,.22));color:#ffd9bf}
+.r-legendary .tag.rar{background:linear-gradient(90deg,#ff6b1a,#ffd36b);color:#1a0f08}
+
 .card img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:var(--r);background:#000}
 .card .body{padding:14px 10px 8px}.card h3{font:600 1rem/1.25 var(--display);letter-spacing:-.01em;margin:0 0 10px}
 .meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
@@ -97,8 +120,8 @@ footer{color:var(--dim);font-size:.8rem;padding:4px 0 48px}footer a{color:var(--
 .info h1{font-size:clamp(1.7rem,3vw,2.4rem);margin:16px 0 14px}
 .quote{font-size:1.04rem;color:var(--fg);margin:20px 0 8px}
 .explain{color:var(--dim);font-size:.9rem;margin:0 0 20px}
-.facts{display:grid;background:var(--card2);border-radius:var(--r);padding:10px 0}
-.fact{display:grid;grid-template-columns:150px 1fr;gap:14px;padding:4px 18px;font-size:.84rem;line-height:1.45}
+.facts{display:grid;border-radius:var(--r);overflow:hidden}
+.fact{display:grid;grid-template-columns:150px 1fr;gap:14px;padding:6px 18px;font-size:.84rem;line-height:1.45;background:var(--card2)}.fact:nth-child(even){background:#202329}
 .fact span:first-child{color:var(--dim)}code{font:500 .78rem var(--mono);color:var(--silver)}
 .links{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 16px}
 .btn{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:999px;padding:10px 16px;background:var(--card2);color:var(--fg);text-decoration:none;font-size:.86rem;font-weight:500;cursor:pointer;transition:background .25s}
@@ -108,7 +131,7 @@ footer{color:var(--dim);font-size:.8rem;padding:4px 0 48px}footer a{color:var(--
 .pager{display:flex;justify-content:space-between;gap:12px;padding:10px 0 50px}
 @media (max-width:900px){.method,.detail{grid-template-columns:1fr}.count{margin-left:0;width:100%}.filters{position:static}
 nav.top a:not(.keep){display:none}.fact{grid-template-columns:1fr;gap:0;padding:4px 16px}.panel,.info{padding:24px}.legend{grid-template-columns:1fr}}
-@media (prefers-reduced-motion:reduce){*{transition:none!important}.card:hover{transform:none}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.card:hover,.card{transform:none!important}}
 """
 
 
@@ -150,11 +173,26 @@ def seg(key, label, opts):
             + "".join(f'<button class="chip" type="button" data-v="{e(v)}" aria-pressed="false">{e(t)}</button>' for v, t in opts) + "</div>")
 
 
+RARITY = [(3.0, "legendary", "Legendary"), (2.4, "rare", "Rare"), (2.0, "uncommon", "Uncommon"), (0, "common", "Common")]
+
+
+def rarity(f):
+    return next((k, t) for lim, k, t in RARITY if f["weirdness"] >= lim)
+
+
+SPARKS = [(16, 20, 0), (80, 12, .9), (88, 52, 1.7), (24, 46, 2.4), (64, 34, 3.1)]
+
+
 def card(f, base):
-    return (f'<a class="card" href="{base}/{f["slug"]}/" data-feature="{e(f["feature"])}" data-conf="{e(f["confidence"])}" '
-            f'data-interest="{f["interest"]}" data-cat="{"yes" if f["catalogued"] else "no"}" data-date="{e(f["date_found"])}" data-model="{e(f["model"])}">'
+    rk, rt = rarity(f)
+    sp = "".join(f'<i style="left:{x}%;top:{y}%;animation-delay:{d}s"></i>' for x, y, d in SPARKS)
+    fx = ('<span class="fx" aria-hidden="true"><span class="foil"></span>'
+          + (f'<span class="sparks">{sp}</span>' if rk == "legendary" else "")
+          + '<span class="glare"></span></span>')
+    return (f'<a class="card r-{rk}" href="{base}/{f["slug"]}/" data-feature="{e(f["feature"])}" data-conf="{e(f["confidence"])}" data-rarity="{rk}" '
+            f'data-interest="{f["interest"]}" data-cat="{"yes" if f["catalogued"] else "no"}" data-date="{e(f["date_found"])}" data-model="{e(f["model"])}">{fx}'
             f'<img src="{base}/img/{f["slug"]}-thumb.jpg" width="360" height="360" loading="lazy" alt="Euclid visible-band cutout of {e(f["name"])}">'
-            f'<div class="body"><div class="hd"><h3>{e(f["name"])}</h3>{stars(f["interest"])}</div><div class="meta">{tags(f)}</div><p>{e(f["description"])}</p></div></a>')
+            f'<div class="body"><div class="hd"><h3>{e(f["name"])}</h3>{stars(f["interest"])}</div><div class="meta"><span class="tag rar">{rt}</span>{tags(f)}</div><p>{e(f["description"])}</p></div></a>')
 
 
 def index(F, meta, base):
@@ -163,10 +201,11 @@ def index(F, meta, base):
     models = sorted({f["model"] for f in F})
     chips = "".join(f'<button class="chip" type="button" aria-pressed="false" data-f="{k}">{e(FEATURE[k])}</button>' for k in feats)
     body = f"""<main class="wrap"><section class="hero">
-<h1>Unusual galaxies and lens candidates in <em>Euclid DR1</em>, flagged by AI</h1>
-<p class="lede">Claude Fable 5.2 searched fresh Euclid images for anything odd. Planted fakes measure how far to trust it. None of these {len(F)} finds has been checked by an astronomer yet.</p></section>
+<h1>Unusual galaxies and lens candidates in <em>Euclid DR1</em></h1>
+<p class="lede">Claude Fable 5.2 searched fresh images from ESA's Euclid space telescope for anything that looked odd: tidal streams, possible gravitational lenses, oddly shaped galaxies. Fake objects were planted among the real ones to measure how far to trust it. None of these {len(F)} finds has been checked by an astronomer yet.</p></section>
 <div class="filters" role="region" aria-label="Filters">
 <div class="group" aria-label="Feature"><span class="lbl">Feature</span>{chips}</div>
+{seg("rar", "Rarity", [("", "Any"), ("legendary", "Legendary"), ("rare", "Rare+"), ("uncommon", "Uncommon+")])}
 {seg("conf", "Confidence", [("", "Any"), ("medium", "Medium+"), ("low", "Low")])}
 {seg("cat", "Catalogue", [("", "Any"), ("no", "Not catalogued"), ("yes", "Catalogued")])}
 {seg("int", "Interest", [("", "Any"), ("3", "≥ 3.0"), ("3.5", "≥ 3.5")])}
@@ -187,10 +226,10 @@ def index(F, meta, base):
 <p>Small samples: the two views differ by five objects. Full results, failures included, are on <a href="{REPO}">GitHub</a>.</p></div></section></main>
 <script>
 const cards=[...document.querySelectorAll('.card')],grid=document.getElementById('grid'),on=new Set();
-const st={{conf:'',cat:'',int:'',date:'',model:'',sort:'interest'}};
+const st={{rar:'',conf:'',cat:'',int:'',date:'',model:'',sort:'interest'}};
 function sync(){{document.querySelectorAll('.seg').forEach(g=>g.querySelectorAll('.chip').forEach(b=>b.setAttribute('aria-pressed',st[g.dataset.k]===b.dataset.v)))}}
 function apply(){{let n=0;const m=+st.int||0;
-for(const el of cards){{const ok=(!on.size||on.has(el.dataset.feature))&&(!st.conf||(st.conf==='low'?el.dataset.conf==='low':el.dataset.conf!=='low'))&&(!st.cat||el.dataset.cat===st.cat)&&(+el.dataset.interest>=m-1e-9)&&(!st.date||el.dataset.date===st.date)&&(!st.model||el.dataset.model===st.model);el.hidden=!ok;n+=ok}}
+for(const el of cards){{const RO={{common:0,uncommon:1,rare:2,legendary:3}};const ok=(!st.rar||RO[el.dataset.rarity]>=RO[st.rar])&&(!on.size||on.has(el.dataset.feature))&&(!st.conf||(st.conf==='low'?el.dataset.conf==='low':el.dataset.conf!=='low'))&&(!st.cat||el.dataset.cat===st.cat)&&(+el.dataset.interest>=m-1e-9)&&(!st.date||el.dataset.date===st.date)&&(!st.model||el.dataset.model===st.model);el.hidden=!ok;n+=ok}}
 document.getElementById('count').textContent=n+' of '+cards.length+' shown';document.getElementById('empty').hidden=n>0;
 [...cards].sort((a,b)=>st.sort==='date'?b.dataset.date.localeCompare(a.dataset.date)||b.dataset.interest-a.dataset.interest:b.dataset.interest-a.dataset.interest).forEach(el=>grid.appendChild(el));
 const p=new URLSearchParams();if(on.size)p.set('feature',[...on].join(','));for(const k in st)if(st[k]&&!(k==='sort'&&st[k]==='interest'))p.set(k,st[k]);
@@ -200,6 +239,12 @@ document.querySelectorAll('.seg').forEach(g=>g.querySelectorAll('.chip').forEach
 const p=new URLSearchParams(location.search);(p.get('feature')||'').split(',').filter(Boolean).forEach(f=>{{on.add(f);const b=document.querySelector(`.chip[data-f="${{f}}"]`);b&&b.setAttribute('aria-pressed','true')}});
 for(const k in st)if(p.get(k))st[k]=p.get(k);
 apply();
+if(matchMedia('(hover:hover)').matches&&!matchMedia('(prefers-reduced-motion:reduce)').matches)cards.filter(c=>c.dataset.rarity!=='common').forEach(c=>{{
+const T={{uncommon:6,rare:9,legendary:12}}[c.dataset.rarity];
+c.addEventListener('pointermove',ev=>{{const r=c.getBoundingClientRect(),x=(ev.clientX-r.left)/r.width,y=(ev.clientY-r.top)/r.height;
+c.style.setProperty('--mx',x*100+'%');c.style.setProperty('--my',y*100+'%');c.style.setProperty('--rx',(-(y-.5)*T)+'deg');c.style.setProperty('--ry',((x-.5)*T*1.2)+'deg');
+c.style.setProperty('--hyp',Math.min(1,Math.hypot(x-.5,y-.5)*2));c.classList.add('on')}});
+c.addEventListener('pointerleave',()=>{{c.classList.remove('on');c.style.setProperty('--rx','0deg');c.style.setProperty('--ry','0deg')}})}});
 </script>"""
     return page("Unusual galaxies and lens candidates in Euclid DR1, flagged by AI | Euclid Oddities", f"{len(F)} unusual objects in ESA Euclid DR1 images flagged by Claude Fable 5.2: possible gravitational lenses, tidal streams and odd galaxies, with catalogue checks. Unverified.", body, base, base,
                 f"{base}/img/{F[0]['slug']}-thumb.jpg")
