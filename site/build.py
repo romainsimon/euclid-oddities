@@ -299,7 +299,9 @@ def load_reviews(slug):
             continue
         if r.get("slug") == slug:
             R.append(r)
-    return R
+    order = {"claude-opus-5-5": 1, "claude-fable-5-2": 2, "gpt-6-astra": 3}
+    # Measurements without an AI model first, then AI reviewers in a fixed order.
+    return sorted(R, key=lambda r: (0 if "no AI" in r.get("reviewer_model", "") else order.get(r.get("reviewer_model", ""), 9)))
 
 
 VERDICT_SHORT = {"worth a closer look": "Closer look", "likely ordinary": "Likely ordinary", "likely artefact": "Likely artefact",
