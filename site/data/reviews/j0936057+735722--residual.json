@@ -1,0 +1,9 @@
+{"slug": "j0936057+735722", "reviewer_model": "galaxy-light subtraction (photutils isophotes, no AI model)", "date": "2026-11-17",
+ "what_i_see": "After subtracting an elliptical-isophote model of the compact red host, a curved arc remains just south of it in VIS (peak 19 sigma), with a compact counterpart in Y (9 sigma) and H (11 sigma) at the arc's brightest knot.",
+ "most_likely": "A real curved feature about 1 arcsec from the host, relatively brighter in VIS than in NISP, so bluer than the host, as expected for a lensed background star-forming galaxy.",
+ "against_it": "The isophote fit absorbed part of the arc and over-subtracted the north side, so a counter-image cannot be assessed; a masked or parametric fit is needed. A tidal feature or a projected companion is also possible.",
+ "verdict": "worth a closer look",
+ "decisive_test": "Parametric lens and host modelling of the full-depth VIS frame with the arc masked, looking for a counter-image north of the host; a spectrum of the arc.",
+ "catalogue_notes": "No SIMBAD or NED entry within 10 arcsec; nearest ECLIPSE lens 484 arcsec away. Image rows of panels: VIS, Y, H residuals, 8 x 8 arcsec, north up.",
+ "confidence": "medium",
+ "image": "j0936057+735722-residual.jpg"}

@@ -1,0 +1,12 @@
+{
+ "slug": "j0936057+735722",
+ "reviewer_model": "claude-opus-5-5",
+ "date": "2026-11-17",
+ "what_i_see": "Compact red (orange in H/Y/VIS) early-type-looking core with a bluer, knotty arc about 1 arcsec to its south, curving around the core over roughly 120 degrees and concave toward it; a fainter diffuse extension toward the west/north-west. Arc is distinct in VIS soft and hard stretches.",
+ "most_likely": "Galaxy-scale strong-lens candidate: red deflector with a lensed blue background arc, Einstein radius near 1 arcsec. A ring or tidal feature around a single galaxy remains plausible.",
+ "against_it": "No counter-image clearly seen on the north side; the arc is knotty and could be a star-forming ring, tidal arm or chance-aligned companion. Low S/N; no redshifts.",
+ "verdict": "worth a closer look",
+ "decisive_test": "Lens modelling of the VIS cutout for a counter-image, then spectroscopy showing the arc at higher redshift than the red core (two distinct redshifts).",
+ "catalogue_notes": "AllWISE J093605.73+735720.9 at 0.65\" (W1 16.94, W1-W2 0.34, galaxy-like). NED: only WISE/2MASS sources; NVSS J093604+735800 at ~39\". SIMBAD: nothing within 2'. Gaia DR3: nothing within 21\". PS1: no row within 4\". Lens/cluster catalogues not successfully queried.",
+ "confidence": "medium"
+}

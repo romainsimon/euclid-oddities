@@ -1,0 +1,8 @@
+{"slug": "j0936057+735722", "reviewer_model": "claude-fable-5-2", "date": "2026-11-17",
+ "what_i_see": "Compact orange-red galaxy with a bright core and, about 0.8 arcsec south, a thin curved arc roughly 3 arcsec long, concave towards the core and bluer/whiter than it in the colour tile. No convincing counter-image. Unrelated edge-on and elongated galaxies lie 9-10 arcsec south.",
+ "most_likely": "Either a small galaxy-galaxy strong-lens candidate (red deflector plus one tangential arc) or a red galaxy with a tidal arm, shell or close edge-on companion. The two are not separable at this depth.",
+ "against_it": "Only one arc, no clear counter-image; arc colour differs only mildly from the core; blended photo-z about 1.2 is high for a lens of this size; near the noise level.",
+ "verdict": "worth a closer look",
+ "decisive_test": "Subtract a smooth model of the red core in VIS and look for a counter-image; then spectroscopy for two distinct redshifts along core and arc.",
+ "catalogue_notes": "SIMBAD: nothing within 2 arcmin. Gaia DR3: nothing within 30 arcsec. NED nearest: WISEA J093605.73+735720.9 at 0.65 arcsec, no redshift. Legacy DR8 photo-z 1.19+/-0.17 (extended, 0.03 arcsec). None within 5 arcmin in Huang+2021 Legacy lens candidates or PSZ2 clusters; other lens tables unreachable.",
+ "confidence": "low"}
