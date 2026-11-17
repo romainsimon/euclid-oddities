@@ -211,6 +211,16 @@ def vt(slug):
     return slug.replace("+", "p").replace(".", "_")
 
 
+def promise(f):
+    """Ranking for "Most promising": votes for a closer look first, then a penalty when most reviewers call it
+    ordinary or a star, then the finder's interest score."""
+    R = load_reviews(f["slug"])
+    closer = sum(r.get("verdict") == "worth a closer look" for r in R)
+    against = sum(r.get("verdict") in ("likely ordinary", "likely star or foreground", "likely artefact") for r in R)
+    penalty = 2 if R and against > len(R) / 2 else 0
+    return round(closer * 2 - penalty + f["interest"] / 5, 3)
+
+
 def card(f, base):
     rk, rt = rarity(f)
     ck, cl = consensus(load_reviews(f["slug"]))
@@ -220,7 +230,7 @@ def card(f, base):
           + (f'<span class="sparks">{sp}</span>' if rk == "legendary" else "")
           + '<span class="glare"></span></span>')
     return (f'<a class="card r-{rk}" style="view-transition-name:c-{vt(f["slug"])}" href="{base}/{f["slug"]}/" data-feature="{e(f["feature"])}" data-conf="{e(f["confidence"])}" data-rarity="{rk}" '
-            f'data-interest="{f["interest"]}" data-cat="{"yes" if f["catalogued"] else "no"}" data-date="{e(f["date_found"])}" data-model="{e(f["model"])}" data-rev="{ck or "none"}">{fx}'
+            f'data-interest="{f["interest"]}" data-cat="{"yes" if f["catalogued"] else "no"}" data-date="{e(f["date_found"])}" data-model="{e(f["model"])}" data-score="{promise(f)}" data-rev="{ck or "none"}">{fx}'
             f'<img style="view-transition-name:i-{vt(f["slug"])}" src="{base}/img/{f["slug"]}-thumb.jpg" width="360" height="360" loading="lazy" alt="Euclid visible-band cutout of {e(f["name"])}">'
             f'<div class="body"><div class="hd"><h3 style="view-transition-name:t-{vt(f["slug"])}">{icon(f["feature"])}{e(f["name"])}</h3>{stars(f["interest"])}</div><div class="meta">{tags(f)}{rv}</div><p>{e(f["description"])}</p></div></a>')
 
@@ -242,7 +252,7 @@ def index(F, meta, base):
 {seg("int", "Interest", [("", "Any"), ("3", "≥ 3.0"), ("3.5", "≥ 3.5")])}
 {seg("date", "Found", [("", "Any")] + [(d, d) for d in dates])}
 {seg("model", "Model", [("", "Any")] + [(m, m.replace("Claude ", "")) for m in models])}
-{seg("sort", "Sort", [("interest", "Interest"), ("review", "Second opinion"), ("date", "Newest")])}
+{seg("sort", "Sort", [("promising", "Most promising"), ("interest", "Fable interest"), ("date", "Newest")])}
 <span class="count" id="count" aria-live="polite"></span></div>
 <div class="grid" id="grid">{"".join(card(f, base) for f in F)}</div><p class="empty" id="empty" hidden>Nothing matches these filters.</p>
 <section class="method" id="method"><div class="panel"><span class="eyebrow"><b>01</b>Method</span><h2>How it <em>works</em></h2>
@@ -259,13 +269,13 @@ def index(F, meta, base):
 <p>Small samples: the two views differ by five objects. Full results, failures included, are on <a href="{REPO}">GitHub</a>.</p></div></section></main>
 <script>
 const cards=[...document.querySelectorAll('.card')],grid=document.getElementById('grid'),on=new Set();
-const st={{rev:'',conf:'',cat:'',int:'',date:'',model:'',sort:'interest'}};
+const st={{rev:'',conf:'',cat:'',int:'',date:'',model:'',sort:'promising'}};
 function sync(){{document.querySelectorAll('.seg').forEach(g=>g.querySelectorAll('.chip').forEach(b=>b.setAttribute('aria-pressed',st[g.dataset.k]===b.dataset.v)))}}
 function apply(){{let n=0;const m=+st.int||0;
 for(const el of cards){{const ok=(!st.rev||el.dataset.rev===st.rev)&&(!on.size||on.has(el.dataset.feature))&&(!st.conf||(st.conf==='low'?el.dataset.conf==='low':el.dataset.conf!=='low'))&&(!st.cat||el.dataset.cat===st.cat)&&(+el.dataset.interest>=m-1e-9)&&(!st.date||el.dataset.date===st.date)&&(!st.model||el.dataset.model===st.model);el.hidden=!ok;n+=ok}}
 document.getElementById('count').textContent=n+' of '+cards.length+' shown';document.getElementById('empty').hidden=n>0;
-const RV={{closer:0,split:1,ordinary:2,artefact:3,star:3,other:2,none:1}};[...cards].sort((a,b)=>st.sort==='review'?(RV[a.dataset.rev]-RV[b.dataset.rev])||b.dataset.interest-a.dataset.interest:st.sort==='date'?b.dataset.date.localeCompare(a.dataset.date)||b.dataset.interest-a.dataset.interest:b.dataset.interest-a.dataset.interest).forEach(el=>grid.appendChild(el));
-const p=new URLSearchParams();if(on.size)p.set('feature',[...on].join(','));for(const k in st)if(st[k]&&!(k==='sort'&&st[k]==='interest'))p.set(k,st[k]);
+const RV={{closer:0,split:1,ordinary:2,artefact:3,star:3,other:2,none:1}};[...cards].sort((a,b)=>st.sort==='promising'?(b.dataset.score-a.dataset.score)||b.dataset.interest-a.dataset.interest:st.sort==='date'?b.dataset.date.localeCompare(a.dataset.date)||b.dataset.interest-a.dataset.interest:b.dataset.interest-a.dataset.interest).forEach(el=>grid.appendChild(el));
+const p=new URLSearchParams();if(on.size)p.set('feature',[...on].join(','));for(const k in st)if(st[k]&&!(k==='sort'&&st[k]==='promising'))p.set(k,st[k]);
 history.replaceState(null,'',(p.toString()?'?'+p:location.pathname));sync()}}
 document.querySelectorAll('.chip[data-f]').forEach(b=>b.addEventListener('click',()=>{{const f=b.dataset.f;on.has(f)?on.delete(f):on.add(f);b.setAttribute('aria-pressed',on.has(f));apply()}}));
 document.querySelectorAll('.seg').forEach(g=>g.querySelectorAll('.chip').forEach(b=>b.addEventListener('click',()=>{{st[g.dataset.k]=b.dataset.v;apply()}})));
@@ -438,7 +448,7 @@ def main():
     global BASE_URL
     BASE_URL = base
     D = json.loads((HERE / "data" / "finds.json").read_text(encoding="utf-8"))
-    F = sorted(D["finds"], key=lambda f: (-f["interest"], f["slug"]))
+    F = sorted(D["finds"], key=lambda f: (-promise(f), -f["interest"], f["slug"]))
     out.mkdir(parents=True, exist_ok=True)
     if (out / "img").exists():
         shutil.rmtree(out / "img")
