@@ -31,9 +31,13 @@ def icon(feature, size=20):
 
 NATURE = {"ordinary": "Ordinary", "artefact": "Artefact", "known_rare_class": "Known rare class", "cannot_explain": "Cannot explain"}
 
-FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
-         '<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500'
-         '&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">')
+# Self-hosted (SpaceSim serves every font from /assets/fonts; no third-party font requests). SIL OFL fonts.
+FONTS = ('<link rel="preload" href="/assets/fonts/space-grotesk-variable.woff2" as="font" type="font/woff2" crossorigin>'
+         '<link rel="preload" href="/assets/fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin>')
+FONT_FACES = """@font-face{font-family:"Space Grotesk";src:url("/assets/fonts/space-grotesk-variable.woff2") format("woff2");font-weight:300 700;font-display:swap}
+@font-face{font-family:"Inter";src:url("/assets/fonts/inter-variable.woff2") format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"JetBrains Mono";src:url("/assets/fonts/jetbrains-mono-variable.woff2") format("woff2");font-weight:100 800;font-display:swap}
+"""
 
 CSS = """
 :root{--bg:#0b0c0f;--card:#15171c;--card2:#1b1e24;--card3:#23262d;--fg:#eceef2;--silver:#c3c8d0;--dim:#868c97;
@@ -155,7 +159,7 @@ def page(title, desc, body, base, canonical, image=None):
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/assets/favicons/galaxy-180.png" />
 <title>{e(title)}</title><meta name="description" content="{e(desc)}"><link data-route-meta rel="canonical" href="{SITE}{canonical}">
 <meta data-route-meta property="og:title" content="{e(title)}"><meta data-route-meta property="og:description" content="{e(desc)}"><meta data-route-meta property="og:type" content="website"><meta data-route-meta property="og:url" content="{SITE}{canonical}">{og}
-<meta data-route-meta name="twitter:card" content="summary_large_image">{FONTS}<style>{CSS}</style></head><body>
+<meta data-route-meta name="twitter:card" content="summary_large_image">{FONTS}<style>{FONT_FACES}{CSS}</style></head><body>
 <header class="top"><div class="bar"><a class="brand" href="{base}/">Euclid Oddities <span class="badge">Beta</span></a>
 <nav class="top"><a href="{base}/#method">Method</a><a href="{REPO}">Data &amp; rules</a><a class="keep" href="/">SpaceSim</a></nav></div></header>
 {body}
@@ -253,7 +257,7 @@ c.style.setProperty('--mx',x*100+'%');c.style.setProperty('--my',y*100+'%');c.st
 c.style.setProperty('--hyp',Math.min(1,Math.hypot(x-.5,y-.5)*2));c.classList.add('on')}});
 c.addEventListener('pointerleave',()=>{{c.classList.remove('on');c.style.setProperty('--rx','0deg');c.style.setProperty('--ry','0deg')}})}});
 </script>"""
-    return page("Unusual galaxies and lens candidates in Euclid DR1, flagged by AI | Euclid Oddities", f"{len(F)} unusual objects in ESA Euclid DR1 images flagged by Claude Fable 5.2: possible gravitational lenses, tidal streams and odd galaxies, with catalogue checks. Unverified.", body, base, base,
+    return page("Unusual galaxies and lens candidates in Euclid DR1 | Euclid Oddities", f"{len(F)} unusual objects in ESA Euclid DR1 images flagged by Claude Fable 5.2: possible gravitational lenses, tidal streams and odd galaxies, with catalogue checks. Unverified.", body, base, base,
                 f"{base}/img/{F[0]['slug']}-thumb.jpg")
 
 
