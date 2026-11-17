@@ -23,7 +23,7 @@ git -C "$REPO" push -q origin main
 # 3. SpaceSim: fresh branch from origin/main, regenerate, sync the changelog boundary, test, push to main
 git -C "$SPACESIM_WT" fetch -q origin
 git -C "$SPACESIM_WT" checkout -q -B claude/euclid-oddities origin/main
-MSYS_NO_PATHCONV=1 python "$REPO/site/build.py" "$(cygpath -m "$SPACESIM_WT")/public/euclid-oddities" --base /euclid-oddities
+MSYS_NO_PATHCONV=1 python "$(cygpath -m "$REPO")/site/build.py" "$(cygpath -m "$SPACESIM_WT")/public/euclid-oddities" --base /euclid-oddities
 git -C "$SPACESIM_WT" add public/euclid-oddities
 if git -C "$SPACESIM_WT" diff --cached --quiet; then echo "spacesim: nothing changed"; exit 0; fi
 git -C "$SPACESIM_WT" commit -qm "Euclid Oddities: $MSG
