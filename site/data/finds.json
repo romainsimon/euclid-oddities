@@ -1,0 +1,911 @@
+{
+ "meta": {
+  "updated": "2026-11-17",
+  "source": "https://github.com/romainsimon/euclid-oddities",
+  "note": "Objects flagged by Claude in Euclid DR1 cutouts. Unverified model suggestions, not discoveries."
+ },
+ "finds": [
+  {
+   "slug": "j0414016-531138",
+   "name": "EO J041401.58-531138.4",
+   "ra": 63.506565,
+   "dec": -53.193993,
+   "date_found": "2026-11-17",
+   "run": "Fable pass 1 (A-fable)",
+   "model": "Claude Fable 5.2",
+   "rendering": "2x2 grid, scan prompt",
+   "interest": 3.8,
+   "weirdness": 3.0,
+   "feature": "irregular",
+   "nature": "known_rare_class",
+   "confidence": "medium",
+   "description": "Long S-shaped, curved stellar stream about 12 arcsec long with a bright knot mid-way, connecting to a compact disc galaxy at its upper-left end; looks like an interacting/merging pair with tidal tails.",
+   "ordinary_explanation": "Tidally distorted merging galaxy pair with a long tidal tail, or a warped edge-on disc.",
+   "point": {
+    "x": 0.49,
+    "y": 0.5
+   },
+   "selection": "catalogue outlier rank 187 of 5,203",
+   "tile": 102016883,
+   "simbad": [],
+   "ned": [
+    {
+     "name": "WISEA J041401.59-531138.1",
+     "type": null
+    }
+   ],
+   "eclipse_within_10as": 0,
+   "catalogued": false,
+   "catalogue_names": [],
+   "status": "unverified model suggestion"
+  },
+  {
+   "slug": "j1002159+661833",
+   "name": "EO J100215.87+661833.1",
+   "ra": 150.566115,
+   "dec": 66.309193,
+   "date_found": "2026-11-17",
+   "run": "Fable pass 1 (A-fable)",
+   "model": "Claude Fable 5.2",
+   "rendering": "2x2 grid, scan prompt",
+   "interest": 3.4,
+   "weirdness": 2.6,
+   "feature": "arc",
+   "nature": "known_rare_class",
+   "confidence": "low",
+   "description": "Faint blue curved arclets and elongated blue knots wrapped around a red early-type galaxy just south of the brightest group elliptical; possible galaxy-group-scale strong lensing candidate.",
+   "ordinary_explanation": "Blue satellite or tidally disturbed star-forming galaxies projected near red group members.",
+   "point": {
+    "x": 0.52,
+    "y": 0.53
+   },
+   "selection": "catalogue outlier rank 125 of 5,203",
+   "tile": 102159389,
+   "simbad": [],
+   "ned": [
+    {
+     "name": "WISEA J100216.80+661827.5",
+     "type": null
+    },
+    {
+     "name": "WISEA J100215.69+661836.7",
+     "type": null
+    }
+   ],
+   "eclipse_within_10as": 0,
+   "catalogued": false,
+   "catalogue_names": [],
+   "status": "unverified model suggestion"
+  },
+  {
+   "slug": "j0413005-525304",
+   "name": "EO J041300.50-525304.4",
+   "ra": 63.252096,
+   "dec": -52.884545,
+   "date_found": "2026-11-17",
+   "run": "Fable pass 1 (A-fable)",
+   "model": "Claude Fable 5.2",
+   "rendering": "2x2 grid, scan prompt",
+   "interest": 3.3,
+   "weirdness": 2.4,
+   "feature": "arc",
+   "nature": "known_rare_class",
+   "confidence": "low",
+   "description": "Thin faint streak about 2.4 arcsec south-west of the core of a large red elliptical, roughly tangential to it and bluer than the galaxy; possible gravitationally lensed arc. A second faint arclet lies upper right.",
+   "ordinary_explanation": "Edge-on faint satellite or background disc galaxy projected on the elliptical's halo.",
+   "point": {
+    "x": 0.55,
+    "y": 0.555
+   },
+   "selection": "catalogue outlier rank 318 of 5,203",
+   "tile": 102016883,
+   "simbad": [],
+   "ned": [
+    {
+     "name": "WISEA J041300.68-525302.4",
+     "type": "G"
+    }
+   ],
+   "eclipse_within_10as": 0,
+   "catalogued": false,
+   "catalogue_names": [],
+   "status": "unverified model suggestion"
+  },
+  {
+   "slug": "j0413393-524625",
+   "name": "EO J041339.30-524625.4",
+   "ra": 63.413762,
+   "dec": -52.77372,
+   "date_found": "2026-11-17",
+   "run": "Fable pass 1 (A-fable)",
+   "model": "Claude Fable 5.2",
+   "rendering": "2x2 grid, scan prompt",
+   "interest": 3.2,
+   "weirdness": 2.6,
+   "feature": "irregular",
+   "nature": "ordinary",
+   "confidence": "medium",
+   "description": "Large face-on clumpy spiral whose bright core is a curved, banana-shaped bar ending in a hooked knot; a very bright blue star-forming clump on the left arm; faint red elongated background galaxies upper-left.",
+   "ordinary_explanation": "Disturbed barred spiral with a dust-lane-shaped nucleus and a giant star-forming clump.",
+   "point": {
+    "x": 0.6,
+    "y": 0.81
+   },
+   "selection": "catalogue outlier rank 310 of 5,203",
+   "tile": 102016883,
+   "simbad": [
+    {
+     "name": "LEDA  438844",
+     "type": "G"
+    }
+   ],
+   "ned": [
+    {
+     "name": "WISEA J041339.22-524626.8",
+     "type": null
+    },
+    {
+     "name": "WISEA J041339.69-524622.2",
+     "type": "G"
+    }
+   ],
+   "eclipse_within_10as": 0,
+   "catalogued": true,
+   "catalogue_names": [
+    "LEDA  438844"
+   ],
+   "status": "unverified model suggestion"
+  },
+  {
+   "slug": "j0413241-525919",
+   "name": "EO J041324.05-525919.2",
+   "ra": 63.350214,
+   "dec": -52.988678,
+   "date_found": "2026-11-17",
+   "run": "Fable pass 1 (A-fable)",
+   "model": "Claude Fable 5.2",
+   "rendering": "2x2 grid, scan prompt",
+   "interest": 3.2,
+   "weirdness": 2.4,
+   "feature": "irregular",
+   "nature": "known_rare_class",
+   "confidence": "medium",
+   "description": "Disturbed barred spiral with asymmetric arms and a faint outer loop, a compact elongated companion superposed on its southern disc and a diffuse clump at the northern arm tip; likely interacting/merging system.",
+   "ordinary_explanation": "Ordinary spiral galaxy with chance-projected foreground or background galaxies near its disc.",
+   "point": {
+    "x": 0.57,
+    "y": 0.66
+   },
+   "selection": "catalogue outlier rank 256 of 5,203",
+   "tile": 102016883,
+   "simbad": [],
+   "ned": [
+    {
+     "name": "WISEA J041324.02-525919.4",
+     "type": "G"
+    }
+   ],
+   "eclipse_within_10as": 0,
+   "catalogued": false,
+   "catalogue_names": [],
+   "status": "unverified model suggestion"
+  },
+  {
+   "slug": "j0414037-524918",
+   "name": "EO J041403.67-524918.5",
+   "ra": 63.515307,
+   "dec": -52.821795,
+   "date_found": "2026-11-17",
+   "run": "Fable pass 1 (A-fable)",
+   "model": "Claude Fable 5.2",
+   "rendering": "2x2 grid, scan prompt",
+   "interest": 3.2,
+   "weirdness": 2.0,
+   "feature": "irregular",
+   "nature": "ordinary",
+   "confidence": "medium",
+   "description": "Blue, clumpy dwarf irregular galaxy with a bright elongated star-forming core, resolved into many compact knots or stars and clusters, embedded in a smooth diffuse halo; small faint patch on lower-left edge.",
+   "ordinary_explanation": "Nearby star-forming dwarf irregular galaxy partly resolved into stars and clusters.",
+   "point": {
+    "x": 0.5,
+    "y": 0.5
+   },
+   "selection": "catalogue outlier rank 54 of 5,203",
+   "tile": 102016883,
+   "simbad": [
+    {
+     "name": "LEDA  438104",
+     "type": "G"
+    }
+   ],
+   "ned": [
+    {
+     "name": "WISEA J041403.71-524918.5",
+     "type": "G"
+    }
+   ],
+   "eclipse_within_10as": 0,
+   "catalogued": true,
+   "catalogue_names": [
+    "LEDA  438104"
+   ],
+   "status": "unverified model suggestion"
+  },
+  {
+   "slug": "j1002117+662715",
+   "name": "EO J100211.72+662715.0",
+   "ra": 150.548835,
+   "dec": 66.45417,
+   "date_found": "2026-11-17",
+   "run": "Fable pass 1 (A-fable)",
+   "model": "Claude Fable 5.2",
+   "rendering": "2x2 grid, scan prompt",
+   "interest": 3.0,
+   "weirdness": 2.2,
+   "feature": "arc",
+   "nature": "known_rare_class",
+   "confidence": "low",
+   "description": "Faint thin arclet about 5.8 arcsec upper-right of a massive red elliptical, oriented tangentially to it; other faint smudges lie below the galaxy. Possible galaxy-scale strong-lens arc, blue relative to the lens.",
+   "ordinary_explanation": "Faint edge-on background or satellite galaxy aligned tangentially by chance.",
+   "point": {
+    "x": 0.634,
+    "y": 0.373
+   },
+   "selection": "catalogue outlier rank 289 of 5,203",
+   "tile": 102159389,
+   "simbad": [],
+   "ned": [
+    {
+     "name": "WISEA J100212.41+662710.9",
+     "type": "G"
+    }
+   ],
+   "eclipse_within_10as": 0,
+   "catalogued": false,
+   "catalogue_names": [],
+   "status": "unverified model suggestion"
+  },
+  {
+   "slug": "j0412096-525954",
+   "name": "EO J041209.58-525954.5",
+   "ra": 63.039916,
+   "dec": -52.998468,
+   "date_found": "2026-11-17",
+   "run": "Fable pass 1 (A-fable)",
+   "model": "Claude Fable 5.2",
+   "rendering": "2x2 grid, scan prompt",
+   "interest": 3.0,
+   "weirdness": 2.5,
+   "feature": "arc",
+   "nature": "known_rare_class",
+   "confidence": "low",
+   "description": "Chain of blue elongated blobs and a knot lying tangentially about 2 arcsec north of the bright saturated red central object with diffraction spikes; possible lensed arclets, though the central object may be a star.",
+   "ordinary_explanation": "Chance projection of faint blue background galaxies near a bright foreground star.",
+   "point": {
+    "x": 0.5,
+    "y": 0.44
+   },
+   "selection": "catalogue outlier rank 95 of 5,203",
+   "tile": 102016883,
+   "simbad": [],
+   "ned": [
+    {
+     "name": "2MASS J04120948-5259576",
+     "type": null
+    },
+    {
+     "name": "WISEA J041209.51-525957.2",
+     "type": null
+    }
+   ],
+   "eclipse_within_10as": 0,
+   "catalogued": false,
+   "catalogue_names": [],
+   "status": "unverified model suggestion"
+  },
+  {
+   "slug": "j0959274+662409",
+   "name": "EO J095927.41+662408.9",
+   "ra": 149.864228,
+   "dec": 66.402474,
+   "date_found": "2026-11-17",
+   "run": "Fable pass 1 (A-fable)",
+   "model": "Claude Fable 5.2",
+   "rendering": "2x2 grid, scan prompt",
+   "interest": 2.8,
+   "weirdness": 2.0,
+   "feature": "arc",
+   "nature": "known_rare_class",
+   "confidence": "low",
+   "description": "Thin, slightly curved elongated streak about 3 arcsec south-west of the bright central early-type galaxy, oriented roughly tangentially to it; possible gravitationally lensed arc candidate. Rest of field is ordinary compact red galaxies.",
+   "ordinary_explanation": "Edge-on disc or tidally stretched satellite galaxy projected near the central galaxy.",
+   "point": {
+    "x": 0.59,
+    "y": 0.55
+   },
+   "selection": "random control",
+   "tile": 102159389,
+   "simbad": [],
+   "ned": [
+    {
+     "name": "WISEA J095927.83+662410.4",
+     "type": null
+    }
+   ],
+   "eclipse_within_10as": 0,
+   "catalogued": false,
+   "catalogue_names": [],
+   "status": "unverified model suggestion"
+  },
+  {
+   "slug": "j0346299-543814",
+   "name": "EO J034629.88-543813.9",
+   "ra": 56.624481,
+   "dec": -54.637189,
+   "date_found": "2026-11-17",
+   "run": "Fable pass 1 (A-fable)",
+   "model": "Claude Fable 5.2",
+   "rendering": "2x2 grid, scan prompt",
+   "interest": 2.8,
+   "weirdness": 1.8,
+   "feature": "pair",
+   "nature": "ordinary",
+   "confidence": "medium",
+   "description": "Large inclined spiral with dust lanes and bright bulge; compact elongated companion at its upper-right end, embedded in a shared warped, asymmetric outer envelope suggesting tidal interaction. Many small background galaxies around.",
+   "ordinary_explanation": "Inclined spiral galaxy interacting with, or projected against, a smaller companion galaxy.",
+   "point": {
+    "x": 0.52,
+    "y": 0.5
+   },
+   "selection": "catalogue outlier rank 61 of 5,203",
+   "tile": 102015586,
+   "simbad": [
+    {
+     "name": "LEDA  417475",
+     "type": "G"
+    }
+   ],
+   "ned": [
+    {
+     "name": "WISEA J034629.90-543813.5",
+     "type": "G"
+    }
+   ],
+   "eclipse_within_10as": 0,
+   "catalogued": true,
+   "catalogue_names": [
+    "LEDA  417475"
+   ],
+   "status": "unverified model suggestion"
+  },
+  {
+   "slug": "j0411278-525538",
+   "name": "EO J041127.84-525538.1",
+   "ra": 62.865981,
+   "dec": -52.927258,
+   "date_found": "2026-11-17",
+   "run": "Fable pass 1 (A-fable)",
+   "model": "Claude Fable 5.2",
+   "rendering": "2x2 grid, scan prompt",
+   "interest": 2.8,
+   "weirdness": 2.4,
+   "feature": "ring",
+   "nature": "known_rare_class",
+   "confidence": "low",
+   "description": "Small faint clumpy ring about 2 arcsec across with a dark centre, bluish in the composite, visible in both visible-band stretches. Rest of field is ordinary red ellipticals and discs.",
+   "ordinary_explanation": "Clumpy star-forming or collisional ring galaxy, or chance grouping of faint blue clumps.",
+   "point": {
+    "x": 0.86,
+    "y": 0.155
+   },
+   "selection": "catalogue outlier rank 98 of 5,203",
+   "tile": 102016883,
+   "simbad": [],
+   "ned": [],
+   "eclipse_within_10as": 0,
+   "catalogued": false,
+   "catalogue_names": [],
+   "status": "unverified model suggestion"
+  },
+  {
+   "slug": "j0411336-525907",
+   "name": "EO J041133.59-525906.7",
+   "ra": 62.88994,
+   "dec": -52.985201,
+   "date_found": "2026-11-17",
+   "run": "Fable pass 1 (A-fable)",
+   "model": "Claude Fable 5.2",
+   "rendering": "2x2 grid, scan prompt",
+   "interest": 2.6,
+   "weirdness": 2.2,
+   "feature": "arc",
+   "nature": "known_rare_class",
+   "confidence": "medium",
+   "description": "Thin, slightly curved streak about 3 arcsec long extending up-right from the bright compact galaxy at centre, reddish in the colour composite. It points radially away from the galaxy, like a tidal tail rather than a tangential lensed arc.",
+   "ordinary_explanation": "Tidal tail from an interaction, or a chance-projected edge-on background galaxy.",
+   "point": {
+    "x": 0.56,
+    "y": 0.46
+   },
+   "selection": "catalogue outlier rank 111 of 5,203",
+   "tile": 102016883,
+   "simbad": [],
+   "ned": [
+    {
+     "name": "WISEA J041133.63-525907.8",
+     "type": null
+    }
+   ],
+   "eclipse_within_10as": 0,
+   "catalogued": false,
+   "catalogue_names": [],
+   "status": "unverified model suggestion"
+  },
+  {
+   "slug": "j0412531-531253",
+   "name": "EO J041253.10-531252.7",
+   "ra": 63.221242,
+   "dec": -53.214653,
+   "date_found": "2026-11-17",
+   "run": "Fable pass 1 (A-fable)",
+   "model": "Claude Fable 5.2",
+   "rendering": "2x2 grid, scan prompt",
+   "interest": 2.6,
+   "weirdness": 1.8,
+   "feature": "pair",
+   "nature": "ordinary",
+   "confidence": "medium",
+   "description": "Edge-on disc galaxy with a dust lane, visibly bowed into a banana shape, beside a bright early-type companion about 8 arcseconds away. Faint straight streak down the left edge looks like an artefact.",
+   "ordinary_explanation": "Edge-on spiral warped by tidal interaction with neighbouring galaxy; left-edge streak is a trail artefact.",
+   "point": {
+    "x": 0.55,
+    "y": 0.48
+   },
+   "selection": "catalogue outlier rank 40 of 5,203",
+   "tile": 102016883,
+   "simbad": [],
+   "ned": [
+    {
+     "name": "WISEA J041252.92-531259.0",
+     "type": null
+    },
+    {
+     "name": "WISEA J041253.29-531253.5",
+     "type": "G"
+    }
+   ],
+   "eclipse_within_10as": 0,
+   "catalogued": false,
+   "catalogue_names": [],
+   "status": "unverified model suggestion"
+  },
+  {
+   "slug": "j0347049-543806",
+   "name": "EO J034704.87-543806.3",
+   "ra": 56.770288,
+   "dec": -54.635086,
+   "date_found": "2026-11-17",
+   "run": "Fable pass 1 (A-fable)",
+   "model": "Claude Fable 5.2",
+   "rendering": "2x2 grid, scan prompt",
+   "interest": 2.6,
+   "weirdness": 1.6,
+   "feature": "pair",
+   "nature": "ordinary",
+   "confidence": "medium",
+   "description": "Two red elliptical nuclei about 1.7 arcsec apart sharing a common diffuse halo, with a faint knot to the right, in a group of red galaxies. Upper galaxy shows a curved arm or tidal arc.",
+   "ordinary_explanation": "Merging or projected pair of early-type galaxies at a group/cluster centre; arc is a spiral arm or tidal tail.",
+   "point": {
+    "x": 0.51,
+    "y": 0.49
+   },
+   "selection": "catalogue outlier rank 329 of 5,203",
+   "tile": 102015586,
+   "simbad": [
+    {
+     "name": "SMH J034704.9-543806.7",
+     "type": "G"
+    }
+   ],
+   "ned": [
+    {
+     "name": "WISEA J034704.93-543806.6",
+     "type": "G"
+    }
+   ],
+   "eclipse_within_10as": 0,
+   "catalogued": true,
+   "catalogue_names": [
+    "SMH J034704.9-543806.7"
+   ],
+   "status": "unverified model suggestion"
+  },
+  {
+   "slug": "j0348494-544342",
+   "name": "EO J034849.38-544341.7",
+   "ra": 57.205741,
+   "dec": -54.728255,
+   "date_found": "2026-11-17",
+   "run": "Fable pass 1 (A-fable)",
+   "model": "Claude Fable 5.2",
+   "rendering": "2x2 grid, scan prompt",
+   "interest": 2.6,
+   "weirdness": 2.0,
+   "feature": "pair",
+   "nature": "ordinary",
+   "confidence": "medium",
+   "description": "Thin, bluish, straight streak about 2 arcseconds long lying just left of a compact red galaxy near the field centre. It points roughly towards the galaxy rather than tangentially, so a lensed arc is unlikely.",
+   "ordinary_explanation": "Edge-on blue disc galaxy projected next to, or interacting with, a red early-type galaxy.",
+   "point": {
+    "x": 0.44,
+    "y": 0.51
+   },
+   "selection": "catalogue outlier rank 190 of 5,203",
+   "tile": 102015586,
+   "simbad": [],
+   "ned": [
+    {
+     "name": "WISEA J034849.15-544341.5",
+     "type": null
+    }
+   ],
+   "eclipse_within_10as": 0,
+   "catalogued": false,
+   "catalogue_names": [],
+   "status": "unverified model suggestion"
+  },
+  {
+   "slug": "j0349060-542243",
+   "name": "EO J034906.02-542242.6",
+   "ra": 57.275064,
+   "dec": -54.378513,
+   "date_found": "2026-11-17",
+   "run": "Fable pass 1 (A-fable)",
+   "model": "Claude Fable 5.2",
+   "rendering": "2x2 grid, scan prompt",
+   "interest": 2.6,
+   "weirdness": 1.8,
+   "feature": "pair",
+   "nature": "ordinary",
+   "confidence": "medium",
+   "description": "Two red, infrared-bright nuclei about 1 arcsecond apart inside a common diffuse envelope, likely merging early-type galaxies. A faint red smudge lies to the south, with small bluish galaxies nearby.",
+   "ordinary_explanation": "Close merging or projected pair of red early-type galaxies in a small group.",
+   "point": {
+    "x": 0.49,
+    "y": 0.51
+   },
+   "selection": "catalogue outlier rank 324 of 5,203",
+   "tile": 102015586,
+   "simbad": [],
+   "ned": [
+    {
+     "name": "WISEA J034906.02-542243.3",
+     "type": "G"
+    }
+   ],
+   "eclipse_within_10as": 0,
+   "catalogued": false,
+   "catalogue_names": [],
+   "status": "unverified model suggestion"
+  },
+  {
+   "slug": "j0348254-543202",
+   "name": "EO J034825.39-543201.5",
+   "ra": 57.10581,
+   "dec": -54.533761,
+   "date_found": "2026-11-17",
+   "run": "Fable pass 1 (A-fable)",
+   "model": "Claude Fable 5.2",
+   "rendering": "2x2 grid, scan prompt",
+   "interest": 2.6,
+   "weirdness": 1.8,
+   "feature": "other",
+   "nature": "ordinary",
+   "confidence": "medium",
+   "description": "Face-on galaxy with a bright horizontal bar, a large smooth low-surface-brightness disc and faint knots or arm fragments around it. A small blue streak lies below-left at about (0.42, 0.70), oriented roughly radially.",
+   "ordinary_explanation": "Barred low-surface-brightness spiral with star-forming knots; streak is probably an edge-on background galaxy.",
+   "point": {
+    "x": 0.5,
+    "y": 0.49
+   },
+   "selection": "catalogue outlier rank 147 of 5,203",
+   "tile": 102015586,
+   "simbad": [
+    {
+     "name": "LEDA  418503",
+     "type": "G"
+    }
+   ],
+   "ned": [
+    {
+     "name": "WISEA J034825.41-543201.8",
+     "type": "G"
+    }
+   ],
+   "eclipse_within_10as": 0,
+   "catalogued": true,
+   "catalogue_names": [
+    "LEDA  418503"
+   ],
+   "status": "unverified model suggestion"
+  },
+  {
+   "slug": "j0412259-524652",
+   "name": "EO J041225.90-524651.6",
+   "ra": 63.107932,
+   "dec": -52.780995,
+   "date_found": "2026-11-17",
+   "run": "Fable pass 1 (A-fable)",
+   "model": "Claude Fable 5.2",
+   "rendering": "2x2 grid, scan prompt",
+   "interest": 2.6,
+   "weirdness": 1.8,
+   "feature": "pair",
+   "nature": "ordinary",
+   "confidence": "medium",
+   "description": "Edge-on disc galaxy with a bright, compact, redder round source superposed at its north-east end; small clumpy companion below; several faint elongated arclet-like galaxies to the right, possibly weakly lensed background objects.",
+   "ordinary_explanation": "Edge-on spiral with a chance-projected foreground star or compact elliptical; unrelated background galaxies.",
+   "point": {
+    "x": 0.56,
+    "y": 0.53
+   },
+   "selection": "catalogue outlier rank 109 of 5,203",
+   "tile": 102016883,
+   "simbad": [
+    {
+     "name": "LEDA  438714",
+     "type": "G"
+    }
+   ],
+   "ned": [
+    {
+     "name": "2MASS J04122632-5246491",
+     "type": null
+    },
+    {
+     "name": "WISEA J041226.24-524649.7",
+     "type": null
+    },
+    {
+     "name": "GALEXASC J041225.69-524654.3",
+     "type": "G"
+    }
+   ],
+   "eclipse_within_10as": 0,
+   "catalogued": true,
+   "catalogue_names": [
+    "LEDA  438714"
+   ],
+   "status": "unverified model suggestion"
+  },
+  {
+   "slug": "j0347370-544115",
+   "name": "EO J034736.97-544115.5",
+   "ra": 56.90406,
+   "dec": -54.687631,
+   "date_found": "2026-11-17",
+   "run": "Fable pass 1 (A-fable)",
+   "model": "Claude Fable 5.2",
+   "rendering": "2x2 grid, scan prompt",
+   "interest": 2.6,
+   "weirdness": 1.8,
+   "feature": "ring",
+   "nature": "ordinary",
+   "confidence": "medium",
+   "description": "Large face-on disc galaxy with a red bulge and a thin, bluish, nearly closed ring or tightly wound arms, plus faint outer arcs. A saturated foreground star with diffraction spikes sits just north.",
+   "ordinary_explanation": "Ringed spiral galaxy with a star-forming resonance ring; bright foreground star nearby.",
+   "point": {
+    "x": 0.48,
+    "y": 0.74
+   },
+   "selection": "catalogue outlier rank 32 of 5,203",
+   "tile": 102015586,
+   "simbad": [
+    {
+     "name": "LEDA  416923",
+     "type": "G"
+    }
+   ],
+   "ned": [
+    {
+     "name": "WISEA J034736.87-544108.4",
+     "type": null
+    },
+    {
+     "name": "WISEA J034736.97-544115.6",
+     "type": "G"
+    }
+   ],
+   "eclipse_within_10as": 0,
+   "catalogued": true,
+   "catalogue_names": [
+    "LEDA  416923"
+   ],
+   "status": "unverified model suggestion"
+  },
+  {
+   "slug": "j0411438-525016",
+   "name": "EO J041143.78-525016.3",
+   "ra": 62.932396,
+   "dec": -52.837849,
+   "date_found": "2026-11-17",
+   "run": "Fable pass 1 (A-fable)",
+   "model": "Claude Fable 5.2",
+   "rendering": "2x2 grid, scan prompt",
+   "interest": 2.6,
+   "weirdness": 1.8,
+   "feature": "irregular",
+   "nature": "ordinary",
+   "confidence": "medium",
+   "description": "Large face-on barred spiral with an asymmetric, lopsided disc, clumpy blue star-forming knots and a bright off-centre bar; arms look disturbed. Smaller spiral and a bright star to the upper right, red background galaxies around.",
+   "ordinary_explanation": "Late-type barred spiral with star-forming clumps, possibly mildly disturbed by an interaction.",
+   "point": {
+    "x": 0.5,
+    "y": 0.47
+   },
+   "selection": "catalogue outlier rank 154 of 5,203",
+   "tile": 102016883,
+   "simbad": [
+    {
+     "name": "LEDA  437862",
+     "type": "G"
+    }
+   ],
+   "ned": [
+    {
+     "name": "WISEA J041143.78-525017.5",
+     "type": "G"
+    }
+   ],
+   "eclipse_within_10as": 0,
+   "catalogued": true,
+   "catalogue_names": [
+    "LEDA  437862"
+   ],
+   "status": "unverified model suggestion"
+  },
+  {
+   "slug": "j0413584-525004",
+   "name": "EO J041358.39-525004.5",
+   "ra": 63.493274,
+   "dec": -52.834577,
+   "date_found": "2026-11-17",
+   "run": "Fable pass 1 (A-fable)",
+   "model": "Claude Fable 5.2",
+   "rendering": "2x2 grid, scan prompt",
+   "interest": 2.6,
+   "weirdness": 1.8,
+   "feature": "irregular",
+   "nature": "ordinary",
+   "confidence": "medium",
+   "description": "Large blue clumpy irregular galaxy with a bar-like bright core, many compact star-forming knots and a chain of clumps on its left side, embedded in a faint diffuse asymmetric envelope; an ordinary red spiral lies to the right.",
+   "ordinary_explanation": "Nearby star-forming irregular or Magellanic-type dwarf galaxy with HII knots, possibly mildly disturbed.",
+   "point": {
+    "x": 0.38,
+    "y": 0.42
+   },
+   "selection": "catalogue outlier rank 78 of 5,203",
+   "tile": 102016883,
+   "simbad": [],
+   "ned": [
+    {
+     "name": "WISEA J041358.44-525003.5",
+     "type": "G"
+    }
+   ],
+   "eclipse_within_10as": 0,
+   "catalogued": false,
+   "catalogue_names": [],
+   "status": "unverified model suggestion"
+  },
+  {
+   "slug": "j0347150-543451",
+   "name": "EO J034715.01-543451.4",
+   "ra": 56.812541,
+   "dec": -54.580947,
+   "date_found": "2026-11-17",
+   "run": "Fable pass 1 (A-fable)",
+   "model": "Claude Fable 5.2",
+   "rendering": "2x2 grid, scan prompt",
+   "interest": 2.6,
+   "weirdness": 2.0,
+   "feature": "arc",
+   "nature": "ordinary",
+   "confidence": "low",
+   "description": "Small hook-shaped blue arc curving beside a red compact blob at upper left. Field is dominated by the clumpy outer disc of a large spiral at the right edge, plus two yellow point sources at centre.",
+   "ordinary_explanation": "Irregular or interacting background galaxy pair seen in projection; large spiral with star-forming clumps; foreground stars.",
+   "point": {
+    "x": 0.16,
+    "y": 0.15
+   },
+   "selection": "catalogue outlier rank 91 of 5,203",
+   "tile": 102015586,
+   "simbad": [],
+   "ned": [
+    {
+     "name": "WISEA J034714.95-543450.4",
+     "type": null
+    }
+   ],
+   "eclipse_within_10as": 0,
+   "catalogued": false,
+   "catalogue_names": [],
+   "status": "unverified model suggestion"
+  },
+  {
+   "slug": "j0348434-541606",
+   "name": "EO J034843.37-541606.3",
+   "ra": 57.180724,
+   "dec": -54.268409,
+   "date_found": "2026-11-17",
+   "run": "Fable pass 1 (A-fable)",
+   "model": "Claude Fable 5.2",
+   "rendering": "2x2 grid, scan prompt",
+   "interest": 2.6,
+   "weirdness": 1.8,
+   "feature": "irregular",
+   "nature": "ordinary",
+   "confidence": "medium",
+   "description": "Bright face-on galaxy with asymmetric, disturbed inner structure: a one-sided spiral arm, clumpy bright patch east of the nucleus, dust lanes, embedded in a smooth round extended halo. Possible minor-merger remnant. Small masked pixels in colour tile.",
+   "ordinary_explanation": "Face-on spiral with lopsided arms and dust lanes, perhaps mildly disturbed by a past minor merger.",
+   "point": {
+    "x": 0.5,
+    "y": 0.5
+   },
+   "selection": "catalogue outlier rank 267 of 5,203",
+   "tile": 102015586,
+   "simbad": [],
+   "ned": [
+    {
+     "name": "WISEA J034843.38-541606.2",
+     "type": "G"
+    }
+   ],
+   "eclipse_within_10as": 0,
+   "catalogued": false,
+   "catalogue_names": [],
+   "status": "unverified model suggestion"
+  },
+  {
+   "slug": "j0412373-525556",
+   "name": "EO J041237.34-525556.0",
+   "ra": 63.155585,
+   "dec": -52.932221,
+   "date_found": "2026-11-17",
+   "run": "Fable pass 1 (A-fable)",
+   "model": "Claude Fable 5.2",
+   "rendering": "2x2 grid, scan prompt",
+   "interest": 2.6,
+   "weirdness": 1.8,
+   "feature": "irregular",
+   "nature": "ordinary",
+   "confidence": "medium",
+   "description": "Large clumpy irregular galaxy with many bright blue star-forming knots, asymmetric off-centre bright region inside a smooth diffuse halo, faint plume on the left. Small background galaxies scattered around, including an edge-on above.",
+   "ordinary_explanation": "Nearby star-forming irregular or dwarf galaxy with HII knots, possibly mildly disturbed.",
+   "point": {
+    "x": 0.47,
+    "y": 0.5
+   },
+   "selection": "catalogue outlier rank 317 of 5,203",
+   "tile": 102016883,
+   "simbad": [
+    {
+     "name": "LEDA  436522",
+     "type": "G"
+    }
+   ],
+   "ned": [
+    {
+     "name": "WISEA J041237.36-525556.4",
+     "type": "G"
+    }
+   ],
+   "eclipse_within_10as": 0,
+   "catalogued": true,
+   "catalogue_names": [
+    "LEDA  436522"
+   ],
+   "status": "unverified model suggestion"
+  }
+ ]
+}
