@@ -51,6 +51,18 @@ h1{font:700 clamp(1.9rem,3.6vw,2.7rem)/1.05 var(--display);letter-spacing:-.035e
 h1 em,h2 em{font-style:normal;color:var(--accent)}
 .lede{color:var(--dim);max-width:62ch;margin:0;font-size:.95rem}
 .intro .side{color:var(--dim);font-size:.86rem;max-width:34ch}.intro .side a{color:var(--silver)}
+.hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:40px;align-items:center;padding:56px 0 8px}
+.hero h1{font:700 clamp(2.4rem,5.2vw,4.4rem)/.98 var(--display);letter-spacing:-.045em;margin:0 0 18px;max-width:12ch}
+.hero .lede{font-size:1.02rem;color:var(--silver);max-width:52ch}
+.cta{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.collage{position:relative;height:340px}
+.collage a{position:absolute;display:block;width:58%;border-radius:var(--r-lg);overflow:hidden;background:var(--card);padding:8px;box-shadow:0 40px 80px -40px rgba(0,0,0,.85);transition:transform .6s var(--ease)}
+.collage img{display:block;width:100%;height:auto;border-radius:var(--r)}
+.collage a:nth-child(1){left:0;top:28px;transform:rotate(-5deg);z-index:1}
+.collage a:nth-child(2){left:21%;top:0;transform:rotate(2deg);z-index:3}
+.collage a:nth-child(3){right:0;top:44px;transform:rotate(7deg);z-index:2}
+.collage:hover a:nth-child(1){transform:rotate(-8deg) translateX(-10px)}.collage:hover a:nth-child(3){transform:rotate(10deg) translateX(10px)}
+@media (max-width:900px){.hero{grid-template-columns:1fr;padding-top:36px}.collage{display:none}}
 .filters{position:sticky;top:72px;z-index:10;margin:24px 0 0;background:rgba(21,23,28,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
 border-radius:var(--r-lg);padding:12px 14px;display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}
 .group{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
@@ -149,9 +161,12 @@ def index(F, meta, base):
     dates = sorted({f["date_found"] for f in F}, reverse=True)
     models = sorted({f["model"] for f in F})
     chips = "".join(f'<button class="chip" type="button" aria-pressed="false" data-f="{k}">{e(FEATURE[k])}</button>' for k in feats)
-    body = f"""<main class="wrap"><div class="intro"><div><span class="eyebrow"><b>●</b>Euclid DR1 · Claude Fable 5.2</span>
-<h1>What an AI noticed in the new <em>Euclid</em> sky</h1>
-<p class="lede">Claude looked at Euclid images and flagged whatever seemed odd. These are its suggestions, unverified. Fake objects were hidden among the real ones to measure how far to trust it: <a href="#method">how it works</a>.</p></div></div>
+    hero = [F[1], F[0], F[2]]  # best find in the front, centre card
+    body = f"""<main class="wrap"><section class="hero">
+<div class="hero-text"><h1>Things nobody was <em>looking for</em></h1>
+<p class="lede">Claude Fable 5.2 combed fresh Euclid DR1 images and flagged whatever looked odd. Fake objects were hidden among them, so we know how far to trust it. Nothing here has been checked by an astronomer yet.</p>
+<div class="cta"><a class="btn primary" href="#grid">Browse {len(F)} finds</a><a class="btn" href="#method">How it works</a></div></div>
+<div class="collage" aria-hidden="true">{"".join(f'<a href="{base}/{f["slug"]}/" tabindex="-1"><img src="{base}/img/{f["slug"]}-thumb.jpg" width="360" height="360" alt=""></a>' for f in hero)}</div></section>
 <div class="filters" role="region" aria-label="Filters">
 <div class="group" aria-label="Feature"><span class="lbl">Feature</span>{chips}</div>
 {seg("conf", "Confidence", [("", "Any"), ("medium", "Medium+"), ("low", "Low")])}
@@ -207,7 +222,7 @@ def detail(f, prev, nxt, base):
     facts = [("Position (ICRS)", f'RA {f["ra"]:.5f}°, Dec {f["dec"]:+.5f}°'), ("Weirdness", f'{f["weirdness"]} / 5'),
              ("Model's reading", e(NATURE.get(f["nature"], f["nature"]))), ("Why inspected", e(f["selection"])),
              ("Catalogued as", cat), ("SIMBAD", sim), ("NED", ned), ("ECLIPSE lenses ≤ 10″", f["eclipse_within_10as"]),
-             ("Found by", f'{e(f["model"])} (<code>{e(f.get("model_id", ""))}</code>)'),
+             ("Found", f'{e(f["date_found"])} by {e(f["model"])} (<code>{e(f.get("model_id", ""))}</code>)'),
              ("Effort", f'{e(f.get("effort", "not recorded"))} · {f.get("thinking_tokens", 0)} thinking tokens'),
              ("Harness", e(f.get("harness", ""))), ("Run", f'{e(f["run"])}, {e(f["rendering"])}')]
     body = f"""<main class="wrap"><div class="crumbs"><a href="{base}/">All finds</a> / {e(f["name"])}</div>
@@ -215,7 +230,7 @@ def detail(f, prev, nxt, base):
 <div class="under"><button class="btn" type="button" aria-pressed="true" id="mk">Model's point shown</button></div>
 <div class="legend"><span>Top left · visible band (VIS)</span><span>Top right · colour: 1.8 µm, 1.1 µm, visible</span>
 <span>Bottom left · hard stretch for faint light</span><span>Bottom right · 3× zoom on the brightest galaxy</span><span>Field 32″ × 32″, north up</span></div></div>
-<div class="info"><span class="eyebrow"><b>●</b>Found {e(f["date_found"])} · {e(f["model"])} · default effort</span><h1>{e(f["name"])}</h1>
+<div class="info"><h1>{e(f["name"])}</h1>
 <div class="meta">{tags(f)}</div>
 <p class="quote">“{e(f["description"])}”</p><p class="explain">Ordinary explanation offered by the model: {e(f["ordinary_explanation"])}</p>
 <div class="facts">{"".join(f'<div class="fact"><span>{k}</span><span>{v}</span></div>' for k, v in facts)}</div>
