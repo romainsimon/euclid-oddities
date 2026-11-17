@@ -36,9 +36,9 @@ background-image:radial-gradient(ellipse 60% 30% at 80% 0%,rgba(255,107,26,.07),
 a{color:var(--fg)}a:hover{color:var(--accent)}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:10px}
 button,select,input{font:inherit;color:inherit}
-.wrap{max-width:none;margin:0;padding:0 16px}@media (min-width:760px){.wrap{padding:0 32px}}
-header.top{position:sticky;top:0;z-index:20;padding:12px 0 0}@media (min-width:760px){.bar{margin:0 32px}}
-.bar{max-width:none;margin:0 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;height:52px;padding:0 8px 0 20px;
+.wrap{max-width:1440px;margin:0 auto;padding:0 16px}@media (min-width:760px){.wrap{padding:0 32px}}
+header.top{position:sticky;top:0;z-index:20;padding:12px 16px 0}@media (min-width:760px){header.top{padding:12px 32px 0}}
+.bar{max-width:1376px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;height:52px;padding:0 8px 0 20px;
 border-radius:999px;background:rgba(21,23,28,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
 .brand{font:700 1.02rem/1 var(--display);letter-spacing:-.02em;text-decoration:none;color:var(--fg);display:flex;align-items:center;gap:10px}
 .badge{font:500 .58rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;padding:5px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
@@ -51,18 +51,9 @@ h1{font:700 clamp(1.9rem,3.6vw,2.7rem)/1.05 var(--display);letter-spacing:-.035e
 h1 em,h2 em{font-style:normal;color:var(--accent)}
 .lede{color:var(--dim);max-width:62ch;margin:0;font-size:.95rem}
 .intro .side{color:var(--dim);font-size:.86rem;max-width:34ch}.intro .side a{color:var(--silver)}
-.hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:40px;align-items:center;padding:56px 0 8px}
-.hero h1{font:700 clamp(2.4rem,5.2vw,4.4rem)/.98 var(--display);letter-spacing:-.045em;margin:0 0 18px;max-width:12ch}
-.hero .lede{font-size:1.02rem;color:var(--silver);max-width:52ch}
-.cta{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
-.collage{position:relative;height:340px;width:100%;max-width:560px;justify-self:end}
-.collage a{position:absolute;display:block;width:min(58%,300px);border-radius:var(--r-lg);overflow:hidden;background:var(--card);padding:8px;box-shadow:0 40px 80px -40px rgba(0,0,0,.85);transition:transform .6s var(--ease)}
-.collage img{display:block;width:100%;height:auto;border-radius:var(--r)}
-.collage a:nth-child(1){left:0;top:28px;transform:rotate(-5deg);z-index:1}
-.collage a:nth-child(2){left:50%;margin-left:min(-29%,-150px);top:0;transform:rotate(2deg);z-index:3}
-.collage a:nth-child(3){right:0;top:44px;transform:rotate(7deg);z-index:2}
-.collage:hover a:nth-child(1){transform:rotate(-8deg) translateX(-10px)}.collage:hover a:nth-child(3){transform:rotate(10deg) translateX(10px)}
-@media (max-width:900px){.hero{grid-template-columns:1fr;padding-top:36px}.collage{display:none}}
+.hero{text-align:center;padding:64px 0 12px}
+.hero h1{font:700 clamp(2rem,4.2vw,3.4rem)/1.04 var(--display);letter-spacing:-.04em;margin:0 auto 16px;max-width:20ch}
+.hero .lede{font-size:1rem;color:var(--silver);max-width:60ch;margin:0 auto}
 .filters{position:sticky;top:72px;z-index:10;margin:24px 0 0;background:rgba(21,23,28,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
 border-radius:var(--r-lg);padding:12px 14px;display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}
 .group{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
@@ -171,12 +162,9 @@ def index(F, meta, base):
     dates = sorted({f["date_found"] for f in F}, reverse=True)
     models = sorted({f["model"] for f in F})
     chips = "".join(f'<button class="chip" type="button" aria-pressed="false" data-f="{k}">{e(FEATURE[k])}</button>' for k in feats)
-    hero = [F[1], F[0], F[2]]  # best find in the front, centre card
     body = f"""<main class="wrap"><section class="hero">
-<div class="hero-text"><h1>Things nobody was <em>looking for</em></h1>
-<p class="lede">Claude Fable 5.2 combed fresh Euclid DR1 images and flagged whatever looked odd. Fake objects were hidden among them, so we know how far to trust it. Nothing here has been checked by an astronomer yet.</p>
-<div class="cta"><a class="btn primary" href="#grid">Browse {len(F)} finds</a><a class="btn" href="#method">How it works</a></div></div>
-<div class="collage" aria-hidden="true">{"".join(f'<a href="{base}/{f["slug"]}/" tabindex="-1"><img src="{base}/img/{f["slug"]}-thumb.jpg" width="360" height="360" alt=""></a>' for f in hero)}</div></section>
+<h1>Unusual galaxies and lens candidates in <em>Euclid DR1</em>, flagged by AI</h1>
+<p class="lede">Claude Fable 5.2 searched fresh Euclid images for anything odd. Planted fakes measure how far to trust it. None of these {len(F)} finds has been checked by an astronomer yet.</p></section>
 <div class="filters" role="region" aria-label="Filters">
 <div class="group" aria-label="Feature"><span class="lbl">Feature</span>{chips}</div>
 {seg("conf", "Confidence", [("", "Any"), ("medium", "Medium+"), ("low", "Low")])}
@@ -213,7 +201,7 @@ const p=new URLSearchParams(location.search);(p.get('feature')||'').split(',').f
 for(const k in st)if(p.get(k))st[k]=p.get(k);
 apply();
 </script>"""
-    return page("Euclid Oddities: what an AI notices in Euclid DR1", meta["note"], body, base, base,
+    return page("Unusual galaxies and lens candidates in Euclid DR1, flagged by AI | Euclid Oddities", f"{len(F)} unusual objects in ESA Euclid DR1 images flagged by Claude Fable 5.2: possible gravitational lenses, tidal streams and odd galaxies, with catalogue checks. Unverified.", body, base, base,
                 f"{base}/img/{F[0]['slug']}-thumb.jpg")
 
 
