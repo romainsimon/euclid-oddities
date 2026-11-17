@@ -252,6 +252,7 @@ def index(F, meta, base):
 <div class="rows"><div class="row head"><span>Measured on planted fakes</span><span>Old view</span><span>Larger view</span></div>
 <div class="row"><span>Planted oddities found (of 24)</span><span class="num">9</span><span class="num acc">14</span></div>
 <div class="row"><span>False features on untouched images (of 16)</span><span class="num">2</span><span class="num">3</span></div>
+<div class="row"><span>Two-stage search on 107″ fields: found at stage 1 / after close look (of 24)</span><span class="num"></span><span class="num">14 / 9</span></div>
 <div class="row"><span>Fresh-sky outliers inspected</span><span class="num"></span><span class="num">117</span></div>
 <div class="row"><span>Flagged and listed here</span><span class="num"></span><span class="num">{len(F)}</span></div></div>
 <p>Small samples: the two views differ by five objects. Full results, failures included, are on <a href="{REPO}">GitHub</a>.</p></div></section></main>
