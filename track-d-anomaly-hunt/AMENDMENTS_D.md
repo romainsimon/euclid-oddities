@@ -119,3 +119,14 @@ Code: `ftwo.py`. Open development key only (two development tiles); nothing touc
 A-twostage missed its read-out (9/24; stage 1 alone found 14/24): stage 2 re-searched each 32 arcsec crop freely and often judged a different object. This variant keeps everything from A-twostage (same 16 fields, same plants, the same 128 stage-1 points already recorded) and changes only stage 2: the crop is centred on the stage-1 point (clipped at field edges), an orange circle of radius 2.5 arcsec marks the point in the top-left and top-right tiles, and Fable 5.2 (effort high, prompt `inspect_target.txt`, new independent call) judges what is at the marked position.
 
 Scoring: a plant is found when a stage-1 point within 5 arcsec of it (injection mask included) gets interest >= 2.6 at stage 2. A flag is a stage-1 point with interest >= 2.6 and a feature other than none. Read-out rule unchanged: worth scaling if at least 12 of 24 are found with at most 1 flag per untouched field on average. Quota: weekly window may rise by at most 0.04 over this run; the Fable meter is capped at 0.20.
+
+## A-wide (17 Nov 2026, before any call): wide-field pass on fresh sky, exploratory
+
+Basis: on the development fields, stage 1 alone (one look at a 107 arcsec VIS field) found 14/24 plants; with a cut at interest >= 3.5 it keeps 8/24 with 0.5 points per untouched field (cut 3.0: 13/24, 2.0 per field). The close-look stage is dropped (A-twostage and A-twostage-b both lost plants).
+
+1. Fields: 300 fields of 107 x 107 arcsec, 50 in each of 6 DR1 tiles drawn with SEED_WIDE = 20261119 from Probe 0's random tiles never used by Probe D0, A-fable or A-twostage; field centres uniform within each tile, at least 60 arcsec from tile edges and 130 arcsec apart, <= 2% bad VIS pixels. VIS only for stage 1.
+2. Call: Claude Fable 5.2, effort high, prompt `inspect_list.txt`, one grey VIS image per field (as A-twostage stage 1), at most 8 points.
+3. A lead is a point with interest >= 3.5. Every lead is checked without a model: SIMBAD, NED and ECLIPSE within 10 arcsec, Gaia DR3 stars (parallax measured) within 1.5 arcsec, a bright star (G < 16) within 40 arcsec, field edge within 3 arcsec. Leads that fail a check are kept but labelled.
+4. The 10 highest-interest leads that pass the checks get a galaxy-light subtraction test and blind reviews by Claude Opus 5.5, Claude Fable 5.2 and GPT-6 Astra, as for earlier finds.
+5. Every lead is published in the gallery, labelled as an unverified model suggestion from run A-wide.
+6. Quota: the weekly window may rise by at most 0.06 over this pass (stop at 0.12 if it starts at 0.06); the Fable meter is capped at 0.30. Calls run on the server yuki-agents with the same subscription; apiKeySource must be "none" on every call.
