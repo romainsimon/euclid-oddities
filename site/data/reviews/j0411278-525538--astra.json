@@ -1,0 +1,13 @@
+{
+ "slug": "j0411278-525538",
+ "reviewer_model": "gpt-6-astra",
+ "date": "2026-11-17",
+ "what_i_see": "A bright, nearly round compact source lies near the field centre, with an elongated galaxy immediately east/right in the displayed image? Several other elongated galaxies and faint clumps are visible. The zoom shows a concentrated core without convincing arcs, a ring, or repeated images. No marker identifies the chosen position.",
+ "most_likely": "An ordinary galaxy-field detection or a compact foreground source, rather than a convincing strong lens. The selected object's identity is uncertain without a coordinate overlay.",
+ "against_it": "Some faint asymmetric structure is visible, but its association with the selected position is unclear. The compact central source could be stellar rather than a galaxy.",
+ "verdict": "likely ordinary",
+ "decisive_test": "Overlay the exact coordinates using the image WCS, then compare the selected source with the local PSF and inspect higher-resolution residuals for coherent arcs or multiple images.",
+ "catalogue_notes": "Within 10 arcsec, there are no SIMBAD or NED matches and zero ECLIPSE Euclid strong-lens catalogue entries. These non-matches do not establish the object's nature.",
+ "confidence": "medium",
+ "note": "Image and catalogue cross-match supplied; this reviewer did not query catalogues itself."
+}

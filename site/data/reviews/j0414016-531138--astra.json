@@ -1,0 +1,13 @@
+{
+ "slug": "j0414016-531138",
+ "reviewer_model": "gpt-6-astra",
+ "date": "2026-11-17",
+ "what_i_see": "A strongly curved, elongated galaxy-like structure has a bright, clumpy southern section and a diffuse extension farther south. Its narrow northern extension bends toward a separate compact extended source to the northwest. The structure appears in both VIS stretches and the colour panel; no clear counterimage or complete ring is visible.",
+ "most_likely": "An interacting galaxy pair, with a tidally distorted disk or tail producing the arc-like appearance, rather than a strong gravitational lens.",
+ "against_it": "The long, relatively narrow curved feature resembles a lensing arc. The image alone cannot establish whether it is physically connected to either bright component.",
+ "verdict": "likely ordinary",
+ "decisive_test": "Obtain spatially resolved spectroscopy along the curved feature and both bright components: shared redshift and continuous velocities favour tidal structure; a background arc redshift would support lensing.",
+ "catalogue_notes": "Within 10 arcsec, NED lists WISEA J041401.59-531138.1; SIMBAD has no match. The ECLIPSE Euclid strong-lens catalogue has zero entries. These cross-matches do not establish the object's morphology or exclude lensing.",
+ "confidence": "medium",
+ "note": "Image and catalogue cross-match supplied; this reviewer did not query catalogues itself."
+}

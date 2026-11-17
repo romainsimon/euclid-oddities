@@ -1,0 +1,12 @@
+{
+ "slug": "j0414016-531138",
+ "reviewer_model": "claude-fable-5-2",
+ "date": "2026-11-17",
+ "what_i_see": "A thin S-shaped ribbon about 12 arcsec long, running north-south, with a bright yellowish knot at its centre and bluer, clumpy ends. A small bluish disc galaxy with its own nucleus sits about 5 arcsec north-east, touching the ribbon's northern tip. Unrelated red galaxies nearby.",
+ "most_likely": "An interacting galaxy pair at z about 0.25-0.35: a disc galaxy pulled into two long tidal arms (integral-sign shape, roughly 45 kpc end to end) by the smaller companion to the north-east.",
+ "against_it": "The northern arm is thin and curves around the companion somewhat like a lensed arc, but the S-shape, central bulge and low-mass blue 'lens' argue against lensing. Redshifts are photometric only.",
+ "verdict": "likely ordinary",
+ "decisive_test": "One long-slit or IFU spectrum along the ribbon and through the companion: matching redshifts and a continuous velocity gradient confirm a tidal pair; a much higher arc redshift would mean lensing.",
+ "catalogue_notes": "SIMBAD: nothing within 60 arcsec; no cluster or lens type within 5 arcmin (also NED, VizieR keyword search). NED: WISEA J041401.59-531138.1 at 0.3 arcsec, no redshift. REGALADE galaxies at 0.7 arcsec (z~0.26) and 5.1 arcsec (z~0.34+/-0.10). No Gaia source within 30 arcsec. X-ray source at 35 arcsec unrelated.",
+ "confidence": "medium"
+}

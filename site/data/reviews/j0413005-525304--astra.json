@@ -1,0 +1,13 @@
+{
+ "slug": "j0413005-525304",
+ "reviewer_model": "gpt-6-astra",
+ "date": "2026-11-17",
+ "what_i_see": "A bright, centrally concentrated galaxy with a smooth, roughly north–south elongated envelope. The zoom reveals a short, narrow, curved feature southwest of the nucleus, approximately tangential to it. Several compact sources surround the galaxy. No convincing counterarc or multiple-image configuration is apparent.",
+ "most_likely": "An ordinary bulge-dominated galaxy with faint arm or ring structure, or a projected background galaxy. Strong lensing is a plausible alternative, not established by this image.",
+ "against_it": "The southwest feature looks sharper and more tangential than the surrounding diffuse envelope, making it worth checking as a possible lensed arc.",
+ "verdict": "worth a closer look",
+ "decisive_test": "Subtract a smooth galaxy model from native-resolution VIS data; inspect the residual’s curvature, colours, and possible counterimages. Confirm the feature persists across independent exposures.",
+ "catalogue_notes": "No SIMBAD match is given. NED lists WISEA J041300.68-525302.4 within 10 arcsec. The ECLIPSE Euclid strong-lens catalogue has zero entries within that radius; this does not exclude an uncatalogued lens.",
+ "confidence": "medium",
+ "note": "Image and catalogue cross-match supplied; this reviewer did not query catalogues itself."
+}

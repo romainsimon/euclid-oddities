@@ -1,0 +1,8 @@
+{"slug": "j1002117+662715", "reviewer_model": "claude-fable-5-2", "date": "2026-11-17",
+ "what_i_see": "Smooth, round, red early-type galaxy with bright core and extended halo. At the flagged point, 6 arcsec NW of the nucleus, a short (about 1.5 arcsec), faint, roughly tangential streak with halo-like reddish colour, beside a compact whiter blob. Several small galaxies around; edge-on disc to the east.",
+ "most_likely": "Ordinary massive elliptical at z~0.24, a member of a galaxy group/cluster, with a faint small edge-on galaxy (satellite or background) projected on its halo.",
+ "against_it": "The streak is tangentially oriented at about 6 arcsec with a second faint blob at similar radius, as a lensed arclet pair would be; a very faint outer ring-like halo edge is hinted in the hard stretch.",
+ "verdict": "likely ordinary",
+ "decisive_test": "Subtract a smooth elliptical model in VIS and NISP: look for curvature, a counter-image opposite the nucleus, and a streak colour clearly different from the halo.",
+ "catalogue_notes": "Host 5.9 arcsec SE: SDSS r=17.8, zphot 0.243; AllWISE/NED WISEA J100212.41+662710.9, W1-W2=0.33, no redshift; Gaia G=20.9. WHL J100159.4+662739 cluster (zph 0.233) at 77 arcsec. SIMBAD: nothing within 150 arcsec. VizieR lens-catalogue queries unreliable, not a confirmed null.",
+ "confidence": "medium"}

@@ -1,0 +1,13 @@
+{
+ "slug": "j1002159+661833",
+ "reviewer_model": "gpt-6-astra",
+ "date": "2026-11-17",
+ "what_i_see": "A bright, smooth, centrally concentrated galaxy with a diffuse halo, surrounded by several compact sources. An elongated source and irregular faint emission lie below-left; several knots lie above-right. The colour panel shows a yellowish main galaxy. No convincing continuous arc, ring, or repeated-image configuration is apparent. The selected coordinate is not marked.",
+ "most_likely": "An ordinary early-type galaxy with projected neighbouring galaxies or possible companions; the surrounding knots do not establish strong lensing.",
+ "against_it": "The close elongated source and asymmetric surrounding emission merit inspection, but neither shows an unmistakable lensing geometry. Physical association cannot be determined from this image.",
+ "verdict": "likely ordinary",
+ "decisive_test": "Locate the supplied coordinate using image astrometry, then subtract the main galaxy’s light and inspect multiband residuals for tangential arcs or multiple sources with matching colours and morphology.",
+ "catalogue_notes": "Within 10 arcsec: no SIMBAD match; NED lists WISEA J100216.80+661827.5 and WISEA J100215.69+661836.7. ECLIPSE has zero entries. These cross-matches do not establish which visible component was selected.",
+ "confidence": "medium",
+ "note": "Image and catalogue cross-match supplied; this reviewer did not query catalogues itself."
+}

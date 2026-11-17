@@ -1,0 +1,13 @@
+{
+ "slug": "j0412096-525954",
+ "reviewer_model": "gpt-6-astra",
+ "date": "2026-11-17",
+ "what_i_see": "A very bright, apparently saturated central source has long radial diffraction spikes and a diffuse halo. Several compact or elongated sources lie immediately north of it, with other galaxies scattered across the field. The zoom shows separate northern knots rather than a clear continuous arc or ring.",
+ "most_likely": "A bright foreground star with diffraction structure, projected near ordinary faint galaxies. The northern grouping is more plausibly neighboring sources and stellar contamination than multiple gravitationally lensed images.",
+ "against_it": "The northern sources form a loosely curved grouping. Glare and saturation obscure their morphology, so a faint genuine arc cannot be excluded from this rendering alone.",
+ "verdict": "likely star or foreground",
+ "decisive_test": "Inspect unsaturated individual VIS exposures and subtract a locally calibrated stellar PSF; check whether the northern features remain extended, tangentially curved, and consistently colored across bands.",
+ "catalogue_notes": "Within 10 arcsec, NED lists 2MASS J04120948-5259576 and WISEA J041209.51-525957.2. SIMBAD has no match; ECLIPSE has zero entries. These cross-matches alone do not establish source type or exclude lensing.",
+ "confidence": "medium",
+ "note": "Image and catalogue cross-match supplied; this reviewer did not query catalogues itself."
+}

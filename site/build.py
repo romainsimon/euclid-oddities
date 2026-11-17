@@ -146,7 +146,8 @@ footer{color:var(--dim);font-size:.8rem;padding:4px 0 48px}footer a{color:var(--
 .btn:hover{background:var(--card3);color:var(--fg)}.btn.primary{background:var(--fg);color:var(--bg)}.btn.primary:hover{background:#fff;color:var(--bg)}
 .btn[aria-pressed=true]{background:var(--accent-soft);color:var(--accent)}
 .small{color:var(--dim);font-size:.82rem}.small a{color:var(--silver)}
-.reviews{background:var(--card);border-radius:var(--r-xl);padding:30px 34px;margin:0 0 14px}.reviews h2{font:700 1.5rem/1.1 var(--display);letter-spacing:-.03em;margin:0 0 6px}.reviews>.small{margin:0 0 18px}.review+.review{margin-top:18px}.rv-hd{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:10px}.verdict{font:500 .66rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;background:var(--card3);color:var(--fg);border-radius:999px;padding:7px 11px}
+.reviews{background:var(--card);border-radius:var(--r-xl);padding:30px 34px;margin:0 0 14px}.reviews h2{font:700 1.5rem/1.1 var(--display);letter-spacing:-.03em;margin:0 0 6px}.reviews>.small{margin:0 0 18px}.review+.review{margin-top:18px}.rv-hd{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:10px}.tag.v-closer{background:var(--accent-soft);color:var(--accent)}.tag.v-split{color:var(--accent-strong)}.tag.v-star,.tag.v-artefact{color:var(--dim)}
+.verdict{font:500 .66rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;background:var(--card3);color:var(--fg);border-radius:999px;padding:7px 11px}
 .pager{display:flex;justify-content:space-between;gap:12px;padding:10px 0 50px}
 @media (max-width:900px){.method,.detail{grid-template-columns:1fr}.count{margin-left:0;width:100%}.filters{position:static}
 nav.top a:not(.keep){display:none}.fact{grid-template-columns:1fr;gap:0;padding:4px 16px}.panel,.info{padding:24px}.legend{grid-template-columns:1fr}}
@@ -183,7 +184,7 @@ def tags(f):
 
 def stars(v, big=False):
     pct = max(0.0, min(1.0, float(v) / 5)) * 100
-    return (f'<span class="stars{" big" if big else ""}" role="img" aria-label="Interest {v} out of 5" title="Interest {v} / 5">'
+    return (f'<span class="stars{" big" if big else ""}" role="img" aria-label="Fable interest {v} out of 5" title="Fable interest {v} / 5">'
             f'<span class="s-off">★★★★★</span><span class="s-on" style="width:{pct:.0f}%">★★★★★</span></span>')
 
 
@@ -209,13 +210,14 @@ def vt(slug):
 
 def card(f, base):
     rk, rt = rarity(f)
-    rv = '<span class="tag">2nd opinion</span>' if (HERE / "data" / "reviews" / (f["slug"] + ".json")).exists() else ""
+    ck, cl = consensus(load_reviews(f["slug"]))
+    rv = f'<span class="tag v-{ck}" title="Majority verdict of independent AI reviewers">{e(cl)}</span>' if cl else ""
     sp = "".join(f'<i style="left:{x}%;top:{y}%;animation-delay:{d}s"></i>' for x, y, d in SPARKS)
     fx = ('<span class="fx" aria-hidden="true"><span class="foil"></span>'
           + (f'<span class="sparks">{sp}</span>' if rk == "legendary" else "")
           + '<span class="glare"></span></span>')
     return (f'<a class="card r-{rk}" style="view-transition-name:c-{vt(f["slug"])}" href="{base}/{f["slug"]}/" data-feature="{e(f["feature"])}" data-conf="{e(f["confidence"])}" data-rarity="{rk}" '
-            f'data-interest="{f["interest"]}" data-cat="{"yes" if f["catalogued"] else "no"}" data-date="{e(f["date_found"])}" data-model="{e(f["model"])}">{fx}'
+            f'data-interest="{f["interest"]}" data-cat="{"yes" if f["catalogued"] else "no"}" data-date="{e(f["date_found"])}" data-model="{e(f["model"])}" data-rev="{ck or "none"}">{fx}'
             f'<img style="view-transition-name:i-{vt(f["slug"])}" src="{base}/img/{f["slug"]}-thumb.jpg" width="360" height="360" loading="lazy" alt="Euclid visible-band cutout of {e(f["name"])}">'
             f'<div class="body"><div class="hd"><h3 style="view-transition-name:t-{vt(f["slug"])}">{icon(f["feature"])}{e(f["name"])}</h3>{stars(f["interest"])}</div><div class="meta">{tags(f)}{rv}</div><p>{e(f["description"])}</p></div></a>')
 
@@ -230,12 +232,13 @@ def index(F, meta, base):
 <p class="lede">Claude Fable 5.2 searched fresh images from ESA's Euclid space telescope for anything that looked odd: tidal streams, possible gravitational lenses, oddly shaped galaxies. Fake objects were planted among the real ones to measure how far to trust it. None of these {len(F)} finds has been checked by an astronomer yet.</p></section>
 <div class="filters" role="region" aria-label="Filters">
 <div class="group" aria-label="Feature"><span class="lbl">Feature</span>{chips}</div>
+{seg("rev", "Second opinion", [("", "Any"), ("closer", "Closer look"), ("split", "Split"), ("ordinary", "Ordinary"), ("star", "Star")])}
 {seg("conf", "Confidence", [("", "Any"), ("medium", "Medium+"), ("low", "Low")])}
 {seg("cat", "Catalogue", [("", "Any"), ("no", "Not catalogued"), ("yes", "Catalogued")])}
 {seg("int", "Interest", [("", "Any"), ("3", "≥ 3.0"), ("3.5", "≥ 3.5")])}
 {seg("date", "Found", [("", "Any")] + [(d, d) for d in dates])}
 {seg("model", "Model", [("", "Any")] + [(m, m.replace("Claude ", "")) for m in models])}
-{seg("sort", "Sort", [("interest", "Interest"), ("date", "Newest")])}
+{seg("sort", "Sort", [("interest", "Interest"), ("review", "Second opinion"), ("date", "Newest")])}
 <span class="count" id="count" aria-live="polite"></span></div>
 <div class="grid" id="grid">{"".join(card(f, base) for f in F)}</div><p class="empty" id="empty" hidden>Nothing matches these filters.</p>
 <section class="method" id="method"><div class="panel"><span class="eyebrow"><b>01</b>Method</span><h2>How it <em>works</em></h2>
@@ -250,12 +253,12 @@ def index(F, meta, base):
 <p>Small samples: the two views differ by five objects. Full results, failures included, are on <a href="{REPO}">GitHub</a>.</p></div></section></main>
 <script>
 const cards=[...document.querySelectorAll('.card')],grid=document.getElementById('grid'),on=new Set();
-const st={{conf:'',cat:'',int:'',date:'',model:'',sort:'interest'}};
+const st={{rev:'',conf:'',cat:'',int:'',date:'',model:'',sort:'interest'}};
 function sync(){{document.querySelectorAll('.seg').forEach(g=>g.querySelectorAll('.chip').forEach(b=>b.setAttribute('aria-pressed',st[g.dataset.k]===b.dataset.v)))}}
 function apply(){{let n=0;const m=+st.int||0;
-for(const el of cards){{const ok=(!on.size||on.has(el.dataset.feature))&&(!st.conf||(st.conf==='low'?el.dataset.conf==='low':el.dataset.conf!=='low'))&&(!st.cat||el.dataset.cat===st.cat)&&(+el.dataset.interest>=m-1e-9)&&(!st.date||el.dataset.date===st.date)&&(!st.model||el.dataset.model===st.model);el.hidden=!ok;n+=ok}}
+for(const el of cards){{const ok=(!st.rev||el.dataset.rev===st.rev)&&(!on.size||on.has(el.dataset.feature))&&(!st.conf||(st.conf==='low'?el.dataset.conf==='low':el.dataset.conf!=='low'))&&(!st.cat||el.dataset.cat===st.cat)&&(+el.dataset.interest>=m-1e-9)&&(!st.date||el.dataset.date===st.date)&&(!st.model||el.dataset.model===st.model);el.hidden=!ok;n+=ok}}
 document.getElementById('count').textContent=n+' of '+cards.length+' shown';document.getElementById('empty').hidden=n>0;
-[...cards].sort((a,b)=>st.sort==='date'?b.dataset.date.localeCompare(a.dataset.date)||b.dataset.interest-a.dataset.interest:b.dataset.interest-a.dataset.interest).forEach(el=>grid.appendChild(el));
+const RV={{closer:0,split:1,ordinary:2,artefact:3,star:3,other:2,none:1}};[...cards].sort((a,b)=>st.sort==='review'?(RV[a.dataset.rev]-RV[b.dataset.rev])||b.dataset.interest-a.dataset.interest:st.sort==='date'?b.dataset.date.localeCompare(a.dataset.date)||b.dataset.interest-a.dataset.interest:b.dataset.interest-a.dataset.interest).forEach(el=>grid.appendChild(el));
 const p=new URLSearchParams();if(on.size)p.set('feature',[...on].join(','));for(const k in st)if(st[k]&&!(k==='sort'&&st[k]==='interest'))p.set(k,st[k]);
 history.replaceState(null,'',(p.toString()?'?'+p:location.pathname));sync()}}
 document.querySelectorAll('.chip[data-f]').forEach(b=>b.addEventListener('click',()=>{{const f=b.dataset.f;on.has(f)?on.delete(f):on.add(f);b.setAttribute('aria-pressed',on.has(f));apply()}}));
@@ -282,7 +285,7 @@ def links(f):
             ("ESASky", f"https://sky.esa.int/esasky/?target={ra}%20{dec}&fov=0.02")]
 
 
-def reviews_html(slug):
+def load_reviews(slug):
     d = HERE / "data" / "reviews"
     R = []
     for fp in sorted(d.glob("*.json")) if d.exists() else []:
@@ -292,17 +295,41 @@ def reviews_html(slug):
             continue
         if r.get("slug") == slug:
             R.append(r)
+    return R
+
+
+VERDICT_SHORT = {"worth a closer look": "Closer look", "likely ordinary": "Likely ordinary", "likely artefact": "Likely artefact",
+                 "likely star or foreground": "Likely a star"}
+
+
+def consensus(R):
+    """(key, label) of the majority verdict, e.g. ('closer', 'Closer look · 2 of 3')."""
+    if not R:
+        return "", ""
+    from collections import Counter
+    c = Counter(r.get("verdict", "") for r in R)
+    top = c.most_common()
+    if len(top) > 1 and top[0][1] == top[1][1]:
+        return "split", f"Reviewers split · {len(R)} reviews"
+    v, k = top[0]
+    key = {"worth a closer look": "closer", "likely ordinary": "ordinary", "likely artefact": "artefact",
+           "likely star or foreground": "star"}.get(v, "other")
+    return key, f"{VERDICT_SHORT.get(v, v)} · {k} of {len(R)}"
+
+
+def reviews_html(slug):
+    R = load_reviews(slug)
     if not R:
         return ""
     out = []
     for r in R:
         rows = [("What it sees", r.get("what_i_see")), ("Most likely", r.get("most_likely")), ("Against that", r.get("against_it")),
-                ("Would settle it", r.get("decisive_test")), ("Catalogues", r.get("catalogue_notes"))]
+                ("Would settle it", r.get("decisive_test")), ("Catalogues", r.get("catalogue_notes")), ("Note", r.get("note"))]
         out.append(f"""<article class="review"><div class="rv-hd"><span class="verdict">{e(r.get("verdict", ""))}</span>
 <span class="small">Blind review by {e(r.get("reviewer_model", "an AI model"))} · {e(r.get("date", ""))} · {e(r.get("confidence", ""))} confidence</span></div>
 <div class="facts">{"".join(f'<div class="fact"><span>{k}</span><span>{e(v)}</span></div>' for k, v in rows if v)}</div></article>""")
-    return (f'<section class="reviews"><h2>Second opinions</h2><p class="small">Independent AI reviewers saw the image and checked public catalogues, '
-            f'without seeing the original model\'s description. These are not expert opinions.</p>{"".join(out)}</section>')
+    return (f'<section class="reviews"><h2>Second opinions</h2><p class="small">Independent AI reviewers from two model families saw the image, without the original model\'s description. '
+            f'Claude reviewers also queried public catalogues themselves. These are not expert opinions.</p>{"".join(out)}</section>')
 
 
 def detail(f, prev, nxt, base):
@@ -321,7 +348,7 @@ def detail(f, prev, nxt, base):
 <div class="legend"><span>Top left · visible band (VIS)</span><span>Top right · colour: 1.8 µm, 1.1 µm, visible</span>
 <span>Bottom left · hard stretch for faint light</span><span>Bottom right · 3× zoom on the brightest galaxy</span><span>Field 32″ × 32″, north up</span></div></div>
 <div class="info"><h1 style="view-transition-name:t-{vt(f["slug"])}">{icon(f["feature"], 34)}{e(f["name"])}</h1>
-<div class="meta">{stars(f["interest"], True)}<span class="ival">{f["interest"]} / 5 interest</span>{tags(f)}</div>
+<div class="meta">{stars(f["interest"], True)}<span class="ival">Fable interest {f["interest"]} / 5</span>{tags(f)}</div>
 <p class="quote">“{e(f["description"])}”</p><p class="explain">Ordinary explanation offered by the model: {e(f["ordinary_explanation"])}</p>
 <div class="facts">{"".join(f'<div class="fact"><span>{k}</span><span>{v}</span></div>' for k, v in facts)}</div>
 <div class="links">{"".join(f'<a class="btn" href="{u}" rel="noopener">{n} ↗</a>' for n, u in links(f))}</div>

@@ -1,0 +1,8 @@
+{"slug": "j1002159+661833", "reviewer_model": "claude-fable-5-2", "date": "2026-11-17",
+ "what_i_see": "Bright red elliptical with extended halo and several small red companions, a compact group. About 4 arcsec south of it sits a small red galaxy flanked by faint curved wisps roughly 1 arcsec from its core, plus a bluer elongated clump to its north-east.",
+ "most_likely": "Ordinary galaxy group at z~0.46: a dominant elliptical with satellites, and a small disc or ring-like galaxy whose faint arms or tidal debris mimic arcs.",
+ "against_it": "The wisps curve around the small red galaxy on opposite sides, as a galaxy-scale Einstein ring or arclets in a group potential would; the nearby blue clump has a different colour from the group members.",
+ "verdict": "worth a closer look",
+ "decisive_test": "Subtract a smooth model of the small red galaxy in full-resolution VIS: check whether residuals form a blue ring/counter-images or spiral arms; spectroscopy of the blue clump versus group redshift.",
+ "catalogue_notes": "SIMBAD: nothing within 60 arcsec; cluster MOO J1001+6619 (z=1.53) 290 arcsec away, unrelated. NED: only WISE sources, no redshifts. Legacy DR8 photo-z 0.459 for the elliptical at 4.2 arcsec; neighbours 0.46-0.55. Gaia: one G=20.8 source at 12 arcsec. No lens-catalogue match.",
+ "confidence": "low"}

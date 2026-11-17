@@ -1,0 +1,8 @@
+{"slug": "j0412096-525954", "reviewer_model": "claude-fable-5-2", "date": "2026-11-17",
+ "what_i_see": "A bright, saturated, orange-red point source with six diffraction spikes and a round PSF halo. About 2-3 arcsec north sits a short east-west row of three or four small bluish blobs, one elongated. Scattered faint red and blue galaxies fill the rest of the field.",
+ "most_likely": "A foreground red (M) dwarf star with a few faint background galaxies projected just north of it. The row of blobs mimics an arc but is a chance alignment beside a star.",
+ "against_it": "The northern blobs are roughly tangential to the bright source and bluer than it; Gaia gives only a 2-parameter solution with large excess noise, so stellarity is not proven by parallax.",
+ "verdict": "likely star or foreground",
+ "decisive_test": "Confirm proper motion: 2MASS (1999) to Gaia (2016) positions shift about 1 arcsec; a CatWISE/Gaia DR4 proper motion or an M-dwarf spectrum settles it.",
+ "catalogue_notes": "Gaia DR3 4780145046778374912 at 2.4 arcsec: G=18.3, BP-RP=3.5, no parallax/PM, DSC star prob 0.999. 2MASS J=14.33, K=13.49 at 3.3 arcsec. USNO-B PM (32,72) mas/yr. SIMBAD: nothing within 60 arcsec; nearest AGN 139 arcsec. NED: only that 2MASS star (3.3 arcsec) and WISE sources; no lens or cluster seen.",
+ "confidence": "medium"}

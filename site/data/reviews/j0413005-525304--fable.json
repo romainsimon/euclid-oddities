@@ -1,0 +1,8 @@
+{"slug": "j0413005-525304", "reviewer_model": "claude-fable-5-2", "date": "2026-11-17",
+ "what_i_see": "Smooth red elliptical with a large diffuse halo, elongated NNE-SSW. At the flagged point, 2.4 arcsec SW of the core, a thin, slightly bluer streak about 1.4 arcsec long. After subtracting a 180-degree-rotated copy it stands out clearly, oriented within ~15 degrees of tangential. No obvious counter-image outside the saturated core.",
+ "most_likely": "Either a small edge-on background or satellite galaxy projected on the halo of a photo-z ~0.24 elliptical, or a faint galaxy-scale lensed arclet; the image alone cannot separate them.",
+ "against_it": "Against lensing: single short feature, no visible curvature or counter-image, and chance projections of edge-on discs are common. Against projection: nearly tangential, bluer than host, at a plausible Einstein radius for a massive elliptical.",
+ "verdict": "worth a closer look",
+ "decisive_test": "Fit and subtract an elliptical model from the full-depth VIS FITS and look for curvature and a counter-image near the core; a redshift of the streak would settle it.",
+ "catalogue_notes": "Legacy Survey photo-z (VII/292): DEV galaxy z=0.242+/-0.022 at 2.4 arcsec, same position as Gaia DR3 G=21.1 (nucleus) and WISEA J041300.68-525302.4. SIMBAD: nothing within 2 arcmin. NED: cluster [YWX2025] J0412-5257, z=0.32, 4.5 arcmin south. No lens-type object in SIMBAD or NED within 5 arcmin.",
+ "confidence": "low"}
