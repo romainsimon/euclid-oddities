@@ -36,9 +36,9 @@ background-image:radial-gradient(ellipse 60% 30% at 80% 0%,rgba(255,107,26,.07),
 a{color:var(--fg)}a:hover{color:var(--accent)}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:10px}
 button,select,input{font:inherit;color:inherit}
-.wrap{max-width:1180px;margin:0 auto;padding:0 16px}@media (min-width:760px){.wrap{padding:0 40px}}
-header.top{position:sticky;top:0;z-index:20;padding:12px 16px 0}
-.bar{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;height:52px;padding:0 8px 0 20px;
+.wrap{max-width:none;margin:0;padding:0 16px}@media (min-width:760px){.wrap{padding:0 32px}}
+header.top{position:sticky;top:0;z-index:20;padding:12px 0 0}@media (min-width:760px){.bar{margin:0 32px}}
+.bar{max-width:none;margin:0 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;height:52px;padding:0 8px 0 20px;
 border-radius:999px;background:rgba(21,23,28,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
 .brand{font:700 1.02rem/1 var(--display);letter-spacing:-.02em;text-decoration:none;color:var(--fg);display:flex;align-items:center;gap:10px}
 .badge{font:500 .58rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;padding:5px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
@@ -55,11 +55,11 @@ h1 em,h2 em{font-style:normal;color:var(--accent)}
 .hero h1{font:700 clamp(2.4rem,5.2vw,4.4rem)/.98 var(--display);letter-spacing:-.045em;margin:0 0 18px;max-width:12ch}
 .hero .lede{font-size:1.02rem;color:var(--silver);max-width:52ch}
 .cta{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
-.collage{position:relative;height:340px}
-.collage a{position:absolute;display:block;width:58%;border-radius:var(--r-lg);overflow:hidden;background:var(--card);padding:8px;box-shadow:0 40px 80px -40px rgba(0,0,0,.85);transition:transform .6s var(--ease)}
+.collage{position:relative;height:340px;width:100%;max-width:560px;justify-self:end}
+.collage a{position:absolute;display:block;width:min(58%,300px);border-radius:var(--r-lg);overflow:hidden;background:var(--card);padding:8px;box-shadow:0 40px 80px -40px rgba(0,0,0,.85);transition:transform .6s var(--ease)}
 .collage img{display:block;width:100%;height:auto;border-radius:var(--r)}
 .collage a:nth-child(1){left:0;top:28px;transform:rotate(-5deg);z-index:1}
-.collage a:nth-child(2){left:21%;top:0;transform:rotate(2deg);z-index:3}
+.collage a:nth-child(2){left:50%;margin-left:min(-29%,-150px);top:0;transform:rotate(2deg);z-index:3}
 .collage a:nth-child(3){right:0;top:44px;transform:rotate(7deg);z-index:2}
 .collage:hover a:nth-child(1){transform:rotate(-8deg) translateX(-10px)}.collage:hover a:nth-child(3){transform:rotate(10deg) translateX(10px)}
 @media (max-width:900px){.hero{grid-template-columns:1fr;padding-top:36px}.collage{display:none}}
@@ -70,12 +70,16 @@ border-radius:var(--r-lg);padding:12px 14px;display:flex;flex-wrap:wrap;gap:10px
 .chip{appearance:none;border:0;background:var(--card2);color:var(--silver);border-radius:999px;padding:7px 13px;font-size:.84rem;cursor:pointer;transition:background .25s,color .2s}
 .chip:hover{background:var(--card3);color:var(--fg)}.chip[aria-pressed=true]{background:var(--accent-soft);color:var(--accent)}
 .count{margin-left:auto;font:500 .66rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;padding:16px 0 56px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px;padding:16px 0 56px}
 .card{display:flex;flex-direction:column;text-decoration:none;color:inherit;background:var(--card);border-radius:var(--r-lg);padding:10px;transition:transform .5s var(--ease),background .25s}
 .card:hover{background:var(--card2);transform:translateY(-4px);color:inherit}
 .card img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:var(--r);background:#000}
 .card .body{padding:14px 10px 8px}.card h3{font:600 1rem/1.25 var(--display);letter-spacing:-.01em;margin:0 0 10px}
-.meta{display:flex;flex-wrap:wrap;gap:6px}
+.meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.hd{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}.hd h3{margin:0 0 10px}
+.stars{position:relative;display:inline-block;flex:none;font-size:.95rem;line-height:1;letter-spacing:1px;white-space:nowrap}
+.stars .s-off{color:var(--card3)}.stars .s-on{position:absolute;inset:0 auto 0 0;overflow:hidden;color:var(--accent)}
+.stars.big{font-size:1.25rem;margin-right:6px}.ival{font:500 .66rem/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--dim);margin-right:8px}
 .tag{font:500 .62rem/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--silver);background:var(--card2);border-radius:999px;padding:6px 9px}
 .card:hover .tag{background:var(--card3)}.tag.hi{background:var(--accent-soft);color:var(--accent)}
 .card p{color:var(--dim);font-size:.85rem;margin:12px 0 0;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
@@ -141,7 +145,13 @@ Every entry is an unverified suggestion made by a language model. Code, pre-regi
 def tags(f):
     hi = " hi" if f["confidence"] in ("medium", "high") else ""
     return (f'<span class="tag">{e(FEATURE.get(f["feature"], f["feature"]))}</span>'
-            f'<span class="tag{hi}">{e(f["confidence"])} conf.</span><span class="tag">interest {f["interest"]}</span>')
+            f'<span class="tag{hi}">{e(f["confidence"])} conf.</span>')
+
+
+def stars(v, big=False):
+    pct = max(0.0, min(1.0, float(v) / 5)) * 100
+    return (f'<span class="stars{" big" if big else ""}" role="img" aria-label="Interest {v} out of 5" title="Interest {v} / 5">'
+            f'<span class="s-off">★★★★★</span><span class="s-on" style="width:{pct:.0f}%">★★★★★</span></span>')
 
 
 def seg(key, label, opts):
@@ -153,7 +163,7 @@ def card(f, base):
     return (f'<a class="card" href="{base}/{f["slug"]}/" data-feature="{e(f["feature"])}" data-conf="{e(f["confidence"])}" '
             f'data-interest="{f["interest"]}" data-cat="{"yes" if f["catalogued"] else "no"}" data-date="{e(f["date_found"])}" data-model="{e(f["model"])}">'
             f'<img src="{base}/img/{f["slug"]}-thumb.jpg" width="360" height="360" loading="lazy" alt="Euclid visible-band cutout of {e(f["name"])}">'
-            f'<div class="body"><h3>{e(f["name"])}</h3><div class="meta">{tags(f)}</div><p>{e(f["description"])}</p></div></a>')
+            f'<div class="body"><div class="hd"><h3>{e(f["name"])}</h3>{stars(f["interest"])}</div><div class="meta">{tags(f)}</div><p>{e(f["description"])}</p></div></a>')
 
 
 def index(F, meta, base):
@@ -231,7 +241,7 @@ def detail(f, prev, nxt, base):
 <div class="legend"><span>Top left · visible band (VIS)</span><span>Top right · colour: 1.8 µm, 1.1 µm, visible</span>
 <span>Bottom left · hard stretch for faint light</span><span>Bottom right · 3× zoom on the brightest galaxy</span><span>Field 32″ × 32″, north up</span></div></div>
 <div class="info"><h1>{e(f["name"])}</h1>
-<div class="meta">{tags(f)}</div>
+<div class="meta">{stars(f["interest"], True)}<span class="ival">{f["interest"]} / 5 interest</span>{tags(f)}</div>
 <p class="quote">“{e(f["description"])}”</p><p class="explain">Ordinary explanation offered by the model: {e(f["ordinary_explanation"])}</p>
 <div class="facts">{"".join(f'<div class="fact"><span>{k}</span><span>{v}</span></div>' for k, v in facts)}</div>
 <div class="links">{"".join(f'<a class="btn" href="{u}" rel="noopener">{n} ↗</a>' for n, u in links(f))}</div>
