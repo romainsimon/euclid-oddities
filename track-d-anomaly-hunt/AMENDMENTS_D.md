@@ -113,3 +113,9 @@ Code: `ftwo.py`. Open development key only (two development tiles); nothing touc
 4. Scoring as Probe D0: a plant counts as found when a stage-2 answer with interest >= 2.6 points within 5 arcsec of it (injection mask included). Reported: stage-1 recall, final recall (of 24), flags with a feature in the 4 untouched fields, flags away from plants in planted fields. Reference: the one-cutout BG view found 14/24 with 3/16 false features.
 5. Read-out rule fixed now: the two-stage search is worth scaling to real sky if it finds at least 12 of 24 with at most 1 flag per untouched field on average.
 6. Quota: weekly window may rise by at most 0.05 over this test, the Fable meter is capped at 0.20, and calls stop at either.
+
+## A-twostage-b (17 Nov 2026, before any call): targeted close look, exploratory
+
+A-twostage missed its read-out (9/24; stage 1 alone found 14/24): stage 2 re-searched each 32 arcsec crop freely and often judged a different object. This variant keeps everything from A-twostage (same 16 fields, same plants, the same 128 stage-1 points already recorded) and changes only stage 2: the crop is centred on the stage-1 point (clipped at field edges), an orange circle of radius 2.5 arcsec marks the point in the top-left and top-right tiles, and Fable 5.2 (effort high, prompt `inspect_target.txt`, new independent call) judges what is at the marked position.
+
+Scoring: a plant is found when a stage-1 point within 5 arcsec of it (injection mask included) gets interest >= 2.6 at stage 2. A flag is a stage-1 point with interest >= 2.6 and a feature other than none. Read-out rule unchanged: worth scaling if at least 12 of 24 are found with at most 1 flag per untouched field on average. Quota: weekly window may rise by at most 0.04 over this run; the Fable meter is capped at 0.20.
