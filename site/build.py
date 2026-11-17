@@ -94,7 +94,7 @@ footer{color:var(--dim);font-size:.8rem;padding:4px 0 48px}footer a{color:var(--
 .explain{color:var(--dim);font-size:.9rem;margin:0 0 20px}
 .facts{display:grid;gap:8px}
 .fact{display:grid;grid-template-columns:160px 1fr;gap:14px;background:var(--card2);border-radius:var(--r-sm);padding:11px 16px;font-size:.86rem}
-.fact span:first-child{color:var(--dim)}
+.fact span:first-child{color:var(--dim)}code{font:500 .78rem var(--mono);color:var(--silver)}
 .links{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 16px}
 .btn{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:999px;padding:10px 16px;background:var(--card2);color:var(--fg);text-decoration:none;font-size:.86rem;font-weight:500;cursor:pointer;transition:background .25s}
 .btn:hover{background:var(--card3);color:var(--fg)}.btn.primary{background:var(--fg);color:var(--bg)}.btn.primary:hover{background:#fff;color:var(--bg)}
@@ -133,7 +133,7 @@ def tags(f):
 
 def card(f, base):
     return (f'<a class="card" href="{base}/{f["slug"]}/" data-feature="{e(f["feature"])}" data-conf="{e(f["confidence"])}" '
-            f'data-interest="{f["interest"]}" data-cat="{"yes" if f["catalogued"] else "no"}" data-date="{e(f["date_found"])}">'
+            f'data-interest="{f["interest"]}" data-cat="{"yes" if f["catalogued"] else "no"}" data-date="{e(f["date_found"])}" data-model="{e(f["model"])}">'
             f'<img src="{base}/img/{f["slug"]}-thumb.jpg" width="360" height="360" loading="lazy" alt="Euclid visible-band cutout of {e(f["name"])}">'
             f'<div class="body"><h3>{e(f["name"])}</h3><div class="meta">{tags(f)}</div><p>{e(f["description"])}</p></div></a>')
 
@@ -141,6 +141,7 @@ def card(f, base):
 def index(F, meta, base):
     feats = sorted({f["feature"] for f in F}, key=lambda k: list(FEATURE).index(k))
     dates = sorted({f["date_found"] for f in F}, reverse=True)
+    models = sorted({f["model"] for f in F})
     chips = "".join(f'<button class="chip" type="button" aria-pressed="false" data-f="{k}">{e(FEATURE[k])}</button>' for k in feats)
     body = f"""<main class="wrap"><div class="intro"><div><span class="eyebrow"><b>●</b>Euclid DR1 · Claude Fable 5.2</span>
 <h1>What an AI noticed in the new <em>Euclid</em> sky</h1>
@@ -151,6 +152,7 @@ def index(F, meta, base):
 <div class="group"><label class="lbl" for="cat">Catalogue</label><select id="cat"><option value="">Any</option><option value="no">No named entry</option><option value="yes">Already catalogued</option></select></div>
 <div class="group"><label class="lbl" for="int">Interest ≥ <output id="intv">2.6</output></label><input id="int" type="range" min="2.6" max="5" step="0.1" value="2.6"></div>
 <div class="group"><label class="lbl" for="date">Found</label><select id="date"><option value="">Any date</option>{"".join(f'<option>{d}</option>' for d in dates)}</select></div>
+<div class="group"><label class="lbl" for="model">Model</label><select id="model"><option value="">Any</option>{"".join(f'<option>{e(m)}</option>' for m in models)}</select></div>
 <div class="group"><label class="lbl" for="sort">Sort</label><select id="sort"><option value="interest">Interest</option><option value="date">Newest</option></select></div>
 <span class="count" id="count" aria-live="polite"></span></div>
 <div class="grid" id="grid">{"".join(card(f, base) for f in F)}</div><p class="empty" id="empty" hidden>Nothing matches these filters.</p>
@@ -167,16 +169,16 @@ def index(F, meta, base):
 <script>
 const cards=[...document.querySelectorAll('.card')],grid=document.getElementById('grid'),on=new Set();
 const q=id=>document.getElementById(id);
-function apply(){{const c=q('conf').value,k=q('cat').value,m=+q('int').value,d=q('date').value;q('intv').textContent=m.toFixed(1);let n=0;
-for(const el of cards){{const ok=(!on.size||on.has(el.dataset.feature))&&(!c||(c==='low'?el.dataset.conf==='low':el.dataset.conf!=='low'))&&(!k||el.dataset.cat===k)&&(+el.dataset.interest>=m-1e-9)&&(!d||el.dataset.date===d);el.hidden=!ok;n+=ok}}
+function apply(){{const c=q('conf').value,k=q('cat').value,m=+q('int').value,d=q('date').value,md=q('model').value;q('intv').textContent=m.toFixed(1);let n=0;
+for(const el of cards){{const ok=(!on.size||on.has(el.dataset.feature))&&(!c||(c==='low'?el.dataset.conf==='low':el.dataset.conf!=='low'))&&(!k||el.dataset.cat===k)&&(+el.dataset.interest>=m-1e-9)&&(!d||el.dataset.date===d)&&(!md||el.dataset.model===md);el.hidden=!ok;n+=ok}}
 q('count').textContent=n+' of '+cards.length+' shown';q('empty').hidden=n>0;
 const s=q('sort').value;[...cards].sort((a,b)=>s==='date'?b.dataset.date.localeCompare(a.dataset.date)||b.dataset.interest-a.dataset.interest:b.dataset.interest-a.dataset.interest).forEach(el=>grid.appendChild(el));
-const p=new URLSearchParams();if(on.size)p.set('feature',[...on].join(','));if(c)p.set('confidence',c);if(k)p.set('catalogued',k);if(m>2.6)p.set('interest',m);if(d)p.set('date',d);
+const p=new URLSearchParams();if(on.size)p.set('feature',[...on].join(','));if(c)p.set('confidence',c);if(k)p.set('catalogued',k);if(m>2.6)p.set('interest',m);if(d)p.set('date',d);if(md)p.set('model',md);
 history.replaceState(null,'',(p.toString()?'?'+p:location.pathname))}}
 document.querySelectorAll('.chip').forEach(b=>b.addEventListener('click',()=>{{const f=b.dataset.f;on.has(f)?on.delete(f):on.add(f);b.setAttribute('aria-pressed',on.has(f));apply()}}));
-['conf','cat','int','date','sort'].forEach(id=>q(id).addEventListener('input',apply));
+['conf','cat','int','date','model','sort'].forEach(id=>q(id).addEventListener('input',apply));
 const p=new URLSearchParams(location.search);(p.get('feature')||'').split(',').filter(Boolean).forEach(f=>{{on.add(f);const b=document.querySelector(`.chip[data-f="${{f}}"]`);b&&b.setAttribute('aria-pressed','true')}});
-if(p.get('confidence'))q('conf').value=p.get('confidence');if(p.get('catalogued'))q('cat').value=p.get('catalogued');if(p.get('interest'))q('int').value=p.get('interest');if(p.get('date'))q('date').value=p.get('date');
+if(p.get('confidence'))q('conf').value=p.get('confidence');if(p.get('catalogued'))q('cat').value=p.get('catalogued');if(p.get('interest'))q('int').value=p.get('interest');if(p.get('date'))q('date').value=p.get('date');if(p.get('model'))q('model').value=p.get('model');
 apply();
 </script>"""
     return page("Euclid Oddities: what an AI notices in Euclid DR1", meta["note"], body, base, f"{base}/",
@@ -198,13 +200,15 @@ def detail(f, prev, nxt, base):
     facts = [("Position (ICRS)", f'RA {f["ra"]:.5f}°, Dec {f["dec"]:+.5f}°'), ("Weirdness", f'{f["weirdness"]} / 5'),
              ("Model's reading", e(NATURE.get(f["nature"], f["nature"]))), ("Why inspected", e(f["selection"])),
              ("Catalogued as", cat), ("SIMBAD", sim), ("NED", ned), ("ECLIPSE lenses ≤ 10″", f["eclipse_within_10as"]),
-             ("Run", f'{e(f["run"])}, {e(f["rendering"])}')]
+             ("Found by", f'{e(f["model"])} (<code>{e(f.get("model_id", ""))}</code>)'),
+             ("Effort", f'{e(f.get("effort", "not recorded"))} · {f.get("thinking_tokens", 0)} thinking tokens'),
+             ("Harness", e(f.get("harness", ""))), ("Run", f'{e(f["run"])}, {e(f["rendering"])}')]
     body = f"""<main class="wrap"><div class="crumbs"><a href="{base}/">All finds</a> / {e(f["name"])}</div>
 <div class="detail"><div class="viewer"><img id="im" src="{base}/img/{f["slug"]}-marked.jpg" width="1072" height="1072" alt="Euclid cutout of {e(f["name"])}: visible band, colour composite, hard stretch and 3x zoom, with the model's chosen point circled">
 <div class="under"><button class="btn" type="button" aria-pressed="true" id="mk">Model's point shown</button></div>
 <div class="legend"><span>Top left · visible band (VIS)</span><span>Top right · colour: 1.8 µm, 1.1 µm, visible</span>
 <span>Bottom left · hard stretch for faint light</span><span>Bottom right · 3× zoom on the brightest galaxy</span><span>Field 32″ × 32″, north up</span></div></div>
-<div class="info"><span class="eyebrow"><b>●</b>Found {e(f["date_found"])} · {e(f["model"])}</span><h1>{e(f["name"])}</h1>
+<div class="info"><span class="eyebrow"><b>●</b>Found {e(f["date_found"])} · {e(f["model"])} · default effort</span><h1>{e(f["name"])}</h1>
 <div class="meta">{tags(f)}</div>
 <p class="quote">“{e(f["description"])}”</p><p class="explain">Ordinary explanation offered by the model: {e(f["ordinary_explanation"])}</p>
 <div class="facts">{"".join(f'<div class="fact"><span>{k}</span><span>{v}</span></div>' for k, v in facts)}</div>
