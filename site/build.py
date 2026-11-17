@@ -146,7 +146,7 @@ footer{color:var(--dim);font-size:.8rem;padding:4px 0 48px}footer a{color:var(--
 .btn:hover{background:var(--card3);color:var(--fg)}.btn.primary{background:var(--fg);color:var(--bg)}.btn.primary:hover{background:#fff;color:var(--bg)}
 .btn[aria-pressed=true]{background:var(--accent-soft);color:var(--accent)}
 .small{color:var(--dim);font-size:.82rem}.small a{color:var(--silver)}
-.reviews{background:var(--card);border-radius:var(--r-xl);padding:30px 34px;margin:0 0 14px}.reviews h2{font:700 1.5rem/1.1 var(--display);letter-spacing:-.03em;margin:0 0 6px}.reviews>.small{margin:0 0 18px}.review+.review{margin-top:18px}.rv-hd{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:10px}.tag.v-closer{background:var(--accent-soft);color:var(--accent)}.tag.v-split{color:var(--accent-strong)}.tag.v-star,.tag.v-artefact{color:var(--dim)}
+.reviews{background:var(--card);border-radius:var(--r-xl);padding:30px 34px;margin:0 0 14px}.reviews h2{font:700 1.5rem/1.1 var(--display);letter-spacing:-.03em;margin:0 0 6px}.reviews>.small{margin:0 0 18px}.rv-img{display:block;width:100%;max-width:720px;border-radius:var(--r);margin-top:12px}.review+.review{margin-top:18px}.rv-hd{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:10px}.tag.v-closer{background:var(--accent-soft);color:var(--accent)}.tag.v-split{color:var(--accent-strong)}.tag.v-star,.tag.v-artefact{color:var(--dim)}
 .verdict{font:500 .66rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;background:var(--card3);color:var(--fg);border-radius:999px;padding:7px 11px}
 .pager{display:flex;justify-content:space-between;gap:12px;padding:10px 0 50px}
 @media (max-width:900px){.method,.detail{grid-template-columns:1fr}.count{margin-left:0;width:100%}.filters{position:static}
@@ -317,6 +317,9 @@ def consensus(R):
     return key, f"{VERDICT_SHORT.get(v, v)} · {k} of {len(R)}"
 
 
+BASE_URL = "/euclid-oddities"
+
+
 def reviews_html(slug):
     R = load_reviews(slug)
     if not R:
@@ -325,10 +328,11 @@ def reviews_html(slug):
     for r in R:
         rows = [("What it sees", r.get("what_i_see")), ("Most likely", r.get("most_likely")), ("Against that", r.get("against_it")),
                 ("Would settle it", r.get("decisive_test")), ("Catalogues", r.get("catalogue_notes")), ("Note", r.get("note"))]
+        img = (f'<img class="rv-img" src="{BASE_URL}/img/{e(r["image"])}" alt="Residual images after galaxy-light subtraction" loading="lazy">' if r.get("image") else "")
         out.append(f"""<article class="review"><div class="rv-hd"><span class="verdict">{e(r.get("verdict", ""))}</span>
 <span class="small">Blind review by {e(r.get("reviewer_model", "an AI model"))} · {e(r.get("date", ""))} · {e(r.get("confidence", ""))} confidence</span></div>
-<div class="facts">{"".join(f'<div class="fact"><span>{k}</span><span>{e(v)}</span></div>' for k, v in rows if v)}</div></article>""")
-    return (f'<section class="reviews"><h2>Second opinions</h2><p class="small">Independent AI reviewers from two model families saw the image, without the original model\'s description. '
+<div class="facts">{"".join(f'<div class="fact"><span>{k}</span><span>{e(v)}</span></div>' for k, v in rows if v)}</div>{img}</article>""")
+    return (f'<section class="reviews"><h2>Second opinions</h2><p class="small">Independent reviewers (AI models from two families, plus measurements without AI) saw the image, without the original model\'s description. '
             f'Claude reviewers also queried public catalogues themselves. These are not expert opinions.</p>{"".join(out)}</section>')
 
 
@@ -371,6 +375,8 @@ def main():
     ap.add_argument("--base", default="/euclid-oddities")
     a = ap.parse_args()
     out, base = Path(a.out), a.base.rstrip("/")
+    global BASE_URL
+    BASE_URL = base
     D = json.loads((HERE / "data" / "finds.json").read_text(encoding="utf-8"))
     F = sorted(D["finds"], key=lambda f: (-f["interest"], f["slug"]))
     out.mkdir(parents=True, exist_ok=True)

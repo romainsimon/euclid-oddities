@@ -1,0 +1,9 @@
+{"slug": "j0413005-525304", "reviewer_model": "galaxy-light subtraction (photutils isophotes, no AI model)", "date": "2026-11-17",
+ "what_i_see": "After subtracting an elliptical-isophote model of the host from the 32 arcsec Euclid cutouts, a compact elongated residual remains at the flagged point in all three bands: S/N 22 (VIS), 16 (Y), 22 (H) in a 0.5 arcsec radius aperture.",
+ "most_likely": "A real source 2.4 arcsec from the host centre, about 1.8 times bluer than the host (VIS vs NISP flux ratio), elongated at about 70 degrees from the radial direction (90 = tangential).",
+ "against_it": "No counter-image detected at the point mirrored through the host centre (S/N -0.1 VIS, -2.2 Y, -4.1 H), though a fainter inner image could hide in the core residuals. The streak is short and barely curved.",
+ "verdict": "worth a closer look",
+ "decisive_test": "Lens modelling on the full-depth VIS frame by a lensing expert, or a spectrum of the streak showing a redshift well above the host's photometric z of about 0.24-0.28.",
+ "catalogue_notes": "Host: WISEA J041300.68-525302.4, Legacy Surveys photo-z 0.24-0.28. Method: arcfit.py in the research repository; image: rows VIS, Y, H; columns data, model, residual; orange = flagged point, blue = mirrored point.",
+ "confidence": "medium",
+ "image": "j0413005-525304-residual.jpg"}
