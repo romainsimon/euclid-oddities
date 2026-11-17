@@ -9,10 +9,17 @@ SPACESIM_WT=/d/dev/spacesim-wt/oddities
 NODE22=/c/Users/Romain/AppData/Roaming/nvm/v22.19.0
 TRAILER="Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
 
+# 0. Start from the published state (the server loop also pushes here) and keep its finds
+git -C "$REPO" pull -q --ff-only origin main
+KEEP="$(cygpath -m "$REPO")/site/data/.keep_loop.json"
+python -c "import json; d=json.load(open('$(cygpath -m "$REPO")/site/data/finds.json',encoding='utf-8')); json.dump([f for f in d['finds'] if 'A-loop' in f.get('run','')], open('$KEEP','w',encoding='utf-8'))"
+
 # 1. Export finds from the research pipeline (catalogue checks are cached), then build checks
 "$TRACKD/.venv/Scripts/python" "$TRACKD/fexport.py" "$REPO/site/data"
 "$TRACKD/.venv/Scripts/python" "$TRACKD/fexport_ftwo.py" "$REPO/site/data"
 (cd "$TRACKD" && .venv/Scripts/python fwide.py export "$(cygpath -m "$REPO")/site/data")
+python -c "import json; p='$(cygpath -m "$REPO")/site/data/finds.json'; d=json.load(open(p,encoding='utf-8')); keep=json.load(open('$KEEP',encoding='utf-8')); have={f['slug'] for f in d['finds']}; d['finds']+= [f for f in keep if f['slug'] not in have]; json.dump(d,open(p,'w',encoding='utf-8'),indent=1,ensure_ascii=False); print(len(keep),'loop finds kept')"
+rm -f "$KEEP"
 python -c "import json,sys; d=json.load(open('$(cygpath -m "$REPO")/site/data/finds.json',encoding='utf-8')); assert d['finds'], 'no finds'; print(len(d['finds']), 'finds')"
 
 # 2. GitHub: commit and push this repository
