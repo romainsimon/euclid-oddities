@@ -219,6 +219,11 @@ RUNS = {"Fable pass 1 (A-fable)": "outliers", "Two-stage test (A-twostage), deve
         "Wide-field pass (A-wide)": "wide"}
 
 
+def run_key(f):
+    r = f.get("run", "")
+    return RUNS.get(r, "wide" if r.startswith("Wide-field pass") else "other")
+
+
 def promise(f):
     """Ranking for "Most promising": votes for a closer look first, then a penalty when most reviewers call it
     ordinary or a star, then the finder's interest score."""
@@ -238,7 +243,7 @@ def card(f, base):
           + (f'<span class="sparks">{sp}</span>' if rk == "legendary" else "")
           + '<span class="glare"></span></span>')
     return (f'<a class="card r-{rk}" style="view-transition-name:c-{vt(f["slug"])}" href="{base}/{f["slug"]}/" data-feature="{e(f["feature"])}" data-conf="{e(f["confidence"])}" data-rarity="{rk}" '
-            f'data-interest="{f["interest"]}" data-cat="{"yes" if f["catalogued"] else "no"}" data-date="{e(f["date_found"])}" data-model="{e(f["model"])}" data-run="{e(RUNS.get(f.get("run", ""), "other"))}" data-score="{promise(f)}" data-rev="{ck or "none"}">{fx}'
+            f'data-interest="{f["interest"]}" data-cat="{"yes" if f["catalogued"] else "no"}" data-date="{e(f["date_found"])}" data-model="{e(f["model"])}" data-run="{e(run_key(f))}" data-score="{promise(f)}" data-rev="{ck or "none"}">{fx}'
             f'<img style="view-transition-name:i-{vt(f["slug"])}" src="{base}/img/{f["slug"]}-thumb.jpg" width="360" height="360" loading="lazy" alt="Euclid visible-band cutout of {e(f["name"])}">'
             f'<div class="body"><div class="hd"><h3 style="view-transition-name:t-{vt(f["slug"])}">{icon(f["feature"])}{e(f["name"])}</h3>{stars(f["interest"])}</div><div class="meta">{tags(f)}{rv}</div><p>{e(f["description"])}</p></div></a>')
 
