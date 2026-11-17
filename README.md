@@ -34,6 +34,19 @@ Verdict under the pre-registered rule: Haiku does not run as a search. It rarely
 
 Stronger models find about four times more planted oddities without inventing more, but still miss about two thirds. When they flag a planted item they almost always locate it correctly, so the bottleneck is noticing, not localisation. The read-out rule fixed before the calls (≥ 12/24) is not met. Details: [track-d-anomaly-hunt/MODEL_COMPARISON.md](track-d-anomaly-hunt/MODEL_COMPARISON.md).
 
+### A larger view helps: Fable 5.2 on the development set, then on fresh sky (17 Nov 2026, exploratory)
+
+Rules written and published before the calls: amendment A-fable in [AMENDMENTS_D.md](track-d-anomaly-hunt/AMENDMENTS_D.md).
+
+| Rendering shown to Fable 5.2 | Planted oddities found (of 24) | False features on untouched (of 16) |
+|---|---|---|
+| Frozen strip of four 320 px tiles, prompt v1 | 9 | 2 |
+| 2×2 grid at 536 px per tile, prompt asking to scan every quadrant | **14** | 3 |
+
+The larger view passes the read-out bar (≥ 12/24) for the first time. Small samples: the arms differ by 5 objects.
+
+The larger view was then run on 117 catalogue outliers from three DR1 tiles never used before (stopped by the weekly quota). Fable flagged 23. One met the strict lead definition: an S-shaped tidal stream attached to a disc galaxy, most likely an interacting pair; no SIMBAD entry and only WISE detections in NED. Four low-confidence possible lensing arcs and one small ring are not in ECLIPSE and need an expert look. Details: [fable-pass/FPASS.md](track-d-anomaly-hunt/fable-pass/FPASS.md).
+
 ### Compact lensed quasars (Track A), classical fit with injections
 
 A one-versus-two point-source fit on Euclid VIS cutouts of Gaia quasar candidates.

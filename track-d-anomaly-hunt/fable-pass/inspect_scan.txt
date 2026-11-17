@@ -1,0 +1,17 @@
+Read the image file {FILE} in the current folder. It shows one patch of sky 32 arcseconds wide from a space telescope survey, in four renderings arranged in a 2 by 2 grid: {PANELS}
+
+Before answering, scan the whole top-left tile quadrant by quadrant and consider every source in it, not only the central or brightest one: something unusual may be small, faint or off-centre. Check each candidate against the other tiles. Then answer with one JSON object and nothing else (no prose, no code fence), with exactly these fields:
+
+{"interest": number from 0.0 to 5.0 with one decimal, how much an astronomer would want a closer look at this field,
+ "weirdness": number from 0.0 to 5.0 with one decimal, 0 = entirely ordinary, 5 = like nothing you know,
+ "x": number from 0 to 1, horizontal position of the most interesting thing in the TOP-LEFT tile (0 = left edge, 1 = right edge),
+ "y": number from 0 to 1, vertical position of the same thing in the TOP-LEFT tile (0 = top edge, 1 = bottom edge),
+ "feature": one of "none", "arc", "ring", "straight_line", "pair", "diffuse_patch", "irregular", "other",
+ "nature": one of "ordinary", "artefact", "known_rare_class", "cannot_explain",
+ "confidence": one of "low", "medium", "high",
+ "n_compact_within_3as": integer, number of compact sources within 3 arcseconds of (x, y),
+ "elongated": true or false, whether the thing at (x, y) is elongated,
+ "angle_deg": number from 0 to 180 giving the direction of the elongation in the top-left tile, measured counter-clockwise from the horizontal, or null if not elongated,
+ "brighter_in": one of "optical", "infrared", "same", "unsure", where the thing at (x, y) is relatively brighter compared with typical objects in the field,
+ "description": "at most 40 words",
+ "ordinary_explanation": "at most 20 words, or 'none'"}

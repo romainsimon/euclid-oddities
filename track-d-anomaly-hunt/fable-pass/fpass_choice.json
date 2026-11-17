@@ -1,0 +1,22 @@
+{
+ "results": {
+  "ZA": {
+   "hits": 9,
+   "flagged": 9,
+   "n_planted": 24,
+   "false_features": 2,
+   "n_untouched": 16,
+   "invalid": 0
+  },
+  "BG": {
+   "hits": 14,
+   "flagged": 15,
+   "n_planted": 24,
+   "false_features": 3,
+   "n_untouched": 16,
+   "invalid": 0
+  }
+ },
+ "choice": "BG",
+ "rule": "BG if hits >= ZA hits + 3 (of 24) and false features <= ZA + 2 (of 16)"
+}
