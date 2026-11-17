@@ -1026,6 +1026,786 @@
     "LEDA  436522"
    ],
    "status": "unverified model suggestion"
+  },
+  {
+   "slug": "j0936057+735722",
+   "name": "EO J093605.74+735721.5",
+   "ra": 144.023899,
+   "dec": 73.95598,
+   "date_found": "2026-11-17",
+   "run": "Two-stage test (A-twostage), development field",
+   "model": "Claude Fable 5.2",
+   "model_id": "claude-fable-5-2",
+   "effort": "high",
+   "harness": "Claude Code 2.1.326, headless, Read tool only",
+   "thinking_tokens": 502,
+   "output_tokens": 826,
+   "rendering": "107 arcsec field, then 2x2 close look",
+   "interest": 3.6,
+   "weirdness": 2.8,
+   "feature": "arc",
+   "nature": "known_rare_class",
+   "confidence": "medium",
+   "description": "Compact red core with a curved arc wrapping below it and a fainter partial arc above, forming a near-ring about 1 arcsecond in radius; arc appears bluer than the core. Possible galaxy-scale strong lens.",
+   "ordinary_explanation": "Face-on ring or spiral galaxy with a red bulge, or a tidal feature from a merger.",
+   "point": {
+    "x": 0.502,
+    "y": 0.498
+   },
+   "selection": "random 107 arcsec development field (planted fakes elsewhere in the field)",
+   "tile": 102163137,
+   "simbad": [],
+   "ned": [
+    {
+     "name": "WISEA J093606.14+735712.1",
+     "type": null
+    },
+    {
+     "name": "WISEA J093605.73+735720.9",
+     "type": null
+    }
+   ],
+   "eclipse_within_10as": 0,
+   "catalogued": false,
+   "catalogue_names": [],
+   "status": "unverified model suggestion"
+  },
+  {
+   "slug": "j0940421+735326",
+   "name": "EO J094042.06+735325.6",
+   "ra": 145.175249,
+   "dec": 73.890438,
+   "date_found": "2026-11-17",
+   "run": "Two-stage test (A-twostage), development field",
+   "model": "Claude Fable 5.2",
+   "model_id": "claude-fable-5-2",
+   "effort": "high",
+   "harness": "Claude Code 2.1.326, headless, Read tool only",
+   "thinking_tokens": 939,
+   "output_tokens": 1273,
+   "rendering": "107 arcsec field, then 2x2 close look",
+   "interest": 3.4,
+   "weirdness": 2.8,
+   "feature": "straight_line",
+   "nature": "known_rare_class",
+   "confidence": "medium",
+   "description": "Thin, nearly straight narrow streak running from the bright early-type galaxy at (0.19,0.51) to the left edge, seen in visible and infrared; faint shell-like arcs and a fainter extension on the galaxy's right side.",
+   "ordinary_explanation": "Tidal tail or stream from a disrupted satellite or past merger; less likely an edge-on background galaxy.",
+   "point": {
+    "x": 0.12,
+    "y": 0.498
+   },
+   "selection": "random 107 arcsec development field (planted fakes elsewhere in the field)",
+   "tile": 102163137,
+   "simbad": [],
+   "ned": [
+    {
+     "name": "WISEA J094044.14+735326.4",
+     "type": null
+    }
+   ],
+   "eclipse_within_10as": 0,
+   "catalogued": false,
+   "catalogue_names": [],
+   "status": "unverified model suggestion"
+  },
+  {
+   "slug": "j1432599+741615",
+   "name": "EO J143259.93+741615.3",
+   "ra": 218.249728,
+   "dec": 74.270906,
+   "date_found": "2026-11-17",
+   "run": "Two-stage test (A-twostage), development field",
+   "model": "Claude Fable 5.2",
+   "model_id": "claude-fable-5-2",
+   "effort": "high",
+   "harness": "Claude Code 2.1.326, headless, Read tool only",
+   "thinking_tokens": 1382,
+   "output_tokens": 1701,
+   "rendering": "107 arcsec field, then 2x2 close look",
+   "interest": 3.0,
+   "weirdness": 2.4,
+   "feature": "arc",
+   "nature": "known_rare_class",
+   "confidence": "low",
+   "description": "Red galaxy, bright in infrared but faint in visible, flanked by several faint bluish elongated clumps forming a broken arc on its north and west sides; possible galaxy- or group-scale strong lens in a compact red group.",
+   "ordinary_explanation": "Chance projection of faint blue background galaxies or satellites around a red group elliptical.",
+   "point": {
+    "x": 0.502,
+    "y": 0.498
+   },
+   "selection": "random 107 arcsec development field (planted fakes elsewhere in the field)",
+   "tile": 102163380,
+   "simbad": [],
+   "ned": [
+    {
+     "name": "WISEA J143300.20+741614.4",
+     "type": null
+    }
+   ],
+   "eclipse_within_10as": 0,
+   "catalogued": false,
+   "catalogue_names": [],
+   "status": "unverified model suggestion"
+  },
+  {
+   "slug": "j0939329+734701",
+   "name": "EO J093932.86+734700.6",
+   "ra": 144.88692,
+   "dec": 73.783501,
+   "date_found": "2026-11-17",
+   "run": "Two-stage test (A-twostage), development field",
+   "model": "Claude Fable 5.2",
+   "model_id": "claude-fable-5-2",
+   "effort": "high",
+   "harness": "Claude Code 2.1.326, headless, Read tool only",
+   "thinking_tokens": 376,
+   "output_tokens": 695,
+   "rendering": "107 arcsec field, then 2x2 close look",
+   "interest": 3.0,
+   "weirdness": 2.0,
+   "feature": "irregular",
+   "nature": "known_rare_class",
+   "confidence": "medium",
+   "description": "Bright elongated galaxy with two compact knots on its upper edge and a faint curved tail extending to the lower-left, ending in a diffuse clump; likely an interacting or merging system with tidal debris.",
+   "ordinary_explanation": "Edge-on disc galaxy with chance-projected neighbours and a faint spiral arm or tidal tail.",
+   "point": {
+    "x": 0.502,
+    "y": 0.498
+   },
+   "selection": "random 107 arcsec development field (planted fakes elsewhere in the field)",
+   "tile": 102163137,
+   "simbad": [],
+   "ned": [
+    {
+     "name": "WISEA J093932.89+734700.1",
+     "type": null
+    }
+   ],
+   "eclipse_within_10as": 0,
+   "catalogued": false,
+   "catalogue_names": [],
+   "status": "unverified model suggestion"
+  },
+  {
+   "slug": "j0940426+741058",
+   "name": "EO J094042.57+741058.4",
+   "ra": 145.177394,
+   "dec": 74.182899,
+   "date_found": "2026-11-17",
+   "run": "Two-stage test (A-twostage), development field",
+   "model": "Claude Fable 5.2",
+   "model_id": "claude-fable-5-2",
+   "effort": "high",
+   "harness": "Claude Code 2.1.326, headless, Read tool only",
+   "thinking_tokens": 649,
+   "output_tokens": 955,
+   "rendering": "107 arcsec field, then 2x2 close look",
+   "interest": 3.0,
+   "weirdness": 2.3,
+   "feature": "ring",
+   "nature": "known_rare_class",
+   "confidence": "low",
+   "description": "Compact triplet of galaxies; the lower-right member shows a clumpy ring-like or arc structure around a faint core, possibly a lensed ring. A very red, infrared-only source lies just left of the group.",
+   "ordinary_explanation": "Face-on spiral or collisional ring galaxy in an interacting compact group.",
+   "point": {
+    "x": 0.502,
+    "y": 0.498
+   },
+   "selection": "random 107 arcsec development field (planted fakes elsewhere in the field)",
+   "tile": 102163137,
+   "simbad": [],
+   "ned": [
+    {
+     "name": "WISEA J094040.86+741105.1",
+     "type": null
+    },
+    {
+     "name": "WISEA J094042.90+741059.9",
+     "type": null
+    }
+   ],
+   "eclipse_within_10as": 0,
+   "catalogued": false,
+   "catalogue_names": [],
+   "status": "unverified model suggestion"
+  },
+  {
+   "slug": "j0939308+734738",
+   "name": "EO J093930.81+734738.4",
+   "ra": 144.878366,
+   "dec": 73.794001,
+   "date_found": "2026-11-17",
+   "run": "Two-stage test (A-twostage), development field",
+   "model": "Claude Fable 5.2",
+   "model_id": "claude-fable-5-2",
+   "effort": "high",
+   "harness": "Claude Code 2.1.326, headless, Read tool only",
+   "thinking_tokens": 801,
+   "output_tokens": 1138,
+   "rendering": "107 arcsec field, then 2x2 close look",
+   "interest": 3.0,
+   "weirdness": 2.0,
+   "feature": "ring",
+   "nature": "ordinary",
+   "confidence": "low",
+   "description": "Bright bulge-dominated galaxy encircled by a faint, near-complete ring or tightly wound arm about 2.5 arcsec in radius, with compact knots on or near it and an elongated companion to the lower-left. Ring colour matches the galaxy.",
+   "ordinary_explanation": "Face-on ringed or tightly wound spiral galaxy with projected companions, not a lensed Einstein ring.",
+   "point": {
+    "x": 0.502,
+    "y": 0.492
+   },
+   "selection": "random 107 arcsec development field (planted fakes elsewhere in the field)",
+   "tile": 102163137,
+   "simbad": [],
+   "ned": [
+    {
+     "name": "WISEA J093930.94+734738.1",
+     "type": null
+    }
+   ],
+   "eclipse_within_10as": 0,
+   "catalogued": false,
+   "catalogue_names": [],
+   "status": "unverified model suggestion"
+  },
+  {
+   "slug": "j0939046+740841",
+   "name": "EO J093904.59+740841.3",
+   "ra": 144.769145,
+   "dec": 74.144794,
+   "date_found": "2026-11-17",
+   "run": "Two-stage test (A-twostage), development field",
+   "model": "Claude Fable 5.2",
+   "model_id": "claude-fable-5-2",
+   "effort": "high",
+   "harness": "Claude Code 2.1.326, headless, Read tool only",
+   "thinking_tokens": 918,
+   "output_tokens": 1240,
+   "rendering": "107 arcsec field, then 2x2 close look",
+   "interest": 3.0,
+   "weirdness": 2.4,
+   "feature": "irregular",
+   "nature": "known_rare_class",
+   "confidence": "medium",
+   "description": "Disturbed galaxy with bright core and partial loop, plus a curved hook-like tail or companion just below it; looks like an interacting pair in a cluster field. A thin blue streak lies upper right (0.83, 0.19).",
+   "ordinary_explanation": "Merging galaxy pair with tidal tail; the streak is probably an edge-on background disc.",
+   "point": {
+    "x": 0.502,
+    "y": 0.498
+   },
+   "selection": "random 107 arcsec development field (planted fakes elsewhere in the field)",
+   "tile": 102163137,
+   "simbad": [],
+   "ned": [
+    {
+     "name": "WISEA J093904.70+740841.4",
+     "type": null
+    }
+   ],
+   "eclipse_within_10as": 0,
+   "catalogued": false,
+   "catalogue_names": [],
+   "status": "unverified model suggestion"
+  },
+  {
+   "slug": "j1430011+741611",
+   "name": "EO J143001.15+741611.5",
+   "ra": 217.504791,
+   "dec": 74.269853,
+   "date_found": "2026-11-17",
+   "run": "Two-stage test (A-twostage), development field",
+   "model": "Claude Fable 5.2",
+   "model_id": "claude-fable-5-2",
+   "effort": "high",
+   "harness": "Claude Code 2.1.326, headless, Read tool only",
+   "thinking_tokens": 775,
+   "output_tokens": 1106,
+   "rendering": "107 arcsec field, then 2x2 close look",
+   "interest": 2.8,
+   "weirdness": 2.2,
+   "feature": "irregular",
+   "nature": "known_rare_class",
+   "confidence": "low",
+   "description": "Tight clump of about six compact knots within 1-2 arcsec around a red, infrared-bright central galaxy; possible lensed multiple images or compact group. Elsewhere: face-on spiral with faint tail, two aligned elongated galaxies.",
+   "ordinary_explanation": "Clumpy star-forming galaxy or chance compact group of small galaxies around a red galaxy.",
+   "point": {
+    "x": 0.502,
+    "y": 0.498
+   },
+   "selection": "random 107 arcsec development field (planted fakes elsewhere in the field)",
+   "tile": 102163380,
+   "simbad": [],
+   "ned": [],
+   "eclipse_within_10as": 0,
+   "catalogued": false,
+   "catalogue_names": [],
+   "status": "unverified model suggestion"
+  },
+  {
+   "slug": "j0939185+740851",
+   "name": "EO J093918.48+740851.5",
+   "ra": 144.82699,
+   "dec": 74.147627,
+   "date_found": "2026-11-17",
+   "run": "Two-stage test (A-twostage), development field",
+   "model": "Claude Fable 5.2",
+   "model_id": "claude-fable-5-2",
+   "effort": "high",
+   "harness": "Claude Code 2.1.326, headless, Read tool only",
+   "thinking_tokens": 892,
+   "output_tokens": 1210,
+   "rendering": "107 arcsec field, then 2x2 close look",
+   "interest": 2.6,
+   "weirdness": 2.2,
+   "feature": "arc",
+   "nature": "known_rare_class",
+   "confidence": "low",
+   "description": "Clumpy, gently curved chain about 6 arcsec long at the left edge, with a bright knot and several fainter blobs; possible lensed arc or tidal feature. Fainter thin streaks near (0.25, 0.64).",
+   "ordinary_explanation": "Edge-on clumpy chain galaxy or a chance alignment of small galaxies.",
+   "point": {
+    "x": 0.298,
+    "y": 0.498
+   },
+   "selection": "random 107 arcsec development field (planted fakes elsewhere in the field)",
+   "tile": 102163137,
+   "simbad": [],
+   "ned": [
+    {
+     "name": "WISEA J093917.80+740859.9",
+     "type": null
+    }
+   ],
+   "eclipse_within_10as": 0,
+   "catalogued": false,
+   "catalogue_names": [],
+   "status": "unverified model suggestion"
+  },
+  {
+   "slug": "j0937414+735860",
+   "name": "EO J093741.41+735859.6",
+   "ra": 144.422535,
+   "dec": 73.983227,
+   "date_found": "2026-11-17",
+   "run": "Two-stage test (A-twostage), development field",
+   "model": "Claude Fable 5.2",
+   "model_id": "claude-fable-5-2",
+   "effort": "high",
+   "harness": "Claude Code 2.1.326, headless, Read tool only",
+   "thinking_tokens": 607,
+   "output_tokens": 933,
+   "rendering": "107 arcsec field, then 2x2 close look",
+   "interest": 2.6,
+   "weirdness": 2.0,
+   "feature": "arc",
+   "nature": "known_rare_class",
+   "confidence": "low",
+   "description": "Faint curved low-surface-brightness streak just above-right of a red early-type galaxy, possible lensed arc candidate; field dominated by saturated star with diffraction spikes at lower right, plus ordinary edge-on galaxies.",
+   "ordinary_explanation": "Scattered-light ghost from the bright star, or a faint tidal feature or edge-on disc.",
+   "point": {
+    "x": 0.502,
+    "y": 0.498
+   },
+   "selection": "random 107 arcsec development field (planted fakes elsewhere in the field)",
+   "tile": 102163137,
+   "simbad": [],
+   "ned": [
+    {
+     "name": "WISEA J093740.11+735851.1",
+     "type": null
+    }
+   ],
+   "eclipse_within_10as": 0,
+   "catalogued": false,
+   "catalogue_names": [],
+   "status": "unverified model suggestion"
+  },
+  {
+   "slug": "j0936360+734535",
+   "name": "EO J093636.03+734535.3",
+   "ra": 144.150113,
+   "dec": 73.759811,
+   "date_found": "2026-11-17",
+   "run": "Two-stage test (A-twostage), development field",
+   "model": "Claude Fable 5.2",
+   "model_id": "claude-fable-5-2",
+   "effort": "high",
+   "harness": "Claude Code 2.1.326, headless, Read tool only",
+   "thinking_tokens": 586,
+   "output_tokens": 901,
+   "rendering": "107 arcsec field, then 2x2 close look",
+   "interest": 2.6,
+   "weirdness": 2.2,
+   "feature": "arc",
+   "nature": "ordinary",
+   "confidence": "low",
+   "description": "Thin, slightly curved streak about 3.5 arcsec long near centre, reddish in the composite, with bluish compact knots strung along and beyond its ends in a chain. No obvious lensing galaxy nearby.",
+   "ordinary_explanation": "Edge-on or clumpy chain galaxy, possibly interacting with small companions.",
+   "point": {
+    "x": 0.53,
+    "y": 0.498
+   },
+   "selection": "random 107 arcsec development field (planted fakes elsewhere in the field)",
+   "tile": 102163137,
+   "simbad": [],
+   "ned": [],
+   "eclipse_within_10as": 0,
+   "catalogued": false,
+   "catalogue_names": [],
+   "status": "unverified model suggestion"
+  },
+  {
+   "slug": "j1427143+743116",
+   "name": "EO J142714.30+743115.9",
+   "ra": 216.809589,
+   "dec": 74.521084,
+   "date_found": "2026-11-17",
+   "run": "Two-stage test (A-twostage), development field",
+   "model": "Claude Fable 5.2",
+   "model_id": "claude-fable-5-2",
+   "effort": "high",
+   "harness": "Claude Code 2.1.326, headless, Read tool only",
+   "thinking_tokens": 854,
+   "output_tokens": 1184,
+   "rendering": "107 arcsec field, then 2x2 close look",
+   "interest": 2.6,
+   "weirdness": 1.6,
+   "feature": "ring",
+   "nature": "ordinary",
+   "confidence": "medium",
+   "description": "Central galaxy with a bright, slightly bar-like core wrapped by a near-complete ring or tightly wound arm about 1.2 arcsec in radius; compact companion just below. Ring colour matches the core, not a blue lensed arc.",
+   "ordinary_explanation": "Face-on barred spiral with an inner ring or wrapped arm, plus a small companion or projected neighbour.",
+   "point": {
+    "x": 0.502,
+    "y": 0.498
+   },
+   "selection": "random 107 arcsec development field (planted fakes elsewhere in the field)",
+   "tile": 102163380,
+   "simbad": [],
+   "ned": [
+    {
+     "name": "WISEA J142714.24+743115.2",
+     "type": null
+    }
+   ],
+   "eclipse_within_10as": 0,
+   "catalogued": false,
+   "catalogue_names": [],
+   "status": "unverified model suggestion"
+  },
+  {
+   "slug": "j1427110+743054",
+   "name": "EO J142710.98+743054.0",
+   "ra": 216.795748,
+   "dec": 74.515001,
+   "date_found": "2026-11-17",
+   "run": "Two-stage test (A-twostage), development field",
+   "model": "Claude Fable 5.2",
+   "model_id": "claude-fable-5-2",
+   "effort": "high",
+   "harness": "Claude Code 2.1.326, headless, Read tool only",
+   "thinking_tokens": 773,
+   "output_tokens": 1090,
+   "rendering": "107 arcsec field, then 2x2 close look",
+   "interest": 2.6,
+   "weirdness": 2.0,
+   "feature": "irregular",
+   "nature": "ordinary",
+   "confidence": "medium",
+   "description": "Edge-on disc galaxy with a faint, bluish hooked plume curling off its upper-right end, like a tidal tail or warp. A compact red source lies just to the right. Rest of field is ordinary faint galaxies.",
+   "ordinary_explanation": "Edge-on spiral with a warped disc or tidal plume from a minor interaction.",
+   "point": {
+    "x": 0.502,
+    "y": 0.498
+   },
+   "selection": "random 107 arcsec development field (planted fakes elsewhere in the field)",
+   "tile": 102163380,
+   "simbad": [],
+   "ned": [
+    {
+     "name": "WISEA J142711.58+743050.9",
+     "type": null
+    }
+   ],
+   "eclipse_within_10as": 0,
+   "catalogued": false,
+   "catalogue_names": [],
+   "status": "unverified model suggestion"
+  },
+  {
+   "slug": "j1430012+741625",
+   "name": "EO J143001.22+741624.7",
+   "ra": 217.505099,
+   "dec": 74.273519,
+   "date_found": "2026-11-17",
+   "run": "Two-stage test (A-twostage), development field",
+   "model": "Claude Fable 5.2",
+   "model_id": "claude-fable-5-2",
+   "effort": "high",
+   "harness": "Claude Code 2.1.326, headless, Read tool only",
+   "thinking_tokens": 753,
+   "output_tokens": 1080,
+   "rendering": "107 arcsec field, then 2x2 close look",
+   "interest": 2.6,
+   "weirdness": 1.8,
+   "feature": "ring",
+   "nature": "ordinary",
+   "confidence": "medium",
+   "description": "Bright round galaxy with a red core surrounded by a tight ring-like or spiral structure about 1.8 arcsec in radius, plus a faint wisp extending left. Elsewhere: thin streak at top edge, small pairs.",
+   "ordinary_explanation": "Face-on spiral with tightly wound arms and a faint tidal feature or companion; not a lensed ring.",
+   "point": {
+    "x": 0.502,
+    "y": 0.498
+   },
+   "selection": "random 107 arcsec development field (planted fakes elsewhere in the field)",
+   "tile": 102163380,
+   "simbad": [],
+   "ned": [
+    {
+     "name": "WISEA J143001.25+741624.3",
+     "type": null
+    }
+   ],
+   "eclipse_within_10as": 0,
+   "catalogued": false,
+   "catalogue_names": [],
+   "status": "unverified model suggestion"
+  },
+  {
+   "slug": "j0940400+740959",
+   "name": "EO J094039.96+740958.8",
+   "ra": 145.166494,
+   "dec": 74.166344,
+   "date_found": "2026-11-17",
+   "run": "Two-stage test (A-twostage), development field",
+   "model": "Claude Fable 5.2",
+   "model_id": "claude-fable-5-2",
+   "effort": "high",
+   "harness": "Claude Code 2.1.326, headless, Read tool only",
+   "thinking_tokens": 718,
+   "output_tokens": 1054,
+   "rendering": "107 arcsec field, then 2x2 close look",
+   "interest": 2.6,
+   "weirdness": 1.5,
+   "feature": "pair",
+   "nature": "ordinary",
+   "confidence": "medium",
+   "description": "Face-on spiral with a red bulge and a bluer, knotty companion clump at the end of its north-east arm, M51-like. A faint straight diagonal streak crosses the left side, likely an artefact; diffraction spikes at the bottom edge.",
+   "ordinary_explanation": "Spiral galaxy with a minor interacting companion or bright star-forming clump; streak is a stellar spike or trail.",
+   "point": {
+    "x": 0.502,
+    "y": 0.498
+   },
+   "selection": "random 107 arcsec development field (planted fakes elsewhere in the field)",
+   "tile": 102163137,
+   "simbad": [],
+   "ned": [
+    {
+     "name": "WISEA J094039.61+740958.4",
+     "type": null
+    }
+   ],
+   "eclipse_within_10as": 0,
+   "catalogued": false,
+   "catalogue_names": [],
+   "status": "unverified model suggestion"
+  },
+  {
+   "slug": "j0937339+735737",
+   "name": "EO J093733.92+735737.3",
+   "ra": 144.391343,
+   "dec": 73.960365,
+   "date_found": "2026-11-17",
+   "run": "Two-stage test (A-twostage), development field",
+   "model": "Claude Fable 5.2",
+   "model_id": "claude-fable-5-2",
+   "effort": "high",
+   "harness": "Claude Code 2.1.326, headless, Read tool only",
+   "thinking_tokens": 1441,
+   "output_tokens": 1766,
+   "rendering": "107 arcsec field, then 2x2 close look",
+   "interest": 2.6,
+   "weirdness": 2.0,
+   "feature": "arc",
+   "nature": "known_rare_class",
+   "confidence": "low",
+   "description": "Faint blue elongated streak with two knots about 5 arcsec from the centre of the large elliptical at bottom-left, roughly tangential to it; possible lensed arc. A curved orange galaxy sits at right edge.",
+   "ordinary_explanation": "Faint blue edge-on or clumpy background galaxy, or satellite, projected on the elliptical's halo.",
+   "point": {
+    "x": 0.502,
+    "y": 0.902
+   },
+   "selection": "random 107 arcsec development field (planted fakes elsewhere in the field)",
+   "tile": 102163137,
+   "simbad": [
+    {
+     "name": "LEDA 2759137",
+     "type": "G"
+    }
+   ],
+   "ned": [
+    {
+     "name": "WISEA J093734.86+735732.4",
+     "type": "G"
+    }
+   ],
+   "eclipse_within_10as": 0,
+   "catalogued": true,
+   "catalogue_names": [
+    "LEDA 2759137"
+   ],
+   "status": "unverified model suggestion"
+  },
+  {
+   "slug": "j0940279+740945",
+   "name": "EO J094027.86+740944.6",
+   "ra": 145.116071,
+   "dec": 74.162399,
+   "date_found": "2026-11-17",
+   "run": "Two-stage test (A-twostage), development field",
+   "model": "Claude Fable 5.2",
+   "model_id": "claude-fable-5-2",
+   "effort": "high",
+   "harness": "Claude Code 2.1.326, headless, Read tool only",
+   "thinking_tokens": 915,
+   "output_tokens": 1263,
+   "rendering": "107 arcsec field, then 2x2 close look",
+   "interest": 2.6,
+   "weirdness": 2.4,
+   "feature": "arc",
+   "nature": "cannot_explain",
+   "confidence": "low",
+   "description": "Thin, slightly curved, very narrow filament about 4 arcseconds long running to the bottom edge, seen in visible band, faint greenish-white in colour. No obvious lensing galaxy beside it. Elsewhere: a central group of red galaxies with compact companions.",
+   "ordinary_explanation": "Faint edge-on galaxy, tidal filament, or residual cosmic-ray or satellite trail near the tile edge.",
+   "point": {
+    "x": 0.698,
+    "y": 0.802
+   },
+   "selection": "random 107 arcsec development field (planted fakes elsewhere in the field)",
+   "tile": 102163137,
+   "simbad": [],
+   "ned": [
+    {
+     "name": "WISEA J094026.76+740936.9",
+     "type": null
+    }
+   ],
+   "eclipse_within_10as": 0,
+   "catalogued": false,
+   "catalogue_names": [],
+   "status": "unverified model suggestion"
+  },
+  {
+   "slug": "j0937455+735853",
+   "name": "EO J093745.47+735852.9",
+   "ra": 144.439439,
+   "dec": 73.981365,
+   "date_found": "2026-11-17",
+   "run": "Two-stage test (A-twostage), development field",
+   "model": "Claude Fable 5.2",
+   "model_id": "claude-fable-5-2",
+   "effort": "high",
+   "harness": "Claude Code 2.1.326, headless, Read tool only",
+   "thinking_tokens": 875,
+   "output_tokens": 1224,
+   "rendering": "107 arcsec field, then 2x2 close look",
+   "interest": 2.6,
+   "weirdness": 2.0,
+   "feature": "irregular",
+   "nature": "ordinary",
+   "confidence": "low",
+   "description": "Blue, clumpy chain of 3-4 knots about 3 arcsec long, 5 arcsec north-east of the central elliptical galaxy; not clearly tangential to it. Bright-star diffraction spikes cross the field; faint red infrared-only source nearby.",
+   "ordinary_explanation": "Clumpy edge-on star-forming or chain galaxy, unrelated to the elliptical; straight lines are diffraction spikes.",
+   "point": {
+    "x": 0.502,
+    "y": 0.498
+   },
+   "selection": "random 107 arcsec development field (planted fakes elsewhere in the field)",
+   "tile": 102163137,
+   "simbad": [],
+   "ned": [
+    {
+     "name": "WISEA J093744.48+735849.4",
+     "type": null
+    }
+   ],
+   "eclipse_within_10as": 0,
+   "catalogued": false,
+   "catalogue_names": [],
+   "status": "unverified model suggestion"
+  },
+  {
+   "slug": "j0939019+740810",
+   "name": "EO J093901.94+740810.3",
+   "ra": 144.758065,
+   "dec": 74.136182,
+   "date_found": "2026-11-17",
+   "run": "Two-stage test (A-twostage), development field",
+   "model": "Claude Fable 5.2",
+   "model_id": "claude-fable-5-2",
+   "effort": "high",
+   "harness": "Claude Code 2.1.326, headless, Read tool only",
+   "thinking_tokens": 923,
+   "output_tokens": 1242,
+   "rendering": "107 arcsec field, then 2x2 close look",
+   "interest": 2.6,
+   "weirdness": 1.5,
+   "feature": "other",
+   "nature": "ordinary",
+   "confidence": "medium",
+   "description": "Tight knot of four to five red early-type galaxies with shared diffuse envelope, likely a compact group or cluster core; faint bluish smudges nearby could be weak arclets. Isolated green speck in colour tile is an artefact.",
+   "ordinary_explanation": "Compact group or cluster core of red galaxies with intragroup light and faint satellites.",
+   "point": {
+    "x": 0.502,
+    "y": 0.498
+   },
+   "selection": "random 107 arcsec development field (planted fakes elsewhere in the field)",
+   "tile": 102163137,
+   "simbad": [],
+   "ned": [
+    {
+     "name": "WISEA J093901.73+740811.3",
+     "type": null
+    }
+   ],
+   "eclipse_within_10as": 0,
+   "catalogued": false,
+   "catalogue_names": [],
+   "status": "unverified model suggestion"
+  },
+  {
+   "slug": "j0935142+741217",
+   "name": "EO J093514.25+741217.1",
+   "ra": 143.809372,
+   "dec": 74.204737,
+   "date_found": "2026-11-17",
+   "run": "Two-stage test (A-twostage), development field",
+   "model": "Claude Fable 5.2",
+   "model_id": "claude-fable-5-2",
+   "effort": "high",
+   "harness": "Claude Code 2.1.326, headless, Read tool only",
+   "thinking_tokens": 686,
+   "output_tokens": 1000,
+   "rendering": "107 arcsec field, then 2x2 close look",
+   "interest": 2.6,
+   "weirdness": 2.1,
+   "feature": "irregular",
+   "nature": "ordinary",
+   "confidence": "medium",
+   "description": "Clumpy, triangular irregular galaxy with several bright knots and a loop-like outline, redder lower part; a compact round source sits about 3 arcsec to its left. Likely merging or clumpy star-forming system.",
+   "ordinary_explanation": "Clumpy star-forming galaxy or minor merger seen at moderate redshift.",
+   "point": {
+    "x": 0.502,
+    "y": 0.498
+   },
+   "selection": "random 107 arcsec development field (planted fakes elsewhere in the field)",
+   "tile": 102163137,
+   "simbad": [],
+   "ned": [],
+   "eclipse_within_10as": 0,
+   "catalogued": false,
+   "catalogue_names": [],
+   "status": "unverified model suggestion"
   }
  ]
 }
