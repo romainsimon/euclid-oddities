@@ -40,6 +40,12 @@ FONT_FACES = """@font-face{font-family:"Space Grotesk";src:url("/assets/fonts/sp
 """
 
 CSS = """
+@view-transition{navigation:auto}
+::view-transition-group(*){animation-duration:.55s;animation-timing-function:cubic-bezier(.16,1,.3,1)}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.3s}
+::view-transition-image-pair(*){isolation:auto}
+::view-transition-old(*),::view-transition-new(*){height:100%;object-fit:cover}
+@media (prefers-reduced-motion:reduce){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}}
 :root{--bg:#0b0c0f;--card:#15171c;--card2:#1b1e24;--card3:#23262d;--fg:#eceef2;--silver:#c3c8d0;--dim:#868c97;
 --accent:#ff6b1a;--accent-soft:rgba(255,107,26,.14);--ease:cubic-bezier(.16,1,.3,1);--r-xl:40px;--r-lg:28px;--r:20px;--r-sm:14px;
 --display:"Space Grotesk",ui-sans-serif,system-ui,sans-serif;--body:"Inter",ui-sans-serif,system-ui,sans-serif;
@@ -195,16 +201,21 @@ def rarity(f):
 SPARKS = [(16, 20, 0), (80, 12, .9), (88, 52, 1.7), (24, 46, 2.4), (64, 34, 3.1)]
 
 
+def vt(slug):
+    """CSS identifier for view-transition-name (no '+')."""
+    return slug.replace("+", "p").replace(".", "_")
+
+
 def card(f, base):
     rk, rt = rarity(f)
     sp = "".join(f'<i style="left:{x}%;top:{y}%;animation-delay:{d}s"></i>' for x, y, d in SPARKS)
     fx = ('<span class="fx" aria-hidden="true"><span class="foil"></span>'
           + (f'<span class="sparks">{sp}</span>' if rk == "legendary" else "")
           + '<span class="glare"></span></span>')
-    return (f'<a class="card r-{rk}" href="{base}/{f["slug"]}/" data-feature="{e(f["feature"])}" data-conf="{e(f["confidence"])}" data-rarity="{rk}" '
+    return (f'<a class="card r-{rk}" style="view-transition-name:c-{vt(f["slug"])}" href="{base}/{f["slug"]}/" data-feature="{e(f["feature"])}" data-conf="{e(f["confidence"])}" data-rarity="{rk}" '
             f'data-interest="{f["interest"]}" data-cat="{"yes" if f["catalogued"] else "no"}" data-date="{e(f["date_found"])}" data-model="{e(f["model"])}">{fx}'
-            f'<img src="{base}/img/{f["slug"]}-thumb.jpg" width="360" height="360" loading="lazy" alt="Euclid visible-band cutout of {e(f["name"])}">'
-            f'<div class="body"><div class="hd"><h3>{icon(f["feature"])}{e(f["name"])}</h3>{stars(f["interest"])}</div><div class="meta">{tags(f)}</div><p>{e(f["description"])}</p></div></a>')
+            f'<img style="view-transition-name:i-{vt(f["slug"])}" src="{base}/img/{f["slug"]}-thumb.jpg" width="360" height="360" loading="lazy" alt="Euclid visible-band cutout of {e(f["name"])}">'
+            f'<div class="body"><div class="hd"><h3 style="view-transition-name:t-{vt(f["slug"])}">{icon(f["feature"])}{e(f["name"])}</h3>{stars(f["interest"])}</div><div class="meta">{tags(f)}</div><p>{e(f["description"])}</p></div></a>')
 
 
 def index(F, meta, base):
@@ -280,11 +291,11 @@ def detail(f, prev, nxt, base):
              ("Effort", f'{e(f.get("effort", "not recorded"))} · {f.get("thinking_tokens", 0)} thinking tokens'),
              ("Harness", e(f.get("harness", ""))), ("Run", f'{e(f["run"])}, {e(f["rendering"])}')]
     body = f"""<main class="wrap"><div class="crumbs"><a href="{base}/">All finds</a> / {e(f["name"])}</div>
-<div class="detail"><div class="viewer"><div class="zoomwrap" id="zw"><img id="im" src="{base}/img/{f["slug"]}-marked.jpg" width="1072" height="1072" alt="Euclid cutout of {e(f["name"])}: visible band, colour composite, hard stretch and 3x zoom, with the model's chosen point circled"><div class="lens" id="lens" aria-hidden="true"></div></div>
+<div class="detail"><div class="viewer" style="view-transition-name:c-{vt(f["slug"])}"><div class="zoomwrap" id="zw"><img id="im" style="view-transition-name:i-{vt(f["slug"])}" src="{base}/img/{f["slug"]}-marked.jpg" width="1072" height="1072" alt="Euclid cutout of {e(f["name"])}: visible band, colour composite, hard stretch and 3x zoom, with the model's chosen point circled"><div class="lens" id="lens" aria-hidden="true"></div></div>
 <div class="under"><button class="btn" type="button" aria-pressed="true" id="mk">Model's point shown</button></div>
 <div class="legend"><span>Top left · visible band (VIS)</span><span>Top right · colour: 1.8 µm, 1.1 µm, visible</span>
 <span>Bottom left · hard stretch for faint light</span><span>Bottom right · 3× zoom on the brightest galaxy</span><span>Field 32″ × 32″, north up</span></div></div>
-<div class="info"><h1>{icon(f["feature"], 34)}{e(f["name"])}</h1>
+<div class="info"><h1 style="view-transition-name:t-{vt(f["slug"])}">{icon(f["feature"], 34)}{e(f["name"])}</h1>
 <div class="meta">{stars(f["interest"], True)}<span class="ival">{f["interest"]} / 5 interest</span>{tags(f)}</div>
 <p class="quote">“{e(f["description"])}”</p><p class="explain">Ordinary explanation offered by the model: {e(f["ordinary_explanation"])}</p>
 <div class="facts">{"".join(f'<div class="fact"><span>{k}</span><span>{v}</span></div>' for k, v in facts)}</div>
