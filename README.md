@@ -2,7 +2,7 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24304793.svg)](https://doi.org/10.5281/zenodo.24304793)
 
-Romain Simon, independent researcher, Nice, France. November 2026.
+Romain Simon, independent researcher, Antibes, France. November 2026.
 
 **Browse every object the model flagged, with blind second opinions: [spacesim.co/euclid-oddities](https://spacesim.co/euclid-oddities).** The gallery is part of [SpaceSim](https://spacesim.co), a free browser universe simulator.
 
