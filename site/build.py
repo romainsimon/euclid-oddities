@@ -73,7 +73,7 @@ h1 em,h2 em{font-style:normal;color:var(--accent)}
 .intro .side{color:var(--dim);font-size:.86rem;max-width:34ch}.intro .side a{color:var(--silver)}
 .hero{text-align:center;padding:64px 0 12px}
 .hero h1{font:700 clamp(2rem,4.2vw,3.4rem)/1.04 var(--display);letter-spacing:-.04em;margin:0 auto 16px;max-width:20ch}
-.doi{display:inline-flex;margin-top:22px;border-radius:999px;overflow:hidden;font:500 .72rem/1 var(--mono);letter-spacing:.04em;text-decoration:none}.doi span{padding:7px 11px}.doi span:first-child{background:var(--card3);color:var(--silver)}.doi span:last-child{background:var(--accent-soft);color:var(--accent)}.doi:hover span:last-child{background:rgba(255,107,26,.24)}
+.doi{display:inline-block;margin-top:22px;line-height:0}.doi img{height:20px;width:auto}.doi span{padding:7px 11px}.doi span:first-child{background:var(--card3);color:var(--silver)}.doi span:last-child{background:var(--accent-soft);color:var(--accent)}.doi:hover span:last-child{background:rgba(255,107,26,.24)}
 .hero .lede{font-size:1rem;color:var(--silver);max-width:76ch;margin:0 auto}
 .filters{position:sticky;top:72px;z-index:10;margin:24px 0 0;background:rgba(21,23,28,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
 border-radius:var(--r-lg);padding:12px 14px;display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}
@@ -233,7 +233,7 @@ def index(F, meta, base):
     body = f"""<main class="wrap"><section class="hero">
 <h1>Unusual galaxies and lens candidates in <em>Euclid DR1</em></h1>
 <p class="lede">Claude Fable 5.2 searched fresh images from ESA's Euclid space telescope for anything that looked odd: tidal streams, possible gravitational lenses, oddly shaped galaxies. Fake objects were planted among the real ones to measure how far to trust it. None of these {len(F)} finds has been checked by an astronomer yet.</p>
-<a class="doi" href="https://zenodo.org/records/24304793" rel="noopener"><span>DOI</span><span>10.5281/zenodo.24304793</span></a></section>
+<a class="doi" href="https://doi.org/10.5281/zenodo.24304793" rel="noopener"><img src="{base}/img/doi-badge.svg" alt="DOI 10.5281/zenodo.24304793" height="20"></a></section>
 <div class="filters" role="region" aria-label="Filters">
 <div class="group" aria-label="Feature"><span class="lbl">Feature</span>{chips}</div>
 {seg("rev", "Second opinion", [("", "Any"), ("closer", "Closer look"), ("split", "Split"), ("ordinary", "Ordinary"), ("star", "Star")])}
