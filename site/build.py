@@ -166,7 +166,7 @@ def page(title, desc, body, base, canonical, image=None):
 <title>{e(title)}</title><meta name="description" content="{e(desc)}"><link data-route-meta rel="canonical" href="{SITE}{canonical}">
 <meta data-route-meta property="og:title" content="{e(title)}"><meta data-route-meta property="og:description" content="{e(desc)}"><meta data-route-meta property="og:type" content="website"><meta data-route-meta property="og:url" content="{SITE}{canonical}">{og}
 <meta data-route-meta name="twitter:card" content="summary_large_image">{FONTS}<style>{FONT_FACES}{CSS}</style></head><body>
-<header class="top"><div class="bar"><a class="brand" href="{base}/">Euclid Oddities <span class="badge">Beta</span></a>
+<header class="top"><div class="bar"><a class="brand" href="{base}/">Euclid Oddities</a>
 <nav class="top"><a href="{base}/#method">Method</a><a href="{REPO}">Data &amp; rules</a><a class="keep" href="/">SpaceSim</a></nav></div></header>
 {body}
 <footer><div class="wrap">Images: ESA Euclid DR1 (ESA/Euclid/Euclid Consortium), rendered by this project. Catalogue checks: SIMBAD, NED, ECLIPSE.
