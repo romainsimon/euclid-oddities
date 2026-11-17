@@ -1,8 +1,9 @@
 """Static gallery for Euclid Oddities: one gallery page with filters and one page per find.
 
-Usage: python build.py <out_dir> [--base /oddities]
+Usage: python build.py <out_dir> [--base /euclid-oddities]
 Reads data/finds.json and data/img/. Writes <out>/index.html, <out>/<slug>/index.html, <out>/img/, <out>/finds.json.
-No dependencies beyond the standard library.
+Standard library only. Visual language: the SimEngine page on indiega.me (no borders or separators, large rounded
+cards, pill controls, Space Grotesk / Inter / JetBrains Mono, orange accent).
 """
 from __future__ import annotations
 
@@ -20,73 +21,89 @@ FEATURE = {"arc": "Arc", "ring": "Ring", "straight_line": "Straight line", "pair
            "irregular": "Irregular", "other": "Other", "none": "None"}
 NATURE = {"ordinary": "Ordinary", "artefact": "Artefact", "known_rare_class": "Known rare class", "cannot_explain": "Cannot explain"}
 
+FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
+         '<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500'
+         '&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">')
+
 CSS = """
-@font-face{font-family:"Chillax";src:url("/assets/fonts/chillax-variable.woff2") format("woff2");font-weight:200 700;font-display:swap}
-:root{--field:oklch(0.105 0.004 180);--raised:oklch(0.145 0.006 110);--control:oklch(0.14 0.005 110 / .92);
---hover:oklch(0.92 0.012 84 / .07);--text:oklch(0.92 0.012 84);--muted:oklch(0.76 0.012 84);--dim:oklch(0.7 0.012 84);
---line:oklch(0.92 0.012 84 / .18);--line-strong:oklch(0.92 0.012 84 / .4);--accent:oklch(0.7 0.1 73);--accent-strong:oklch(0.81 0.11 76);
---focus:oklch(0.83 0.12 77);--display:"Chillax","Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;
---body:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;color-scheme:dark}
-*{box-sizing:border-box}[hidden]{display:none!important}html{background:var(--field)}
-body{margin:0;overflow-x:clip;background:var(--field);color:var(--text);font:15px/1.55 var(--body);-webkit-font-smoothing:antialiased}
-a{color:var(--accent-strong);text-underline-offset:3px}a:hover{color:var(--focus)}
-:focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:4px}
-.wrap{max-width:1240px;margin:0 auto;padding:0 24px}
-header.top{border-bottom:1px solid var(--line)}
-header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:56px}
-.brand{font:500 17px/1 var(--display);letter-spacing:-.02em;color:var(--text);text-decoration:none}
-.brand span{color:var(--dim);font-weight:400}
-nav.top a{color:var(--muted);text-decoration:none;font-size:13px;margin-left:18px}nav.top a:hover{color:var(--text)}
-.hero{padding-top:56px;padding-bottom:28px}
-.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
-h1{font:450 clamp(34px,5vw,58px)/.98 var(--display);letter-spacing:-.045em;margin:12px 0 16px;max-width:15ch}
-.lede{color:var(--muted);max-width:62ch;font-size:16px;margin:0}
-.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:9px;overflow:hidden;margin:32px 0 8px}
-.stat{background:var(--field);padding:16px 18px}.stat b{display:block;font:450 28px/1.1 var(--display);letter-spacing:-.03em}
-.stat span{color:var(--dim);font-size:12.5px}
-.notice{border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;padding:12px 16px;color:var(--muted);font-size:13.5px;margin:20px 0 0}
-.filters{position:sticky;top:0;z-index:5;background:color-mix(in oklch,var(--field) 92%,transparent);backdrop-filter:blur(8px);
-border-bottom:1px solid var(--line);padding:14px 0;margin-top:28px}
-.filters .wrap{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
+:root{--bg:#0b0c0f;--card:#15171c;--card2:#1b1e24;--card3:#23262d;--fg:#eceef2;--silver:#c3c8d0;--dim:#868c97;
+--accent:#ff6b1a;--accent-soft:rgba(255,107,26,.14);--ease:cubic-bezier(.16,1,.3,1);--r-xl:40px;--r-lg:28px;--r:20px;--r-sm:14px;
+--display:"Space Grotesk",ui-sans-serif,system-ui,sans-serif;--body:"Inter",ui-sans-serif,system-ui,sans-serif;
+--mono:"JetBrains Mono",ui-monospace,SFMono-Regular,monospace;color-scheme:dark}
+*{box-sizing:border-box}[hidden]{display:none!important}html{background:var(--bg)}
+body{margin:0;overflow-x:clip;background:var(--bg);color:var(--fg);font:15px/1.6 var(--body);-webkit-font-smoothing:antialiased;
+background-image:radial-gradient(ellipse 60% 30% at 80% 0%,rgba(255,107,26,.07),transparent 70%);background-repeat:no-repeat}
+a{color:var(--fg)}a:hover{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:10px}
+button,select,input{font:inherit;color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}@media (min-width:760px){.wrap{padding:0 40px}}
+header.top{position:sticky;top:0;z-index:20;padding:12px 16px 0}
+.bar{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;height:52px;padding:0 8px 0 20px;
+border-radius:999px;background:rgba(21,23,28,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.brand{font:700 1.02rem/1 var(--display);letter-spacing:-.02em;text-decoration:none;color:var(--fg);display:flex;align-items:center;gap:10px}
+.badge{font:500 .58rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;padding:5px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+nav.top{display:flex;gap:2px}nav.top a{font-size:.86rem;color:var(--silver);text-decoration:none;padding:8px 14px;border-radius:999px;transition:background .25s,color .2s}
+nav.top a:hover{background:var(--card2);color:var(--fg)}
+.intro{padding:44px 0 4px;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 32px}
+.eyebrow{display:inline-block;font:500 .64rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--silver);background:var(--card2);padding:7px 11px;border-radius:999px}
+.eyebrow b{color:var(--accent);font-weight:500;margin-right:6px}
+h1{font:700 clamp(1.9rem,3.6vw,2.7rem)/1.05 var(--display);letter-spacing:-.035em;margin:14px 0 8px}
+h1 em,h2 em{font-style:normal;color:var(--accent)}
+.lede{color:var(--dim);max-width:62ch;margin:0;font-size:.95rem}
+.intro .side{color:var(--dim);font-size:.86rem;max-width:34ch}.intro .side a{color:var(--silver)}
+.filters{position:sticky;top:72px;z-index:10;margin:24px 0 0;background:rgba(21,23,28,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+border-radius:var(--r-lg);padding:12px 14px;display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}
 .group{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
-.group>label,.lbl{font-size:12px;color:var(--dim);margin-right:2px}
-.chip{appearance:none;border:1px solid var(--line);background:var(--control);color:var(--muted);border-radius:999px;padding:5px 11px;font:13px var(--body);cursor:pointer}
-.chip:hover{background:var(--hover);color:var(--text)}.chip[aria-pressed=true]{border-color:var(--accent);color:var(--text);background:oklch(0.7 0.1 73 / .14)}
-select,input[type=range]{accent-color:var(--accent)}
-select{background:var(--control);color:var(--text);border:1px solid var(--line);border-radius:6px;padding:5px 8px;font:13px var(--body)}
-.count{margin-left:auto;color:var(--dim);font-size:13px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px;padding:24px 0 60px}
-.card{display:block;text-decoration:none;color:inherit;background:var(--raised);border:1px solid var(--line);border-radius:11px;overflow:hidden;transition:border-color .15s,transform .15s}
-.card:hover{border-color:var(--line-strong);transform:translateY(-2px)}
-.card img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:cover;background:#000}
-.card .body{padding:12px 14px 14px}.card h3{font:500 15px/1.25 var(--display);letter-spacing:-.01em;margin:0 0 6px;color:var(--text)}
-.meta{display:flex;flex-wrap:wrap;gap:6px;font-size:12px;color:var(--dim)}
-.tag{border:1px solid var(--line);border-radius:999px;padding:1px 8px}
-.tag.hi{border-color:var(--accent);color:var(--accent-strong)}
-.card p{color:var(--muted);font-size:13px;margin:8px 0 0;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-.empty{color:var(--dim);padding:40px 0}
-section.method{border-top:1px solid var(--line);padding:40px 0 70px;display:grid;grid-template-columns:1fr 1fr;gap:40px}
-section.method h2,.detail h2{font:450 24px/1.1 var(--display);letter-spacing:-.03em;margin:0 0 12px}
-section.method p,section.method li{color:var(--muted)}
-table{border-collapse:collapse;width:100%;font-size:14px}td,th{border-bottom:1px solid var(--line);padding:8px 10px 8px 0;text-align:left;vertical-align:top}
-th{color:var(--dim);font-weight:500;font-size:12.5px}td.num{font-variant-numeric:tabular-nums}
-footer{border-top:1px solid var(--line);color:var(--dim);font-size:12.5px;padding:24px 0 40px}
-.detail{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:36px;padding:28px 0 60px}
-.viewer{position:relative}.viewer img{width:100%;height:auto;max-width:100%;display:block;border-radius:11px;border:1px solid var(--line);background:#000}
-.legend{display:grid;grid-template-columns:1fr 1fr;gap:4px 16px;color:var(--dim);font-size:12.5px;margin-top:10px}
-.toggle{margin-top:12px;display:flex;gap:8px}
-.crumbs{font-size:13px;color:var(--dim);padding-top:24px}.crumbs a{color:var(--muted)}
-.detail h1{font-size:clamp(28px,3.6vw,44px);max-width:none;margin-top:8px}
-.quote{font-size:16px;color:var(--text);margin:14px 0}
-.explain{color:var(--muted);font-size:14px}
-dl{display:grid;grid-template-columns:max-content 1fr;gap:8px 18px;margin:20px 0;font-size:14px}dt{color:var(--dim)}dd{margin:0}
-.links{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
-.btn{display:inline-block;border:1px solid var(--line-strong);border-radius:6px;padding:7px 12px;color:var(--text);text-decoration:none;font-size:13.5px}
-.btn:hover{background:var(--hover);color:var(--text)}
-.pager{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding:18px 0 50px;font-size:14px}
-@media (max-width:860px){.stats{grid-template-columns:repeat(2,1fr)}section.method,.detail{grid-template-columns:1fr}.count{margin-left:0;width:100%}}
-@media (max-width:480px){.wrap{padding-left:16px;padding-right:16px}nav.top{display:none}.brand span{display:none}.hero{padding-top:32px}.stat b{font-size:22px}}
-@media (prefers-reduced-motion:reduce){.card{transition:none}.card:hover{transform:none}}
+.lbl{font:500 .6rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin:0 4px 0 2px}
+.chip{appearance:none;border:0;background:var(--card2);color:var(--silver);border-radius:999px;padding:7px 13px;font-size:.84rem;cursor:pointer;transition:background .25s,color .2s}
+.chip:hover{background:var(--card3);color:var(--fg)}.chip[aria-pressed=true]{background:var(--accent-soft);color:var(--accent)}
+select{appearance:none;border:0;background:var(--card2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23868c97' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat right 12px center;
+border-radius:999px;padding:7px 30px 7px 13px;font-size:.84rem;cursor:pointer}
+select:hover{background-color:var(--card3)}
+input[type=range]{accent-color:var(--accent);width:110px}
+output{font-family:var(--mono);font-size:.8rem;color:var(--fg)}
+.count{margin-left:auto;font:500 .66rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;padding:16px 0 56px}
+.card{display:flex;flex-direction:column;text-decoration:none;color:inherit;background:var(--card);border-radius:var(--r-lg);padding:10px;transition:transform .5s var(--ease),background .25s}
+.card:hover{background:var(--card2);transform:translateY(-4px);color:inherit}
+.card img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:var(--r);background:#000}
+.card .body{padding:14px 10px 8px}.card h3{font:600 1rem/1.25 var(--display);letter-spacing:-.01em;margin:0 0 10px}
+.meta{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font:500 .62rem/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--silver);background:var(--card2);border-radius:999px;padding:6px 9px}
+.card:hover .tag{background:var(--card3)}.tag.hi{background:var(--accent-soft);color:var(--accent)}
+.card p{color:var(--dim);font-size:.85rem;margin:12px 0 0;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.empty{color:var(--dim);text-align:center;padding:40px 0}
+.method{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:0 0 40px}
+.panel{background:var(--card);border-radius:var(--r-xl);padding:34px}
+.panel h2{font:700 clamp(1.5rem,2.4vw,2rem)/1.08 var(--display);letter-spacing:-.035em;margin:14px 0 12px}
+.panel p{color:var(--silver);font-size:.93rem}.panel p a{color:var(--fg)}
+.rows{display:grid;gap:8px;margin:16px 0}
+.row{display:grid;grid-template-columns:1fr 64px 64px;gap:12px;align-items:center;background:var(--card2);border-radius:var(--r-sm);padding:12px 16px;font-size:.88rem}
+.row.head{background:none;padding:0 16px;font:500 .6rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.row .num{font:700 1.05rem/1 var(--display);text-align:right}.row .num.acc{color:var(--accent)}.row.head span:not(:first-child){text-align:right}
+footer{color:var(--dim);font-size:.8rem;padding:4px 0 48px}footer a{color:var(--silver)}
+.crumbs{font:500 .64rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--dim);padding:36px 0 16px}.crumbs a{color:var(--silver);text-decoration:none}
+.detail{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:14px;padding-bottom:14px;align-items:start}
+.viewer{background:var(--card);border-radius:var(--r-xl);padding:12px}
+.viewer img{display:block;width:100%;height:auto;border-radius:30px;background:#000}
+.under{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:12px 6px 4px}
+.legend{display:grid;grid-template-columns:1fr 1fr;gap:4px 16px;color:var(--dim);font-size:.76rem;padding:8px 10px 8px}
+.info{background:var(--card);border-radius:var(--r-xl);padding:34px}
+.info h1{font-size:clamp(1.7rem,3vw,2.4rem);margin:16px 0 14px}
+.quote{font-size:1.04rem;color:var(--fg);margin:20px 0 8px}
+.explain{color:var(--dim);font-size:.9rem;margin:0 0 20px}
+.facts{display:grid;gap:8px}
+.fact{display:grid;grid-template-columns:160px 1fr;gap:14px;background:var(--card2);border-radius:var(--r-sm);padding:11px 16px;font-size:.86rem}
+.fact span:first-child{color:var(--dim)}
+.links{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 16px}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:999px;padding:10px 16px;background:var(--card2);color:var(--fg);text-decoration:none;font-size:.86rem;font-weight:500;cursor:pointer;transition:background .25s}
+.btn:hover{background:var(--card3);color:var(--fg)}.btn.primary{background:var(--fg);color:var(--bg)}.btn.primary:hover{background:#fff;color:var(--bg)}
+.btn[aria-pressed=true]{background:var(--accent-soft);color:var(--accent)}
+.small{color:var(--dim);font-size:.82rem}.small a{color:var(--silver)}
+.pager{display:flex;justify-content:space-between;gap:12px;padding:10px 0 50px}
+@media (max-width:900px){.method,.detail{grid-template-columns:1fr}.count{margin-left:0;width:100%}.filters{position:static}
+nav.top a:not(.keep){display:none}.fact{grid-template-columns:1fr;gap:2px}.panel,.info{padding:24px}.legend{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}.card:hover{transform:none}}
 """
 
 
@@ -99,19 +116,19 @@ def page(title, desc, body, base, canonical, image=None):
     return f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{e(title)}</title><meta name="description" content="{e(desc)}"><link rel="canonical" href="{SITE}{canonical}">
 <meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:type" content="website">{og}
-<meta name="twitter:card" content="summary_large_image"><style>{CSS}</style></head><body>
-<header class="top"><div class="wrap"><a class="brand" href="{base}/">Euclid Oddities <span>by SpaceSim</span></a>
-<nav class="top"><a href="{base}/#method">Method</a><a href="{REPO}">Data &amp; rules</a><a href="/">SpaceSim</a></nav></div></header>
+<meta name="twitter:card" content="summary_large_image">{FONTS}<style>{CSS}</style></head><body>
+<header class="top"><div class="bar"><a class="brand" href="{base}/">Euclid Oddities <span class="badge">Beta</span></a>
+<nav class="top"><a href="{base}/#method">Method</a><a href="{REPO}">Data &amp; rules</a><a class="keep" href="/">SpaceSim</a></nav></div></header>
 {body}
 <footer><div class="wrap">Images: ESA Euclid DR1 (ESA/Euclid/Euclid Consortium), rendered by this project. Catalogue checks: SIMBAD, NED, ECLIPSE.
-Every entry is an unverified suggestion made by a language model. Code, pre-registration and raw results: <a href="{REPO}">github.com/romainsimon/euclid-oddities</a>.</div></footer>
+Every entry is an unverified suggestion made by a language model. Code, pre-registration and raw results on <a href="{REPO}">GitHub</a>.</div></footer>
 </body></html>"""
 
 
 def tags(f):
     hi = " hi" if f["confidence"] in ("medium", "high") else ""
     return (f'<span class="tag">{e(FEATURE.get(f["feature"], f["feature"]))}</span>'
-            f'<span class="tag{hi}">{e(f["confidence"])} confidence</span><span class="tag">interest {f["interest"]}</span>')
+            f'<span class="tag{hi}">{e(f["confidence"])} conf.</span><span class="tag">interest {f["interest"]}</span>')
 
 
 def card(f, base):
@@ -125,30 +142,28 @@ def index(F, meta, base):
     feats = sorted({f["feature"] for f in F}, key=lambda k: list(FEATURE).index(k))
     dates = sorted({f["date_found"] for f in F}, reverse=True)
     chips = "".join(f'<button class="chip" type="button" aria-pressed="false" data-f="{k}">{e(FEATURE[k])}</button>' for k in feats)
-    body = f"""<main><div class="wrap hero"><div class="eyebrow">Euclid DR1 · Claude Fable 5.2 · open-ended search</div>
-<h1>What does an AI notice in the new Euclid sky?</h1>
-<p class="lede">Instead of a detector trained for one kind of object, Claude looks at Euclid images and flags whatever seems odd. Fake objects are hidden among the real ones so we can measure what it catches and what it invents. Below is everything it flagged on fresh sky.</p>
-<div class="stats"><div class="stat"><b>14 / 24</b><span>planted oddities found with the larger view (9 / 24 before)</span></div>
-<div class="stat"><b>3 / 16</b><span>false features on untouched images</span></div>
-<div class="stat"><b>117</b><span>fresh-sky catalogue outliers inspected</span></div>
-<div class="stat"><b>{len(F)}</b><span>flagged objects listed here</span></div></div>
-<p class="notice">These are model suggestions, not discoveries. None has been checked by an astronomer yet. Most are probably ordinary galaxies seen in an unusual way.</p></div>
-<div class="filters" role="region" aria-label="Filters"><div class="wrap">
+    body = f"""<main class="wrap"><div class="intro"><div><span class="eyebrow"><b>●</b>Euclid DR1 · Claude Fable 5.2</span>
+<h1>What an AI noticed in the new <em>Euclid</em> sky</h1>
+<p class="lede">Claude looked at Euclid images and flagged whatever seemed odd. These are its suggestions, unverified. Fake objects were hidden among the real ones to measure how far to trust it: <a href="#method">how it works</a>.</p></div></div>
+<div class="filters" role="region" aria-label="Filters">
 <div class="group" aria-label="Feature"><span class="lbl">Feature</span>{chips}</div>
-<div class="group"><label for="conf">Confidence</label><select id="conf"><option value="">Any</option><option value="medium">Medium or high</option><option value="low">Low only</option></select></div>
-<div class="group"><label for="cat">Catalogue</label><select id="cat"><option value="">Any</option><option value="no">No named entry</option><option value="yes">Already catalogued</option></select></div>
-<div class="group"><label for="int">Interest ≥ <output id="intv">2.6</output></label><input id="int" type="range" min="2.6" max="5" step="0.1" value="2.6"></div>
-<div class="group"><label for="date">Found</label><select id="date"><option value="">Any date</option>{"".join(f'<option>{d}</option>' for d in dates)}</select></div>
-<div class="group"><label for="sort">Sort</label><select id="sort"><option value="interest">Interest</option><option value="date">Newest</option></select></div>
-<span class="count" id="count" aria-live="polite"></span></div></div>
-<div class="wrap"><div class="grid" id="grid">{"".join(card(f, base) for f in F)}</div><p class="empty" id="empty" hidden>Nothing matches these filters.</p></div>
-<div class="wrap"><section class="method" id="method"><div><h2>How it works</h2>
-<p>Euclid DR1 tiles are queried from ESA's archive. A classical outlier score on the Euclid catalogue picks the strangest-looking entries. Claude Fable 5.2 sees each one as a 2×2 grid (visible band, colour from the infrared bands, a hard stretch for faint light, and a 3× zoom) and is asked to scan every quadrant, score its interest, and point at the most interesting thing.</p>
-<p>Before anything ran on real sky, the rules were written and published: which rendering to use, what counts as a lead, and when to stop. Then each flag is checked against SIMBAD, NED and the ECLIPSE lens catalogue.</p></div>
-<div><h2>How far to trust it</h2><table><tr><th>Measured on planted fakes</th><th>Old view</th><th>Larger view</th></tr>
-<tr><td>Planted oddities found (of 24)</td><td class="num">9</td><td class="num">14</td></tr>
-<tr><td>False features on untouched images (of 16)</td><td class="num">2</td><td class="num">3</td></tr></table>
-<p>Small samples: the two views differ by five objects. Earlier, on 2,500 images, a smaller model (Haiku) found 18% of planted oddities. Full results, including the failures, are in the <a href="{REPO}">repository</a>.</p></div></section></div></main>
+<div class="group"><label class="lbl" for="conf">Confidence</label><select id="conf"><option value="">Any</option><option value="medium">Medium or high</option><option value="low">Low only</option></select></div>
+<div class="group"><label class="lbl" for="cat">Catalogue</label><select id="cat"><option value="">Any</option><option value="no">No named entry</option><option value="yes">Already catalogued</option></select></div>
+<div class="group"><label class="lbl" for="int">Interest ≥ <output id="intv">2.6</output></label><input id="int" type="range" min="2.6" max="5" step="0.1" value="2.6"></div>
+<div class="group"><label class="lbl" for="date">Found</label><select id="date"><option value="">Any date</option>{"".join(f'<option>{d}</option>' for d in dates)}</select></div>
+<div class="group"><label class="lbl" for="sort">Sort</label><select id="sort"><option value="interest">Interest</option><option value="date">Newest</option></select></div>
+<span class="count" id="count" aria-live="polite"></span></div>
+<div class="grid" id="grid">{"".join(card(f, base) for f in F)}</div><p class="empty" id="empty" hidden>Nothing matches these filters.</p>
+<section class="method" id="method"><div class="panel"><span class="eyebrow"><b>01</b>Method</span><h2>How it <em>works</em></h2>
+<p>Euclid DR1 tiles come from ESA's archive. A classical outlier score on the Euclid catalogue picks the strangest-looking entries. Claude Fable 5.2 sees each one as a 2×2 grid (visible band, colour from the infrared bands, a hard stretch for faint light, and a 3× zoom), is asked to scan every quadrant, and points at the most interesting thing.</p>
+<p>The rules were written and published before anything ran on real sky. Each flag is then checked against SIMBAD, NED and the ECLIPSE lens catalogue. None has been checked by an astronomer yet: most are probably ordinary galaxies seen in an unusual way.</p></div>
+<div class="panel"><span class="eyebrow"><b>02</b>Trust</span><h2>How far to <em>trust</em> it</h2>
+<div class="rows"><div class="row head"><span>Measured on planted fakes</span><span>Old view</span><span>Larger view</span></div>
+<div class="row"><span>Planted oddities found (of 24)</span><span class="num">9</span><span class="num acc">14</span></div>
+<div class="row"><span>False features on untouched images (of 16)</span><span class="num">2</span><span class="num">3</span></div>
+<div class="row"><span>Fresh-sky outliers inspected</span><span class="num"></span><span class="num">117</span></div>
+<div class="row"><span>Flagged and listed here</span><span class="num"></span><span class="num">{len(F)}</span></div></div>
+<p>Small samples: the two views differ by five objects. Full results, failures included, are on <a href="{REPO}">GitHub</a>.</p></div></section></main>
 <script>
 const cards=[...document.querySelectorAll('.card')],grid=document.getElementById('grid'),on=new Set();
 const q=id=>document.getElementById(id);
@@ -172,30 +187,31 @@ def links(f):
     ra, dec = f["ra"], f["dec"]
     return [("SIMBAD", f"https://simbad.cfa.harvard.edu/simbad/sim-coo?Coord={ra}+{dec}&Radius=10&Radius.unit=arcsec"),
             ("NED", f"https://ned.ipac.caltech.edu/conesearch?coordinates={ra}d%20{dec}d&radius=0.17&in_csys=Equatorial&in_equinox=J2000"),
-            ("Legacy Survey viewer", f"https://www.legacysurvey.org/viewer?ra={ra}&dec={dec}&layer=ls-dr10&zoom=16"),
+            ("Legacy Survey", f"https://www.legacysurvey.org/viewer?ra={ra}&dec={dec}&layer=ls-dr10&zoom=16"),
             ("ESASky", f"https://sky.esa.int/esasky/?target={ra}%20{dec}&fov=0.02")]
 
 
 def detail(f, prev, nxt, base):
-    cat = ", ".join(e(n) for n in f["catalogue_names"]) or "no named entry (survey detections only)"
-    sim = ", ".join(e(n["name"]) for n in f["simbad"]) or "none within 10″"
-    ned = ", ".join(e(n["name"]) for n in f["ned"]) or "none within 10″"
+    cat = ", ".join(e(n) for n in f["catalogue_names"]) or "No named entry (survey detections only)"
+    sim = ", ".join(e(n["name"]) for n in f["simbad"]) or "None within 10″"
+    ned = ", ".join(e(n["name"]) for n in f["ned"]) or "None within 10″"
+    facts = [("Position (ICRS)", f'RA {f["ra"]:.5f}°, Dec {f["dec"]:+.5f}°'), ("Weirdness", f'{f["weirdness"]} / 5'),
+             ("Model's reading", e(NATURE.get(f["nature"], f["nature"]))), ("Why inspected", e(f["selection"])),
+             ("Catalogued as", cat), ("SIMBAD", sim), ("NED", ned), ("ECLIPSE lenses ≤ 10″", f["eclipse_within_10as"]),
+             ("Run", f'{e(f["run"])}, {e(f["rendering"])}')]
     body = f"""<main class="wrap"><div class="crumbs"><a href="{base}/">All finds</a> / {e(f["name"])}</div>
 <div class="detail"><div class="viewer"><img id="im" src="{base}/img/{f["slug"]}-marked.jpg" width="1072" height="1072" alt="Euclid cutout of {e(f["name"])}: visible band, colour composite, hard stretch and 3x zoom, with the model's chosen point circled">
-<div class="toggle"><button class="chip" type="button" aria-pressed="true" id="mk">Show the model's point</button></div>
-<div class="legend"><span>Top left: visible band (VIS)</span><span>Top right: colour, red 1.8 µm · green 1.1 µm · blue visible</span>
-<span>Bottom left: hard stretch for faint light</span><span>Bottom right: 3× zoom on the brightest galaxy</span><span>Field: 32″ × 32″, north up</span></div></div>
-<div><div class="eyebrow">Found {e(f["date_found"])} · {e(f["model"])} · {e(f["status"])}</div><h1>{e(f["name"])}</h1>
-<div class="meta">{tags(f)}<span class="tag">{e(NATURE.get(f["nature"], f["nature"]))}</span></div>
-<p class="quote">“{e(f["description"])}”</p><p class="explain">Ordinary explanation the model offered: {e(f["ordinary_explanation"])}</p>
-<dl><dt>Position (ICRS)</dt><dd>RA {f["ra"]:.5f}°, Dec {f["dec"]:+.5f}°</dd><dt>Weirdness</dt><dd>{f["weirdness"]} / 5</dd>
-<dt>Why it was inspected</dt><dd>{e(f["selection"])}</dd><dt>Catalogued as</dt><dd>{cat}</dd>
-<dt>SIMBAD</dt><dd>{sim}</dd><dt>NED</dt><dd>{ned}</dd><dt>ECLIPSE lenses within 10″</dt><dd>{f["eclipse_within_10as"]}</dd>
-<dt>Run</dt><dd>{e(f["run"])}, {e(f["rendering"])}</dd></dl>
-<div class="links">{"".join(f'<a class="btn" href="{u}" rel="noopener">{n}</a>' for n, u in links(f))}</div>
-<p class="notice">Not verified by an astronomer. If you recognise this object or can rule it out, please <a href="{REPO}/issues/new?title={e(f["name"])}">open an issue</a>.</p></div></div>
-<nav class="pager">{f'<a href="{base}/{prev["slug"]}/">← {e(prev["name"])}</a>' if prev else '<span></span>'}{f'<a href="{base}/{nxt["slug"]}/">{e(nxt["name"])} →</a>' if nxt else ''}</nav></main>
-<script>const b=document.getElementById('mk'),im=document.getElementById('im');b.addEventListener('click',()=>{{const m=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',m);im.src=im.src.replace(/(-marked)?\\.jpg$/,m?'-marked.jpg':'.jpg')}});</script>"""
+<div class="under"><button class="btn" type="button" aria-pressed="true" id="mk">Model's point shown</button></div>
+<div class="legend"><span>Top left · visible band (VIS)</span><span>Top right · colour: 1.8 µm, 1.1 µm, visible</span>
+<span>Bottom left · hard stretch for faint light</span><span>Bottom right · 3× zoom on the brightest galaxy</span><span>Field 32″ × 32″, north up</span></div></div>
+<div class="info"><span class="eyebrow"><b>●</b>Found {e(f["date_found"])} · {e(f["model"])}</span><h1>{e(f["name"])}</h1>
+<div class="meta">{tags(f)}</div>
+<p class="quote">“{e(f["description"])}”</p><p class="explain">Ordinary explanation offered by the model: {e(f["ordinary_explanation"])}</p>
+<div class="facts">{"".join(f'<div class="fact"><span>{k}</span><span>{v}</span></div>' for k, v in facts)}</div>
+<div class="links">{"".join(f'<a class="btn" href="{u}" rel="noopener">{n} ↗</a>' for n, u in links(f))}</div>
+<p class="small">Unverified model suggestion. Recognise it, or can rule it out? <a href="{REPO}/issues/new?title={e(f["name"])}">Tell us on GitHub</a>.</p></div></div>
+<nav class="pager">{f'<a class="btn" href="{base}/{prev["slug"]}/">← {e(prev["name"])}</a>' if prev else '<span></span>'}{f'<a class="btn" href="{base}/{nxt["slug"]}/">{e(nxt["name"])} →</a>' if nxt else ''}</nav></main>
+<script>const b=document.getElementById('mk'),im=document.getElementById('im');b.addEventListener('click',()=>{{const m=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',m);b.textContent=m?"Model's point shown":"Show the model's point";im.src=im.src.replace(/(-marked)?\\.jpg$/,m?'-marked.jpg':'.jpg')}});</script>"""
     title = f"{f['name']}: {FEATURE.get(f['feature'], f['feature']).lower()} flagged by Claude in Euclid DR1"
     return page(title, f["description"], body, base, f"{base}/{f['slug']}/", f"{base}/img/{f['slug']}-thumb.jpg")
 
@@ -203,7 +219,7 @@ def detail(f, prev, nxt, base):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("out")
-    ap.add_argument("--base", default="/oddities")
+    ap.add_argument("--base", default="/euclid-oddities")
     a = ap.parse_args()
     out, base = Path(a.out), a.base.rstrip("/")
     D = json.loads((HERE / "data" / "finds.json").read_text(encoding="utf-8"))
