@@ -2,6 +2,8 @@
 
 Romain Simon, independent researcher, Nice, France. November 2026.
 
+**Browse every object the model flagged, with blind second opinions: [spacesim.co/euclid-oddities](https://spacesim.co/euclid-oddities).** The gallery is part of [SpaceSim](https://spacesim.co), a free browser universe simulator.
+
 Euclid DR1 became public on 12 November 2026. Many teams will run dedicated machine-learning detectors on it, each looking for one kind of object. This project tries the opposite: a vision-language model (Claude) looks at survey images and flags whatever looks odd, including things that no targeted search is looking for.
 
 The hard part is knowing when to trust it. So every test hides planted fakes under a sealed key (arcs, straight streaks, identical pairs, diffuse clouds, shapes with no physical meaning, and five kinds of instrument artefact), mixes in known objects without labels, and fixes its pass and fail thresholds in a pre-registration before any model sees an image.

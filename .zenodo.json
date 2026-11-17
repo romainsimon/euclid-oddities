@@ -1,10 +1,38 @@
 {
-  "title": "Euclid Oddities: pre-registered tests of an LLM anomaly inspector and a compact lensed-quasar search in Euclid DR1 (first results)",
+  "title": "Euclid Oddities: pre-registered tests of an LLM anomaly inspector in Euclid DR1, with a public gallery of unverified finds",
   "upload_type": "dataset",
-  "description": "Pre-registrations (with SHA-256 hashes), amendments, reports and null results from two probes on Euclid DR1 (public since 12 November 2026). Track D tests whether a vision-language model (Claude Haiku 5.5; exploratory comparison with Sonnet 5.5 and Fable 5.2) can flag unusual objects in Euclid cutouts, using planted fakes under a sealed key, unlabelled known lenses, and thresholds fixed in advance. Track A tests a one-versus-two point-source fit for sub-arcsecond lensed quasars with injection-calibrated completeness and separately calibrated false alarms. Both tracks fail some of their pre-registered bars; the failures and sensitivities are reported in full.",
-  "creators": [{"name": "Simon, Romain", "affiliation": "Independent researcher"}],
-  "keywords": ["Euclid", "DR1", "anomaly detection", "vision-language models", "Claude", "pre-registration", "null results", "gravitational lensing", "lensed quasars"],
+  "description": "<p>Pre-registrations (with SHA-256 hashes), amendments, reports and null results from an open-ended search of ESA Euclid DR1 (public since 12 November 2026) with Claude. Track D tests whether vision-language models (Claude Haiku 5.5, Sonnet 5.5, Fable 5.2) can flag unusual objects in Euclid cutouts, using planted fakes under a sealed key, unlabelled known lenses and thresholds fixed in advance. A larger 2x2 view raised Fable 5.2's recall of planted oddities from 9/24 to 14/24 with 3/16 false features. Flags on fresh sky were cross-matched with SIMBAD, NED and ECLIPSE and given blind second opinions by Claude Opus 5.5, Claude Fable 5.2 and OpenAI GPT-6 Astra. Track A tests a one-versus-two point-source fit for sub-arcsecond lensed quasars. Failures and sensitivities are reported in full. Nothing here is a confirmed discovery.</p><p>Gallery of every flagged object: <a href=\"https://spacesim.co/euclid-oddities\">spacesim.co/euclid-oddities</a>, part of <a href=\"https://spacesim.co\">SpaceSim</a>, a free browser universe simulator.</p>",
+  "creators": [
+    {
+      "name": "Simon, Romain",
+      "affiliation": "Independent researcher"
+    }
+  ],
+  "keywords": [
+    "Euclid",
+    "DR1",
+    "anomaly detection",
+    "vision-language models",
+    "Claude",
+    "GPT-6 Astra",
+    "pre-registration",
+    "null results",
+    "gravitational lensing",
+    "strong lens candidates"
+  ],
   "license": "cc-by-4.0",
   "access_right": "open",
-  "language": "eng"
+  "language": "eng",
+  "related_identifiers": [
+    {
+      "identifier": "https://spacesim.co/euclid-oddities",
+      "relation": "isSupplementedBy",
+      "resource_type": "other"
+    },
+    {
+      "identifier": "https://github.com/romainsimon/euclid-oddities",
+      "relation": "isSupplementTo",
+      "resource_type": "software"
+    }
+  ]
 }

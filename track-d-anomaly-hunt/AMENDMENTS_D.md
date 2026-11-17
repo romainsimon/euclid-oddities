@@ -102,3 +102,14 @@ Note (17 Nov 2026, 06:45 UTC, before any result was graded): the dev run stopped
 Note 2 (17 Nov 2026, 06:52 UTC, before the resumed calls): Romain asked to use the rest of the old week before the reset. Calls now run until the weekly window reads 0.99, then pause until 08:03 UTC and continue under the post-reset stops above (0.10 weekly, 0.12 Fable meter). The status "allowed_warning" no longer pauses the runner. Rules and selection unchanged.
 
 Note 3 (17 Nov 2026, 06:58 UTC, during the dev run, before any grading): Romain asked to stop at the reset and allowed 100% of the old week before it. No call starts after 07:59 UTC (runner deadline, plus a watchdog that stops the runner at 07:59:30); the post-reset continuation is cancelled. The weekly stop before the reset is removed (rate-limit rejection is the limit). Whatever is done by then is graded with the rules above.
+
+## A-twostage (17 Nov 2026, before any call): wide field first, then an independent close look, exploratory
+
+Code: `ftwo.py`. Open development key only (two development tiles); nothing touches the sealed key.
+
+1. Fields: 16 fields of 107 x 107 arcsec (1072 px, native 0.1 arcsec/px) centred on development-pool positions drawn with SEED_TW = 20261118, at least 130 arcsec apart, with <= 2% bad pixels. 12 fields get two planted arc/streak/pair/cloud each (24 plants, levels 40/80/160 in turn, one per half of the field), 4 stay untouched.
+2. Stage 1: Fable 5.2 (effort high) sees the whole field as one grey VIS image (prompt `inspect_list.txt`) and lists at most 8 points.
+3. Stage 2: every listed point is cropped to a 32 arcsec cutout, rendered as the 2x2 BG grid and sent to a new, independent Fable 5.2 call (effort high, prompt `inspect_scan.txt`, no stage-1 label shown).
+4. Scoring as Probe D0: a plant counts as found when a stage-2 answer with interest >= 2.6 points within 5 arcsec of it (injection mask included). Reported: stage-1 recall, final recall (of 24), flags with a feature in the 4 untouched fields, flags away from plants in planted fields. Reference: the one-cutout BG view found 14/24 with 3/16 false features.
+5. Read-out rule fixed now: the two-stage search is worth scaling to real sky if it finds at least 12 of 24 with at most 1 flag per untouched field on average.
+6. Quota: weekly window may rise by at most 0.05 over this test, the Fable meter is capped at 0.20, and calls stop at either.
