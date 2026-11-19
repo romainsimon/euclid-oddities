@@ -36,7 +36,8 @@ Noted but kept: several sources have a galaxy 1.5 to 4 arcsec from the radio pos
 ## Literature check (incomplete)
 
 - The 30 brightest were looked up in SIMBAD and NED within 15 arcsec on 18 Nov 2026. All are known only as radio-survey detections (NVSS, SUMSS, GLEAM). None has a redshift. J023623.6-350755 lies 4 arcsec from a WISE source that SIMBAD lists as a BL Lac candidate and NED as a QSO.
-- Not done yet: the same lookup for the other 197 (running), comparison with published samples of high-redshift radio galaxy candidates and ultra-steep-spectrum sources, pulsar catalogue, VLASS morphology north of Dec -40. The CDS VizieR service could not be reached on 18-19 Nov 2026.
+- 20 Nov 2026: the 227 positions were compared with the source names printed in five papers that list distant radio galaxy candidates in the southern sky: De Breuck et al. 2000 (arXiv:astro-ph/0002297), De Breuck et al. 2004 (SUMSS-NVSS, arXiv:astro-ph/0309814), Bryant et al. 2009 (MRCR-SUMSS, arXiv:0902.0643), Broderick et al. 2022 (GLEAM, arXiv:2204.08490) and Broderick et al. 2024 (arXiv:2407.19145). No source matches (within 45 arcsec for full names; same truncated name for short names, which can miss a source whose name was rounded differently). The first part of the MRCR-SUMSS sample (Broderick et al. 2007) and the infrared-faint radio source catalogues (Collier et al. 2014, Orenstein et al. 2019) were not checked.
+- Not done yet: the SIMBAD / NED lookup for the other 197, the papers just named, pulsar catalogue, VLASS morphology north of Dec -40. The CDS services (VizieR, and SIMBAD on 20 Nov) could not be reached.
 - Until these are done, no source here should be described as previously unstudied.
 
 ## Deviations from the rules
