@@ -7,7 +7,7 @@ REPO=/d/dev/euclid-oddities
 TRACKD=/d/dev/research-trackd/tools/claudestronomy/trackd
 SPACESIM_WT=/d/dev/spacesim-wt/oddities
 NODE22=/c/Users/Romain/AppData/Roaming/nvm/v22.19.0
-TRAILER="Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+TRAILER="Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>"
 
 # 0. Start from the published state (the server loop also pushes here) and keep its finds
 git -C "$REPO" pull -q --ff-only origin main

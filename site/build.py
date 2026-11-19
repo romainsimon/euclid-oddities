@@ -271,6 +271,7 @@ def index(F, meta, base):
     body = f"""<main class="wrap"><section class="hero">
 <h1>Unusual galaxies and lens candidates in <em>Euclid DR1</em></h1>
 <p class="lede">Claude Fable 5.2 searched fresh images from ESA's Euclid space telescope for anything that looked odd: tidal streams, possible gravitational lenses, oddly shaped galaxies. Fake objects were planted among the real ones to measure how far to trust it. None of these {len(F)} finds has been checked by an astronomer yet.</p>
+{radio_link(base)}
 <a class="doi" href="https://doi.org/10.5281/zenodo.24304793" rel="noopener"><img src="{base}/img/doi-badge.svg" alt="DOI 10.5281/zenodo.24304793" height="20"></a></section>
 <div class="filters" role="region" aria-label="Filters">
 <div class="group" aria-label="Feature"><span class="lbl">Feature</span>{chips}</div>
@@ -475,6 +476,54 @@ const b=document.getElementById('mk'),im=document.getElementById('im');b.addEven
     return page(title, f["description"], body, base, f"{base}/{f['slug']}", f"{base}/img/{f['slug']}-thumb.jpg")
 
 
+def radio_link(base):
+    if not (HERE / "data" / "radio_dark.json").exists():
+        return ""
+    return f'<p class="lede" style="margin-top:14px"><a class="btn" href="{base}/radio-dark/">New: radio sources Euclid cannot see →</a></p>'
+
+
+def radio_page(base):
+    """Track R: radio sources with nothing at their position in Euclid. Data: data/radio_dark.json, images data/img/radio/."""
+    fp_ = HERE / "data" / "radio_dark.json"
+    if not fp_.exists():
+        return None
+    D = json.loads(fp_.read_text(encoding="utf-8"))
+    m, C = D["meta"], D["candidates"]
+
+    def num(v, nd=1):
+        return "" if v is None else f"{v:.{nd}f}"
+
+    def rcard(c):
+        cls = "Empty in both bands" if c["cls"] == "empty" else "Faint host"
+        known = e(c["known_as"]) if c["known_as"] else "no radio-survey name found"
+        return (f'<a class="card r-common" href="{base}/img/radio/{c["slug"]}.jpg"><img src="{base}/img/radio/{c["slug"]}.jpg" width="968" height="480" loading="lazy" '
+                f'style="aspect-ratio:968/480;height:auto" alt="Euclid visible (left) and 1.8 micron (right) cutouts at the radio position of {e(c["name"])}">'
+                f'<div class="body"><div class="hd"><h3>{e(c["name"])}</h3></div><div class="meta"><span class="tag hi">{c["peak"]:.0f} mJy</span>'
+                f'<span class="tag">{cls}</span><span class="tag">index {num(c["alpha"])}</span>{"" if not c["dev"] else "<span class=tag>tuning region</span>"}</div>'
+                f'<p>RA {c["ra"]:.5f}°, Dec {c["dec"]:+.5f}°. Euclid limits (5σ, 1.5″ aperture): visible {num(c["vis_lim"])}, 1.8 µm {num(c["h_lim"])}. '
+                f'WISE within 5″: {"yes" if c["wise"] else "none"}. Listed as: {known}.</p></div></a>')
+
+    steps = "".join(f'<div class="row" style="grid-template-columns:1fr 90px"><span>{e(k)}</span><span class="num">{v}</span></div>' for k, v in m["steps"])
+    top = [c for c in C if c.get("slug")]
+    body = f"""<main class="wrap"><div class="crumbs"><a href="{base}/">All finds</a> / Radio sources with no Euclid counterpart</div>
+<section class="hero"><h1>Radio sources Euclid <em>cannot see</em></h1>
+<p class="lede">{m["kept"]} compact radio sources from the RACS-mid survey have nothing, or almost nothing, at their position in the Euclid DR1 visible and 1.8 µm images. This is a known class of object (infrared-faint radio sources, where distant radio galaxies are looked for). The list is new for this sky as far as we checked, each entry is an unverified candidate, and a pulsar would look the same.</p></section>
+<section class="method"><div class="panel"><span class="eyebrow"><b>01</b>Method</span><h2>How the list was <em>made</em></h2>
+<p>No language model takes part in the selection. Radio positions were corrected field by field against bright Euclid galaxies, then the flux was summed in a 1.5″ aperture on the Euclid visible and 1.8 µm mosaics, with the noise measured around each position. A source is kept when both bands show less than 3 times the noise, the data are deep enough, and a second radio survey (RACS-high) sees the same compact source.</p>
+<p>The rules were tuned on one 10° × 10° region and published before the rest of the sky was measured. Claude Fable 5.2 then looked at every image, only to remove data faults: {m["removed"]} were removed. {m["dev"]} of the {m["kept"]} lie in the tuning region and are not blind.</p>
+<p class="small">{e(m["date"])} · selection: catalogue and pixel measurements, no model call · image check: {e(m["model"])}, {e(m["harness"])}</p></div>
+<div class="panel"><span class="eyebrow"><b>02</b>Counts</span><h2>What was <em>kept</em></h2>
+<div class="rows">{steps}</div>
+<p>Of the {m["kept"]}, {m["empty"]} are empty in both bands and {m["faint"]} show a barely visible host. Median radio spectral index: {m["alpha_med"]:.1f} (steep). {e(m["lit"])}</p>
+<div class="links"><a class="btn" href="{REPO}/tree/main/track-r-radio-dark" rel="noopener">Full table, rules and code ↗</a></div></div></section>
+<h2 style="margin:8px 0 0">The {len(top)} brightest</h2><p class="small">Left: Euclid visible band. Right: Euclid 1.8 µm. 32″ across, north up. The circle (1.5″ radius) marks the corrected radio position.</p>
+<div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(420px,1fr))">{"".join(rcard(c) for c in top)}</div>
+<p class="small">Unverified candidates. Recognise one, or can rule it out? <a href="{REPO}/issues/new?title=Track%20R">Tell us on GitHub</a>.</p></main>"""
+    return page("Radio sources with no Euclid counterpart | Euclid Oddities",
+                f"{m['kept']} compact radio sources with nothing at their position in Euclid DR1 images. Unverified candidates.", body, base, f"{base}/radio-dark",
+                f"{base}/img/radio/{top[0]['slug']}.jpg" if top else None)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("out")
@@ -495,7 +544,11 @@ def main():
         d = out / f["slug"]
         d.mkdir(exist_ok=True)
         (d / "index.html").write_text(detail(f, F[i - 1] if i else None, F[i + 1] if i + 1 < len(F) else None, base), encoding="utf-8")
-    print(f"{len(F)} finds -> {out} (base {base or '/'})")
+    rp = radio_page(base)
+    if rp:
+        (out / "radio-dark").mkdir(exist_ok=True)
+        (out / "radio-dark" / "index.html").write_text(rp, encoding="utf-8")
+    print(f"{len(F)} finds -> {out} (base {base or '/'}){' + radio-dark page' if rp else ''}")
 
 
 if __name__ == "__main__":
