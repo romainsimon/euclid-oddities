@@ -6,5 +6,6 @@ repository-code: "https://github.com/romainsimon/euclid-oddities"
 authors:
   - family-names: Simon
     given-names: Romain
-date-released: 2026-11-14
+version: "1.1"
+date-released: 2026-11-20
 license: CC-BY-4.0

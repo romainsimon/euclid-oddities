@@ -60,12 +60,23 @@ A one-versus-two point-source fit on Euclid VIS cutouts of Gaia quasar candidate
 
 Both tracks are published as null results with their sensitivities.
 
+### Radio sources with no Euclid counterpart (Track R), measurements only
+
+Compact, isolated RACS-mid radio sources (peak >= 5 mJy/beam) were matched to Euclid DR1 by forced photometry on the VIS and H mosaics at the radio position. No language model takes part in the selection. Rules were tuned on one 10 x 10 degree region and published before the rest of the sky was measured.
+
+- 10,021 sources in the sample, 5,791 with usable and deep enough Euclid data, 227 kept: below 3 sigma in both bands, confirmed compact by RACS-high, and free of data faults in an image check by Claude Fable 5.2. 108 are empty in both bands, 119 show a barely visible host.
+- Literature check (20 Nov 2026): none of the 227 is in seven published lists of distant radio galaxy candidates or infrared-faint radio sources that could be checked; SIMBAD attaches no dedicated paper to any; no known pulsar within 30 arcsec; no redshift known.
+- This is a known class of object. The list is a set of unverified candidates, not a discovery, and most such sources with a measured redshift lie at z = 2 to 4.
+
+Rules, counts, table, images and code: [track-r-radio-dark/RESULTS.md](track-r-radio-dark/RESULTS.md).
+
 ## What is in this repository
 
 | Folder | Contents |
 |---|---|
 | `track-d-anomaly-hunt/` | Pre-registration (`PREREG_D.md`, SHA-256 in `PREREG_D.sha256`), every amendment with its reason, the full report, the model comparison |
 | `track-a-lensed-quasars/` | Pre-registration and amendments (with hashes), Probe 0 report, red-team challenge, feasibility-gate rules and results |
+| `track-r-radio-dark/` | Rules fixed before the main run (`PREREG_R.md`), results, candidate table, image sheets, literature answers, code |
 
 Pre-registration hashes:
 
