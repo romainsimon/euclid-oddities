@@ -178,7 +178,7 @@ def page(title, desc, body, base, canonical, image=None):
 <div class="site-header__actions"><nav class="top"><a href="{base}/#log">Log</a><a href="{base}/#method">Method</a><a href="{REPO}">Data &amp; rules</a><a class="keep" href="/">SpaceSim</a></nav></div></div></header>
 {body}
 <footer><div class="wrap">Images: ESA Euclid DR1 (ESA/Euclid/Euclid Consortium), rendered by this project. Catalogue checks: SIMBAD, NED, ECLIPSE.
-Every entry is unverified: image finds are suggestions made by a language model, radio candidates come from measurements. Code, pre-registration and raw results on <a href="{REPO}">GitHub</a>, archived with DOI <a href="https://doi.org/10.5281/zenodo.24304793">10.5281/zenodo.24304793</a>.</div></footer>
+Every entry is unverified: image finds are suggestions made by a language model, radio candidates come from measurements. Code, pre-registration and raw results on <a href="{REPO}">GitHub</a>, archived with DOI <a href="https://doi.org/10.5281/zenodo.24304792">10.5281/zenodo.24304792</a>.</div></footer>
 </body></html>"""
 
 
@@ -306,7 +306,7 @@ def index(F, meta, base):
     body = f"""<main class="wrap"><section class="hero">
 <h1>Oddities in <em>Euclid DR1</em></h1>
 <p class="lede">Two searches of fresh images from ESA's Euclid space telescope, run with Claude Fable 5.2. One looks for things that seem odd: tidal streams, possible gravitational lenses, oddly shaped galaxies ({n_model} finds, with planted fakes to measure how far to trust the model). The other measures where bright radio sources have nothing in Euclid ({n_radio} candidates, no model in the selection). Almost none has been checked by an astronomer.</p>
-<a class="doi" href="https://doi.org/10.5281/zenodo.24304793" rel="noopener"><img src="{base}/img/doi-badge.svg" alt="DOI 10.5281/zenodo.24304793" height="20"></a></section>
+<a class="doi" href="https://doi.org/10.5281/zenodo.24304792" rel="noopener"><img src="{base}/img/doi-badge.svg" alt="DOI 10.5281/zenodo.24304792" height="20"></a></section>
 <div class="filters" role="region" aria-label="Filters">
 <div class="group" aria-label="Feature"><span class="lbl">Feature</span>{chips}</div>
 {seg("run", "Search", [("", "Any"), ("outliers", "Catalogue outliers"), ("wide", "Wide fields"), ("twostage", "Test fields")] + ([("radio", "Radio, no Euclid source")] if n_radio else []))}
