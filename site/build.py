@@ -485,6 +485,15 @@ def radio_detail(f, prev, nxt, base):
              ("Class", "Empty: no peak above 5σ within 1.5″ in either band" if f["cls"] == "empty" else "Faint host: a peak above 5σ within 1.5″ in at least one band"),
              ("WISE within 5″", "a CatWISE2020 source (may be a neighbour)" if f["wise"] else "none in CatWISE2020"),
              ("Radio surveys", e("; ".join(lit["radio_names"])) if lit.get("radio_names") else (e(f["known_as"]) if f.get("known_as") else "not looked up yet"))]
+    sd = f.get("sed")
+    if sd:
+        lowf = (f'GLEAM {sd["gleam_200"]:.0f} mJy at 200 MHz, in-band index {num(sd["gleam_alpha"], 2)} (72-231 MHz, 2′ beam); index {num(sd["alpha_200_1367"], 2)} from 200 to 1367 MHz'
+                if sd.get("gleam_200") else "not in the GLEAM catalogue")
+        if sd.get("tgss_150"):
+            lowf += f' · TGSS {sd["tgss_150"]:.0f} mJy at 150 MHz'
+        facts.append(("Low-frequency radio", lowf))
+        if sd.get("w1_snr") is not None:
+            facts.append(("unWISE, measured", f'W1 {sd["w1_snr"]:.1f} σ, W2 {num(sd.get("w2_snr"))} σ in a 5.5″ aperture at the position · W1 5σ limit {num(sd.get("w1_lim"))} mag (Vega, no aperture correction)'))
     if lit:
         facts += [("Papers in SIMBAD", e("; ".join(lit["papers"])) if lit.get("papers") else "none attached to an object within 15″"),
                   ("Pulsar within 30″", e(", ".join(lit["pulsar"])) if lit.get("pulsar") else "none in the ATNF catalogue")]
