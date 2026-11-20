@@ -489,7 +489,8 @@
    "h_snr": 2.13,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj060819.4-443237"
   },
   {
    "name": "RACS-MID1 J001956.6-625522",
@@ -506,7 +507,8 @@
    "h_snr": 1.89,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj001956.6-625522"
   },
   {
    "name": "RACS-MID1 J020335.5-582257",
@@ -523,7 +525,8 @@
    "h_snr": -0.46,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj020335.5-582257"
   },
   {
    "name": "RACS-MID1 J062216.2-445235",
@@ -540,7 +543,8 @@
    "h_snr": 1.45,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj062216.2-445235"
   },
   {
    "name": "RACS-MID1 J044129.3-503602",
@@ -557,7 +561,8 @@
    "h_snr": 2.87,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj044129.3-503602"
   },
   {
    "name": "RACS-MID1 J043029.4-512116",
@@ -574,7 +579,8 @@
    "h_snr": 2.78,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj043029.4-512116"
   },
   {
    "name": "RACS-MID1 J024608.4-605522",
@@ -591,7 +597,8 @@
    "h_snr": 0.99,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj024608.4-605522"
   },
   {
    "name": "RACS-MID1 J031736.1-501321",
@@ -608,7 +615,8 @@
    "h_snr": 0.49,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj031736.1-501321"
   },
   {
    "name": "RACS-MID1 J055146.6-531415",
@@ -625,7 +633,8 @@
    "h_snr": 2.12,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj055146.6-531415"
   },
   {
    "name": "RACS-MID1 J001748.4-611556",
@@ -642,7 +651,8 @@
    "h_snr": 1.4,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj001748.4-611556"
   },
   {
    "name": "RACS-MID1 J053130.0-540632",
@@ -659,7 +669,8 @@
    "h_snr": 1.78,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj053130.0-540632"
   },
   {
    "name": "RACS-MID1 J042200.1-591120",
@@ -676,7 +687,8 @@
    "h_snr": 2.88,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj042200.1-591120"
   },
   {
    "name": "RACS-MID1 J041246.2-484358",
@@ -693,7 +705,8 @@
    "h_snr": -0.24,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj041246.2-484358"
   },
   {
    "name": "RACS-MID1 J023420.3-564310",
@@ -710,7 +723,8 @@
    "h_snr": 2.63,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj023420.3-564310"
   },
   {
    "name": "RACS-MID1 J041744.8-285334",
@@ -727,7 +741,8 @@
    "h_snr": 2.25,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj041744.8-285334"
   },
   {
    "name": "RACS-MID1 J041735.3-450423",
@@ -744,7 +759,8 @@
    "h_snr": 0.91,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj041735.3-450423"
   },
   {
    "name": "RACS-MID1 J053205.1-463238",
@@ -761,7 +777,8 @@
    "h_snr": 1.29,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj053205.1-463238"
   },
   {
    "name": "RACS-MID1 J024602.5-382752",
@@ -778,7 +795,8 @@
    "h_snr": 0.83,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj024602.5-382752"
   },
   {
    "name": "RACS-MID1 J054029.2-385918",
@@ -795,7 +813,8 @@
    "h_snr": 0.65,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj054029.2-385918"
   },
   {
    "name": "RACS-MID1 J043458.7-263140",
@@ -812,7 +831,8 @@
    "h_snr": 2.11,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj043458.7-263140"
   },
   {
    "name": "RACS-MID1 J031917.1-433753",
@@ -829,7 +849,8 @@
    "h_snr": -0.25,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj031917.1-433753"
   },
   {
    "name": "RACS-MID1 J054044.1-414026",
@@ -846,7 +867,8 @@
    "h_snr": -1.02,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj054044.1-414026"
   },
   {
    "name": "RACS-MID1 J060042.1-354920",
@@ -863,7 +885,8 @@
    "h_snr": 2.51,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj060042.1-354920"
   },
   {
    "name": "RACS-MID1 J035824.1-513822",
@@ -880,7 +903,8 @@
    "h_snr": 0.7,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj035824.1-513822"
   },
   {
    "name": "RACS-MID1 J042339.5-515216",
@@ -897,7 +921,8 @@
    "h_snr": 0.36,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj042339.5-515216"
   },
   {
    "name": "RACS-MID1 J035433.5-293623",
@@ -914,7 +939,8 @@
    "h_snr": -1.7,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj035433.5-293623"
   },
   {
    "name": "RACS-MID1 J043443.6-643738",
@@ -931,7 +957,8 @@
    "h_snr": 1.83,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj043443.6-643738"
   },
   {
    "name": "RACS-MID1 J022742.5-591909",
@@ -948,7 +975,8 @@
    "h_snr": 0.85,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj022742.5-591909"
   },
   {
    "name": "RACS-MID1 J023205.9-621411",
@@ -965,7 +993,8 @@
    "h_snr": 2.53,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj023205.9-621411"
   },
   {
    "name": "RACS-MID1 J034710.7-532311",
@@ -982,7 +1011,8 @@
    "h_snr": 0.8,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj034710.7-532311"
   },
   {
    "name": "RACS-MID1 J024537.1-442850",
@@ -999,7 +1029,8 @@
    "h_snr": 2.94,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj024537.1-442850"
   },
   {
    "name": "RACS-MID1 J033759.3-514710",
@@ -1016,7 +1047,8 @@
    "h_snr": 0.56,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj033759.3-514710"
   },
   {
    "name": "RACS-MID1 J043607.6-532317",
@@ -1033,7 +1065,8 @@
    "h_snr": 0.93,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj043607.6-532317"
   },
   {
    "name": "RACS-MID1 J041740.4-501926",
@@ -1050,7 +1083,8 @@
    "h_snr": 2.67,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj041740.4-501926"
   },
   {
    "name": "RACS-MID1 J020051.4-575237",
@@ -1067,7 +1101,8 @@
    "h_snr": -1.35,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj020051.4-575237"
   },
   {
    "name": "RACS-MID1 J052814.4-284926",
@@ -1084,7 +1119,8 @@
    "h_snr": 0.31,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj052814.4-284926"
   },
   {
    "name": "RACS-MID1 J051102.1-400806",
@@ -1101,7 +1137,8 @@
    "h_snr": 2.47,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj051102.1-400806"
   },
   {
    "name": "RACS-MID1 J054520.1-405854",
@@ -1118,7 +1155,8 @@
    "h_snr": 0.36,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj054520.1-405854"
   },
   {
    "name": "RACS-MID1 J040657.3-291746",
@@ -1135,7 +1173,8 @@
    "h_snr": -0.55,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj040657.3-291746"
   },
   {
    "name": "RACS-MID1 J042402.6-480347",
@@ -1152,7 +1191,8 @@
    "h_snr": 2.96,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj042402.6-480347"
   },
   {
    "name": "RACS-MID1 J042730.5-660834",
@@ -1169,7 +1209,8 @@
    "h_snr": 0.18,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj042730.5-660834"
   },
   {
    "name": "RACS-MID1 J035305.0-614550",
@@ -1186,7 +1227,8 @@
    "h_snr": 2.0,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj035305.0-614550"
   },
   {
    "name": "RACS-MID1 J034140.8-433308",
@@ -1203,7 +1245,8 @@
    "h_snr": 1.76,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj034140.8-433308"
   },
   {
    "name": "RACS-MID1 J043807.9-383037",
@@ -1220,7 +1263,8 @@
    "h_snr": -0.32,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj043807.9-383037"
   },
   {
    "name": "RACS-MID1 J033600.9-343058",
@@ -1237,7 +1281,8 @@
    "h_snr": 2.14,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj033600.9-343058"
   },
   {
    "name": "RACS-MID1 J040205.7-333954",
@@ -1254,7 +1299,8 @@
    "h_snr": -0.06,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj040205.7-333954"
   },
   {
    "name": "RACS-MID1 J054628.7-451424",
@@ -1271,7 +1317,8 @@
    "h_snr": 2.78,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj054628.7-451424"
   },
   {
    "name": "RACS-MID1 J033530.2-644342",
@@ -1288,7 +1335,8 @@
    "h_snr": 2.24,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj033530.2-644342"
   },
   {
    "name": "RACS-MID1 J045011.0-543530",
@@ -1305,7 +1353,8 @@
    "h_snr": 0.7,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj045011.0-543530"
   },
   {
    "name": "RACS-MID1 J030448.9-364703",
@@ -1322,7 +1371,8 @@
    "h_snr": 0.46,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj030448.9-364703"
   },
   {
    "name": "RACS-MID1 J033127.7-613012",
@@ -1339,7 +1389,8 @@
    "h_snr": 1.9,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj033127.7-613012"
   },
   {
    "name": "RACS-MID1 J023540.2-602101",
@@ -1356,7 +1407,8 @@
    "h_snr": 2.65,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj023540.2-602101"
   },
   {
    "name": "RACS-MID1 J012440.0-533014",
@@ -1373,7 +1425,8 @@
    "h_snr": 1.85,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj012440.0-533014"
   },
   {
    "name": "RACS-MID1 J043106.3-382635",
@@ -1390,7 +1443,8 @@
    "h_snr": 1.74,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj043106.3-382635"
   },
   {
    "name": "RACS-MID1 J042730.3-455001",
@@ -1407,7 +1461,8 @@
    "h_snr": 0.66,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj042730.3-455001"
   },
   {
    "name": "RACS-MID1 J050238.5-532627",
@@ -1424,7 +1479,8 @@
    "h_snr": 2.22,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj050238.5-532627"
   },
   {
    "name": "RACS-MID1 J032244.9-372900",
@@ -1441,7 +1497,8 @@
    "h_snr": 2.2,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj032244.9-372900"
   },
   {
    "name": "RACS-MID1 J034819.3-495137",
@@ -1458,7 +1515,8 @@
    "h_snr": 1.38,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj034819.3-495137"
   },
   {
    "name": "RACS-MID1 J013715.0-540428",
@@ -1475,7 +1533,8 @@
    "h_snr": 0.71,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj013715.0-540428"
   },
   {
    "name": "RACS-MID1 J034108.0-562215",
@@ -1492,7 +1551,8 @@
    "h_snr": 2.18,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj034108.0-562215"
   },
   {
    "name": "RACS-MID1 J044945.8-350025",
@@ -1509,7 +1569,8 @@
    "h_snr": -0.34,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj044945.8-350025"
   },
   {
    "name": "RACS-MID1 J001650.5-641835",
@@ -1526,7 +1587,8 @@
    "h_snr": 0.2,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj001650.5-641835"
   },
   {
    "name": "RACS-MID1 J024711.0-445146",
@@ -1543,7 +1605,8 @@
    "h_snr": 1.67,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj024711.0-445146"
   },
   {
    "name": "RACS-MID1 J023154.1-601849",
@@ -1560,7 +1623,8 @@
    "h_snr": 1.0,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj023154.1-601849"
   },
   {
    "name": "RACS-MID1 J040721.3-423332",
@@ -1577,7 +1641,8 @@
    "h_snr": 2.1,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj040721.3-423332"
   },
   {
    "name": "RACS-MID1 J030705.4-532535",
@@ -1594,7 +1659,8 @@
    "h_snr": 0.52,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj030705.4-532535"
   },
   {
    "name": "RACS-MID1 J060446.4-450149",
@@ -1611,7 +1677,8 @@
    "h_snr": -0.12,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj060446.4-450149"
   },
   {
    "name": "RACS-MID1 J051954.1-285308",
@@ -1628,7 +1695,8 @@
    "h_snr": -1.29,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj051954.1-285308"
   },
   {
    "name": "RACS-MID1 J025150.3-381351",
@@ -1645,7 +1713,8 @@
    "h_snr": 0.64,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj025150.3-381351"
   },
   {
    "name": "RACS-MID1 J014443.1-443703",
@@ -1662,7 +1731,8 @@
    "h_snr": 1.23,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj014443.1-443703"
   },
   {
    "name": "RACS-MID1 J044823.5-182349",
@@ -1679,7 +1749,8 @@
    "h_snr": 2.68,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj044823.5-182349"
   },
   {
    "name": "RACS-MID1 J062236.8-464213",
@@ -1696,7 +1767,8 @@
    "h_snr": 0.77,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj062236.8-464213"
   },
   {
    "name": "RACS-MID1 J055946.3-361125",
@@ -1713,7 +1785,8 @@
    "h_snr": 2.61,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj055946.3-361125"
   },
   {
    "name": "RACS-MID1 J052019.8-435329",
@@ -1730,7 +1803,8 @@
    "h_snr": -0.62,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj052019.8-435329"
   },
   {
    "name": "RACS-MID1 J033306.6-343213",
@@ -1747,7 +1821,8 @@
    "h_snr": 0.84,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj033306.6-343213"
   },
   {
    "name": "RACS-MID1 J032437.8-454409",
@@ -1764,7 +1839,8 @@
    "h_snr": 1.32,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj032437.8-454409"
   },
   {
    "name": "RACS-MID1 J062534.3-492600",
@@ -1781,7 +1857,8 @@
    "h_snr": -0.05,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj062534.3-492600"
   },
   {
    "name": "RACS-MID1 J235459.2-604323",
@@ -1798,7 +1875,8 @@
    "h_snr": 0.31,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj235459.2-604323"
   },
   {
    "name": "RACS-MID1 J014203.2-440345",
@@ -1815,7 +1893,8 @@
    "h_snr": -0.41,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj014203.2-440345"
   },
   {
    "name": "RACS-MID1 J061832.1-485630",
@@ -1832,7 +1911,8 @@
    "h_snr": 0.52,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj061832.1-485630"
   },
   {
    "name": "RACS-MID1 J052320.7-474643",
@@ -1849,7 +1929,8 @@
    "h_snr": 2.43,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj052320.7-474643"
   },
   {
    "name": "RACS-MID1 J045716.4-470235",
@@ -1866,7 +1947,8 @@
    "h_snr": 2.64,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj045716.4-470235"
   },
   {
    "name": "RACS-MID1 J031909.4-355116",
@@ -1883,7 +1965,8 @@
    "h_snr": 0.19,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj031909.4-355116"
   },
   {
    "name": "RACS-MID1 J032618.8-333500",
@@ -1900,7 +1983,8 @@
    "h_snr": -0.32,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj032618.8-333500"
   },
   {
    "name": "RACS-MID1 J021241.0-580052",
@@ -1917,7 +2001,8 @@
    "h_snr": 0.46,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj021241.0-580052"
   },
   {
    "name": "RACS-MID1 J050842.3-290847",
@@ -1934,7 +2019,8 @@
    "h_snr": -1.44,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj050842.3-290847"
   },
   {
    "name": "RACS-MID1 J041046.0-524722",
@@ -1951,7 +2037,8 @@
    "h_snr": -1.33,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj041046.0-524722"
   },
   {
    "name": "RACS-MID1 J041257.7-584656",
@@ -1968,7 +2055,8 @@
    "h_snr": 2.18,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj041257.7-584656"
   },
   {
    "name": "RACS-MID1 J033429.9-641021",
@@ -1985,7 +2073,8 @@
    "h_snr": 0.49,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj033429.9-641021"
   },
   {
    "name": "RACS-MID1 J050504.9-300929",
@@ -2002,7 +2091,8 @@
    "h_snr": 0.65,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj050504.9-300929"
   },
   {
    "name": "RACS-MID1 J042929.1-203223",
@@ -2019,7 +2109,8 @@
    "h_snr": 2.98,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj042929.1-203223"
   },
   {
    "name": "RACS-MID1 J043321.7-234038",
@@ -2036,7 +2127,8 @@
    "h_snr": 0.68,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj043321.7-234038"
   },
   {
    "name": "RACS-MID1 J045312.8-433318",
@@ -2053,7 +2145,8 @@
    "h_snr": 1.01,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj045312.8-433318"
   },
   {
    "name": "RACS-MID1 J030629.0-495855",
@@ -2070,7 +2163,8 @@
    "h_snr": 2.88,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj030629.0-495855"
   },
   {
    "name": "RACS-MID1 J031601.8-522251",
@@ -2087,7 +2181,8 @@
    "h_snr": -0.22,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj031601.8-522251"
   },
   {
    "name": "RACS-MID1 J031456.7-630519",
@@ -2104,7 +2199,8 @@
    "h_snr": 0.53,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj031456.7-630519"
   },
   {
    "name": "RACS-MID1 J044528.5-393236",
@@ -2121,7 +2217,8 @@
    "h_snr": 1.23,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj044528.5-393236"
   },
   {
    "name": "RACS-MID1 J032422.7-512323",
@@ -2138,7 +2235,8 @@
    "h_snr": 0.08,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj032422.7-512323"
   },
   {
    "name": "RACS-MID1 J030600.7-535957",
@@ -2155,7 +2253,8 @@
    "h_snr": 2.12,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj030600.7-535957"
   },
   {
    "name": "RACS-MID1 J053230.4-561110",
@@ -2172,7 +2271,8 @@
    "h_snr": 0.46,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj053230.4-561110"
   },
   {
    "name": "RACS-MID1 J043431.8-275022",
@@ -2189,7 +2289,8 @@
    "h_snr": 0.41,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj043431.8-275022"
   },
   {
    "name": "RACS-MID1 J015612.5-473549",
@@ -2206,7 +2307,8 @@
    "h_snr": -1.52,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj015612.5-473549"
   },
   {
    "name": "RACS-MID1 J044117.2-353140",
@@ -2223,7 +2325,8 @@
    "h_snr": 0.09,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj044117.2-353140"
   },
   {
    "name": "RACS-MID1 J021208.6-464113",
@@ -2240,7 +2343,8 @@
    "h_snr": 0.78,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj021208.6-464113"
   },
   {
    "name": "RACS-MID1 J040016.4-392703",
@@ -2257,7 +2361,8 @@
    "h_snr": -1.75,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj040016.4-392703"
   },
   {
    "name": "RACS-MID1 J022347.9-525946",
@@ -2274,7 +2379,8 @@
    "h_snr": -0.42,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj022347.9-525946"
   },
   {
    "name": "RACS-MID1 J041158.9-350155",
@@ -2291,7 +2397,8 @@
    "h_snr": 1.31,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj041158.9-350155"
   },
   {
    "name": "RACS-MID1 J043927.1-321417",
@@ -2308,7 +2415,8 @@
    "h_snr": 2.03,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj043927.1-321417"
   },
   {
    "name": "RACS-MID1 J033749.6-350149",
@@ -2325,7 +2433,8 @@
    "h_snr": 2.83,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj033749.6-350149"
   },
   {
    "name": "RACS-MID1 J010841.6-543925",
@@ -2342,7 +2451,8 @@
    "h_snr": -0.53,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj010841.6-543925"
   },
   {
    "name": "RACS-MID1 J025243.5-542036",
@@ -2359,7 +2469,8 @@
    "h_snr": -0.58,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj025243.5-542036"
   },
   {
    "name": "RACS-MID1 J040227.1-333519",
@@ -2376,7 +2487,8 @@
    "h_snr": 1.08,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj040227.1-333519"
   },
   {
    "name": "RACS-MID1 J022141.1-333035",
@@ -2393,7 +2505,8 @@
    "h_snr": 1.46,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj022141.1-333035"
   },
   {
    "name": "RACS-MID1 J055539.5-602633",
@@ -2410,7 +2523,8 @@
    "h_snr": 2.42,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj055539.5-602633"
   },
   {
    "name": "RACS-MID1 J040401.5-573707",
@@ -2427,7 +2541,8 @@
    "h_snr": -0.75,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj040401.5-573707"
   },
   {
    "name": "RACS-MID1 J034555.9-540429",
@@ -2444,7 +2559,8 @@
    "h_snr": 0.56,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj034555.9-540429"
   },
   {
    "name": "RACS-MID1 J031954.8-500341",
@@ -2461,7 +2577,8 @@
    "h_snr": 1.23,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj031954.8-500341"
   },
   {
    "name": "RACS-MID1 J054135.4-464620",
@@ -2478,7 +2595,8 @@
    "h_snr": 1.59,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj054135.4-464620"
   },
   {
    "name": "RACS-MID1 J040549.3-504642",
@@ -2495,7 +2613,8 @@
    "h_snr": 0.11,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj040549.3-504642"
   },
   {
    "name": "RACS-MID1 J040009.9-312230",
@@ -2512,7 +2631,8 @@
    "h_snr": 2.71,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj040009.9-312230"
   },
   {
    "name": "RACS-MID1 J040513.2-405323",
@@ -2529,7 +2649,8 @@
    "h_snr": 2.02,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj040513.2-405323"
   },
   {
    "name": "RACS-MID1 J040751.5-194846",
@@ -2546,7 +2667,8 @@
    "h_snr": 1.27,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj040751.5-194846"
   },
   {
    "name": "RACS-MID1 J055435.4-464312",
@@ -2563,7 +2685,8 @@
    "h_snr": 0.92,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj055435.4-464312"
   },
   {
    "name": "RACS-MID1 J051610.7-253156",
@@ -2580,7 +2703,8 @@
    "h_snr": 1.79,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj051610.7-253156"
   },
   {
    "name": "RACS-MID1 J005339.9-572300",
@@ -2597,7 +2721,8 @@
    "h_snr": 0.3,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj005339.9-572300"
   },
   {
    "name": "RACS-MID1 J015401.4-433513",
@@ -2614,7 +2739,8 @@
    "h_snr": -0.66,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj015401.4-433513"
   },
   {
    "name": "RACS-MID1 J033340.5-473301",
@@ -2631,7 +2757,8 @@
    "h_snr": -1.2,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj033340.5-473301"
   },
   {
    "name": "RACS-MID1 J045007.8-414737",
@@ -2648,7 +2775,8 @@
    "h_snr": -0.32,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj045007.8-414737"
   },
   {
    "name": "RACS-MID1 J042206.1-525551",
@@ -2665,7 +2793,8 @@
    "h_snr": 0.03,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj042206.1-525551"
   },
   {
    "name": "RACS-MID1 J023320.9-351218",
@@ -2682,7 +2811,8 @@
    "h_snr": 1.15,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj023320.9-351218"
   },
   {
    "name": "RACS-MID1 J041349.8-440038",
@@ -2699,7 +2829,8 @@
    "h_snr": 0.52,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj041349.8-440038"
   },
   {
    "name": "RACS-MID1 J052057.0-331348",
@@ -2716,7 +2847,8 @@
    "h_snr": -0.98,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj052057.0-331348"
   },
   {
    "name": "RACS-MID1 J022110.7-545241",
@@ -2733,7 +2865,8 @@
    "h_snr": 2.79,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj022110.7-545241"
   },
   {
    "name": "RACS-MID1 J060100.8-375504",
@@ -2750,7 +2883,8 @@
    "h_snr": 1.47,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj060100.8-375504"
   },
   {
    "name": "RACS-MID1 J234140.2-602346",
@@ -2767,7 +2901,8 @@
    "h_snr": 2.63,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj234140.2-602346"
   },
   {
    "name": "RACS-MID1 J041815.6-202646",
@@ -2784,7 +2919,8 @@
    "h_snr": 0.02,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj041815.6-202646"
   },
   {
    "name": "RACS-MID1 J035939.0-515710",
@@ -2801,7 +2937,8 @@
    "h_snr": 0.01,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj035939.0-515710"
   },
   {
    "name": "RACS-MID1 J035905.7-320953",
@@ -2818,7 +2955,8 @@
    "h_snr": -0.3,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj035905.7-320953"
   },
   {
    "name": "RACS-MID1 J000332.0-594605",
@@ -2835,7 +2973,8 @@
    "h_snr": 0.74,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj000332.0-594605"
   },
   {
    "name": "RACS-MID1 J033015.7-572114",
@@ -2852,7 +2991,8 @@
    "h_snr": -0.14,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj033015.7-572114"
   },
   {
    "name": "RACS-MID1 J043714.8-235135",
@@ -2869,7 +3009,8 @@
    "h_snr": 0.86,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj043714.8-235135"
   },
   {
    "name": "RACS-MID1 J054217.4-363402",
@@ -2886,7 +3027,8 @@
    "h_snr": 0.08,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj054217.4-363402"
   },
   {
    "name": "RACS-MID1 J042956.5-235134",
@@ -2903,7 +3045,8 @@
    "h_snr": -0.33,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj042956.5-235134"
   },
   {
    "name": "RACS-MID1 J055649.9-384409",
@@ -2920,7 +3063,8 @@
    "h_snr": 1.02,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj055649.9-384409"
   },
   {
    "name": "RACS-MID1 J052811.0-543309",
@@ -2937,7 +3081,8 @@
    "h_snr": 2.23,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj052811.0-543309"
   },
   {
    "name": "RACS-MID1 J052056.7-332630",
@@ -2954,7 +3099,8 @@
    "h_snr": 1.7,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj052056.7-332630"
   },
   {
    "name": "RACS-MID1 J055050.8-370355",
@@ -2971,7 +3117,8 @@
    "h_snr": 1.11,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj055050.8-370355"
   },
   {
    "name": "RACS-MID1 J023550.3-412222",
@@ -2988,7 +3135,8 @@
    "h_snr": 0.48,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj023550.3-412222"
   },
   {
    "name": "RACS-MID1 J042329.8-180639",
@@ -3005,7 +3153,8 @@
    "h_snr": 2.7,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj042329.8-180639"
   },
   {
    "name": "RACS-MID1 J040207.4-241935",
@@ -3022,7 +3171,8 @@
    "h_snr": -0.34,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj040207.4-241935"
   },
   {
    "name": "RACS-MID1 J030626.5-403927",
@@ -3039,7 +3189,8 @@
    "h_snr": 0.9,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj030626.5-403927"
   },
   {
    "name": "RACS-MID1 J033734.3-452923",
@@ -3056,7 +3207,8 @@
    "h_snr": 1.61,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj033734.3-452923"
   },
   {
    "name": "RACS-MID1 J034501.7-433931",
@@ -3073,7 +3225,8 @@
    "h_snr": 1.13,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj034501.7-433931"
   },
   {
    "name": "RACS-MID1 J013513.8-434922",
@@ -3090,7 +3243,8 @@
    "h_snr": 2.01,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj013513.8-434922"
   },
   {
    "name": "RACS-MID1 J023119.0-545820",
@@ -3107,7 +3261,8 @@
    "h_snr": -0.57,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj023119.0-545820"
   },
   {
    "name": "RACS-MID1 J032743.9-361649",
@@ -3124,7 +3279,8 @@
    "h_snr": 2.88,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj032743.9-361649"
   },
   {
    "name": "RACS-MID1 J025327.5-485523",
@@ -3141,7 +3297,8 @@
    "h_snr": 0.27,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj025327.5-485523"
   },
   {
    "name": "RACS-MID1 J030350.9-500447",
@@ -3158,7 +3315,8 @@
    "h_snr": 1.27,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj030350.9-500447"
   },
   {
    "name": "RACS-MID1 J022431.5-521319",
@@ -3175,7 +3333,8 @@
    "h_snr": -0.1,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj022431.5-521319"
   },
   {
    "name": "RACS-MID1 J020053.0-421354",
@@ -3192,7 +3351,8 @@
    "h_snr": 2.22,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj020053.0-421354"
   },
   {
    "name": "RACS-MID1 J033251.6-475344",
@@ -3209,7 +3369,8 @@
    "h_snr": 0.61,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj033251.6-475344"
   },
   {
    "name": "RACS-MID1 J011215.3-532903",
@@ -3226,7 +3387,8 @@
    "h_snr": 1.61,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj011215.3-532903"
   },
   {
    "name": "RACS-MID1 J014223.0-475609",
@@ -3243,7 +3405,8 @@
    "h_snr": -0.03,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj014223.0-475609"
   },
   {
    "name": "RACS-MID1 J042654.9-653036",
@@ -3260,7 +3423,8 @@
    "h_snr": 1.28,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj042654.9-653036"
   },
   {
    "name": "RACS-MID1 J043524.0-404445",
@@ -3277,7 +3441,8 @@
    "h_snr": 1.76,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj043524.0-404445"
   },
   {
    "name": "RACS-MID1 J015721.0-522149",
@@ -3294,7 +3459,8 @@
    "h_snr": -0.39,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj015721.0-522149"
   },
   {
    "name": "RACS-MID1 J044306.7-205922",
@@ -3311,7 +3477,8 @@
    "h_snr": -0.52,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj044306.7-205922"
   },
   {
    "name": "RACS-MID1 J041721.5-385319",
@@ -3328,7 +3495,8 @@
    "h_snr": 0.3,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj041721.5-385319"
   },
   {
    "name": "RACS-MID1 J022129.8-531432",
@@ -3345,7 +3513,8 @@
    "h_snr": 0.35,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj022129.8-531432"
   },
   {
    "name": "RACS-MID1 J034953.9-420304",
@@ -3362,7 +3531,8 @@
    "h_snr": 1.25,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj034953.9-420304"
   },
   {
    "name": "RACS-MID1 J050803.1-234432",
@@ -3379,7 +3549,8 @@
    "h_snr": 2.81,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj050803.1-234432"
   },
   {
    "name": "RACS-MID1 J021023.6-544656",
@@ -3396,7 +3567,8 @@
    "h_snr": 1.36,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj021023.6-544656"
   },
   {
    "name": "RACS-MID1 J054853.5-360834",
@@ -3413,7 +3585,8 @@
    "h_snr": 0.94,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj054853.5-360834"
   },
   {
    "name": "RACS-MID1 J045334.0-533448",
@@ -3430,7 +3603,8 @@
    "h_snr": 0.55,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj045334.0-533448"
   },
   {
    "name": "RACS-MID1 J021324.5-473323",
@@ -3447,7 +3621,8 @@
    "h_snr": -0.84,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj021324.5-473323"
   },
   {
    "name": "RACS-MID1 J041539.2-300210",
@@ -3464,7 +3639,8 @@
    "h_snr": -0.52,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj041539.2-300210"
   },
   {
    "name": "RACS-MID1 J035138.8-345818",
@@ -3481,7 +3657,8 @@
    "h_snr": -0.94,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj035138.8-345818"
   },
   {
    "name": "RACS-MID1 J040617.9-345658",
@@ -3498,7 +3675,8 @@
    "h_snr": 0.45,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj040617.9-345658"
   },
   {
    "name": "RACS-MID1 J061041.9-460509",
@@ -3515,7 +3693,8 @@
    "h_snr": 2.24,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj061041.9-460509"
   },
   {
    "name": "RACS-MID1 J034955.7-442352",
@@ -3532,7 +3711,8 @@
    "h_snr": 2.46,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj034955.7-442352"
   },
   {
    "name": "RACS-MID1 J041903.3-481730",
@@ -3549,7 +3729,8 @@
    "h_snr": 2.74,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj041903.3-481730"
   },
   {
    "name": "RACS-MID1 J031452.6-600417",
@@ -3566,7 +3747,8 @@
    "h_snr": 2.34,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj031452.6-600417"
   },
   {
    "name": "RACS-MID1 J033507.6-554704",
@@ -3583,7 +3765,8 @@
    "h_snr": -0.39,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj033507.6-554704"
   },
   {
    "name": "RACS-MID1 J043153.0-515107",
@@ -3600,7 +3783,8 @@
    "h_snr": 2.81,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj043153.0-515107"
   },
   {
    "name": "RACS-MID1 J021917.4-592048",
@@ -3617,7 +3801,8 @@
    "h_snr": 2.57,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj021917.4-592048"
   },
   {
    "name": "RACS-MID1 J033129.8-410227",
@@ -3634,7 +3819,8 @@
    "h_snr": 2.3,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj033129.8-410227"
   },
   {
    "name": "RACS-MID1 J044207.6-220109",
@@ -3651,7 +3837,8 @@
    "h_snr": 1.87,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj044207.6-220109"
   },
   {
    "name": "RACS-MID1 J053652.8-370956",
@@ -3668,7 +3855,8 @@
    "h_snr": 0.8,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj053652.8-370956"
   },
   {
    "name": "RACS-MID1 J023848.5-553120",
@@ -3685,7 +3873,8 @@
    "h_snr": 1.6,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj023848.5-553120"
   },
   {
    "name": "RACS-MID1 J010943.4-581211",
@@ -3702,7 +3891,8 @@
    "h_snr": 0.56,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj010943.4-581211"
   },
   {
    "name": "RACS-MID1 J052624.0-515207",
@@ -3719,7 +3909,8 @@
    "h_snr": -0.25,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj052624.0-515207"
   },
   {
    "name": "RACS-MID1 J022918.0-600826",
@@ -3736,7 +3927,8 @@
    "h_snr": 0.94,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj022918.0-600826"
   },
   {
    "name": "RACS-MID1 J043314.7-260716",
@@ -3753,7 +3945,8 @@
    "h_snr": 0.38,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj043314.7-260716"
   },
   {
    "name": "RACS-MID1 J020127.3-513509",
@@ -3770,7 +3963,8 @@
    "h_snr": -1.2,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj020127.3-513509"
   },
   {
    "name": "RACS-MID1 J025142.2-351632",
@@ -3787,7 +3981,8 @@
    "h_snr": 1.39,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj025142.2-351632"
   },
   {
    "name": "RACS-MID1 J044554.3-641008",
@@ -3804,7 +3999,8 @@
    "h_snr": 0.64,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj044554.3-641008"
   },
   {
    "name": "RACS-MID1 J050623.9-304745",
@@ -3821,7 +4017,8 @@
    "h_snr": 1.39,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj050623.9-304745"
   },
   {
    "name": "RACS-MID1 J050302.7-332522",
@@ -3838,7 +4035,8 @@
    "h_snr": -0.18,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj050302.7-332522"
   },
   {
    "name": "RACS-MID1 J041151.1-251646",
@@ -3855,7 +4053,8 @@
    "h_snr": -0.84,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj041151.1-251646"
   },
   {
    "name": "RACS-MID1 J052928.3-280956",
@@ -3872,7 +4071,8 @@
    "h_snr": 2.14,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj052928.3-280956"
   },
   {
    "name": "RACS-MID1 J040743.0-573535",
@@ -3889,7 +4089,8 @@
    "h_snr": 1.38,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj040743.0-573535"
   },
   {
    "name": "RACS-MID1 J044929.6-315717",
@@ -3906,7 +4107,8 @@
    "h_snr": 2.14,
    "wise": false,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj044929.6-315717"
   },
   {
    "name": "RACS-MID1 J024927.6-393645",
@@ -3923,7 +4125,8 @@
    "h_snr": -1.48,
    "wise": true,
    "removed": "",
-   "known_as": ""
+   "known_as": "",
+   "slug": "rj024927.6-393645"
   }
  ]
 }

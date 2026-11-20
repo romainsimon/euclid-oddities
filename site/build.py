@@ -18,9 +18,10 @@ REPO = "https://github.com/romainsimon/euclid-oddities"
 SITE = "https://spacesim.co"
 
 FEATURE = {"arc": "Arc", "ring": "Ring", "straight_line": "Straight line", "pair": "Pair", "diffuse_patch": "Diffuse patch",
-           "irregular": "Irregular", "other": "Other", "none": "None"}
+           "irregular": "Irregular", "other": "Other", "none": "None",
+           "radio_dark": "Radio, no Euclid source"}
 ICON = {"arc": "black-hole", "ring": "black-hole", "pair": "binary-star", "irregular": "galaxy", "diffuse_patch": "nebula",
-        "straight_line": "comet", "other": "catalog-object", "none": "catalog-object"}
+        "straight_line": "comet", "other": "catalog-object", "none": "catalog-object", "radio_dark": "galaxy"}
 ICON_DIR = "/assets/icons/object-types"
 
 
@@ -177,11 +178,40 @@ def page(title, desc, body, base, canonical, image=None):
 <div class="site-header__actions"><nav class="top"><a href="{base}/#log">Log</a><a href="{base}/#method">Method</a><a href="{REPO}">Data &amp; rules</a><a class="keep" href="/">SpaceSim</a></nav></div></div></header>
 {body}
 <footer><div class="wrap">Images: ESA Euclid DR1 (ESA/Euclid/Euclid Consortium), rendered by this project. Catalogue checks: SIMBAD, NED, ECLIPSE.
-Every entry is an unverified suggestion made by a language model. Code, pre-registration and raw results on <a href="{REPO}">GitHub</a>, archived with DOI <a href="https://doi.org/10.5281/zenodo.24304793">10.5281/zenodo.24304793</a>.</div></footer>
+Every entry is unverified: image finds are suggestions made by a language model, radio candidates come from measurements. Code, pre-registration and raw results on <a href="{REPO}">GitHub</a>, archived with DOI <a href="https://doi.org/10.5281/zenodo.24304793">10.5281/zenodo.24304793</a>.</div></footer>
 </body></html>"""
 
 
+def is_radio(f):
+    return f.get("kind") == "radio"
+
+
+def img_base(f, base):
+    return f'{base}/img/radio/{f["slug"]}' if is_radio(f) else f'{base}/img/{f["slug"]}'
+
+
+def radio_finds():
+    """Track R candidates (data/radio_dark.json) as gallery entries. They carry measurements, not a model's opinion."""
+    fp_ = HERE / "data" / "radio_dark.json"
+    if not fp_.exists():
+        return []
+    D = json.loads(fp_.read_text(encoding="utf-8"))
+    out = []
+    for c in D["candidates"]:
+        empty = c["cls"] == "empty"
+        desc = (f'Compact radio source, {c["peak"]:.0f} mJy/beam at 1.4 GHz. '
+                + ("Nothing at its position in the Euclid visible or 1.8 µm image." if empty
+                   else "Only a barely visible smudge at its position in Euclid."))
+        out.append(dict(c, kind="radio", feature="radio_dark", date_found="2026-11-19", run="Radio sources with no Euclid counterpart (Track R)",
+                        model="No model (measured)", model_id="", interest=0, weirdness=0, confidence="none", catalogued=True,
+                        description=desc, status="unverified candidate"))
+    return out
+
+
 def tags(f):
+    if is_radio(f):
+        return (f'<span class="tag hi">{f["peak"]:.0f} mJy</span><span class="tag">{"empty in Euclid" if f["cls"] == "empty" else "faint host"}</span>'
+                + ('<span class="tag">tuning region</span>' if f.get("dev") else ""))
     if "confidence" in f.get("not_asked", []):
         return f'<span class="tag">{e(FEATURE.get(f["feature"], f["feature"]))}</span><span class="tag">wide-field lead</span>'
     hi = " hi" if f["confidence"] in ("medium", "high") else ""
@@ -220,6 +250,8 @@ RUNS = {"Fable pass 1 (A-fable)": "outliers", "Two-stage test (A-twostage), deve
 
 
 def run_key(f):
+    if is_radio(f):
+        return "radio"
     r = f.get("run", "")
     return RUNS.get(r, "wide" if r.startswith("Wide-field pass") else "other")
 
@@ -231,6 +263,8 @@ def promise(f):
     closer = sum(r.get("verdict") == "worth a closer look" for r in R)
     against = sum(r.get("verdict") in ("likely ordinary", "likely star or foreground", "likely artefact") for r in R)
     penalty = 2 if R and against > len(R) / 2 else 0
+    if is_radio(f):   # no model score: emptier and brighter first, on the same 0-1 scale as interest / 5
+        return round(closer * 2 - penalty + (0.6 if f["cls"] == "empty" else 0.4) + min(f["peak"], 70) / 200, 3)
     return round(closer * 2 - penalty + f["interest"] / 5, 3)
 
 
@@ -244,8 +278,8 @@ def card(f, base):
           + '<span class="glare"></span></span>')
     return (f'<a class="card r-{rk}" style="view-transition-name:c-{vt(f["slug"])}" href="{base}/{f["slug"]}/" data-feature="{e(f["feature"])}" data-conf="{e(f["confidence"])}" data-rarity="{rk}" '
             f'data-interest="{f["interest"]}" data-cat="{"yes" if f["catalogued"] else "no"}" data-date="{e(f["date_found"])}" data-model="{e(f["model"])}" data-run="{e(run_key(f))}" data-score="{promise(f)}" data-rev="{ck or "none"}">{fx}'
-            f'<img style="view-transition-name:i-{vt(f["slug"])}" src="{base}/img/{f["slug"]}-thumb.jpg" width="360" height="360" loading="lazy" alt="Euclid visible-band cutout of {e(f["name"])}">'
-            f'<div class="body"><div class="hd"><h3 style="view-transition-name:t-{vt(f["slug"])}">{icon(f["feature"])}{e(f["name"])}</h3>{stars(f["interest"])}</div><div class="meta">{tags(f)}{rv}</div><p>{e(f["description"])}</p></div></a>')
+            f'<img style="view-transition-name:i-{vt(f["slug"])}" src="{img_base(f, base)}-thumb.jpg" width="360" height="360" loading="lazy" alt="Euclid {"1.8 micron" if is_radio(f) else "visible-band"} cutout of {e(f["name"])}">'
+            f'<div class="body"><div class="hd"><h3 style="view-transition-name:t-{vt(f["slug"])}">{icon(f["feature"])}{e(f["name"])}</h3>{"" if is_radio(f) else stars(f["interest"])}</div><div class="meta">{tags(f)}{rv}</div><p>{e(f["description"])}</p></div></a>')
 
 
 def runs_html():
@@ -264,18 +298,18 @@ def runs_html():
 
 
 def index(F, meta, base):
+    n_model, n_radio = sum(not is_radio(f) for f in F), sum(is_radio(f) for f in F)
     feats = sorted({f["feature"] for f in F}, key=lambda k: list(FEATURE).index(k))
     dates = sorted({f["date_found"] for f in F}, reverse=True)
     models = sorted({f["model"] for f in F})
     chips = "".join(f'<button class="chip" type="button" aria-pressed="false" data-f="{k}">{icon(k, 16)}{e(FEATURE[k])}</button>' for k in feats)
     body = f"""<main class="wrap"><section class="hero">
-<h1>Unusual galaxies and lens candidates in <em>Euclid DR1</em></h1>
-<p class="lede">Claude Fable 5.2 searched fresh images from ESA's Euclid space telescope for anything that looked odd: tidal streams, possible gravitational lenses, oddly shaped galaxies. Fake objects were planted among the real ones to measure how far to trust it. None of these {len(F)} finds has been checked by an astronomer yet.</p>
-{radio_link(base)}
+<h1>Oddities in <em>Euclid DR1</em></h1>
+<p class="lede">Two searches of fresh images from ESA's Euclid space telescope, run with Claude Fable 5.2. One looks for things that seem odd: tidal streams, possible gravitational lenses, oddly shaped galaxies ({n_model} finds, with planted fakes to measure how far to trust the model). The other measures where bright radio sources have nothing in Euclid ({n_radio} candidates, no model in the selection). Almost none has been checked by an astronomer.</p>
 <a class="doi" href="https://doi.org/10.5281/zenodo.24304793" rel="noopener"><img src="{base}/img/doi-badge.svg" alt="DOI 10.5281/zenodo.24304793" height="20"></a></section>
 <div class="filters" role="region" aria-label="Filters">
 <div class="group" aria-label="Feature"><span class="lbl">Feature</span>{chips}</div>
-{seg("run", "Search", [("", "Any"), ("outliers", "Catalogue outliers"), ("wide", "Wide fields"), ("twostage", "Test fields")])}
+{seg("run", "Search", [("", "Any"), ("outliers", "Catalogue outliers"), ("wide", "Wide fields"), ("twostage", "Test fields")] + ([("radio", "Radio, no Euclid source")] if n_radio else []))}
 {seg("rev", "Second opinion", [("", "Any"), ("closer", "Closer look"), ("split", "Split"), ("ordinary", "Ordinary"), ("star", "Star")])}
 {seg("conf", "Confidence", [("", "Any"), ("medium", "Medium+"), ("low", "Low")])}
 {seg("cat", "Catalogue", [("", "Any"), ("no", "Not catalogued"), ("yes", "Catalogued")])}
@@ -295,14 +329,15 @@ def index(F, meta, base):
 <div class="row"><span>Two-stage search on 107″ fields: found at stage 1 / after close look (of 24)</span><span class="num"></span><span class="num">14 / 9</span></div>
 <div class="row"><span>Same, close look aimed at the stage-1 point (of 24)</span><span class="num"></span><span class="num">14 / 7</span></div>
 <div class="row"><span>Fresh-sky outliers inspected</span><span class="num"></span><span class="num">117</span></div>
-<div class="row"><span>Flagged and listed here</span><span class="num"></span><span class="num">{len(F)}</span></div></div>
+<div class="row"><span>Flagged and listed here</span><span class="num"></span><span class="num">{n_model}</span></div></div>
+<p>These numbers are about the image search. The radio list is built from measurements only: <a href="{base}/radio-dark/">how it was made</a>.</p>
 <p>Small samples: the two views differ by five objects. Full results, failures included, are on <a href="{REPO}">GitHub</a>.</p></div></section>{runs_html()}</main>
 <script>
 const cards=[...document.querySelectorAll('.card')],grid=document.getElementById('grid'),on=new Set();
 const st={{run:'',rev:'',conf:'',cat:'',int:'',date:'',model:'',sort:'promising'}};
 function sync(){{document.querySelectorAll('.seg').forEach(g=>g.querySelectorAll('.chip').forEach(b=>b.setAttribute('aria-pressed',st[g.dataset.k]===b.dataset.v)))}}
 function apply(){{let n=0;const m=+st.int||0;
-for(const el of cards){{const ok=(!st.run||el.dataset.run===st.run)&&(!st.rev||el.dataset.rev===st.rev)&&(!on.size||on.has(el.dataset.feature))&&(!st.conf||(st.conf==='low'?el.dataset.conf==='low':el.dataset.conf!=='low'))&&(!st.cat||el.dataset.cat===st.cat)&&(+el.dataset.interest>=m-1e-9)&&(!st.date||el.dataset.date===st.date)&&(!st.model||el.dataset.model===st.model);el.hidden=!ok;n+=ok}}
+for(const el of cards){{const ok=(!st.run||el.dataset.run===st.run)&&(!st.rev||el.dataset.rev===st.rev)&&(!on.size||on.has(el.dataset.feature))&&(!st.conf||(st.conf==='low'?el.dataset.conf==='low':(el.dataset.conf!=='low'&&el.dataset.conf!=='none')))&&(!st.cat||el.dataset.cat===st.cat)&&(+el.dataset.interest>=m-1e-9)&&(!st.date||el.dataset.date===st.date)&&(!st.model||el.dataset.model===st.model);el.hidden=!ok;n+=ok}}
 document.getElementById('count').textContent=n+' of '+cards.length+' shown';document.getElementById('empty').hidden=n>0;
 const RV={{closer:0,split:1,ordinary:2,artefact:3,star:3,other:2,none:1}};[...cards].sort((a,b)=>st.sort==='promising'?(b.dataset.score-a.dataset.score)||b.dataset.interest-a.dataset.interest:st.sort==='date'?b.dataset.date.localeCompare(a.dataset.date)||b.dataset.interest-a.dataset.interest:b.dataset.interest-a.dataset.interest).forEach(el=>grid.appendChild(el));
 const p=new URLSearchParams();if(on.size)p.set('feature',[...on].join(','));for(const k in st)if(st[k]&&!(k==='sort'&&st[k]==='promising'))p.set(k,st[k]);
@@ -319,8 +354,8 @@ c.style.setProperty('--mx',x*100+'%');c.style.setProperty('--my',y*100+'%');c.st
 c.style.setProperty('--hyp',Math.min(1,Math.hypot(x-.5,y-.5)*2));c.classList.add('on')}});
 c.addEventListener('pointerleave',()=>{{c.classList.remove('on');c.style.setProperty('--rx','0deg');c.style.setProperty('--ry','0deg')}})}});
 </script>"""
-    return page("Unusual galaxies and lens candidates in Euclid DR1 | Euclid Oddities", f"{len(F)} unusual objects in ESA Euclid DR1 images flagged by Claude Fable 5.2: possible gravitational lenses, tidal streams and odd galaxies, with catalogue checks. Unverified.", body, base, base,
-                f"{base}/img/{F[0]['slug']}-thumb.jpg")
+    return page("Oddities in Euclid DR1: odd galaxies, lens candidates, radio sources with no counterpart | Euclid Oddities", f"{len(F)} unverified finds in ESA Euclid DR1 images: possible gravitational lenses, tidal streams and odd galaxies flagged by Claude Fable 5.2, and radio sources with nothing at their position in Euclid.", body, base, base,
+                f"{img_base(F[0], base)}-thumb.jpg")
 
 
 def links(f):
@@ -437,7 +472,51 @@ def review_teaser(slug):
     return f'<a class="teaser" href="#reviews"><span class="tag v-{ck}">{e(cl)}</span><span class="stack">{logos}</span><span class="small">Read the second opinions ↓</span></a>'
 
 
+def radio_detail(f, prev, nxt, base):
+    def num(v, nd=1):
+        return "not measured" if v is None else f"{v:.{nd}f}"
+    lit = f.get("lit") or {}
+    facts = [("Position (ICRS)", f'RA {f["ra"]:.5f}°, Dec {f["dec"]:+.5f}° (radio position, corrected field by field)'),
+             ("Radio flux", f'{f["peak"]:.1f} mJy/beam at 1367.5 MHz (RACS-mid), confirmed by RACS-high'),
+             ("Radio spectral index", f'{num(f["alpha"], 2)} between 943.5 and 1367.5 MHz · {num(f.get("alpha_mid_high"), 2)} between 1367.5 and 1655.5 MHz (different dates)'),
+             ("Euclid, visible", f'{num(f["vis_snr"])} σ in a 1.5″ aperture · 5σ limit {num(f["vis_lim"])} mag'),
+             ("Euclid, 1.8 µm", f'{num(f["h_snr"])} σ in a 1.5″ aperture · 5σ limit {num(f["h_lim"])} mag'),
+             ("Class", "Empty: no peak above 5σ within 1.5″ in either band" if f["cls"] == "empty" else "Faint host: a peak above 5σ within 1.5″ in at least one band"),
+             ("WISE within 5″", "a CatWISE2020 source (may be a neighbour)" if f["wise"] else "none in CatWISE2020"),
+             ("Radio surveys", e("; ".join(lit["radio_names"])) if lit.get("radio_names") else (e(f["known_as"]) if f.get("known_as") else "not looked up yet"))]
+    if lit:
+        facts += [("Papers in SIMBAD", e("; ".join(lit["papers"])) if lit.get("papers") else "none attached to an object within 15″"),
+                  ("Pulsar within 30″", e(", ".join(lit["pulsar"])) if lit.get("pulsar") else "none in the ATNF catalogue"),
+                  ("Other catalogues", e("; ".join(lit["special"])) if lit.get("special") else "only large sky surveys within 10″")]
+        if lit.get("vlass") is not None:
+            facts.append(("VLASS (3 GHz, 2.5″)", e("; ".join(lit["vlass"])) if lit["vlass"] else "no component within 5″"))
+    if f.get("dev"):
+        facts.append(("Blind?", "No: this source lies in the region where the rules were tuned"))
+    facts.append(("Found", f'{e(f["date_found"])} · selection by catalogue and pixel measurements, no model call · image checked for data faults by Claude Fable 5.2'))
+    body = f"""<main class="wrap"><div class="crumbs"><a href="{base}/">All finds</a> / {e(f["name"])}</div>
+<div class="detail"><div class="viewer" style="view-transition-name:c-{vt(f["slug"])}"><div class="zoomwrap" id="zw"><img id="im" style="view-transition-name:i-{vt(f["slug"])}" src="{img_base(f, base)}-marked.jpg" width="1072" height="528" alt="Euclid cutouts at the radio position of {e(f["name"])}: visible band on the left, 1.8 micron on the right"><div class="lens" id="lens" aria-hidden="true"></div></div>
+<div class="legend"><span>Left · visible band (VIS)</span><span>Right · 1.8 µm (H)</span><span>Each 32″ × 32″, north up</span><span>Circle · 1.5″ around the radio position</span></div></div>
+<div class="info"><h1 style="view-transition-name:t-{vt(f["slug"])}">{icon(f["feature"], 34)}{e(f["name"])}</h1>
+<div class="meta">{tags(f)}</div>
+<p class="quote">{e(f["description"])}</p>
+<p class="explain">What it could be: a distant radio galaxy too faint for Euclid, a galaxy hidden by dust, or a pulsar in our own Galaxy. Telling them apart needs a spectrum or a pulsation search. This is a known class of object (infrared-faint radio sources). <a href="{base}/radio-dark/">How the list was made</a>.</p>{review_teaser(f["slug"])}
+<div class="facts">{"".join(f'<div class="fact"><span>{k}</span><span>{v}</span></div>' for k, v in facts)}</div>
+<div class="links">{"".join(f'<a class="btn" href="{u}" rel="noopener">{n} ↗</a>' for n, u in links(f))}</div>
+<p class="small">Unverified candidate. Recognise it, or can rule it out? <a href="{REPO}/issues/new?title={e(f["name"])}">Tell us on GitHub</a>.</p></div></div>
+{reviews_html(f["slug"])}
+<nav class="pager">{f'<a class="btn" href="{base}/{prev["slug"]}/">← {e(prev["name"])}</a>' if prev else '<span></span>'}{f'<a class="btn" href="{base}/{nxt["slug"]}/">{e(nxt["name"])} →</a>' if nxt else ''}</nav></main>
+<script>const Z=3;
+if(matchMedia('(hover:hover)').matches)document.querySelectorAll('.zoomwrap').forEach(zw=>{{const lens=zw.querySelector('.lens'),img=zw.querySelector('img');
+zw.addEventListener('pointermove',ev=>{{const r=img.getBoundingClientRect(),x=ev.clientX-r.left,y=ev.clientY-r.top;
+if(x<0||y<0||x>r.width||y>r.height){{zw.classList.remove('on');return}}zw.classList.add('on');lens.style.left=x+'px';lens.style.top=y+'px';
+lens.style.backgroundImage=`url("${{img.currentSrc||img.src}}")`;lens.style.backgroundSize=`${{r.width*Z}}px ${{r.height*Z}}px`;
+lens.style.backgroundPosition=`${{100-x*Z}}px ${{100-y*Z}}px`}});zw.addEventListener('pointerleave',()=>zw.classList.remove('on'))}});</script>"""
+    return page(f"{f['name']}: radio source with no Euclid counterpart", f["description"], body, base, f"{base}/{f['slug']}", f"{img_base(f, base)}-thumb.jpg")
+
+
 def detail(f, prev, nxt, base):
+    if is_radio(f):
+        return radio_detail(f, prev, nxt, base)
     cat = ", ".join(e(n) for n in f["catalogue_names"]) or "No named entry (survey detections only)"
     sim = ", ".join(e(n["name"]) for n in f["simbad"]) or "None within 10″"
     ned = ", ".join(e(n["name"]) for n in f["ned"]) or "None within 10″"
@@ -495,16 +574,13 @@ def radio_page(base):
 
     def rcard(c):
         cls = "Empty in both bands" if c["cls"] == "empty" else "Faint host"
-        known = e(c["known_as"]) if c["known_as"] else "no radio-survey name found"
-        return (f'<a class="card r-common" href="{base}/img/radio/{c["slug"]}.jpg"><img src="{base}/img/radio/{c["slug"]}.jpg" width="968" height="480" loading="lazy" '
-                f'style="aspect-ratio:968/480;height:auto" alt="Euclid visible (left) and 1.8 micron (right) cutouts at the radio position of {e(c["name"])}">'
+        return (f'<a class="card r-common" href="{base}/{c["slug"]}/"><img src="{base}/img/radio/{c["slug"]}-marked.jpg" width="1072" height="528" loading="lazy" '
+                f'style="aspect-ratio:1072/528;height:auto" alt="Euclid visible (left) and 1.8 micron (right) cutouts at the radio position of {e(c["name"])}">'
                 f'<div class="body"><div class="hd"><h3>{e(c["name"])}</h3></div><div class="meta"><span class="tag hi">{c["peak"]:.0f} mJy</span>'
-                f'<span class="tag">{cls}</span><span class="tag">index {num(c["alpha"])}</span>{"" if not c["dev"] else "<span class=tag>tuning region</span>"}</div>'
-                f'<p>RA {c["ra"]:.5f}°, Dec {c["dec"]:+.5f}°. Euclid limits (5σ, 1.5″ aperture): visible {num(c["vis_lim"])}, 1.8 µm {num(c["h_lim"])}. '
-                f'WISE within 5″: {"yes" if c["wise"] else "none"}. Listed as: {known}.</p></div></a>')
+                f'<span class="tag">{cls}</span><span class="tag">index {num(c["alpha"])}</span></div></div></a>')
 
     steps = "".join(f'<div class="row" style="grid-template-columns:1fr 90px"><span>{e(k)}</span><span class="num">{v}</span></div>' for k, v in m["steps"])
-    top = [c for c in C if c.get("slug")]
+    top = C[:12]
     body = f"""<main class="wrap"><div class="crumbs"><a href="{base}/">All finds</a> / Radio sources with no Euclid counterpart</div>
 <section class="hero"><h1>Radio sources Euclid <em>cannot see</em></h1>
 <p class="lede">{m["kept"]} compact radio sources from the RACS-mid survey have nothing, or almost nothing, at their position in the Euclid DR1 visible and 1.8 µm images. This is a known class of object (infrared-faint radio sources, where distant radio galaxies are looked for). The list is new for this sky as far as we checked, each entry is an unverified candidate, and a pulsar would look the same.</p></section>
@@ -515,7 +591,7 @@ def radio_page(base):
 <div class="panel"><span class="eyebrow"><b>02</b>Counts</span><h2>What was <em>kept</em></h2>
 <div class="rows">{steps}</div>
 <p>Of the {m["kept"]}, {m["empty"]} are empty in both bands and {m["faint"]} show a barely visible host. Median radio spectral index: {m["alpha_med"]:.1f} (steep). {e(m["lit"])}</p>
-<div class="links"><a class="btn" href="{REPO}/tree/main/track-r-radio-dark" rel="noopener">Full table, rules and code ↗</a></div></div></section>
+<div class="links"><a class="btn" href="{base}/?run=radio">All {m["kept"]} in the gallery →</a><a class="btn" href="{REPO}/tree/main/track-r-radio-dark" rel="noopener">Full table, rules and code ↗</a></div></div></section>
 <h2 style="margin:8px 0 0">The {len(top)} brightest</h2><p class="small">Left: Euclid visible band. Right: Euclid 1.8 µm. 32″ across, north up. The circle (1.5″ radius) marks the corrected radio position.</p>
 <div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(420px,1fr))">{"".join(rcard(c) for c in top)}</div>
 <p class="small">Unverified candidates. Recognise one, or can rule it out? <a href="{REPO}/issues/new?title=Track%20R">Tell us on GitHub</a>.</p></main>"""
@@ -533,7 +609,7 @@ def main():
     global BASE_URL
     BASE_URL = base
     D = json.loads((HERE / "data" / "finds.json").read_text(encoding="utf-8"))
-    F = sorted(D["finds"], key=lambda f: (-promise(f), -f["interest"], f["slug"]))
+    F = sorted(D["finds"] + radio_finds(), key=lambda f: (-promise(f), -f["interest"], f["slug"]))
     out.mkdir(parents=True, exist_ok=True)
     if (out / "img").exists():
         shutil.rmtree(out / "img")
