@@ -382,7 +382,8 @@ def load_reviews(slug):
 
 
 VERDICT_SHORT = {"worth a closer look": "Closer look", "likely ordinary": "Likely ordinary", "likely artefact": "Likely artefact",
-                 "likely star or foreground": "Likely a star"}
+                 "likely star or foreground": "Likely a star", "plausible, low grade": "Expert: plausible, low grade",
+                 "likely chance alignment": "Expert: likely chance alignment"}
 
 
 def consensus(R):
@@ -454,7 +455,7 @@ T.forEach(t=>t.addEventListener('click',()=>{show(t.getAttribute('aria-controls'
 document.querySelectorAll('.rv-row').forEach(a=>a.addEventListener('click',ev=>{ev.preventDefault();show(a.dataset.tab);document.getElementById('t-'+a.dataset.tab).scrollIntoView({block:'nearest',behavior:'smooth'})}));
 if(location.hash.startsWith('#rv-')&&document.getElementById(location.hash.slice(1)))show(location.hash.slice(1));})()</script>"""
     return (f'<section class="reviews" id="reviews"><h2>Second opinions</h2><p class="small">Independent reviewers (AI models from two families, plus measurements without AI) looked at the image without the original model\'s description. '
-            f'Claude reviewers also queried public catalogues themselves. These are not expert opinions.</p>'
+            f'Claude reviewers also queried public catalogues themselves. These are not expert opinions, except an entry marked as a reply from a researcher.</p>'
             f'<div class="rv-sum">{"".join(summary)}</div><div class="tabs" role="tablist" aria-label="Reviews">{"".join(tabs)}</div>{"".join(panels)}{script}</section>')
 
 
