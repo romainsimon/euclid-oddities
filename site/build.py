@@ -486,8 +486,7 @@ def radio_detail(f, prev, nxt, base):
              ("Radio surveys", e("; ".join(lit["radio_names"])) if lit.get("radio_names") else (e(f["known_as"]) if f.get("known_as") else "not looked up yet"))]
     if lit:
         facts += [("Papers in SIMBAD", e("; ".join(lit["papers"])) if lit.get("papers") else "none attached to an object within 15″"),
-                  ("Pulsar within 30″", e(", ".join(lit["pulsar"])) if lit.get("pulsar") else "none in the ATNF catalogue"),
-                  ("Other catalogues", e("; ".join(lit["special"])) if lit.get("special") else "only large sky surveys within 10″")]
+                  ("Pulsar within 30″", e(", ".join(lit["pulsar"])) if lit.get("pulsar") else "none in the ATNF catalogue")]
         if lit.get("vlass") is not None:
             facts.append(("VLASS (3 GHz, 2.5″)", e("; ".join(lit["vlass"])) if lit["vlass"] else "no component within 5″"))
     if f.get("dev"):

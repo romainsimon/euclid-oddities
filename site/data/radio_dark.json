@@ -39,7 +39,7 @@
     227
    ]
   ],
-  "lit": "The 30 brightest were looked up in SIMBAD and NED: all are known only as radio-survey detections (NVSS, SUMSS, GLEAM), none has a redshift, and one lies near an object listed as a BL Lac candidate. The list has not yet been compared with published samples of distant radio galaxy candidates, nor with pulsar catalogues or VLASS (the CDS services were down)."
+  "lit": "Literature check, 20 Nov 2026: none of the 227 appears in six published lists of distant radio galaxy candidates or in the Collier et al. 2014 catalogue of infrared-faint radio sources; SIMBAD attaches no dedicated paper to any of them; no known pulsar lies within 30 arcsec. One lies next to a blazar candidate. No redshift is known for any."
  },
  "candidates": [
   {
@@ -57,7 +57,23 @@
    "h_snr": 0.31,
    "wise": false,
    "removed": "",
-   "known_as": "NVSS J030746-371558",
+   "known_as": "GLEAM J030746-371551; NVSS J030746-371558; SUMSS J030746-371557; TGSSADR J030746.3-371559",
+   "lit": {
+    "radio_names": [
+     "GLEAM J030746-371551",
+     "NVSS J030746-371558",
+     "SUMSS J030746-371557",
+     "TGSSADR J030746.3-371559"
+    ],
+    "papers": [
+     "2021A&A...655A..17S The SPECFIND V3.0 catalog of radio continuum cross-identifications and spectra: Reaching lower frequencies."
+    ],
+    "pulsar": [],
+    "vlass": [
+     "24.469 mJy, deconvolved size 2.3 arcsec, 1.4 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj030746.3-371558"
   },
   {
@@ -75,7 +91,14 @@
    "h_snr": 1.24,
    "wise": false,
    "removed": "",
-   "known_as": "SUMSS J042613-442946",
+   "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj042613.9-442946"
   },
   {
@@ -93,7 +116,20 @@
    "h_snr": 0.49,
    "wise": true,
    "removed": "",
-   "known_as": "GLEAM J042027-404056",
+   "known_as": "GLEAM J042027-404056; SUMSS J042026-404054; TGSSADR J042026.9-404056",
+   "lit": {
+    "radio_names": [
+     "GLEAM J042027-404056",
+     "SUMSS J042026-404054",
+     "TGSSADR J042026.9-404056"
+    ],
+    "papers": [
+     "2021A&A...655A..17S The SPECFIND V3.0 catalog of radio continuum cross-identifications and spectra: Reaching lower frequencies."
+    ],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj042027.0-404055"
   },
   {
@@ -111,7 +147,26 @@
    "h_snr": 1.82,
    "wise": false,
    "removed": "",
-   "known_as": "NVSS J043442-182257",
+   "known_as": "GLEAM J043442-182254; NVSS J043442-182257; TGSSADR J043442.5-182257; VLSS J0434.7-1822; VLSSr J043442.7-182249; WISH B0432.4-1829",
+   "lit": {
+    "radio_names": [
+     "GLEAM J043442-182254",
+     "NVSS J043442-182257",
+     "TGSSADR J043442.5-182257",
+     "VLSS J0434.7-1822",
+     "VLSSr J043442.7-182249",
+     "WISH B0432.4-1829"
+    ],
+    "papers": [
+     "2010A&A...511A..53V The SPECFIND V2.0 catalogue of radio cross-identifications and spectra.  SPECFIND meets the Virtual Observatory.",
+     "2021A&A...655A..17S The SPECFIND V3.0 catalog of radio continuum cross-identifications and spectra: Reaching lower frequencies."
+    ],
+    "pulsar": [],
+    "vlass": [
+     "19.899 mJy, deconvolved size 0.0 arcsec, 0.8 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj043442.6-182258"
   },
   {
@@ -129,7 +184,14 @@
    "h_snr": 0.48,
    "wise": false,
    "removed": "",
-   "known_as": "SUMSS J023343-553519",
+   "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj023343.9-553520"
   },
   {
@@ -148,6 +210,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj022629.0-602733"
   },
   {
@@ -165,7 +234,20 @@
    "h_snr": -1.21,
    "wise": true,
    "removed": "",
-   "known_as": "GLEAM J023215-413658",
+   "known_as": "GLEAM J023215-413658; SUMSS J023215-413700; TGSSADR J023215.7-413659",
+   "lit": {
+    "radio_names": [
+     "GLEAM J023215-413658",
+     "SUMSS J023215-413700",
+     "TGSSADR J023215.7-413659"
+    ],
+    "papers": [
+     "2021A&A...655A..17S The SPECFIND V3.0 catalog of radio continuum cross-identifications and spectra: Reaching lower frequencies."
+    ],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj023215.7-413658"
   },
   {
@@ -183,7 +265,16 @@
    "h_snr": 2.25,
    "wise": false,
    "removed": "",
-   "known_as": "NVSS J032209-362814",
+   "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "17.285 mJy, deconvolved size 0.0 arcsec, 1.6 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj032209.5-362815"
   },
   {
@@ -201,7 +292,14 @@
    "h_snr": 1.71,
    "wise": false,
    "removed": "",
-   "known_as": "SUMSS J020655-571023",
+   "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj020655.1-571021"
   },
   {
@@ -219,7 +317,23 @@
    "h_snr": 0.54,
    "wise": false,
    "removed": "",
-   "known_as": "NVSS J023124-371322",
+   "known_as": "GLEAM J023124-371319; NVSS J023124-371322; SUMSS J023124-371322; TGSSADR J023124.3-371321",
+   "lit": {
+    "radio_names": [
+     "GLEAM J023124-371319",
+     "NVSS J023124-371322",
+     "SUMSS J023124-371322",
+     "TGSSADR J023124.3-371321"
+    ],
+    "papers": [
+     "2021A&A...655A..17S The SPECFIND V3.0 catalog of radio continuum cross-identifications and spectra: Reaching lower frequencies."
+    ],
+    "pulsar": [],
+    "vlass": [
+     "11.618 mJy, deconvolved size 2.0 arcsec, 1.1 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj023124.3-371321"
   },
   {
@@ -237,7 +351,29 @@
    "h_snr": 1.71,
    "wise": true,
    "removed": "",
-   "known_as": "GLEAM J023623-350756 (SIMBAD: BL Lac candidate)",
+   "known_as": "GLEAM J023623-350756; NVSS J023623-350753; SUMSS J023623-350758; TGSSADR J023623.3-350755",
+   "lit": {
+    "radio_names": [
+     "GLEAM J023623-350756",
+     "NVSS J023623-350753",
+     "SUMSS J023623-350758",
+     "TGSSADR J023623.3-350755"
+    ],
+    "papers": [
+     "2019ApJS..242....4D Two new catalogs of blazar candidates in the WISE Infrared sky.",
+     "2021A&A...655A..17S The SPECFIND V3.0 catalog of radio continuum cross-identifications and spectra: Reaching lower frequencies.",
+     "2023A&A...674A..16M {\\em Gaia} Data Release 3 The first {\\em Gaia} catalogue of eclipsing-binary candidates."
+    ],
+    "pulsar": [],
+    "vlass": [
+     "21.262 mJy, deconvolved size 3.6 arcsec, 0.3 arcsec from the position"
+    ],
+    "other_ids": [
+     "Gaia DR3 5062119820242558592",
+     "WISE J023623.38-350757.6",
+     "WISEA J023623.39-350757.6"
+    ]
+   },
    "slug": "rj023623.6-350755"
   },
   {
@@ -255,7 +391,14 @@
    "h_snr": 0.74,
    "wise": false,
    "removed": "",
-   "known_as": "SUMSS J050539-520257",
+   "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj050539.4-520300"
   },
   {
@@ -273,7 +416,14 @@
    "h_snr": -0.67,
    "wise": false,
    "removed": "",
-   "known_as": "SUMSS J023747-424914",
+   "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj023747.6-424913"
   },
   {
@@ -291,7 +441,14 @@
    "h_snr": -0.27,
    "wise": false,
    "removed": "",
-   "known_as": "SUMSS J032216-531935",
+   "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj032216.5-531934"
   },
   {
@@ -309,7 +466,14 @@
    "h_snr": 1.39,
    "wise": false,
    "removed": "",
-   "known_as": "SUMSS J044659-401458",
+   "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj044658.9-401456"
   },
   {
@@ -327,7 +491,14 @@
    "h_snr": 1.99,
    "wise": true,
    "removed": "",
-   "known_as": "SUMSS J033851-455217",
+   "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj033851.2-455219"
   },
   {
@@ -345,7 +516,14 @@
    "h_snr": 2.54,
    "wise": false,
    "removed": "",
-   "known_as": "SUMSS J034535-572508",
+   "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj034535.8-572507"
   },
   {
@@ -363,7 +541,23 @@
    "h_snr": 0.93,
    "wise": false,
    "removed": "",
-   "known_as": "NVSS J041631-220749",
+   "known_as": "GLEAM J041631-220750; NVSS J041631-220749; TGSSADR J041631.7-220750; WISH B0414.3-2215",
+   "lit": {
+    "radio_names": [
+     "GLEAM J041631-220750",
+     "NVSS J041631-220749",
+     "TGSSADR J041631.7-220750",
+     "WISH B0414.3-2215"
+    ],
+    "papers": [
+     "2021A&A...655A..17S The SPECFIND V3.0 catalog of radio continuum cross-identifications and spectra: Reaching lower frequencies."
+    ],
+    "pulsar": [],
+    "vlass": [
+     "9.361 mJy, deconvolved size 2.2 arcsec, 0.7 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj041631.7-220750"
   },
   {
@@ -381,7 +575,22 @@
    "h_snr": 2.44,
    "wise": false,
    "removed": "",
-   "known_as": "NVSS J045620-324726",
+   "known_as": "GLEAM J045619-324719; NVSS J045620-324726; SUMSS J045619-324725",
+   "lit": {
+    "radio_names": [
+     "GLEAM J045619-324719",
+     "NVSS J045620-324726",
+     "SUMSS J045619-324725"
+    ],
+    "papers": [
+     "2021A&A...655A..17S The SPECFIND V3.0 catalog of radio continuum cross-identifications and spectra: Reaching lower frequencies."
+    ],
+    "pulsar": [],
+    "vlass": [
+     "8.583 mJy, deconvolved size 1.9 arcsec, 0.9 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj045620.0-324726"
   },
   {
@@ -399,7 +608,23 @@
    "h_snr": 1.49,
    "wise": false,
    "removed": "",
-   "known_as": "NVSS J043309-313803",
+   "known_as": "GLEAM J043309-313753; NVSS J043309-313803; SUMSS J043310-313800; TGSSADR J043310.1-313802",
+   "lit": {
+    "radio_names": [
+     "GLEAM J043309-313753",
+     "NVSS J043309-313803",
+     "SUMSS J043310-313800",
+     "TGSSADR J043310.1-313802"
+    ],
+    "papers": [
+     "2021A&A...655A..17S The SPECFIND V3.0 catalog of radio continuum cross-identifications and spectra: Reaching lower frequencies."
+    ],
+    "pulsar": [],
+    "vlass": [
+     "9.860 mJy, deconvolved size 1.7 arcsec, 0.9 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj043310.0-313804"
   },
   {
@@ -417,7 +642,20 @@
    "h_snr": -0.96,
    "wise": true,
    "removed": "",
-   "known_as": "GLEAM J034447-450413",
+   "known_as": "GLEAM J034447-450413; SUMSS J034447-450415; TGSSADR J034447.5-450412",
+   "lit": {
+    "radio_names": [
+     "GLEAM J034447-450413",
+     "SUMSS J034447-450415",
+     "TGSSADR J034447.5-450412"
+    ],
+    "papers": [
+     "2021A&A...655A..17S The SPECFIND V3.0 catalog of radio continuum cross-identifications and spectra: Reaching lower frequencies."
+    ],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj034447.4-450413"
   },
   {
@@ -435,7 +673,14 @@
    "h_snr": 1.6,
    "wise": true,
    "removed": "",
-   "known_as": "SUMSS J055652-461413",
+   "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj055652.6-461410"
   },
   {
@@ -453,7 +698,16 @@
    "h_snr": 2.63,
    "wise": true,
    "removed": "",
-   "known_as": "NVSS J031258-395439",
+   "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "11.535 mJy, deconvolved size 0.0 arcsec, 0.9 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj031258.7-395445"
   },
   {
@@ -471,7 +725,14 @@
    "h_snr": -0.17,
    "wise": false,
    "removed": "",
-   "known_as": "SUMSS J054854-480221",
+   "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj054854.9-480220"
   },
   {
@@ -490,6 +751,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj060819.4-443237"
   },
   {
@@ -508,6 +776,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj001956.6-625522"
   },
   {
@@ -526,6 +801,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj020335.5-582257"
   },
   {
@@ -544,6 +826,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj062216.2-445235"
   },
   {
@@ -562,6 +851,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj044129.3-503602"
   },
   {
@@ -580,6 +876,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj043029.4-512116"
   },
   {
@@ -598,6 +901,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj024608.4-605522"
   },
   {
@@ -615,7 +925,20 @@
    "h_snr": 0.49,
    "wise": false,
    "removed": "",
-   "known_as": "",
+   "known_as": "GLEAM J031736-501320; SUMSS J031736-501323; TGSSADR J031736.1-501319",
+   "lit": {
+    "radio_names": [
+     "GLEAM J031736-501320",
+     "SUMSS J031736-501323",
+     "TGSSADR J031736.1-501319"
+    ],
+    "papers": [
+     "2021A&A...655A..17S The SPECFIND V3.0 catalog of radio continuum cross-identifications and spectra: Reaching lower frequencies."
+    ],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj031736.1-501321"
   },
   {
@@ -634,6 +957,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj055146.6-531415"
   },
   {
@@ -652,6 +982,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj001748.4-611556"
   },
   {
@@ -670,6 +1007,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj053130.0-540632"
   },
   {
@@ -688,6 +1032,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj042200.1-591120"
   },
   {
@@ -706,6 +1057,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj041246.2-484358"
   },
   {
@@ -724,6 +1082,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj023420.3-564310"
   },
   {
@@ -741,7 +1106,22 @@
    "h_snr": 2.25,
    "wise": true,
    "removed": "",
-   "known_as": "",
+   "known_as": "GLEAM J041744-285329; NVSS J041744-285333; TGSSADR J041744.9-285330",
+   "lit": {
+    "radio_names": [
+     "GLEAM J041744-285329",
+     "NVSS J041744-285333",
+     "TGSSADR J041744.9-285330"
+    ],
+    "papers": [
+     "2021A&A...655A..17S The SPECFIND V3.0 catalog of radio continuum cross-identifications and spectra: Reaching lower frequencies."
+    ],
+    "pulsar": [],
+    "vlass": [
+     "9.874 mJy, deconvolved size 2.5 arcsec, 0.7 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj041744.8-285334"
   },
   {
@@ -760,6 +1140,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj041735.3-450423"
   },
   {
@@ -778,6 +1165,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj053205.1-463238"
   },
   {
@@ -796,6 +1190,15 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "5.575 mJy, deconvolved size 1.1 arcsec, 1.2 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj024602.5-382752"
   },
   {
@@ -813,7 +1216,26 @@
    "h_snr": 0.65,
    "wise": true,
    "removed": "",
-   "known_as": "",
+   "known_as": "GLEAM J054029-385910; NVSS J054029-385920; SUMSS J054029-385918; TGSSADR J054029.0-385917",
+   "lit": {
+    "radio_names": [
+     "GLEAM J054029-385910",
+     "NVSS J054029-385920",
+     "SUMSS J054029-385918",
+     "TGSSADR J054029.0-385917"
+    ],
+    "papers": [
+     "2021A&A...655A..17S The SPECFIND V3.0 catalog of radio continuum cross-identifications and spectra: Reaching lower frequencies."
+    ],
+    "pulsar": [],
+    "vlass": [
+     "4.598 mJy, deconvolved size 0.0 arcsec, 1.2 arcsec from the position",
+     "5.881 mJy, deconvolved size 0.0 arcsec, 1.4 arcsec from the position",
+     "1.920 mJy, deconvolved size 2.4 arcsec, 3.0 arcsec from the position",
+     "1.498 mJy, deconvolved size 1.9 arcsec, 3.2 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj054029.2-385918"
   },
   {
@@ -832,6 +1254,15 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "9.590 mJy, deconvolved size 0.0 arcsec, 1.3 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj043458.7-263140"
   },
   {
@@ -850,6 +1281,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj031917.1-433753"
   },
   {
@@ -868,6 +1306,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj054044.1-414026"
   },
   {
@@ -886,6 +1331,15 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "10.800 mJy, deconvolved size 1.7 arcsec, 1.2 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj060042.1-354920"
   },
   {
@@ -904,6 +1358,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj035824.1-513822"
   },
   {
@@ -922,6 +1383,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj042339.5-515216"
   },
   {
@@ -939,7 +1407,22 @@
    "h_snr": -1.7,
    "wise": true,
    "removed": "",
-   "known_as": "",
+   "known_as": "GLEAM J035433-293617; NVSS J035433-293621; TGSSADR J035433.5-293622",
+   "lit": {
+    "radio_names": [
+     "GLEAM J035433-293617",
+     "NVSS J035433-293621",
+     "TGSSADR J035433.5-293622"
+    ],
+    "papers": [
+     "2021A&A...655A..17S The SPECFIND V3.0 catalog of radio continuum cross-identifications and spectra: Reaching lower frequencies."
+    ],
+    "pulsar": [],
+    "vlass": [
+     "8.221 mJy, deconvolved size 1.6 arcsec, 1.2 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj035433.5-293623"
   },
   {
@@ -958,6 +1441,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj043443.6-643738"
   },
   {
@@ -976,6 +1466,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj022742.5-591909"
   },
   {
@@ -994,6 +1491,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj023205.9-621411"
   },
   {
@@ -1012,6 +1516,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj034710.7-532311"
   },
   {
@@ -1030,6 +1541,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj024537.1-442850"
   },
   {
@@ -1048,6 +1566,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj033759.3-514710"
   },
   {
@@ -1066,6 +1591,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj043607.6-532317"
   },
   {
@@ -1084,6 +1616,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj041740.4-501926"
   },
   {
@@ -1102,6 +1641,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj020051.4-575237"
   },
   {
@@ -1119,7 +1665,22 @@
    "h_snr": 0.31,
    "wise": true,
    "removed": "",
-   "known_as": "",
+   "known_as": "GLEAM J052814-284922; NVSS J052814-284926; TGSSADR J052814.4-284925",
+   "lit": {
+    "radio_names": [
+     "GLEAM J052814-284922",
+     "NVSS J052814-284926",
+     "TGSSADR J052814.4-284925"
+    ],
+    "papers": [
+     "2021A&A...655A..17S The SPECFIND V3.0 catalog of radio continuum cross-identifications and spectra: Reaching lower frequencies."
+    ],
+    "pulsar": [],
+    "vlass": [
+     "3.914 mJy, deconvolved size 2.1 arcsec, 0.8 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj052814.4-284926"
   },
   {
@@ -1138,6 +1699,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj051102.1-400806"
   },
   {
@@ -1156,6 +1724,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj054520.1-405854"
   },
   {
@@ -1174,6 +1749,15 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "5.695 mJy, deconvolved size 0.0 arcsec, 1.0 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj040657.3-291746"
   },
   {
@@ -1192,6 +1776,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj042402.6-480347"
   },
   {
@@ -1210,6 +1801,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj042730.5-660834"
   },
   {
@@ -1228,6 +1826,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj035305.0-614550"
   },
   {
@@ -1246,6 +1851,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj034140.8-433308"
   },
   {
@@ -1263,7 +1875,22 @@
    "h_snr": -0.32,
    "wise": false,
    "removed": "",
-   "known_as": "",
+   "known_as": "GLEAM J043806-383023; NVSS J043807-383039; SUMSS J043808-383038",
+   "lit": {
+    "radio_names": [
+     "GLEAM J043806-383023",
+     "NVSS J043807-383039",
+     "SUMSS J043808-383038"
+    ],
+    "papers": [
+     "2021A&A...655A..17S The SPECFIND V3.0 catalog of radio continuum cross-identifications and spectra: Reaching lower frequencies."
+    ],
+    "pulsar": [],
+    "vlass": [
+     "5.605 mJy, deconvolved size 3.1 arcsec, 1.4 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj043807.9-383037"
   },
   {
@@ -1281,7 +1908,22 @@
    "h_snr": 2.14,
    "wise": false,
    "removed": "",
-   "known_as": "",
+   "known_as": "GLEAM J033600-343046; NVSS J033601-343055; SUMSS J033600-343049",
+   "lit": {
+    "radio_names": [
+     "GLEAM J033600-343046",
+     "NVSS J033601-343055",
+     "SUMSS J033600-343049"
+    ],
+    "papers": [
+     "2021A&A...655A..17S The SPECFIND V3.0 catalog of radio continuum cross-identifications and spectra: Reaching lower frequencies."
+    ],
+    "pulsar": [],
+    "vlass": [
+     "5.823 mJy, deconvolved size 0.0 arcsec, 1.2 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj033600.9-343058"
   },
   {
@@ -1299,7 +1941,23 @@
    "h_snr": -0.06,
    "wise": false,
    "removed": "",
-   "known_as": "",
+   "known_as": "GLEAM J040205-333943; NVSS J040205-333951; SUMSS J040205-333943; TGSSADR J040205.7-333952",
+   "lit": {
+    "radio_names": [
+     "GLEAM J040205-333943",
+     "NVSS J040205-333951",
+     "SUMSS J040205-333943",
+     "TGSSADR J040205.7-333952"
+    ],
+    "papers": [
+     "2021A&A...655A..17S The SPECFIND V3.0 catalog of radio continuum cross-identifications and spectra: Reaching lower frequencies."
+    ],
+    "pulsar": [],
+    "vlass": [
+     "5.483 mJy, deconvolved size 0.0 arcsec, 1.3 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj040205.7-333954"
   },
   {
@@ -1318,6 +1976,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj054628.7-451424"
   },
   {
@@ -1336,6 +2001,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj033530.2-644342"
   },
   {
@@ -1354,6 +2026,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj045011.0-543530"
   },
   {
@@ -1371,7 +2050,23 @@
    "h_snr": 0.46,
    "wise": false,
    "removed": "",
-   "known_as": "",
+   "known_as": "GLEAM J030449-364659; NVSS J030448-364700; SUMSS J030448-364708; TGSSADR J030448.8-364700",
+   "lit": {
+    "radio_names": [
+     "GLEAM J030449-364659",
+     "NVSS J030448-364700",
+     "SUMSS J030448-364708",
+     "TGSSADR J030448.8-364700"
+    ],
+    "papers": [
+     "2021A&A...655A..17S The SPECFIND V3.0 catalog of radio continuum cross-identifications and spectra: Reaching lower frequencies."
+    ],
+    "pulsar": [],
+    "vlass": [
+     "4.788 mJy, deconvolved size 0.0 arcsec, 1.4 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj030448.9-364703"
   },
   {
@@ -1390,6 +2085,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj033127.7-613012"
   },
   {
@@ -1408,6 +2110,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj023540.2-602101"
   },
   {
@@ -1426,6 +2135,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj012440.0-533014"
   },
   {
@@ -1443,7 +2159,22 @@
    "h_snr": 1.74,
    "wise": true,
    "removed": "",
-   "known_as": "",
+   "known_as": "GLEAM J043107-382637; NVSS J043106-382638; SUMSS J043106-382635",
+   "lit": {
+    "radio_names": [
+     "GLEAM J043107-382637",
+     "NVSS J043106-382638",
+     "SUMSS J043106-382635"
+    ],
+    "papers": [
+     "2021A&A...655A..17S The SPECFIND V3.0 catalog of radio continuum cross-identifications and spectra: Reaching lower frequencies."
+    ],
+    "pulsar": [],
+    "vlass": [
+     "6.226 mJy, deconvolved size 3.1 arcsec, 0.7 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj043106.3-382635"
   },
   {
@@ -1462,6 +2193,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj042730.3-455001"
   },
   {
@@ -1480,6 +2218,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj050238.5-532627"
   },
   {
@@ -1498,6 +2243,15 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "4.481 mJy, deconvolved size 0.0 arcsec, 1.6 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj032244.9-372900"
   },
   {
@@ -1516,6 +2270,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj034819.3-495137"
   },
   {
@@ -1534,6 +2295,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj013715.0-540428"
   },
   {
@@ -1552,6 +2320,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj034108.0-562215"
   },
   {
@@ -1569,7 +2344,23 @@
    "h_snr": -0.34,
    "wise": false,
    "removed": "",
-   "known_as": "",
+   "known_as": "GLEAM J044946-350022; NVSS J044945-350025; SUMSS J044945-350031",
+   "lit": {
+    "radio_names": [
+     "GLEAM J044946-350022",
+     "NVSS J044945-350025",
+     "SUMSS J044945-350031"
+    ],
+    "papers": [
+     "2021A&A...655A..17S The SPECFIND V3.0 catalog of radio continuum cross-identifications and spectra: Reaching lower frequencies."
+    ],
+    "pulsar": [],
+    "vlass": [
+     "5.238 mJy, deconvolved size 0.0 arcsec, 1.0 arcsec from the position",
+     "5.277 mJy, deconvolved size 0.0 arcsec, 1.0 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj044945.8-350025"
   },
   {
@@ -1588,6 +2379,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj001650.5-641835"
   },
   {
@@ -1606,6 +2404,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj024711.0-445146"
   },
   {
@@ -1624,6 +2429,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj023154.1-601849"
   },
   {
@@ -1641,7 +2453,20 @@
    "h_snr": 2.1,
    "wise": true,
    "removed": "",
-   "known_as": "",
+   "known_as": "GLEAM J040721-423330; SUMSS J040721-423331; TGSSADR J040721.1-423334",
+   "lit": {
+    "radio_names": [
+     "GLEAM J040721-423330",
+     "SUMSS J040721-423331",
+     "TGSSADR J040721.1-423334"
+    ],
+    "papers": [
+     "2021A&A...655A..17S The SPECFIND V3.0 catalog of radio continuum cross-identifications and spectra: Reaching lower frequencies."
+    ],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj040721.3-423332"
   },
   {
@@ -1660,6 +2485,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj030705.4-532535"
   },
   {
@@ -1678,6 +2510,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj060446.4-450149"
   },
   {
@@ -1695,7 +2534,22 @@
    "h_snr": -1.29,
    "wise": false,
    "removed": "",
-   "known_as": "",
+   "known_as": "GLEAM J051954-285306; NVSS J051954-285309; TGSSADR J051954.2-285307",
+   "lit": {
+    "radio_names": [
+     "GLEAM J051954-285306",
+     "NVSS J051954-285309",
+     "TGSSADR J051954.2-285307"
+    ],
+    "papers": [
+     "2021A&A...655A..17S The SPECFIND V3.0 catalog of radio continuum cross-identifications and spectra: Reaching lower frequencies."
+    ],
+    "pulsar": [],
+    "vlass": [
+     "3.972 mJy, deconvolved size 2.0 arcsec, 0.8 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj051954.1-285308"
   },
   {
@@ -1713,7 +2567,23 @@
    "h_snr": 0.64,
    "wise": false,
    "removed": "",
-   "known_as": "",
+   "known_as": "GLEAM J025150-381348; NVSS J025150-381351; SUMSS J025150-381348; TGSSADR J025150.1-381352",
+   "lit": {
+    "radio_names": [
+     "GLEAM J025150-381348",
+     "NVSS J025150-381351",
+     "SUMSS J025150-381348",
+     "TGSSADR J025150.1-381352"
+    ],
+    "papers": [
+     "2021A&A...655A..17S The SPECFIND V3.0 catalog of radio continuum cross-identifications and spectra: Reaching lower frequencies."
+    ],
+    "pulsar": [],
+    "vlass": [
+     "3.305 mJy, deconvolved size 1.7 arcsec, 1.4 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj025150.3-381351"
   },
   {
@@ -1731,7 +2601,20 @@
    "h_snr": 1.23,
    "wise": false,
    "removed": "",
-   "known_as": "",
+   "known_as": "GLEAM J014442-443659; SUMSS J014442-443704; TGSSADR J014442.8-443704",
+   "lit": {
+    "radio_names": [
+     "GLEAM J014442-443659",
+     "SUMSS J014442-443704",
+     "TGSSADR J014442.8-443704"
+    ],
+    "papers": [
+     "2021A&A...655A..17S The SPECFIND V3.0 catalog of radio continuum cross-identifications and spectra: Reaching lower frequencies."
+    ],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj014443.1-443703"
   },
   {
@@ -1749,7 +2632,23 @@
    "h_snr": 2.68,
    "wise": false,
    "removed": "",
-   "known_as": "",
+   "known_as": "NVSS J044823-182349; TGSSADR J044823.4-182349; WISH B0446.1-1828",
+   "lit": {
+    "radio_names": [
+     "NVSS J044823-182349",
+     "TGSSADR J044823.4-182349",
+     "WISH B0446.1-1828"
+    ],
+    "papers": [
+     "2021A&A...655A..17S The SPECFIND V3.0 catalog of radio continuum cross-identifications and spectra: Reaching lower frequencies."
+    ],
+    "pulsar": [],
+    "vlass": [
+     "4.665 mJy, deconvolved size 0.0 arcsec, 1.1 arcsec from the position",
+     "4.662 mJy, deconvolved size 0.0 arcsec, 1.1 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj044823.5-182349"
   },
   {
@@ -1768,6 +2667,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj062236.8-464213"
   },
   {
@@ -1785,7 +2691,22 @@
    "h_snr": 2.61,
    "wise": false,
    "removed": "",
-   "known_as": "",
+   "known_as": "GLEAM J055948-361153; NVSS J055946-361127; SUMSS J055946-361124",
+   "lit": {
+    "radio_names": [
+     "GLEAM J055948-361153",
+     "NVSS J055946-361127",
+     "SUMSS J055946-361124"
+    ],
+    "papers": [
+     "2021A&A...655A..17S The SPECFIND V3.0 catalog of radio continuum cross-identifications and spectra: Reaching lower frequencies."
+    ],
+    "pulsar": [],
+    "vlass": [
+     "3.487 mJy, deconvolved size 3.0 arcsec, 1.5 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj055946.3-361125"
   },
   {
@@ -1804,6 +2725,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj052019.8-435329"
   },
   {
@@ -1822,6 +2750,15 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "5.049 mJy, deconvolved size 2.2 arcsec, 1.3 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj033306.6-343213"
   },
   {
@@ -1840,6 +2777,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj032437.8-454409"
   },
   {
@@ -1857,7 +2801,20 @@
    "h_snr": -0.05,
    "wise": true,
    "removed": "",
-   "known_as": "",
+   "known_as": "GLEAM J062534-492554; SUMSS J062534-492559; TGSSADR J062534.0-492601",
+   "lit": {
+    "radio_names": [
+     "GLEAM J062534-492554",
+     "SUMSS J062534-492559",
+     "TGSSADR J062534.0-492601"
+    ],
+    "papers": [
+     "2021A&A...655A..17S The SPECFIND V3.0 catalog of radio continuum cross-identifications and spectra: Reaching lower frequencies."
+    ],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj062534.3-492600"
   },
   {
@@ -1876,6 +2833,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj235459.2-604323"
   },
   {
@@ -1893,7 +2857,20 @@
    "h_snr": -0.41,
    "wise": false,
    "removed": "",
-   "known_as": "",
+   "known_as": "GLEAM J014203-440347; SUMSS J014203-440352; TGSSADR J014203.1-440349",
+   "lit": {
+    "radio_names": [
+     "GLEAM J014203-440347",
+     "SUMSS J014203-440352",
+     "TGSSADR J014203.1-440349"
+    ],
+    "papers": [
+     "2021A&A...655A..17S The SPECFIND V3.0 catalog of radio continuum cross-identifications and spectra: Reaching lower frequencies."
+    ],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj014203.2-440345"
   },
   {
@@ -1912,6 +2889,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj061832.1-485630"
   },
   {
@@ -1930,6 +2914,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj052320.7-474643"
   },
   {
@@ -1948,6 +2939,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj045716.4-470235"
   },
   {
@@ -1965,7 +2963,22 @@
    "h_snr": 0.19,
    "wise": true,
    "removed": "",
-   "known_as": "",
+   "known_as": "NVSS J031909-355114; SUMSS J031909-355119; TGSSADR J031909.3-355114",
+   "lit": {
+    "radio_names": [
+     "NVSS J031909-355114",
+     "SUMSS J031909-355119",
+     "TGSSADR J031909.3-355114"
+    ],
+    "papers": [
+     "2021A&A...655A..17S The SPECFIND V3.0 catalog of radio continuum cross-identifications and spectra: Reaching lower frequencies."
+    ],
+    "pulsar": [],
+    "vlass": [
+     "3.869 mJy, deconvolved size 2.7 arcsec, 1.6 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj031909.4-355116"
   },
   {
@@ -1983,7 +2996,23 @@
    "h_snr": -0.32,
    "wise": true,
    "removed": "",
-   "known_as": "",
+   "known_as": "GLEAM J032617-333438; NVSS J032618-333459; SUMSS J032618-333457; TGSSADR J032618.7-333457",
+   "lit": {
+    "radio_names": [
+     "GLEAM J032617-333438",
+     "NVSS J032618-333459",
+     "SUMSS J032618-333457",
+     "TGSSADR J032618.7-333457"
+    ],
+    "papers": [
+     "2021A&A...655A..17S The SPECFIND V3.0 catalog of radio continuum cross-identifications and spectra: Reaching lower frequencies."
+    ],
+    "pulsar": [],
+    "vlass": [
+     "4.319 mJy, deconvolved size 2.6 arcsec, 0.8 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj032618.8-333500"
   },
   {
@@ -2002,6 +3031,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj021241.0-580052"
   },
   {
@@ -2019,7 +3055,22 @@
    "h_snr": -1.44,
    "wise": false,
    "removed": "",
-   "known_as": "",
+   "known_as": "GLEAM J050842-290841; NVSS J050842-290847; TGSSADR J050842.4-290845",
+   "lit": {
+    "radio_names": [
+     "GLEAM J050842-290841",
+     "NVSS J050842-290847",
+     "TGSSADR J050842.4-290845"
+    ],
+    "papers": [
+     "2021A&A...655A..17S The SPECFIND V3.0 catalog of radio continuum cross-identifications and spectra: Reaching lower frequencies."
+    ],
+    "pulsar": [],
+    "vlass": [
+     "4.124 mJy, deconvolved size 2.3 arcsec, 0.8 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj050842.3-290847"
   },
   {
@@ -2038,6 +3089,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj041046.0-524722"
   },
   {
@@ -2056,6 +3114,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj041257.7-584656"
   },
   {
@@ -2074,6 +3139,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj033429.9-641021"
   },
   {
@@ -2092,6 +3164,15 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "5.178 mJy, deconvolved size 1.6 arcsec, 1.1 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj050504.9-300929"
   },
   {
@@ -2109,7 +3190,21 @@
    "h_snr": 2.98,
    "wise": true,
    "removed": "",
-   "known_as": "",
+   "known_as": "GLEAM J042928-203222; NVSS J042929-203226; TGSSADR J042929.0-203225; WISH B0427.2-2032B",
+   "lit": {
+    "radio_names": [
+     "GLEAM J042928-203222",
+     "NVSS J042929-203226",
+     "TGSSADR J042929.0-203225",
+     "WISH B0427.2-2032B"
+    ],
+    "papers": [
+     "2021A&A...655A..17S The SPECFIND V3.0 catalog of radio continuum cross-identifications and spectra: Reaching lower frequencies."
+    ],
+    "pulsar": [],
+    "vlass": [],
+    "other_ids": []
+   },
    "slug": "rj042929.1-203223"
   },
   {
@@ -2128,6 +3223,15 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "6.289 mJy, deconvolved size 1.5 arcsec, 1.1 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj043321.7-234038"
   },
   {
@@ -2146,6 +3250,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj045312.8-433318"
   },
   {
@@ -2164,6 +3275,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj030629.0-495855"
   },
   {
@@ -2182,6 +3300,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj031601.8-522251"
   },
   {
@@ -2200,6 +3325,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj031456.7-630519"
   },
   {
@@ -2218,6 +3350,16 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "5.053 mJy, deconvolved size 0.0 arcsec, 1.1 arcsec from the position",
+     "5.464 mJy, deconvolved size 3.5 arcsec, 1.1 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj044528.5-393236"
   },
   {
@@ -2236,6 +3378,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj032422.7-512323"
   },
   {
@@ -2254,6 +3403,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj030600.7-535957"
   },
   {
@@ -2272,6 +3428,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj053230.4-561110"
   },
   {
@@ -2290,6 +3453,15 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "9.858 mJy, deconvolved size 0.0 arcsec, 1.1 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj043431.8-275022"
   },
   {
@@ -2308,6 +3480,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj015612.5-473549"
   },
   {
@@ -2326,6 +3505,15 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "4.090 mJy, deconvolved size 2.9 arcsec, 1.0 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj044117.2-353140"
   },
   {
@@ -2344,6 +3532,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj021208.6-464113"
   },
   {
@@ -2361,7 +3556,23 @@
    "h_snr": -1.75,
    "wise": false,
    "removed": "",
-   "known_as": "",
+   "known_as": "GLEAM J040016-392652; NVSS J040016-392708; SUMSS J040016-392655",
+   "lit": {
+    "radio_names": [
+     "GLEAM J040016-392652",
+     "NVSS J040016-392708",
+     "SUMSS J040016-392655"
+    ],
+    "papers": [
+     "2021A&A...655A..17S The SPECFIND V3.0 catalog of radio continuum cross-identifications and spectra: Reaching lower frequencies."
+    ],
+    "pulsar": [],
+    "vlass": [
+     "11.407 mJy, deconvolved size 4.9 arcsec, 1.9 arcsec from the position",
+     "3.749 mJy, deconvolved size 0.0 arcsec, 0.6 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj040016.4-392703"
   },
   {
@@ -2380,6 +3591,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj022347.9-525946"
   },
   {
@@ -2398,6 +3616,15 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "3.957 mJy, deconvolved size 0.0 arcsec, 1.2 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj041158.9-350155"
   },
   {
@@ -2415,7 +3642,23 @@
    "h_snr": 2.03,
    "wise": false,
    "removed": "",
-   "known_as": "",
+   "known_as": "GLEAM J043927-321412; NVSS J043927-321417; TGSSADR J043927.2-321417",
+   "lit": {
+    "radio_names": [
+     "GLEAM J043927-321412",
+     "NVSS J043927-321417",
+     "TGSSADR J043927.2-321417"
+    ],
+    "papers": [
+     "2021A&A...655A..17S The SPECFIND V3.0 catalog of radio continuum cross-identifications and spectra: Reaching lower frequencies."
+    ],
+    "pulsar": [],
+    "vlass": [
+     "2.633 mJy, deconvolved size 1.8 arcsec, 0.8 arcsec from the position",
+     "2.461 mJy, deconvolved size 1.7 arcsec, 1.0 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj043927.1-321417"
   },
   {
@@ -2434,6 +3677,15 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "4.660 mJy, deconvolved size 2.3 arcsec, 1.1 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj033749.6-350149"
   },
   {
@@ -2452,6 +3704,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj010841.6-543925"
   },
   {
@@ -2470,6 +3729,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj025243.5-542036"
   },
   {
@@ -2488,6 +3754,15 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "4.768 mJy, deconvolved size 0.0 arcsec, 1.3 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj040227.1-333519"
   },
   {
@@ -2505,7 +3780,22 @@
    "h_snr": 1.46,
    "wise": true,
    "removed": "",
-   "known_as": "",
+   "known_as": "NVSS J022140-333038; SUMSS J022141-333031; TGSSADR J022141.0-333034",
+   "lit": {
+    "radio_names": [
+     "NVSS J022140-333038",
+     "SUMSS J022141-333031",
+     "TGSSADR J022141.0-333034"
+    ],
+    "papers": [
+     "2021A&A...655A..17S The SPECFIND V3.0 catalog of radio continuum cross-identifications and spectra: Reaching lower frequencies."
+    ],
+    "pulsar": [],
+    "vlass": [
+     "2.255 mJy, deconvolved size 0.0 arcsec, 0.7 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj022141.1-333035"
   },
   {
@@ -2524,6 +3814,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj055539.5-602633"
   },
   {
@@ -2542,6 +3839,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj040401.5-573707"
   },
   {
@@ -2560,6 +3864,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj034555.9-540429"
   },
   {
@@ -2578,6 +3889,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj031954.8-500341"
   },
   {
@@ -2596,6 +3914,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj054135.4-464620"
   },
   {
@@ -2614,6 +3939,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj040549.3-504642"
   },
   {
@@ -2632,6 +3964,16 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "5.689 mJy, deconvolved size 0.0 arcsec, 1.1 arcsec from the position",
+     "4.929 mJy, deconvolved size 1.7 arcsec, 1.1 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj040009.9-312230"
   },
   {
@@ -2650,6 +3992,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj040513.2-405323"
   },
   {
@@ -2668,6 +4017,15 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "3.031 mJy, deconvolved size 0.0 arcsec, 1.0 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj040751.5-194846"
   },
   {
@@ -2685,7 +4043,20 @@
    "h_snr": 0.92,
    "wise": true,
    "removed": "",
-   "known_as": "",
+   "known_as": "GLEAM J055435-464311; SUMSS J055435-464310; TGSSADR J055435.3-464312",
+   "lit": {
+    "radio_names": [
+     "GLEAM J055435-464311",
+     "SUMSS J055435-464310",
+     "TGSSADR J055435.3-464312"
+    ],
+    "papers": [
+     "2021A&A...655A..17S The SPECFIND V3.0 catalog of radio continuum cross-identifications and spectra: Reaching lower frequencies."
+    ],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj055435.4-464312"
   },
   {
@@ -2704,6 +4075,15 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "3.245 mJy, deconvolved size 0.0 arcsec, 0.8 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj051610.7-253156"
   },
   {
@@ -2722,6 +4102,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj005339.9-572300"
   },
   {
@@ -2740,6 +4127,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj015401.4-433513"
   },
   {
@@ -2758,6 +4152,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj033340.5-473301"
   },
   {
@@ -2776,6 +4177,17 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [
+     "2003A&A...412...45P HYPERLEDA. I. Identification and designation of galaxies."
+    ],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": [
+     "LEDA  572020"
+    ]
+   },
    "slug": "rj045007.8-414737"
   },
   {
@@ -2794,6 +4206,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj042206.1-525551"
   },
   {
@@ -2812,6 +4231,15 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "3.971 mJy, deconvolved size 0.0 arcsec, 0.5 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj023320.9-351218"
   },
   {
@@ -2830,6 +4258,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj041349.8-440038"
   },
   {
@@ -2848,6 +4283,15 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "3.279 mJy, deconvolved size 2.8 arcsec, 0.8 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj052057.0-331348"
   },
   {
@@ -2866,6 +4310,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj022110.7-545241"
   },
   {
@@ -2884,6 +4335,15 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "3.926 mJy, deconvolved size 2.1 arcsec, 1.1 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj060100.8-375504"
   },
   {
@@ -2902,6 +4362,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj234140.2-602346"
   },
   {
@@ -2920,6 +4387,15 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "2.704 mJy, deconvolved size 0.0 arcsec, 0.9 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj041815.6-202646"
   },
   {
@@ -2938,6 +4414,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj035939.0-515710"
   },
   {
@@ -2956,6 +4439,15 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "4.355 mJy, deconvolved size 3.9 arcsec, 1.6 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj035905.7-320953"
   },
   {
@@ -2974,6 +4466,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj000332.0-594605"
   },
   {
@@ -2992,6 +4491,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj033015.7-572114"
   },
   {
@@ -3010,6 +4516,15 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "3.501 mJy, deconvolved size 2.8 arcsec, 1.2 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj043714.8-235135"
   },
   {
@@ -3028,6 +4543,15 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "4.833 mJy, deconvolved size 2.5 arcsec, 1.4 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj054217.4-363402"
   },
   {
@@ -3046,6 +4570,16 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "1.544 mJy, deconvolved size 1.1 arcsec, 2.9 arcsec from the position",
+     "1.994 mJy, deconvolved size 0.0 arcsec, 0.9 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj042956.5-235134"
   },
   {
@@ -3064,6 +4598,15 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "3.021 mJy, deconvolved size 0.0 arcsec, 1.1 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj055649.9-384409"
   },
   {
@@ -3082,6 +4625,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj052811.0-543309"
   },
   {
@@ -3100,6 +4650,15 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "3.130 mJy, deconvolved size 2.0 arcsec, 0.4 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj052056.7-332630"
   },
   {
@@ -3118,6 +4677,15 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "7.138 mJy, deconvolved size 1.6 arcsec, 1.7 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj055050.8-370355"
   },
   {
@@ -3136,6 +4704,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj023550.3-412222"
   },
   {
@@ -3154,6 +4729,15 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "2.961 mJy, deconvolved size 0.0 arcsec, 1.2 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj042329.8-180639"
   },
   {
@@ -3172,6 +4756,15 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "3.027 mJy, deconvolved size 2.0 arcsec, 1.4 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj040207.4-241935"
   },
   {
@@ -3190,6 +4783,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj030626.5-403927"
   },
   {
@@ -3208,6 +4808,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj033734.3-452923"
   },
   {
@@ -3226,6 +4833,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj034501.7-433931"
   },
   {
@@ -3244,6 +4858,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj013513.8-434922"
   },
   {
@@ -3262,6 +4883,18 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [
+     "2003A&A...412...45P HYPERLEDA. I. Identification and designation of galaxies.",
+     "2023ApJS..269....3M Siena Galaxy Atlas 2020."
+    ],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": [
+     "LEDA  414069"
+    ]
+   },
    "slug": "rj023119.0-545820"
   },
   {
@@ -3280,6 +4913,16 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "2.940 mJy, deconvolved size 4.3 arcsec, 2.0 arcsec from the position",
+     "2.340 mJy, deconvolved size 0.0 arcsec, 2.0 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj032743.9-361649"
   },
   {
@@ -3297,7 +4940,20 @@
    "h_snr": 0.27,
    "wise": false,
    "removed": "",
-   "known_as": "",
+   "known_as": "GLEAM J025326-485521; SUMSS J025327-485532; TGSSADR J025326.8-485535",
+   "lit": {
+    "radio_names": [
+     "GLEAM J025326-485521",
+     "SUMSS J025327-485532",
+     "TGSSADR J025326.8-485535"
+    ],
+    "papers": [
+     "2021A&A...655A..17S The SPECFIND V3.0 catalog of radio continuum cross-identifications and spectra: Reaching lower frequencies."
+    ],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj025327.5-485523"
   },
   {
@@ -3316,6 +4972,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj030350.9-500447"
   },
   {
@@ -3334,6 +4997,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj022431.5-521319"
   },
   {
@@ -3352,6 +5022,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj020053.0-421354"
   },
   {
@@ -3370,6 +5047,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj033251.6-475344"
   },
   {
@@ -3388,6 +5072,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj011215.3-532903"
   },
   {
@@ -3406,6 +5097,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj014223.0-475609"
   },
   {
@@ -3424,6 +5122,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj042654.9-653036"
   },
   {
@@ -3442,6 +5147,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj043524.0-404445"
   },
   {
@@ -3460,6 +5172,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj015721.0-522149"
   },
   {
@@ -3477,7 +5196,24 @@
    "h_snr": -0.52,
    "wise": false,
    "removed": "",
-   "known_as": "",
+   "known_as": "GLEAM J044306-205920; NVSS J044306-205922; TGSSADR J044306.6-205923; WISH B0440.9-2104",
+   "lit": {
+    "radio_names": [
+     "GLEAM J044306-205920",
+     "NVSS J044306-205922",
+     "TGSSADR J044306.6-205923",
+     "WISH B0440.9-2104"
+    ],
+    "papers": [
+     "2021A&A...655A..17S The SPECFIND V3.0 catalog of radio continuum cross-identifications and spectra: Reaching lower frequencies."
+    ],
+    "pulsar": [],
+    "vlass": [
+     "0.000 mJy, deconvolved size 0.0 arcsec, 0.3 arcsec from the position",
+     "0.000 mJy, deconvolved size 0.0 arcsec, 0.9 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj044306.7-205922"
   },
   {
@@ -3496,6 +5232,15 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "8.631 mJy, deconvolved size 5.7 arcsec, 1.3 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj041721.5-385319"
   },
   {
@@ -3514,6 +5259,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj022129.8-531432"
   },
   {
@@ -3532,6 +5284,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj034953.9-420304"
   },
   {
@@ -3550,6 +5309,15 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "2.467 mJy, deconvolved size 0.0 arcsec, 1.0 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj050803.1-234432"
   },
   {
@@ -3568,6 +5336,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj021023.6-544656"
   },
   {
@@ -3586,6 +5361,15 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "2.530 mJy, deconvolved size 2.1 arcsec, 1.1 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj054853.5-360834"
   },
   {
@@ -3604,6 +5388,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj045334.0-533448"
   },
   {
@@ -3622,6 +5413,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj021324.5-473323"
   },
   {
@@ -3640,6 +5438,15 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "1.627 mJy, deconvolved size 0.0 arcsec, 0.7 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj041539.2-300210"
   },
   {
@@ -3658,6 +5465,15 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "2.884 mJy, deconvolved size 1.6 arcsec, 1.4 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj035138.8-345818"
   },
   {
@@ -3676,6 +5492,15 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "3.072 mJy, deconvolved size 2.7 arcsec, 1.1 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj040617.9-345658"
   },
   {
@@ -3694,6 +5519,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj061041.9-460509"
   },
   {
@@ -3712,6 +5544,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj034955.7-442352"
   },
   {
@@ -3730,6 +5569,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj041903.3-481730"
   },
   {
@@ -3748,6 +5594,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj031452.6-600417"
   },
   {
@@ -3766,6 +5619,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj033507.6-554704"
   },
   {
@@ -3784,6 +5644,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj043153.0-515107"
   },
   {
@@ -3802,6 +5669,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj021917.4-592048"
   },
   {
@@ -3820,6 +5694,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj033129.8-410227"
   },
   {
@@ -3838,6 +5719,15 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "2.592 mJy, deconvolved size 1.9 arcsec, 0.3 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj044207.6-220109"
   },
   {
@@ -3856,6 +5746,15 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "2.716 mJy, deconvolved size 2.1 arcsec, 1.5 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj053652.8-370956"
   },
   {
@@ -3874,6 +5773,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj023848.5-553120"
   },
   {
@@ -3892,6 +5798,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj010943.4-581211"
   },
   {
@@ -3909,7 +5822,20 @@
    "h_snr": -0.25,
    "wise": false,
    "removed": "",
-   "known_as": "",
+   "known_as": "GLEAM J052623-515145; SUMSS J052623-515206; TGSSADR J052623.9-515204",
+   "lit": {
+    "radio_names": [
+     "GLEAM J052623-515145",
+     "SUMSS J052623-515206",
+     "TGSSADR J052623.9-515204"
+    ],
+    "papers": [
+     "2021A&A...655A..17S The SPECFIND V3.0 catalog of radio continuum cross-identifications and spectra: Reaching lower frequencies."
+    ],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj052624.0-515207"
   },
   {
@@ -3928,6 +5854,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj022918.0-600826"
   },
   {
@@ -3946,6 +5879,15 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "3.444 mJy, deconvolved size 4.2 arcsec, 1.2 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj043314.7-260716"
   },
   {
@@ -3964,6 +5906,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj020127.3-513509"
   },
   {
@@ -3982,6 +5931,15 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "2.747 mJy, deconvolved size 3.5 arcsec, 1.2 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj025142.2-351632"
   },
   {
@@ -4000,6 +5958,13 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj044554.3-641008"
   },
   {
@@ -4018,6 +5983,15 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "7.127 mJy, deconvolved size 7.8 arcsec, 1.7 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj050623.9-304745"
   },
   {
@@ -4036,6 +6010,15 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "3.598 mJy, deconvolved size 5.4 arcsec, 0.5 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj050302.7-332522"
   },
   {
@@ -4054,6 +6037,15 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "2.270 mJy, deconvolved size 3.8 arcsec, 0.5 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj041151.1-251646"
   },
   {
@@ -4072,6 +6064,15 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "2.034 mJy, deconvolved size 1.8 arcsec, 1.3 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj052928.3-280956"
   },
   {
@@ -4090,6 +6091,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": null,
+    "other_ids": []
+   },
    "slug": "rj040743.0-573535"
   },
   {
@@ -4108,6 +6116,13 @@
    "wise": false,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [],
+    "other_ids": []
+   },
    "slug": "rj044929.6-315717"
   },
   {
@@ -4126,6 +6141,15 @@
    "wise": true,
    "removed": "",
    "known_as": "",
+   "lit": {
+    "radio_names": [],
+    "papers": [],
+    "pulsar": [],
+    "vlass": [
+     "3.077 mJy, deconvolved size 3.6 arcsec, 1.4 arcsec from the position"
+    ],
+    "other_ids": []
+   },
    "slug": "rj024927.6-393645"
   }
  ]
