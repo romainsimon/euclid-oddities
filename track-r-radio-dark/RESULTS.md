@@ -33,17 +33,24 @@ Claude Fable 5.2 (Claude Code, interactive session) looked at all nine sheets on
 
 Noted but kept: several sources have a galaxy 1.5 to 4 arcsec from the radio position (for example J044929.6-315717 and J021023.6-544656). The aperture test does not exclude such a host; the sheets show it.
 
-## Literature check (incomplete)
+## Literature check (20 Nov 2026)
 
-- The 30 brightest were looked up in SIMBAD and NED within 15 arcsec on 18 Nov 2026. All are known only as radio-survey detections (NVSS, SUMSS, GLEAM). None has a redshift. J023623.6-350755 lies 4 arcsec from a WISE source that SIMBAD lists as a BL Lac candidate and NED as a QSO.
-- 20 Nov 2026: the 227 positions were compared with the source names printed in five papers that list distant radio galaxy candidates in the southern sky: De Breuck et al. 2000 (arXiv:astro-ph/0002297), De Breuck et al. 2004 (SUMSS-NVSS, arXiv:astro-ph/0309814), Bryant et al. 2009 (MRCR-SUMSS, arXiv:0902.0643), Broderick et al. 2022 (GLEAM, arXiv:2204.08490) and Broderick et al. 2024 (arXiv:2407.19145). No source matches (within 45 arcsec for full names; same truncated name for short names, which can miss a source whose name was rounded differently). The first part of the MRCR-SUMSS sample (Broderick et al. 2007) and the infrared-faint radio source catalogues (Collier et al. 2014, Orenstein et al. 2019) were not checked.
-- Not done yet: the SIMBAD / NED lookup for the other 197, the papers just named, pulsar catalogue, VLASS morphology north of Dec -40. The CDS services (VizieR, and SIMBAD on 20 Nov) could not be reached.
-- Until these are done, no source here should be described as previously unstudied.
+Done through the mirrors the CDS lists while its Strasbourg servers are down (SIMBAD at IDIA, VizieR at CfA / NAOJ / IDIA). Code: `rd4.py`; raw answers: [lit.jsonl](lit.jsonl).
+
+- **Published samples.** None of the 227 lies within 30 arcsec of a source in: De Breuck et al. 2000 (ultra-steep-spectrum sources, VizieR J/A+AS/143/303), De Breuck et al. 2004 (SUMSS-NVSS, J/MNRAS/347/837), Broderick et al. 2007 (MRCR-SUMSS, J/MNRAS/381/341), Collier et al. 2014 (infrared-faint radio sources, J/MNRAS/439/545). None matches a source name printed in Bryant et al. 2009 (arXiv:0902.0643), Broderick et al. 2022 (arXiv:2204.08490) or Broderick et al. 2024 (arXiv:2407.19145). Not checked: Orenstein et al. 2019 (not on the mirrors).
+- **SIMBAD, 15 arcsec.** 185 of the 227 have no SIMBAD object. The other 42 are listed as radio-survey detections (NVSS, SUMSS, GLEAM, TGSS). The only papers attached are general catalogues: SPECFIND V3.0 (40 sources) and V2.0 (1), HyperLEDA (2), the Siena Galaxy Atlas (1), a Gaia eclipsing-binary list (1) and a WISE blazar-candidate list (1). No paper studies one of these sources individually.
+- **Pulsars.** No ATNF pulsar (VizieR B/psr/psr) within 30 arcsec of any of the 227. This rules out known pulsars only.
+- **VLASS** (3 GHz, 2.5 arcsec resolution, Dec > -40 only): 78 of the 227 are in the footprint; 76 have a Quick Look component within 5 arcsec, 66 of them a single one, 11 several. 15 components have a deconvolved size above 3 arcsec, so some sources are resolved at this resolution (near Dec -40 the VLASS beam is elongated, which inflates sizes). Not detected: J042929.1-203223 and J044929.6-315717.
+- **Special cases.** J023623.6-350755 lies 4 arcsec from a WISE source listed as a BL Lac candidate. J045007.8-414737 and J023119.0-545820 have a catalogued galaxy (LEDA) within 15 arcsec; it is a neighbour visible in the image, not an object at the radio position.
+- **NED** answered for 152 of the 227 (service unstable); no redshift for any.
+- **Not usable.** VizieR's all-catalogue cone search returns catalogues that cover the area, not catalogues with a row at the position, so it is not used as evidence.
+
+What this supports: as far as these checks go, none of the 227 has been studied as a distant radio galaxy candidate. What it does not show: that they are distant. Most infrared-faint radio sources with a measured redshift lie at z = 2 to 4.
 
 ## Deviations from the rules
 
 - The public copy of the rules was pushed about one minute after the main run was started (the first push was rejected because the repository had moved). The private repository held the rules before the start, and no selection result existed for several hours after it.
-- The rules say pulsar, SIMBAD, NED and VLASS columns are added "when the CDS services answer again". SIMBAD and NED were reached through other mirrors; pulsars and VLASS are still missing.
+- The rules say pulsar, SIMBAD, NED and VLASS columns are added "when the CDS services answer again". They were obtained on 20 Nov 2026 through the mirrors instead.
 
 ## The ten brightest
 
