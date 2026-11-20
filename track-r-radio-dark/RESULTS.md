@@ -47,6 +47,15 @@ Done through the mirrors the CDS lists while its Strasbourg servers are down (SI
 
 What this supports: as far as these checks go, none of the 227 has been studied as a distant radio galaxy candidate. What it does not show: that they are distant. Most infrared-faint radio sources with a measured redshift lie at z = 2 to 4.
 
+## Radio spectrum and unWISE (21 Nov 2026)
+
+Code: `rd5.py`. Table: [sed.csv](sed.csv); raw answers: [sed.jsonl](sed.jsonl). Descriptive only.
+
+- **GLEAM** (72-231 MHz, about 2 arcmin beam): 91 of the 227 have a GLEAM source within 60 arcsec. Median index from 200 MHz (GLEAM) to 1367 MHz (RACS-mid): -0.98; 4 of 91 are at or below -1.3. Of the 63 with a GLEAM in-band index, the median is -0.85 and one is at or below -1.3 (J014203.2-440345). So the steep indices measured between 943 and 1367 MHz (median -1.18) mostly reflect spectra that steepen above about 1 GHz, not ultra-steep spectra at low frequency. Few of these sources would pass the low-frequency ultra-steep cut used by the GLEAM searches for distant radio galaxies. The 136 without a GLEAM match are fainter than the GLEAM catalogue limit at 200 MHz or blended.
+- **unWISE** (neo7 coadds, forced 5.5 arcsec aperture at the corrected radio position, 226 of 227 measured): 194 below 3 sigma in W1, 23 between 3 and 5, 9 above 5. Median 5 sigma limit W1 = 17.3 Vega mag in that aperture, without aperture correction. The WISE beam is 6 arcsec, so a detection can come from a neighbour.
+- SUMSS and NVSS fluxes in `sed.csv` are incomplete (a fault in the query); RACS already gives those frequencies.
+- ALMA and ESO archive search (`rd6.py`): running, not reported yet.
+
 ## Deviations from the rules
 
 - The public copy of the rules was pushed about one minute after the main run was started (the first push was rejected because the repository had moved). The private repository held the rules before the start, and no selection result existed for several hours after it.
