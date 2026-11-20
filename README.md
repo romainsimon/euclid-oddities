@@ -1,6 +1,6 @@
 # Euclid Oddities: looking for the unexpected in Euclid DR1 with Claude
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24304793.svg)](https://doi.org/10.5281/zenodo.24304793)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24304792.svg)](https://doi.org/10.5281/zenodo.24304792)
 
 Romain Simon, independent researcher, Antibes, France. November 2026.
 
