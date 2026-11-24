@@ -76,6 +76,7 @@ Rules, counts, table, images and code: [track-r-radio-dark/RESULTS.md](track-r-r
 |---|---|
 | `track-d-anomaly-hunt/` | Pre-registration (`PREREG_D.md`, SHA-256 in `PREREG_D.sha256`), every amendment with its reason, the full report, the model comparison |
 | `track-a-lensed-quasars/` | Pre-registration and amendments (with hashes), Probe 0 report, red-team challenge, feasibility-gate rules and results |
+| `track-m-moving-faint/` | Faint white dwarfs beyond Gaia from Euclid against Legacy Surveys motions: rules fixed before the main run (`PREREG_M.md`) and code. No result yet |
 | `track-r-radio-dark/` | Rules fixed before the main run (`PREREG_R.md`), results, candidate table, image sheets, literature answers, code |
 
 Pre-registration hashes:
