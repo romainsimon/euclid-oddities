@@ -70,13 +70,23 @@ Compact, isolated RACS-mid radio sources (peak >= 5 mJy/beam) were matched to Eu
 
 Rules, counts, table, images and code: [track-r-radio-dark/RESULTS.md](track-r-radio-dark/RESULTS.md).
 
+### Faint white dwarf candidates that moved (Track M), measurements only
+
+Proper motions of Euclid DR1 point sources absent from Gaia, from Euclid positions against Legacy Surveys DR10 positions about eight years earlier, over about 1,650 deg2. No language model takes part in the selection. Rules were tuned on one 10 x 10 degree region and published before the rest of the sky was read.
+
+- 44,602 sources moved by more than 30 mas/yr; 9,407 are white dwarf candidates by reduced proper motion (5.7 per deg2, median r = 22.3). The same cuts on extended sources predict at most 23 false ones.
+- 143 of them show a near-infrared deficit against a blackbody and pass a pixel check; 66 are firm in two colours. The reversed rule selects 89 sources, so part of the list is scatter.
+- Known classes of objects, at the expected density. All entries are unverified candidates: no spectrum, no parallax.
+
+Rules, counts, tables, images and code: [track-m-moving-faint/RESULTS.md](track-m-moving-faint/RESULTS.md).
+
 ## What is in this repository
 
 | Folder | Contents |
 |---|---|
 | `track-d-anomaly-hunt/` | Pre-registration (`PREREG_D.md`, SHA-256 in `PREREG_D.sha256`), every amendment with its reason, the full report, the model comparison |
 | `track-a-lensed-quasars/` | Pre-registration and amendments (with hashes), Probe 0 report, red-team challenge, feasibility-gate rules and results |
-| `track-m-moving-faint/` | Faint white dwarfs beyond Gaia from Euclid against Legacy Surveys motions: rules fixed before the main run (`PREREG_M.md`) and code. No result yet |
+| `track-m-moving-faint/` | Faint white dwarfs beyond Gaia from Euclid against Legacy Surveys motions: rules fixed before the main run (`PREREG_M.md`), results, tables, cutout sheets, code |
 | `track-r-radio-dark/` | Rules fixed before the main run (`PREREG_R.md`), results, candidate table, image sheets, literature answers, code |
 
 Pre-registration hashes:
