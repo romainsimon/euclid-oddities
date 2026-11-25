@@ -12,7 +12,7 @@ For each of the 9,407 candidates: which white dwarf model atmosphere fits its se
 
 ## Data
 
-- Optical: Legacy Surveys DR10 Tractor g, r, i, z with their errors, at the Legacy Surveys position (`qd.py ls`, viewer catalogue service). The Euclid catalogue also holds DECam fluxes, but they are fitted at the 2024 position on older images, which is wrong for a source that moved; they are not used.
+- Optical: Legacy Surveys DR10 Tractor g, r, i, z with their errors, at the Legacy Surveys position (`stage2/qd.py ls`, viewer catalogue service). The Euclid catalogue also holds DECam fluxes, but they are fitted at the 2024 position on older images, which is wrong for a source that moved; they are not used.
 - Near-infrared: Euclid DR1 Y, J, H, 2-FWHM aperture fluxes (primary) and template-fit fluxes (second measurement) (`qd.py eu`).
 - VIS is not fitted (broad band, no model column to check it against); it is kept as a check.
 - Extinction: full Galactic column of Schlegel et al. 1998 as given by Legacy Surveys, transmissions of Legacy Surveys for g, r, i, z, and A / E(B-V) = 0.88, 0.60, 0.41 for Y, J, H.
