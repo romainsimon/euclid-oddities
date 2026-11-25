@@ -58,8 +58,10 @@ They come from the calibration sample (Gentile Fusillo et al. 2021), on which th
 | 4768450851559548672 | 20.30 | 91 | 72 | He/H = 1e5, 3200 K | 83 |
 | 4922114228674321792 (LEHPM 1050) | 19.09 | 69 | 67 | He/H = 100, 4850 K | 66 |
 
-- SIMBAD (IDIA mirror, 25 Nov 2026) attaches to them only catalogue and classification papers (Gaia white dwarf catalogues, random-forest classifications). Three carry a "DA" type that comes from an automatic classification of Gaia low-resolution spectra. None is attached to a paper on infrared-faint white dwarfs. We did not search beyond SIMBAD.
-- They lie at Dec -52 to -65. Pan-STARRS stops at Dec -30; as far as we read it, the sample of Bergeron et al. 2022 relies on Pan-STARRS photometry, which would explain why these were not in it. We did not check their list object by object.
+- SIMBAD (IDIA mirror, 25 Nov 2026) attaches to them only catalogue and classification papers (Gaia white dwarf catalogues, random-forest classifications). Three carry a "DA" type that comes from an automatic classification of Gaia low-resolution spectra. None is attached to a paper on infrared-faint white dwarfs.
+- Search by position (added later on 25 Nov 2026, `stage2/qy.py`, `qy2.py`): every VizieR table with a row within 4 arcsec of each star. They are astrometric and survey catalogues, the Gaia white dwarf catalogues (Gentile Fusillo et al. 2019, 2021; Torres et al. 2019; Gaia Collaboration 2021, 2023), automatic classifications (Garcia-Zamora et al. 2023, 2025; Jimenez-Esteban et al. 2023; Vincent et al. 2024; Kao et al. 2024), kinematics (Raddi et al. 2022) and wide-binary lists. None of the five is in the table of the infrared-faint sample of Bergeron et al. 2022 (VizieR J/ApJ/934/36, checked object by object within 10 arcsec). A catalogue that is not in VizieR, or a paper without a table, would escape this search.
+- They lie at Dec -52 to -62. Pan-STARRS stops at Dec -30, which is the likely reason why they are not in the published samples.
+- The table now gives what is needed to refit them: Gaia and Euclid positions, parallax, proper motion, the four Legacy Surveys magnitudes, the Euclid Y, J, H magnitudes of both flux types (AB, as in the catalogue: subtract 0.26, 0.27, 0.26 mag from the aperture ones and 0.08, 0.09, 0.07 from the template-fit ones to apply our calibration), forced WISE fluxes and the VISTA J magnitude.
 - They are bright enough for a spectrum on a 4 m class telescope, and they have parallaxes. They are the easiest part of this work to confirm or refute.
 
 ## Checks
@@ -91,7 +93,7 @@ They change no list.
 
 **Motion during the Legacy Surveys epochs.** A moving source is smeared in the stacked optical images (median 0.24 arcsec for the 41, at most 0.51). That can only lower the optical fluxes, which makes the near-infrared look too bright, not too faint. The share of strong-absorption sources does rise with the smear (0.2 % below 0.15 arcsec, 1.1 % at 0.3 to 0.5), as expected if they are intrinsically faint and therefore near; this work cannot separate that from a measurement effect.
 
-**Another instrument for the five Gaia stars.** A query of the VISTA Hemisphere Survey on the VizieR mirrors returned nothing for the five; we do not know whether they are too faint for it or whether the query was wrong. So the five rest on Euclid alone in the near-infrared.
+**Another instrument for the five Gaia stars (corrected later on 25 Nov 2026).** The first query of the VISTA Hemisphere Survey, on the VizieR mirrors, returned nothing; it was the query that failed (it returns nothing around bright stars either). The same survey at NOIRLab Data Lab (`vhs_dr5.vhs_cat_v3`, `stage2/qy4.py`) detects four of the five in J, the only VISTA band with a detection: J = 19.10, 18.56, 19.89 and 18.50 (Vega), that is 20.02, 19.48, 20.81 and 19.41 AB. For each, this lies between our calibrated Euclid Y and J magnitudes (19.72 and 20.23; 19.11 and 19.59; 20.34 and 21.09; 18.96 and 19.55), as the place of the VISTA J band between the two Euclid bands requires for a spectrum that falls this fast. The fifth (4768450851559548672, Euclid J = 22.4 AB) is beyond the VISTA limit. So the level of the near-infrared flux is confirmed by a second instrument near 1.25 micron for four stars. The H band, which carries most of the deficit, still rests on Euclid alone. The forced WISE fluxes of the Legacy Surveys are in the table; two stars have a W1 flux above 5 sigma (4729108809392699392 and 4922114228674321792), which we did not interpret (the WISE beam is 6 arcsec wide).
 
 ## What did not come out
 
@@ -122,11 +124,12 @@ Plainly: this is the first part of Track M that a specialist may want.
 |---|---|
 | `interesting_candidates.csv` | The 47 strong-absorption sources with verdict (`kept`), class, fit, residuals, fluxes, pixel S/N, SIMBAD, third data set |
 | `sheets/strong_absorption_*.jpg` | Cutouts (VIS, Y, J, H) in table order (`row`) |
-| `gaia_strong_absorption.csv` | The 5 Gaia white dwarfs |
+| `gaia_strong_absorption.csv` | The 5 Gaia white dwarfs, with their photometry in every band |
 | `fits_all.csv.gz` | Fits of all 9,407 candidates |
 | `halo_candidates.csv` | The 62 sources of rule J (not finds) |
 | `vis_check.csv`, `cal.json` | VIS check; zero points and systematics |
 | `posthoc_m2.csv`, `fits_no_model.csv`, `qx.py` | Checks made after the results were read; the 65 sources that fit no model |
 | `qd.py`, `qg.py`, `qs.py`, `qm.py`, `qf.py`, `qo.py`, `qp.py`, `qr.py`, `qv.py`, `qc.py` | Data assembly, Gaia sample, model synthesis, fit and rules, summaries, final tables, literature, VIS check |
+| `qy.py`, `qy2.py`, `qy3.py`, `qy4.py` | Later checks on the five Gaia stars: catalogues by position, VISTA photometry, the table with photometry |
 
 Models: Warwick white dwarf grids (Tremblay et al. 2011; Kowalski & Saumon 2006; Cukanovaite et al. 2021); Montreal mass-radius tables (Bedard et al. 2020). Filters: SVO Filter Profile Service. Data: ESA Euclid DR1, DESI Legacy Imaging Surveys DR10, Gaia EDR3 (Gentile Fusillo et al. 2021), NOIRLab Source Catalog DR2, SIMBAD.
