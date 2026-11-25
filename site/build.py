@@ -641,7 +641,7 @@ def wd_page(base):
 <p class="small">Unverified candidates. Recognise one, or can rule it out? <a href="{REPO}/issues/new?title=Track%20M">Tell us on GitHub</a>.</p></main>"""
     return page("Faint white dwarf candidates that moved | Euclid Oddities",
                 f"{m['wd']:,} faint white dwarf candidates from Euclid DR1 proper motions; {m['kept']} need strong near-infrared absorption. Unverified candidates.", body, base, f"{base}/moving-faint",
-                f"{base}/img/wd/{top[0]['slug']}-thumb.jpg" if top else None)
+                f"{base}/img/wd-social.jpg")
 
 
 def detail(f, prev, nxt, base):
