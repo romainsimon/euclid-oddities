@@ -165,6 +165,16 @@ def e(s):
     return html.escape(str(s if s is not None else ""))
 
 
+# A shared-element transition names one card only: the one that is opened or come back from. Naming every card made the browser snapshot
+# hundreds of elements at each page change.
+VT_JS = """<script>(()=>{function name(c){if(!c)return;const v=c.dataset.vt,i=c.querySelector('img:not(.ico)'),h=c.querySelector('h3');
+c.style.viewTransitionName='c-'+v;if(i)i.style.viewTransitionName='i-'+v;if(h)h.style.viewTransitionName='t-'+v}
+document.addEventListener('click',ev=>{const c=ev.target.closest&&ev.target.closest('a.card[data-vt]');if(c)name(c)},true);
+addEventListener('pagereveal',ev=>{if(!ev.viewTransition||!window.navigation||!navigation.activation||!navigation.activation.from)return;
+const u=new URL(navigation.activation.from.url).pathname;for(const c of document.querySelectorAll('a.card[data-vt]'))if(new URL(c.href).pathname===u){name(c);break}});
+addEventListener('pageshow',ev=>{if(ev.persisted)for(const x of document.querySelectorAll('a.card[data-vt],a.card[data-vt] img,a.card[data-vt] h3'))x.style.viewTransitionName=''})})()</script>"""
+
+
 def page(title, desc, body, base, canonical, image=None):
     og = f'<meta data-route-meta property="og:image" content="{SITE}{image}">' if image else ""
     return f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -179,7 +189,7 @@ def page(title, desc, body, base, canonical, image=None):
 {body}
 <footer><div class="wrap">Images: ESA Euclid DR1 (ESA/Euclid/Euclid Consortium), rendered by this project. Catalogue checks: SIMBAD, NED, ECLIPSE.
 Every entry is unverified: image finds are suggestions made by a language model, radio and moving-star candidates come from measurements. Code, pre-registration and raw results on <a href="{REPO}">GitHub</a>, archived with DOI <a href="https://doi.org/10.5281/zenodo.24304792">10.5281/zenodo.24304792</a>.</div></footer>
-</body></html>"""
+{VT_JS}</body></html>"""
 
 
 def is_radio(f):
@@ -309,10 +319,10 @@ def card(f, base):
     fx = ('<span class="fx" aria-hidden="true"><span class="foil"></span>'
           + (f'<span class="sparks">{sp}</span>' if rk == "legendary" else "")
           + '<span class="glare"></span></span>')
-    return (f'<a class="card r-{rk}" style="view-transition-name:c-{vt(f["slug"])}" href="{base}/{f["slug"]}/" data-feature="{e(f["feature"])}" data-conf="{e(f["confidence"])}" data-rarity="{rk}" '
+    return (f'<a class="card r-{rk}" data-vt="{vt(f["slug"])}" href="{base}/{f["slug"]}/" data-feature="{e(f["feature"])}" data-conf="{e(f["confidence"])}" data-rarity="{rk}" '
             f'data-interest="{f["interest"]}" data-cat="{"yes" if f["catalogued"] else "no"}" data-date="{e(f["date_found"])}" data-model="{e(f["model"])}" data-run="{e(run_key(f))}" data-score="{promise(f)}" data-rev="{ck or "none"}">{fx}'
-            f'<img style="view-transition-name:i-{vt(f["slug"])}" src="{img_base(f, base)}-thumb.jpg" width="360" height="360" loading="lazy" alt="Euclid {"1.8 micron" if is_radio(f) else "visible-band"} cutout of {e(f["name"])}">'
-            f'<div class="body"><div class="hd"><h3 style="view-transition-name:t-{vt(f["slug"])}">{icon(f["feature"])}{e(f["name"])}</h3>{"" if measured(f) else stars(f["interest"])}</div><div class="meta">{tags(f)}{rv}</div><p>{e(f["description"])}</p></div></a>')
+            f'<img src="{img_base(f, base)}-thumb.jpg" width="360" height="360" loading="lazy" alt="Euclid {"1.8 micron" if is_radio(f) else "visible-band"} cutout of {e(f["name"])}">'
+            f'<div class="body"><div class="hd"><h3>{icon(f["feature"])}{e(f["name"])}</h3>{"" if measured(f) else stars(f["interest"])}</div><div class="meta">{tags(f)}{rv}</div><p>{e(f["description"])}</p></div></a>')
 
 
 def runs_html():
