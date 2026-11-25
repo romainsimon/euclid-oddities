@@ -75,7 +75,7 @@ Rules, counts, table, images and code: [track-r-radio-dark/RESULTS.md](track-r-r
 Proper motions of Euclid DR1 point sources absent from Gaia, from Euclid positions against Legacy Surveys DR10 positions about eight years earlier, over about 1,650 deg2. No language model takes part in the selection. Rules were tuned on one 10 x 10 degree region and published before the rest of the sky was read.
 
 - 44,602 sources moved by more than 30 mas/yr; 9,407 are white dwarf candidates by reduced proper motion (5.7 per deg2, median r = 22.3). The same cuts on extended sources predict at most 23 false ones.
-- 143 of them show a near-infrared deficit against a blackbody and pass a pixel check; 66 are firm in two colours. The reversed rule selects 89 sources, so part of the list is scatter.
+- 143 of them show a near-infrared deficit against a blackbody and pass a pixel check. The reversed rule selects 89 sources, so part of the list is scatter. A check made after the results were read shows the blackbody is a biased reference for the reddest sources: against sources of the same colour, 102 remain and 49 are firm in two colours. None is in SIMBAD.
 - Known classes of objects, at the expected density. All entries are unverified candidates: no spectrum, no parallax.
 
 Rules, counts, tables, images and code: [track-m-moving-faint/RESULTS.md](track-m-moving-faint/RESULTS.md).

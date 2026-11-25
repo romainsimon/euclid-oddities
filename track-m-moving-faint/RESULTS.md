@@ -13,13 +13,15 @@ No language model takes part in the selection. The model looked at the cutouts o
 - 9,407 fall in the white dwarf box of the rules, 5.7 per deg2, median r = 22.3. At most 23 false ones expected from the control.
 - 221 of them have a near-infrared colour below a blackbody by the catalogue rule. 143 remain after the pixel step and the eye check.
 - The same rule with signs reversed selects 89 sources. So part of the 221 is the tail of the noise. See "How much of this is noise" below.
+- A check made after the results were read shows that the blackbody is a biased reference for the reddest sources. Compared with white dwarf candidates of the same colour, 102 of the 143 are still selected, and 49 are firm in two colours. Those 49 are the part to take seriously.
+- None of the 143 has an entry in SIMBAD within 10 arcsec.
 
 ## Counts at every step
 
 | Step | Count |
 |---|---|
 | Euclid wide tiles listed | 10,990 |
-| Not measurable: no Legacy Surveys DR10 south at that position (Dec above about +32) | 2,077 |
+| Not measurable: no Legacy Surveys DR10 south at that position (all north of Dec +30) | 2,077 |
 | Too few Euclid sources (deep-field tilings with no rows in the wide catalogue, edges) | 2,248 |
 | Too few galaxies for the astrometric tie | 63 |
 | Failed (dense tile still truncated by the archive: 102028713) | 1 |
@@ -56,21 +58,48 @@ The bin VIS 20.0 to 20.5 holds 140 point sources and 1 mover; no extended-source
 
 **Purity of the box.** Not measured on this sample. On Gaia stars of the development box, 1.5 to 4 mag brighter, about 90 % of the box sources are catalogued white dwarfs (Gentile Fusillo et al. 2021). The contaminants are halo and thick-disc stars; their share at r = 22 to 23 is not known from this work.
 
-**Third data set (rule F).** NOIRLab Source Catalog DR2 motions for the 143: compatible 127, differing by more than 3 sigma 9, query failed 7. The 9 are kept and flagged (`nsc = disagrees`).
+**Third data set (rule F).** NOIRLab Source Catalog DR2 motions for the 143: compatible 127, differing by more than 3 sigma 9, query failed 7. After a retry of the 7 (`posthoc.csv`): compatible 133, differing 10. The 10 are kept and flagged.
 
 ## How much of this is noise
 
 The catalogue rule selects 221 sources on the deficit side and 89 on the excess side. The excess side is not pure noise (a white dwarf with a cool companion is red in J - H), and it did not go through the pixel step, so it is an imperfect mirror. With that caveat:
 
 - Deficit in J - H beyond 3 sigma **and** in Y - J beyond 2 sigma: 75 on the deficit side at the catalogue step, 17 with both colours in excess.
-- Among the 143 kept: 118 have both colours below the blackbody by more than 2 sigma, 92 have J - H beyond 3 sigma, and 66 have both, with no disagreement in the third data set. These 66 are the ones to look at first.
+- Among the 143 kept: 118 have both colours below the blackbody by more than 2 sigma, 92 have J - H beyond 3 sigma, and 66 have both, with no disagreement in the third data set. This "two colours" subset was defined after the results were read; it is not part of the rules.
 - Two of the 143 have a high J against both Y and H (`j_high`), which is the signature of a fault in J rather than of a deficit in H.
 
-A fair reading: a few tens of the 143 are expected to be scatter, and the 66 are the firmer part.
+A fair reading at this stage: a few tens of the 143 are expected to be scatter. The next section reduces the firm part further.
+
+## Check made after the results were read: the reference is biased with colour (`mx.py`, `posthoc.csv`)
+
+Rule C removes one median offset for the whole sample. That is not enough. The residual of the 8,232 white dwarf candidates against the blackbody depends on colour:
+
+| g - r | Sources | Median J - H minus blackbody | Robust scatter |
+|---|---|---|---|
+| below 0.2 | 1,007 | +0.05 | 0.11 |
+| 0.2 to 0.4 | 1,458 | +0.06 | 0.09 |
+| 0.4 to 0.6 | 1,416 | +0.05 | 0.10 |
+| 0.6 to 0.8 | 1,500 | +0.01 | 0.09 |
+| 0.8 to 1.0 | 1,198 | -0.06 | 0.09 |
+| 1.0 to 1.2 | 528 | -0.17 | 0.12 |
+| 1.2 to 1.4 | 449 | -0.01 | 0.09 |
+| above 1.4 | 676 | -0.04 | 0.06 |
+
+The scatter also grows with magnitude, from 0.08 at r = 21 to 0.19 beyond r = 23. Half of the 143 have g - r above 1.16, so many of them sit where the whole population is already below the blackbody. The dip at g - r of 1.0 to 1.2 may be real physics shared by ordinary cool white dwarfs (hydrogen absorption sets in at these temperatures) or a change in the mix of contaminants; this work cannot tell.
+
+Re-scored against a running median in g - r (401 sources), with the same thresholds:
+
+- 102 of the 143 are still selected.
+- 49 of the 66 "two colours" sources remain. They are flagged `firm` and `local_firm` in `posthoc.csv`.
+- Over the whole sample, the local rule selects 177 sources on the deficit side and 88 on the excess side; in two colours, 60 against 17.
+
+The frozen list of 143 is not changed. The 49 are the candidates to look at first, and the two-colour asymmetry (60 against 17) is the evidence that some real near-infrared deficits are present.
+
+**SIMBAD.** A 10 arcsec cone around each of the 143 (IDIA mirror, 25 Nov 2026) returns nothing.
 
 ## What the deficit means, and what it does not
 
-The reference is a blackbody at the temperature given by g - r. A real white dwarf with a hydrogen or helium atmosphere is not a blackbody, and the forced J - H in a 0.8 arcsec aperture comes out about 0.2 mag bluer than the catalogue colour. So the measured deficits (median 0.57 mag on the pixels, 0.4 to 1.4) are not atmospheric parameters. Published infrared-faint white dwarfs show J - H about 0.7 to 1.2 mag below a blackbody in the strong cases (Gianninas et al. 2015, as reported by the literature search of 24 Nov 2026, not re-derived here); mild cases are a few tenths. The candidates here span that range. The mildest ones may be ordinary cool white dwarfs.
+The reference is a blackbody at the temperature given by g - r. A real white dwarf with a hydrogen or helium atmosphere is not a blackbody, and the forced J - H in a 0.8 arcsec aperture comes out about 0.2 mag bluer than the catalogue colour. So the measured deficits (median 0.57 mag on the pixels, 0.4 to 1.4) are not atmospheric parameters, and they are not compared here with published colours of infrared-faint white dwarfs: that needs a common photometric system and model atmospheres. The mildest ones may be ordinary cool white dwarfs.
 
 ## How interesting is this
 
@@ -78,7 +107,8 @@ Plainly: moderate.
 
 - The method is classical and the classes are known. The density found, 5.7 per deg2, is what Galactic models predict for this depth and motion limit.
 - A web search on 24 Nov 2026 found no published list of white dwarf candidates from Euclid motions, and no southern reduced-proper-motion white dwarf catalogue beyond r = 21. It is a search, not a proof of absence.
-- The published infrared-faint white dwarfs (105 in Bergeron et al. 2022) are almost all brighter than g = 21. The candidates here have r = 20.9 to 23.7 (91 of 143 fainter than r = 22) and Y, J, H photometry from Euclid.
+- Bergeron et al. 2022 (arXiv:2206.03174, abstract re-read on 25 Nov 2026) analyse 105 infrared-faint white dwarfs, 70 new and 35 known, drawn from samples within about 100 pc. According to the literature search they have g of about 18 to 21; that range was not re-checked. The candidates here have r = 20.9 to 23.7 (91 of 143 fainter than r = 22) and Y, J, H photometry from Euclid.
+- After the colour check above, the part worth a specialist's time is about 49 sources, not 143.
 - The brighter ones already have a motion in the NOIRLab Source Catalog DR2. Euclid adds the precision at r above 22 (1 to 3 mas/yr against 10 to 20) and the near-infrared bands.
 - Confirming any of them needs a spectrum at r = 21 to 23, which is 8 m class telescope time.
 
@@ -88,7 +118,8 @@ Plainly: moderate.
 - `mn.py` (third data set column) was written after the freeze and before any non-development result was read.
 - "Differs by more than 3 sigma" in rule F is computed on the two axes together (quadratic sum).
 - The model's eye check went beyond missing pixels: five sources were removed for an artefact on the source in J. Reasons are in the table.
-- The literature check was a web search run by a sub-agent on 24 Nov; the references it returned were not all re-opened.
+- The literature check was a web search run by a sub-agent on 24 Nov. Only Bergeron et al. 2022 was re-opened afterwards.
+- The public tables and the site data were assembled from the outputs of `ms.py`, `mp.py` and `mn.py` by short one-off commands that are not in this folder. The five eye removals and their reasons are in the `verdict` column.
 
 ## Files
 
@@ -101,6 +132,7 @@ Plainly: moderate.
 | `sheets/deficit_*.jpg` | Cutouts (VIS, Y, J, H; 10 arcsec shown, circle radius 1 arcsec) of the 143 kept, in table order (`row`) |
 | `sheets/rejected_*.jpg` | Cutouts of the rejected and removed ones |
 | `tiles_dropped.csv` | Tiles dropped by rule E (none) |
+| `posthoc.csv`, `mx.py` | Checks made after the results were read: score against the local median, SIMBAD cone, retried third data set queries |
 | `tm.py`, `ms.py`, `mp.py`, `mn.py` | Measurement, selection, pixel step, third data set |
 
 Data: ESA Euclid DR1 (Euclid Collaboration), DESI Legacy Imaging Surveys DR10, NOIRLab Source Catalog DR2, Gaia.
