@@ -19,9 +19,9 @@ SITE = "https://spacesim.co"
 
 FEATURE = {"arc": "Arc", "ring": "Ring", "straight_line": "Straight line", "pair": "Pair", "diffuse_patch": "Diffuse patch",
            "irregular": "Irregular", "other": "Other", "none": "None",
-           "radio_dark": "Radio, no Euclid source"}
+           "radio_dark": "Radio, no Euclid source", "wd_irfaint": "Faint moving star"}
 ICON = {"arc": "black-hole", "ring": "black-hole", "pair": "binary-star", "irregular": "galaxy", "diffuse_patch": "nebula",
-        "straight_line": "comet", "other": "catalog-object", "none": "catalog-object", "radio_dark": "galaxy"}
+        "straight_line": "comet", "other": "catalog-object", "none": "catalog-object", "radio_dark": "galaxy", "wd_irfaint": "catalog-object"}
 ICON_DIR = "/assets/icons/object-types"
 
 
@@ -178,7 +178,7 @@ def page(title, desc, body, base, canonical, image=None):
 <div class="site-header__actions"><nav class="top"><a href="{base}/#log">Log</a><a href="{base}/#method">Method</a><a href="{REPO}">Data &amp; rules</a><a class="keep" href="/">SpaceSim</a></nav></div></div></header>
 {body}
 <footer><div class="wrap">Images: ESA Euclid DR1 (ESA/Euclid/Euclid Consortium), rendered by this project. Catalogue checks: SIMBAD, NED, ECLIPSE.
-Every entry is unverified: image finds are suggestions made by a language model, radio candidates come from measurements. Code, pre-registration and raw results on <a href="{REPO}">GitHub</a>, archived with DOI <a href="https://doi.org/10.5281/zenodo.24304792">10.5281/zenodo.24304792</a>.</div></footer>
+Every entry is unverified: image finds are suggestions made by a language model, radio and moving-star candidates come from measurements. Code, pre-registration and raw results on <a href="{REPO}">GitHub</a>, archived with DOI <a href="https://doi.org/10.5281/zenodo.24304792">10.5281/zenodo.24304792</a>.</div></footer>
 </body></html>"""
 
 
@@ -186,8 +186,33 @@ def is_radio(f):
     return f.get("kind") == "radio"
 
 
+def is_wd(f):
+    return f.get("kind") == "wd"
+
+
+def measured(f):
+    """Entries that come from measurements, with no model score."""
+    return is_radio(f) or is_wd(f)
+
+
 def img_base(f, base):
-    return f'{base}/img/radio/{f["slug"]}' if is_radio(f) else f'{base}/img/{f["slug"]}'
+    return f'{base}/img/{"radio/" if is_radio(f) else "wd/" if is_wd(f) else ""}{f["slug"]}'
+
+
+def wd_finds():
+    """Track M candidates (data/wd_faint.json) as gallery entries: faint moving point sources with a near-infrared deficit."""
+    fp_ = HERE / "data" / "wd_faint.json"
+    if not fp_.exists():
+        return []
+    D = json.loads(fp_.read_text(encoding="utf-8"))
+    out = []
+    for c in D["candidates"]:
+        desc = (f'Faint point source (r = {c["r"]:.1f}) that moved {c["pm"] * c["base_yr"] / 1000:.2f}″ in {c["base_yr"]:.0f} years. White dwarf candidate, '
+                + ("fainter than expected in the near infrared in two colours." if c["firm"] else "somewhat fainter than expected in the near infrared."))
+        out.append(dict(c, kind="wd", feature="wd_irfaint", date_found="2026-11-25", run="Faint white dwarf candidates that moved (Track M)",
+                        model="No model (measured)", model_id="", interest=0, weirdness=0, confidence="none", catalogued=False,
+                        description=desc, status="unverified candidate"))
+    return out
 
 
 def radio_finds():
@@ -209,6 +234,9 @@ def radio_finds():
 
 
 def tags(f):
+    if is_wd(f):
+        return (f'<span class="tag hi">{f["pm"]:.0f} mas/yr</span><span class="tag">{"two colours" if f["firm"] else "mild deficit"}</span>'
+                + ('<span class="tag">tuning region</span>' if f.get("dev") else ""))
     if is_radio(f):
         return (f'<span class="tag hi">{f["peak"]:.0f} mJy</span><span class="tag">{"empty in Euclid" if f["cls"] == "empty" else "faint host"}</span>'
                 + ('<span class="tag">tuning region</span>' if f.get("dev") else ""))
@@ -252,6 +280,8 @@ RUNS = {"Fable pass 1 (A-fable)": "outliers", "Two-stage test (A-twostage), deve
 def run_key(f):
     if is_radio(f):
         return "radio"
+    if is_wd(f):
+        return "wd"
     r = f.get("run", "")
     return RUNS.get(r, "wide" if r.startswith("Wide-field pass") else "other")
 
@@ -263,6 +293,8 @@ def promise(f):
     closer = sum(r.get("verdict") == "worth a closer look" for r in R)
     against = sum(r.get("verdict") in ("likely ordinary", "likely star or foreground", "likely artefact") for r in R)
     penalty = 2 if R and against > len(R) / 2 else 0
+    if is_wd(f):      # no model score: firm two-colour deficits first, then by significance
+        return round(closer * 2 - penalty + (0.6 if f["firm"] else 0.4) + min(-f["sig_jh"], 8) / 40, 3)
     if is_radio(f):   # no model score: emptier and brighter first, on the same 0-1 scale as interest / 5
         return round(closer * 2 - penalty + (0.6 if f["cls"] == "empty" else 0.4) + min(f["peak"], 70) / 200, 3)
     return round(closer * 2 - penalty + f["interest"] / 5, 3)
@@ -279,7 +311,7 @@ def card(f, base):
     return (f'<a class="card r-{rk}" style="view-transition-name:c-{vt(f["slug"])}" href="{base}/{f["slug"]}/" data-feature="{e(f["feature"])}" data-conf="{e(f["confidence"])}" data-rarity="{rk}" '
             f'data-interest="{f["interest"]}" data-cat="{"yes" if f["catalogued"] else "no"}" data-date="{e(f["date_found"])}" data-model="{e(f["model"])}" data-run="{e(run_key(f))}" data-score="{promise(f)}" data-rev="{ck or "none"}">{fx}'
             f'<img style="view-transition-name:i-{vt(f["slug"])}" src="{img_base(f, base)}-thumb.jpg" width="360" height="360" loading="lazy" alt="Euclid {"1.8 micron" if is_radio(f) else "visible-band"} cutout of {e(f["name"])}">'
-            f'<div class="body"><div class="hd"><h3 style="view-transition-name:t-{vt(f["slug"])}">{icon(f["feature"])}{e(f["name"])}</h3>{"" if is_radio(f) else stars(f["interest"])}</div><div class="meta">{tags(f)}{rv}</div><p>{e(f["description"])}</p></div></a>')
+            f'<div class="body"><div class="hd"><h3 style="view-transition-name:t-{vt(f["slug"])}">{icon(f["feature"])}{e(f["name"])}</h3>{"" if measured(f) else stars(f["interest"])}</div><div class="meta">{tags(f)}{rv}</div><p>{e(f["description"])}</p></div></a>')
 
 
 def runs_html():
@@ -298,18 +330,18 @@ def runs_html():
 
 
 def index(F, meta, base):
-    n_model, n_radio = sum(not is_radio(f) for f in F), sum(is_radio(f) for f in F)
+    n_model, n_radio, n_wd = sum(not measured(f) for f in F), sum(is_radio(f) for f in F), sum(is_wd(f) for f in F)
     feats = sorted({f["feature"] for f in F}, key=lambda k: list(FEATURE).index(k))
     dates = sorted({f["date_found"] for f in F}, reverse=True)
     models = sorted({f["model"] for f in F})
     chips = "".join(f'<button class="chip" type="button" aria-pressed="false" data-f="{k}">{icon(k, 16)}{e(FEATURE[k])}</button>' for k in feats)
     body = f"""<main class="wrap"><section class="hero">
 <h1>Oddities in <em>Euclid DR1</em></h1>
-<p class="lede">Two searches of fresh images from ESA's Euclid space telescope, run with Claude Fable 5.2. One looks for things that seem odd: tidal streams, possible gravitational lenses, oddly shaped galaxies ({n_model} finds, with planted fakes to measure how far to trust the model). The other measures where bright radio sources have nothing in Euclid ({n_radio} candidates, no model in the selection). Almost none has been checked by an astronomer.</p>
+<p class="lede">Three searches of fresh data from ESA's Euclid space telescope, run with Claude Fable 5.2. One looks at images for things that seem odd: tidal streams, possible gravitational lenses, oddly shaped galaxies ({n_model} finds, with planted fakes to measure how far to trust the model). One measures where bright radio sources have nothing in Euclid ({n_radio} candidates). One measures which faint stars moved in eight years and picks white dwarf candidates that are too faint in the near infrared ({n_wd} candidates). No model takes part in the selection of the last two. Almost none has been checked by an astronomer.</p>
 <a class="doi" href="https://doi.org/10.5281/zenodo.24304792" rel="noopener"><img src="{base}/img/doi-badge.svg" alt="DOI 10.5281/zenodo.24304792" height="20"></a></section>
 <div class="filters" role="region" aria-label="Filters">
 <div class="group" aria-label="Feature"><span class="lbl">Feature</span>{chips}</div>
-{seg("run", "Search", [("", "Any"), ("outliers", "Catalogue outliers"), ("wide", "Wide fields"), ("twostage", "Test fields")] + ([("radio", "Radio, no Euclid source")] if n_radio else []))}
+{seg("run", "Search", [("", "Any"), ("outliers", "Catalogue outliers"), ("wide", "Wide fields"), ("twostage", "Test fields")] + ([("radio", "Radio, no Euclid source")] if n_radio else []) + ([("wd", "Faint stars that moved")] if n_wd else []))}
 {seg("rev", "Second opinion", [("", "Any"), ("closer", "Closer look"), ("split", "Split"), ("ordinary", "Ordinary"), ("star", "Star")])}
 {seg("conf", "Confidence", [("", "Any"), ("medium", "Medium+"), ("low", "Low")])}
 {seg("cat", "Catalogue", [("", "Any"), ("no", "Not catalogued"), ("yes", "Catalogued")])}
@@ -330,7 +362,7 @@ def index(F, meta, base):
 <div class="row"><span>Same, close look aimed at the stage-1 point (of 24)</span><span class="num"></span><span class="num">14 / 7</span></div>
 <div class="row"><span>Fresh-sky outliers inspected</span><span class="num"></span><span class="num">117</span></div>
 <div class="row"><span>Flagged and listed here</span><span class="num"></span><span class="num">{n_model}</span></div></div>
-<p>These numbers are about the image search. The radio list is built from measurements only: <a href="{base}/radio-dark/">how it was made</a>.</p>
+<p>These numbers are about the image search. The radio list and the list of faint moving stars are built from measurements only: <a href="{base}/radio-dark/">radio</a>, <a href="{base}/moving-faint/">moving stars</a>.</p>
 <p>Small samples: the two views differ by five objects. Full results, failures included, are on <a href="{REPO}">GitHub</a>.</p></div></section>{runs_html()}</main>
 <script>
 const cards=[...document.querySelectorAll('.card')],grid=document.getElementById('grid'),on=new Set();
@@ -523,7 +555,78 @@ lens.style.backgroundPosition=`${{100-x*Z}}px ${{100-y*Z}}px`}});zw.addEventList
     return page(f"{f['name']}: radio source with no Euclid counterpart", f["description"], body, base, f"{base}/{f['slug']}", f"{img_base(f, base)}-thumb.jpg")
 
 
+def wd_detail(f, prev, nxt, base):
+    has = f.get("nsc_pmra") is not None
+    nums = f'{f["nsc_pmra"]:+.0f}, {f["nsc_pmdec"]:+.0f} mas/yr (± {f["nsc_e"]:.0f}) in the NOIRLab Source Catalog DR2' if has else ""
+    nsc = {"compatible": "compatible: " + nums, "disagrees": "differs by more than 3σ: " + nums}.get(f["nsc"], "not obtained (no object or query failed)")
+    facts = [("Position (ICRS)", f'RA {f["ra"]:.5f}°, Dec {f["dec"]:+.5f}° (Euclid, 2024 to 2025)'),
+             ("Motion", f'{f["pm"]:.0f} mas/yr (RA {f["pmx"]:+.0f}, Dec {f["pmy"]:+.0f}; ± {f["e_pm"]:.1f}) over {f["base_yr"]:.1f} years, Euclid against Legacy Surveys DR10'),
+             ("Same motion in another data set?", nsc),
+             ("Brightness", f'r = {f["r"]:.2f}, Euclid visible = {f["vis"]:.2f} (AB) · not in Gaia'),
+             ("Optical colours", f'g − r = {f["gr"]:.2f}, r − z = {f["rz"]:.2f}'),
+             ("Reduced proper motion", f'H_r = {f["Hr"]:.1f} (white dwarf box of the rules: above {17.0 + 3.5 * max(f["rz"], -0.5):.1f} at this colour)'),
+             ("Near infrared, catalogue", f'J − H = {f["jh"]:.2f} against {f["bb_jh"]:.2f} for a blackbody of the same g − r ({f["sig_jh"]:.1f} σ) · Y − J {f["sig_yj"]:+.1f} σ'),
+             ("Near infrared, pixels", f'J − H {abs(f["pix_d_jh"]):.2f} mag below the blackbody in a 0.8″ aperture' + (" (H not detected: lower limit)" if f["h_limit"] else "")),
+             ("Signal", f'J {f["j_snr"]:.0f} σ, H {f["h_snr"]:.0f} σ in the Euclid catalogue')]
+    if f.get("j_high"):
+        facts.append(("Caution", "J is high against both Y and H: this looks more like a fault in J than a deficit in H"))
+    if f.get("dev"):
+        facts.append(("Blind?", "No: this source lies in the region where the rules were tuned"))
+    facts.append(("Found", f'{e(f["date_found"])} · selection by catalogue and pixel measurements, no model call · image checked for data faults by Claude Fable 5.2'))
+    body = f"""<main class="wrap"><div class="crumbs"><a href="{base}/">All finds</a> / {e(f["name"])}</div>
+<div class="detail"><div class="viewer" style="view-transition-name:c-{vt(f["slug"])}"><div class="zoomwrap" id="zw"><img id="im" style="view-transition-name:i-{vt(f["slug"])}" src="{img_base(f, base)}-marked.jpg" width="1072" height="265" alt="Euclid cutouts of {e(f["name"])} in four bands: visible, Y, J and H"><div class="lens" id="lens" aria-hidden="true"></div></div>
+<div class="legend"><span>Left to right · visible, Y (1.1 µm), J (1.4 µm), H (1.8 µm)</span><span>Each 10″ × 10″, north up</span><span>Circle · 1″ around the source</span></div></div>
+<div class="info"><h1 style="view-transition-name:t-{vt(f["slug"])}">{icon(f["feature"], 34)}{e(f["name"])}</h1>
+<div class="meta">{tags(f)}</div>
+<p class="quote">{e(f["description"])}</p>
+<p class="explain">What it could be: a cool white dwarf whose atmosphere absorbs near-infrared light (a known, rare kind), an ordinary cool white dwarf with a noisy measurement, or a faint star of the Galactic halo. Telling them apart needs a spectrum, at this brightness on an 8 m telescope. <a href="{base}/moving-faint/">How the list was made</a>.</p>{review_teaser(f["slug"])}
+<div class="facts">{"".join(f'<div class="fact"><span>{k}</span><span>{v}</span></div>' for k, v in facts)}</div>
+<div class="links">{"".join(f'<a class="btn" href="{u}" rel="noopener">{n} ↗</a>' for n, u in links(f))}</div>
+<p class="small">Unverified candidate. Recognise it, or can rule it out? <a href="{REPO}/issues/new?title={e(f["name"])}">Tell us on GitHub</a>.</p></div></div>
+{reviews_html(f["slug"])}
+<nav class="pager">{f'<a class="btn" href="{base}/{prev["slug"]}/">← {e(prev["name"])}</a>' if prev else '<span></span>'}{f'<a class="btn" href="{base}/{nxt["slug"]}/">{e(nxt["name"])} →</a>' if nxt else ''}</nav></main>"""
+    return page(f"{f['name']}: faint white dwarf candidate with a near-infrared deficit", f["description"], body, base, f"{base}/{f['slug']}", f"{img_base(f, base)}-thumb.jpg")
+
+
+def wd_page(base):
+    """Track M: faint white dwarf candidates that moved. Data: data/wd_faint.json, images data/img/wd/."""
+    fp_ = HERE / "data" / "wd_faint.json"
+    if not fp_.exists():
+        return None
+    D = json.loads(fp_.read_text(encoding="utf-8"))
+    m, C = D["meta"], D["candidates"]
+    steps = "".join(f'<div class="row" style="grid-template-columns:1fr 110px"><span>{e(k)}</span><span class="num">{v:,}</span></div>' for k, v in m["steps"])
+    top = sorted([c for c in C if c["firm"]], key=lambda c: c["sig_jh"])[:12]
+
+    def wcard(c):
+        return (f'<a class="card r-common" href="{base}/{c["slug"]}/"><img src="{base}/img/wd/{c["slug"]}-marked.jpg" width="1072" height="265" loading="lazy" '
+                f'style="aspect-ratio:1072/265;height:auto" alt="Euclid cutouts of {e(c["name"])} in four bands">'
+                f'<div class="body"><div class="hd"><h3>{e(c["name"])}</h3></div><div class="meta"><span class="tag hi">{c["pm"]:.0f} mas/yr</span>'
+                f'<span class="tag">r {c["r"]:.1f}</span><span class="tag">J − H {c["sig_jh"]:.1f} σ</span></div></div></a>')
+
+    body = f"""<main class="wrap"><div class="crumbs"><a href="{base}/">All finds</a> / Faint stars that moved</div>
+<section class="hero"><h1>Faint stars that <em>moved</em></h1>
+<p class="lede">Comparing Euclid DR1 positions with images taken about eight years earlier gives the motion of stars too faint for the Gaia satellite. {m["wd"]:,} of them move like white dwarfs, the dense remains of dead stars. {m["kept"]} of those are fainter in the near infrared than their optical colour predicts. White dwarfs of that kind are known but rare, and almost all the known ones are brighter. Each entry is an unverified candidate with no spectrum.</p></section>
+<section class="method"><div class="panel"><span class="eyebrow"><b>01</b>Method</span><h2>How the list was <em>made</em></h2>
+<p>No language model takes part in the selection. For each Euclid tile, the positions of point sources are compared with the Legacy Surveys DR10 catalogue (2013 to 2019), after tying both to the galaxies of the tile, which do not move. A source is kept when it is absent from Gaia and moved by more than 30 mas per year at more than 5 times the error. White dwarf candidates are picked by reduced proper motion: faint for their colour and fast. Their Euclid near-infrared colours are then compared with a blackbody.</p>
+<p>The rules were tuned on one 10° × 10° region and published before the rest of the sky was read. Stars already measured by Gaia come out with the right motion to 0.9 mas per year. Claude Fable 5.2 then looked at the images of the near-infrared candidates, only to remove data faults: {m["removed"]} were removed. {m["dev"]} of the {m["kept"]} lie in the tuning region and are not blind.</p>
+<p class="small">{e(m["date"])} · selection: catalogue and pixel measurements, no model call · image check: {e(m["model"])}, {e(m["harness"])}</p></div>
+<div class="panel"><span class="eyebrow"><b>02</b>Counts</span><h2>What was <em>kept</em></h2>
+<div class="rows">{steps}</div>
+<p>About {m["area"]:,} square degrees. The same cuts applied to galaxies, which cannot move, predict at most {m["false_box"]} false white dwarf candidates of {m["wd"]:,}. The near-infrared rule with signs reversed selects {m["excess"]} sources, so part of the {m["kept"]} is scatter; {m["firm"]} are firm in two colours.</p>
+<p>How interesting: moderate. These are known kinds of objects at the expected density. The list reaches fainter than published ones and carries Euclid near-infrared photometry.</p>
+<div class="links"><a class="btn" href="{base}/?run=wd">All {m["kept"]} in the gallery →</a><a class="btn" href="{REPO}/tree/main/track-m-moving-faint" rel="noopener">Full tables, rules and code ↗</a></div></div></section>
+<h2 style="margin:8px 0 0">The {len(top)} strongest deficits</h2><p class="small">Left to right: Euclid visible, Y, J, H. 10″ across, north up. A source with a near-infrared deficit fades from J to H more than its neighbours.</p>
+<div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(420px,1fr))">{"".join(wcard(c) for c in top)}</div>
+<p class="small">Unverified candidates. Recognise one, or can rule it out? <a href="{REPO}/issues/new?title=Track%20M">Tell us on GitHub</a>.</p></main>"""
+    return page("Faint white dwarf candidates that moved | Euclid Oddities",
+                f"{m['wd']:,} faint white dwarf candidates from Euclid DR1 proper motions, {m['kept']} with a near-infrared deficit. Unverified candidates.", body, base, f"{base}/moving-faint",
+                f"{base}/img/wd/{top[0]['slug']}-thumb.jpg" if top else None)
+
+
 def detail(f, prev, nxt, base):
+    if is_wd(f):
+        return wd_detail(f, prev, nxt, base)
     if is_radio(f):
         return radio_detail(f, prev, nxt, base)
     cat = ", ".join(e(n) for n in f["catalogue_names"]) or "No named entry (survey detections only)"
@@ -618,7 +721,7 @@ def main():
     global BASE_URL
     BASE_URL = base
     D = json.loads((HERE / "data" / "finds.json").read_text(encoding="utf-8"))
-    F = sorted(D["finds"] + radio_finds(), key=lambda f: (-promise(f), -f["interest"], f["slug"]))
+    F = sorted(D["finds"] + radio_finds() + wd_finds(), key=lambda f: (-promise(f), -f["interest"], f["slug"]))
     out.mkdir(parents=True, exist_ok=True)
     if (out / "img").exists():
         shutil.rmtree(out / "img")
@@ -633,6 +736,10 @@ def main():
     if rp:
         (out / "radio-dark").mkdir(exist_ok=True)
         (out / "radio-dark" / "index.html").write_text(rp, encoding="utf-8")
+    wp = wd_page(base)
+    if wp:
+        (out / "moving-faint").mkdir(exist_ok=True)
+        (out / "moving-faint" / "index.html").write_text(wp, encoding="utf-8")
     print(f"{len(F)} finds -> {out} (base {base or '/'}){' + radio-dark page' if rp else ''}")
 
 
