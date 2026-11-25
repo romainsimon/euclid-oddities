@@ -14,6 +14,7 @@ No language model takes part in the selection. The model looked at the cutouts o
 - A simulation of noise alone, with the real errors, produces 0 such sources in five draws of the whole sample.
 - Stage one deflates further: of its 143 near-infrared deficit candidates, 23 are among the 41. Most of the others are ordinary cool white dwarfs, whose deficit against a blackbody is what a pure-hydrogen atmosphere gives anyway.
 - By-product: **5 known Gaia white dwarfs** (G = 19.1 to 20.3, 68 to 119 pc) meet the same rule. SIMBAD lists them only in catalogue papers. Their parallaxes confirm the distances given by the same models within 2 to 21 %.
+- Looked at afterwards, outside the rules: of 65 sources that have the same signature but fit no model, 31 are data faults (missing pixels) and **22 are clean, isolated point sources with a clear near-infrared deficit**, whose optical colours no model of the grid reproduces. They are listed apart, not in the 41.
 - No reliable halo white dwarf comes out of this stage.
 
 ## The 41 candidates (`stage2/interesting_candidates.csv`, `stage2/sheets/`)
@@ -89,7 +90,15 @@ They change no list.
 
 **Simulation, positive control.** Sources drawn from the best model of the 47 selected ones are selected again in 80 % of the draws. In a noise-only draw the largest chi2 difference among 8,186 sources is 8.2, against a threshold of 16.
 
-**Sources that fit no model.** 65 quality sources have the chi2 difference and the absorption index of rule H but a best model that is not acceptable (median chi2 of 51 for 5 degrees of freedom); 51 of them show the clear J + H deficit above, and 17 are among the 143 of stage one. They are excluded by the rules. They may be blends and artefacts, or absorption stronger than these grids describe. They were **not** passed through the pixel step or looked at. Table: `stage2/fits_no_model.csv`.
+**Sources that fit no model (pixel step and checks added on 25 Nov 2026, `qn.py`, `qn2.py`).** 65 quality sources have the chi2 difference and the absorption index of rule H but a best model that is not acceptable (median chi2 of 51 for 5 degrees of freedom). They are excluded by the rules and stay excluded: what follows is a look made afterwards, outside the pre-registered rules. Table: `stage2/fits_no_model.csv` (column `group`); images: `stage2/sheets/fits_no_model_00.jpg` to `05` (the row number is `sheet_row`).
+
+- **31 have missing pixels** within 1.5 arcsec of the source in Y, J or H (holes and masked bands in the Euclid mosaics). Their bad fit is a data fault: one near-infrared band is wrong by 10 to 26 sigma. They are discarded.
+- **34 have clean pixels.** 5 of them show no clear near-infrared deficit (4 show an excess) and are left aside.
+- **29 have clean pixels and a clear J + H deficit** (more than 3 sigma below the optical-only prediction of both pure hydrogen and pure helium). Seven have a galaxy, a faint neighbour or a streak within 5 arcsec, which can spoil the ground-based optical fluxes; for four of these the two optical measurements below disagree by 0.8 to 2.5 mag in g.
+- **22 are isolated point sources** in the four Euclid bands: r = 20.9 to 22.9, motion 32 to 116 mas/yr (all above 19 sigma), median J + H deficit 0.73 mag, best (rejected) models at 3050 to 5000 K, mostly mixed helium and hydrogen. None has a SIMBAD entry within 10 arcsec. 12 were among the 143 of stage one. None is among the 41.
+- What makes them fit no model is the optical, not the near-infrared: against the best model, g is too faint (median -4.5 sigma) and r and i too bright (+4.7 and +4.2 sigma), with Y, J, H low. The energy distribution is more peaked around 0.6 to 0.8 micron than any model of the grid. Two readings: absorption stronger or shaped differently than in these public grids, which is the known situation of the most extreme infrared-faint white dwarfs, or a fault in the optical photometry.
+- Checks on the photometry of the 22. (a) The Euclid catalogue carries its own forced fluxes on the DECam images; they agree with the Legacy Surveys Tractor fluxes within 0.15 mag in g, r and i for 15 of the 22, after the offset of the whole sample (0.05 mag). The 7 others differ in one or more bands; two of them are the fastest movers (116 mas/yr), for which the Euclid forced flux, measured at the 2024 position on older images, is expected to be low. (b) Euclid VIS, taken in one epoch, against the mean of r, i and z: residuals within 0.11 mag of the relation of the whole sample (scatter 0.043), none beyond 3 scatter among the 29. So the r, i, z level is supported by a second instrument; the g band is not tested by this. (c) Five of the 22 have a poor Tractor fit in one band (reduced chi2 above 4), and four moved by 0.4 to 0.6 arcsec during the Legacy Surveys epochs; for these the optical colours are less safe.
+- Reading: the 22 are candidates of the same kind as the 41, possibly more extreme, and less secure because nothing in our grid reproduces them. The strongest are sheet rows 6 and 14 (r = 21.3 and 20.9, J + H about 1 mag below the prediction at 13 to 14 sigma). They are not added to the list of 41 or to the gallery.
 
 **Motion during the Legacy Surveys epochs.** A moving source is smeared in the stacked optical images (median 0.24 arcsec for the 41, at most 0.51). That can only lower the optical fluxes, which makes the near-infrared look too bright, not too faint. The share of strong-absorption sources does rise with the smear (0.2 % below 0.15 arcsec, 1.1 % at 0.3 to 0.5), as expected if they are intrinsically faint and therefore near; this work cannot separate that from a measurement effect.
 
@@ -129,6 +138,7 @@ Plainly: this is the first part of Track M that a specialist may want.
 | `halo_candidates.csv` | The 62 sources of rule J (not finds) |
 | `vis_check.csv`, `cal.json` | VIS check; zero points and systematics |
 | `posthoc_m2.csv`, `fits_no_model.csv`, `qx.py` | Checks made after the results were read; the 65 sources that fit no model |
+| `qn.py`, `qn2.py`, `sheets/fits_no_model_*.jpg` | Pixel step, images and checks for the 65 sources that fit no model |
 | `qd.py`, `qg.py`, `qs.py`, `qm.py`, `qf.py`, `qo.py`, `qp.py`, `qr.py`, `qv.py`, `qc.py` | Data assembly, Gaia sample, model synthesis, fit and rules, summaries, final tables, literature, VIS check |
 | `qy.py`, `qy2.py`, `qy3.py`, `qy4.py` | Later checks on the five Gaia stars: catalogues by position, VISTA photometry, the table with photometry |
 

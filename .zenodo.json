@@ -1,7 +1,7 @@
 {
-  "title": "Euclid Oddities: pre-registered tests of an LLM anomaly inspector in Euclid DR1, with a public gallery of unverified finds",
+  "title": "Euclid Oddities: pre-registered searches of Euclid DR1 with Claude (image anomalies, radio sources without counterpart, faint white dwarfs), with a public gallery of unverified candidates",
   "upload_type": "dataset",
-  "description": "<p>Pre-registrations (with SHA-256 hashes), amendments, reports and null results from an open-ended search of ESA Euclid DR1 (public since 12 November 2026) with Claude. Track D tests whether vision-language models (Claude Haiku 5.5, Sonnet 5.5, Fable 5.2) can flag unusual objects in Euclid cutouts, using planted fakes under a sealed key, unlabelled known lenses and thresholds fixed in advance. A larger 2x2 view raised Fable 5.2's recall of planted oddities from 9/24 to 14/24 with 3/16 false features. Flags on fresh sky were cross-matched with SIMBAD, NED and ECLIPSE and given blind second opinions by Claude Opus 5.5, Claude Fable 5.2 and OpenAI GPT-6 Astra. Track A tests a one-versus-two point-source fit for sub-arcsecond lensed quasars. Track R (added in v1.1) lists 227 compact RACS-mid radio sources with no counterpart in the Euclid VIS and H mosaics, selected by forced photometry under rules published before the main run, with a literature check; they are unverified candidates of a known class (infrared-faint radio sources). Failures and sensitivities are reported in full. Nothing here is a confirmed discovery.</p><p>Gallery of every flagged object: <a href=\"https://spacesim.co/euclid-oddities\">spacesim.co/euclid-oddities</a>, part of <a href=\"https://spacesim.co\">SpaceSim</a>, a free browser universe simulator.</p>",
+  "description": "<p>Pre-registrations (with SHA-256 hashes), amendments, reports and null results from an open-ended search of ESA Euclid DR1 (public since 12 November 2026) with Claude. Track D tests whether vision-language models (Claude Haiku 5.5, Sonnet 5.5, Fable 5.2) can flag unusual objects in Euclid cutouts, using planted fakes under a sealed key, unlabelled known lenses and thresholds fixed in advance. A larger 2x2 view raised Fable 5.2's recall of planted oddities from 9/24 to 14/24 with 3/16 false features. Flags on fresh sky were cross-matched with SIMBAD, NED and ECLIPSE and given blind second opinions by Claude Opus 5.5, Claude Fable 5.2 and OpenAI GPT-6 Astra. Track A tests a one-versus-two point-source fit for sub-arcsecond lensed quasars. Track R (added in v1.1) lists 227 compact RACS-mid radio sources with no counterpart in the Euclid VIS and H mosaics, selected by forced photometry under rules published before the main run, with a literature check; they are unverified candidates of a known class (infrared-faint radio sources). Track M (added in v1.2) measures proper motions of 4.8 million faint point sources that Gaia does not see, from Euclid DR1 and Legacy Surveys DR10 positions about eight years apart, and fits the 9,407 white dwarf candidates with model atmospheres in seven bands, under rules published before the fits were read: 41 candidates need strong collision-induced absorption by molecular hydrogen (infrared-faint white dwarf candidates), and 5 known Gaia white dwarfs show the same signature; all are unverified, without spectra. Failures and sensitivities are reported in full. Nothing here is a confirmed discovery.</p><p>Gallery of every flagged object: <a href=\"https://spacesim.co/euclid-oddities\">spacesim.co/euclid-oddities</a>, part of <a href=\"https://spacesim.co\">SpaceSim</a>, a free browser universe simulator.</p>",
   "creators": [
     {
       "name": "Simon, Romain",
@@ -21,7 +21,11 @@
     "strong lens candidates",
     "infrared-faint radio sources",
     "RACS",
-    "radio galaxies"
+    "radio galaxies",
+    "white dwarfs",
+    "infrared-faint white dwarfs",
+    "proper motion",
+    "Legacy Surveys DR10"
   ],
   "license": "cc-by-4.0",
   "access_right": "open",
@@ -38,5 +42,5 @@
       "resource_type": "software"
     }
   ],
-  "version": "1.1"
+  "version": "1.2"
 }
