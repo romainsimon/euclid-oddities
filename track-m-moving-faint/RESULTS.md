@@ -4,6 +4,8 @@ Run of 23 to 25 Nov 2026. Claude Fable 5.2 in Claude Code (interactive session, 
 
 No language model takes part in the selection. The model looked at the cutouts of the near-infrared deficit candidates only, and removed five for a visible data fault.
 
+**Second stage (25 Nov 2026): [RESULTS_M2.md](RESULTS_M2.md).** Model-atmosphere fits of all 9,407 candidates reduce the list worth attention from the 143 below to 41, of which 23 are among the 143.
+
 **Every entry is an unverified candidate.** Nothing here has a spectrum, a parallax or a temperature. White dwarfs and infrared-faint white dwarfs are known classes.
 
 ## In short

@@ -76,9 +76,10 @@ Proper motions of Euclid DR1 point sources absent from Gaia, from Euclid positio
 
 - 44,602 sources moved by more than 30 mas/yr; 9,407 are white dwarf candidates by reduced proper motion (5.7 per deg2, median r = 22.3). The same cuts on extended sources predict at most 23 false ones.
 - 143 of them show a near-infrared deficit against a blackbody and pass a pixel check. The reversed rule selects 89 sources, so part of the list is scatter. A check made after the results were read shows the blackbody is a biased reference for the reddest sources: against sources of the same colour, 102 remain and 49 are firm in two colours. None is in SIMBAD.
+- Second stage (25 Nov 2026): every candidate fitted with white dwarf model atmospheres in seven bands, after calibration and tests on 3,364 Gaia white dwarfs. 41 candidates cannot be fitted without strong collision-induced absorption by molecular hydrogen (34 with a near-infrared deficit that is clear whatever the composition); 23 of them were among the 143. Noise alone, simulated, produces none. Five known Gaia white dwarfs show the same signature and are not attached to any paper on such objects in SIMBAD. The gallery now shows the 41.
 - Known classes of objects, at the expected density. All entries are unverified candidates: no spectrum, no parallax.
 
-Rules, counts, tables, images and code: [track-m-moving-faint/RESULTS.md](track-m-moving-faint/RESULTS.md).
+Rules, counts, tables, images and code: [track-m-moving-faint/RESULTS.md](track-m-moving-faint/RESULTS.md) (first stage) and [track-m-moving-faint/RESULTS_M2.md](track-m-moving-faint/RESULTS_M2.md) (second stage).
 
 ## What is in this repository
 

@@ -280,4 +280,5 @@ def run(sim=False):
     hal.to_csv(H + "/m2/out/halo.csv", index=False)
 
 
-{"cal": cal, "run": run, "sim": lambda: run(sim=True)}[sys.argv[1]]()
+if __name__ == "__main__":
+    {"cal": cal, "run": run, "sim": lambda: run(sim=True)}[sys.argv[1]]()

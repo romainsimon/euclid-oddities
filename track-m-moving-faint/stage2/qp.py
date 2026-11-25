@@ -43,8 +43,8 @@ O["vtan_best_model"] = 4.74047e-3 * O.pm * O.d_best_model
 fitc = (["object_id", "right_ascension", "declination", "r", "pm", "pmx", "pmy", "e_pm", "ebv", "quality", "n"] + [f"{k}_{c}" for c in ("H", "He") for k in ("teff", "tlo", "thi", "chi2", "d", "dcons")]
         + ["comp_best", "teff_best", "chi2_best", "p_best", "cia_best", "tmax_near", "chi2_weak", "comp_weak", "teff_weak", "dchi2", "d_best_model", "vtan_best_model"] + ["z_" + b for b in BANDS] + ["snr_" + b for b in BANDS]
         + ["d_pc", "d_cons_pc", "vtan", "vtan_cons", "halo", "unbound", "strong_cia_primary", "strong_cia_other", "strong_cia", "ultracool"])
-O[fitc].round(4).to_csv(OUT + "/fits_all.csv.gz", index=False)
-O[O.halo][fitc].round(4).sort_values("vtan_cons", ascending=False).to_csv(OUT + "/halo_candidates.csv", index=False)
+O[fitc].round(6).to_csv(OUT + "/fits_all.csv.gz", index=False)
+O[O.halo][fitc].round(6).sort_values("vtan_cons", ascending=False).to_csv(OUT + "/halo_candidates.csv", index=False)
 S = O[O.strong_cia].sort_values("dchi2", ascending=False).reset_index(drop=True)
 X = pd.read_csv(H + "/sel_m2/irfaint_pix.csv")
 assert (X.object_id.values == S.object_id.values).all()
@@ -81,7 +81,7 @@ S["class"] = np.where(S.ultracool, "ultracool (every acceptable model below 4000
 pubc = (["row", "object_id", "right_ascension", "declination", "kept", "class", "pixel_step", "eye_note", "stage_one", "r", "pm", "e_pm", "pmx", "pmy", "comp_best", "teff_best", "tmax_near", "chi2_best", "n", "p_best", "dchi2", "cia_best",
          "teff_H", "chi2_H", "teff_He", "chi2_He", "d_best_model", "vtan_best_model", "vtan_cons"] + ["z_" + b for b in BANDS] + ["snr_" + b for b in BANDS] + ["pix_VIS_snr", "pix_NIR_Y_snr", "pix_NIR_J_snr", "pix_NIR_H_snr"]
         + ["f_" + b for b in BANDS] + ["e_" + b for b in BANDS] + ["simbad_10as", "nsc_dr2"])
-S[pubc].round(4).to_csv(OUT + "/interesting_candidates.csv", index=False)
+S[pubc].round(6).to_csv(OUT + "/interesting_candidates.csv", index=False)
 K = S[S.kept]
 print(f"strong absorption {len(S)}; pixel step:", S.pixel_step.value_counts().to_dict())
 print(f"kept {len(K)}: classes", K["class"].value_counts().to_dict())
