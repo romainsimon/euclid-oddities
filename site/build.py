@@ -200,16 +200,16 @@ def img_base(f, base):
 
 
 def wd_finds():
-    """Track M candidates (data/wd_faint.json) as gallery entries: faint moving point sources with a near-infrared deficit."""
+    """Track M candidates (data/wd_faint.json, built by mk_wd.py) as gallery entries: faint moving white dwarf candidates that need strong molecular absorption."""
     fp_ = HERE / "data" / "wd_faint.json"
     if not fp_.exists():
         return []
     D = json.loads(fp_.read_text(encoding="utf-8"))
     out = []
     for c in D["candidates"]:
-        desc = (f'Faint point source (r = {c["r"]:.1f}) that moved {c["pm"] * c["base_yr"] / 1000:.2f}″ in {c["base_yr"]:.0f} years. White dwarf candidate, '
-                + ("fainter than expected in the near infrared in two colours." if c["firm"] else "somewhat fainter than expected in the near infrared."
-                   if c.get("local", True) else "slightly fainter than a blackbody in the near infrared, but not against similar stars."))
+        desc = (f'Faint star (r = {c["r"]:.1f}) moving {c["pm"]:.0f} mas per year. White dwarf candidate. '
+                + (f'Its near-infrared light is {c["nir_mag"]:.1f} mag below what its optical colours predict: only models with strong absorption by molecular hydrogen fit.' if c["firm"]
+                   else "It fits a pure-hydrogen white dwarf below 4000 K, and no warmer or helium model. This rests on one family of models."))
         out.append(dict(c, kind="wd", feature="wd_irfaint", date_found="2026-11-25", run="Faint white dwarf candidates that moved (Track M)",
                         model="No model (measured)", model_id="", interest=0, weirdness=0, confidence="none", catalogued=False,
                         description=desc, status="unverified candidate"))
@@ -236,8 +236,8 @@ def radio_finds():
 
 def tags(f):
     if is_wd(f):
-        return (f'<span class="tag hi">{f["pm"]:.0f} mas/yr</span><span class="tag">{"two colours" if f["firm"] else "mild deficit" if f.get("local", True) else "weak"}</span>'
-                + ('<span class="tag">tuning region</span>' if f.get("dev") else ""))
+        return (f'<span class="tag hi">{f["pm"]:.0f} mas/yr</span><span class="tag">{"strong absorption" if f["firm"] else "cool hydrogen model"}</span>'
+                + f'<span class="tag">r {f["r"]:.1f}</span>')
     if is_radio(f):
         return (f'<span class="tag hi">{f["peak"]:.0f} mJy</span><span class="tag">{"empty in Euclid" if f["cls"] == "empty" else "faint host"}</span>'
                 + ('<span class="tag">tuning region</span>' if f.get("dev") else ""))
@@ -294,8 +294,8 @@ def promise(f):
     closer = sum(r.get("verdict") == "worth a closer look" for r in R)
     against = sum(r.get("verdict") in ("likely ordinary", "likely star or foreground", "likely artefact") for r in R)
     penalty = 2 if R and against > len(R) / 2 else 0
-    if is_wd(f):      # no model score: firm two-colour deficits first, then by significance
-        return round(closer * 2 - penalty + (0.6 if f["firm"] else 0.4 if f.get("local", True) else 0.2) + min(-f["sig_jh"], 8) / 40, 3)
+    if is_wd(f):      # no model score: clear near-infrared deficits first, then by their size
+        return round(closer * 2 - penalty + (0.6 if f["firm"] else 0.35) + min(max(-f["nir_sig"], 0), 16) / 80, 3)
     if is_radio(f):   # no model score: emptier and brighter first, on the same 0-1 scale as interest / 5
         return round(closer * 2 - penalty + (0.6 if f["cls"] == "empty" else 0.4) + min(f["peak"], 70) / 200, 3)
     return round(closer * 2 - penalty + f["interest"] / 5, 3)
@@ -338,7 +338,7 @@ def index(F, meta, base):
     chips = "".join(f'<button class="chip" type="button" aria-pressed="false" data-f="{k}">{icon(k, 16)}{e(FEATURE[k])}</button>' for k in feats)
     body = f"""<main class="wrap"><section class="hero">
 <h1>Oddities in <em>Euclid DR1</em></h1>
-<p class="lede">Three searches of fresh data from ESA's Euclid space telescope, run with Claude Fable 5.2. One looks at images for things that seem odd: tidal streams, possible gravitational lenses, oddly shaped galaxies ({n_model} finds, with planted fakes to measure how far to trust the model). One measures where bright radio sources have nothing in Euclid ({n_radio} candidates). One measures which faint stars moved in eight years and picks white dwarf candidates that are too faint in the near infrared ({n_wd} candidates). No model takes part in the selection of the last two. Almost none has been checked by an astronomer.</p>
+<p class="lede">Three searches of fresh data from ESA's Euclid space telescope, run with Claude Fable 5.2. One looks at images for things that seem odd: tidal streams, possible gravitational lenses, oddly shaped galaxies ({n_model} finds, with planted fakes to measure how far to trust the model). One measures where bright radio sources have nothing in Euclid ({n_radio} candidates). One measures which faint stars moved in eight years and keeps the white dwarf candidates that only strong near-infrared absorption can explain ({n_wd} candidates). No model takes part in the selection of the last two. Almost none has been checked by an astronomer.</p>
 <a class="doi" href="https://doi.org/10.5281/zenodo.24304792" rel="noopener"><img src="{base}/img/doi-badge.svg" alt="DOI 10.5281/zenodo.24304792" height="20"></a></section>
 <div class="filters" role="region" aria-label="Filters">
 <div class="group" aria-label="Feature"><span class="lbl">Feature</span>{chips}</div>
@@ -559,72 +559,78 @@ lens.style.backgroundPosition=`${{100-x*Z}}px ${{100-y*Z}}px`}});zw.addEventList
 def wd_detail(f, prev, nxt, base):
     has = f.get("nsc_pmra") is not None
     nums = f'{f["nsc_pmra"]:+.0f}, {f["nsc_pmdec"]:+.0f} mas/yr (± {f["nsc_e"]:.0f}) in the NOIRLab Source Catalog DR2' if has else ""
-    nsc = {"compatible": "compatible: " + nums, "disagrees": "differs by more than 3σ: " + nums}.get(f["nsc"], "not obtained (no object or query failed)")
+    alone = f'; that catalogue alone sees the motion at {f["nsc_sig"]:.0f} σ' if has else ""
+    nsc = {"compatible": "compatible: " + nums + alone, "disagrees": "differs by more than 3σ: " + nums}.get(f["nsc"], "not obtained (no object or query failed)")
+    stage1 = {"kept, firm in two colours": "in the first list of 143, in its firm subset", "kept": "in the first list of 143"}.get(f["stage1"], "not in the first list: found by the model fit")
     facts = [("Position (ICRS)", f'RA {f["ra"]:.5f}°, Dec {f["dec"]:+.5f}° (Euclid, 2024 to 2025)'),
-             ("Motion", f'{f["pm"]:.0f} mas/yr (RA {f["pmx"]:+.0f}, Dec {f["pmy"]:+.0f}; ± {f["e_pm"]:.1f}) over {f["base_yr"]:.1f} years, Euclid against Legacy Surveys DR10'),
+             ("Motion", f'{f["pm"]:.0f} mas/yr (RA {f["pmx"]:+.0f}, Dec {f["pmy"]:+.0f}; ± {f["e_pm"]:.1f}), Euclid against Legacy Surveys DR10, about eight years apart'),
              ("Same motion in another data set?", nsc),
-             ("Brightness", f'r = {f["r"]:.2f}, Euclid visible = {f["vis"]:.2f} (AB) · not in Gaia'),
-             ("Optical colours", f'g − r = {f["gr"]:.2f}, r − z = {f["rz"]:.2f}'),
-             ("Reduced proper motion", f'H_r = {f["Hr"]:.1f} (white dwarf box of the rules: above {17.0 + 3.5 * max(f["rz"], -0.5):.1f} at this colour)'),
-             ("Near infrared, catalogue", f'J − H = {f["jh"]:.2f} against {f["bb_jh"]:.2f} for a blackbody of the same g − r ({f["sig_jh"]:.1f} σ) · Y − J {f["sig_yj"]:+.1f} σ'),
-             ("Near infrared, pixels", f'J − H {abs(f["pix_d_jh"]):.2f} mag below the blackbody in a 0.8″ aperture' + (" (H not detected: lower limit)" if f["h_limit"] else "")),
-             ("Signal", f'J {f["j_snr"]:.0f} σ, H {f["h_snr"]:.0f} σ in the Euclid catalogue'),
-             ("Against similar stars", ("still selected when compared with white dwarf candidates of the same colour" if f.get("local", True)
-                                        else "not selected when compared with white dwarf candidates of the same colour (check made after the results were read)")),
+             ("Brightness", f'r = {f["r"]:.2f} (AB) · not in Gaia'),
+             ("Best model", f'{e(f["comp"])}, {f["teff"]:,} K · chi2 = {f["chi2"]:.0f} on 7 bands'),
+             ("Without strong absorption", f'the best model without it is worse by {f["dchi2"]:.0f} in chi2 (the rules ask for 16)'),
+             ("Near infrared against a plain optical fit", (f'J + H is {f["nir_mag"]:.2f} mag below the prediction ({abs(f["nir_sig"]):.0f} σ), for pure hydrogen and for pure helium alike' if f["firm"]
+                                                            else f'no clear deficit: a pure-hydrogen model near {f["opt_teff"]:,} K, fitted on the optical bands alone, already predicts the faint J and H. The case rests on pure helium failing')),
+             ("Temperature", f'every model within 9 in chi2 of the best one is below {f["tmax"]:,} K. Indicative: these are not the models specialists use for this class'),
+             ("If the model is right", f'about {f["d_pc"]} pc away, moving at {f["vtan"]} km/s across the sky (no parallax)'),
+             ("Signal on the pixels", f'J {f["snr_j"]:.0f} σ, H {f["snr_h"]:.0f} σ in a 0.8″ aperture'),
+             ("First list", stage1),
              ("SIMBAD within 10″", "nothing (checked 25 Nov 2026)" if f.get("simbad", "none") == "none" else e(f.get("simbad", "")))]
-    if f.get("j_high"):
-        facts.append(("Caution", "J is high against both Y and H: this looks more like a fault in J than a deficit in H"))
-    if f.get("dev"):
-        facts.append(("Blind?", "No: this source lies in the region where the rules were tuned"))
-    facts.append(("Found", f'{e(f["date_found"])} · selection by catalogue and pixel measurements, no model call · image checked for data faults by Claude Fable 5.2'))
+    if f.get("note"):
+        facts.append(("Caution", e(f["note"])))
+    facts.append(("Found", f'{e(f["date_found"])} · selection by catalogue measurements and model fits, no language model · image checked for data faults by Claude Fable 5.2'))
     body = f"""<main class="wrap"><div class="crumbs"><a href="{base}/">All finds</a> / {e(f["name"])}</div>
 <div class="detail"><div class="viewer" style="view-transition-name:c-{vt(f["slug"])}"><div class="zoomwrap" id="zw"><img id="im" style="view-transition-name:i-{vt(f["slug"])}" src="{img_base(f, base)}-marked.jpg" width="1072" height="265" alt="Euclid cutouts of {e(f["name"])} in four bands: visible, Y, J and H"><div class="lens" id="lens" aria-hidden="true"></div></div>
 <div class="legend"><span>Left to right · visible, Y (1.1 µm), J (1.4 µm), H (1.8 µm)</span><span>Each 10″ × 10″, north up</span><span>Circle · 1″ around the source</span></div></div>
 <div class="info"><h1 style="view-transition-name:t-{vt(f["slug"])}">{icon(f["feature"], 34)}{e(f["name"])}</h1>
 <div class="meta">{tags(f)}</div>
 <p class="quote">{e(f["description"])}</p>
-<p class="explain">What it could be: a cool white dwarf whose atmosphere absorbs near-infrared light (a known, rare kind), an ordinary cool white dwarf with a noisy measurement, or a faint star of the Galactic halo. Telling them apart needs a spectrum, at this brightness on an 8 m telescope. <a href="{base}/moving-faint/">How the list was made</a>.</p>{review_teaser(f["slug"])}
+<p class="explain">What it could be: a white dwarf cool enough for molecular hydrogen to absorb its near-infrared light, a known and rare kind of which about a hundred have been studied in detail. Or a measurement or model problem that the checks did not catch. Confirming it needs a spectrum, or near-infrared photometry from another telescope. <a href="{base}/moving-faint/">How the list was made</a>.</p>{review_teaser(f["slug"])}
 <div class="facts">{"".join(f'<div class="fact"><span>{k}</span><span>{v}</span></div>' for k, v in facts)}</div>
 <div class="links">{"".join(f'<a class="btn" href="{u}" rel="noopener">{n} ↗</a>' for n, u in links(f))}</div>
 <p class="small">Unverified candidate. Recognise it, or can rule it out? <a href="{REPO}/issues/new?title={e(f["name"])}">Tell us on GitHub</a>.</p></div></div>
 {reviews_html(f["slug"])}
 <nav class="pager">{f'<a class="btn" href="{base}/{prev["slug"]}/">← {e(prev["name"])}</a>' if prev else '<span></span>'}{f'<a class="btn" href="{base}/{nxt["slug"]}/">{e(nxt["name"])} →</a>' if nxt else ''}</nav></main>"""
-    return page(f"{f['name']}: faint white dwarf candidate with a near-infrared deficit", f["description"], body, base, f"{base}/{f['slug']}", f"{img_base(f, base)}-thumb.jpg")
+    return page(f"{f['name']}: faint white dwarf candidate with strong near-infrared absorption", f["description"], body, base, f"{base}/{f['slug']}", f"{img_base(f, base)}-thumb.jpg")
 
 
 def wd_page(base):
-    """Track M: faint white dwarf candidates that moved. Data: data/wd_faint.json, images data/img/wd/."""
+    """Track M: faint white dwarf candidates that moved. Data: data/wd_faint.json (built by mk_wd.py), images data/img/wd/."""
     fp_ = HERE / "data" / "wd_faint.json"
     if not fp_.exists():
         return None
     D = json.loads(fp_.read_text(encoding="utf-8"))
-    m, C = D["meta"], D["candidates"]
+    m, C, G = D["meta"], D["candidates"], D.get("gaia", [])
     steps = "".join(f'<div class="row" style="grid-template-columns:1fr 110px"><span>{e(k)}</span><span class="num">{v:,}</span></div>' for k, v in m["steps"])
-    top = sorted([c for c in C if c["firm"]], key=lambda c: c["sig_jh"])[:12]
+    top = sorted([c for c in C if c["firm"]], key=lambda c: c["nir_sig"])[:12]
+    grow = "".join(f'<div class="row" style="grid-template-columns:1.6fr 60px 1fr 1fr"><span>Gaia DR3 {e(g["id"])}</span><span class="num">{g["g"]:.1f}</span><span class="num">{g["d_plx"]} pc</span><span class="num">{g["d_model"]} pc</span></div>' for g in G)
 
     def wcard(c):
         return (f'<a class="card r-common" href="{base}/{c["slug"]}/"><img src="{base}/img/wd/{c["slug"]}-marked.jpg" width="1072" height="265" loading="lazy" '
                 f'style="aspect-ratio:1072/265;height:auto" alt="Euclid cutouts of {e(c["name"])} in four bands">'
                 f'<div class="body"><div class="hd"><h3>{e(c["name"])}</h3></div><div class="meta"><span class="tag hi">{c["pm"]:.0f} mas/yr</span>'
-                f'<span class="tag">r {c["r"]:.1f}</span><span class="tag">J − H {c["sig_jh"]:.1f} σ</span></div></div></a>')
+                f'<span class="tag">r {c["r"]:.1f}</span><span class="tag">J + H {c["nir_mag"]:.1f} mag low</span></div></div></a>')
 
     body = f"""<main class="wrap"><div class="crumbs"><a href="{base}/">All finds</a> / Faint stars that moved</div>
 <section class="hero"><h1>Faint stars that <em>moved</em></h1>
-<p class="lede">Comparing Euclid DR1 positions with images taken about eight years earlier gives the motion of stars too faint for the Gaia satellite. {m["wd"]:,} of them move like white dwarfs, the dense remains of dead stars. {m["kept"]} of those are fainter in the near infrared than their optical colour predicts. White dwarfs of that kind are known but rare, and almost all the known ones are brighter. Each entry is an unverified candidate with no spectrum.</p></section>
+<p class="lede">Comparing Euclid DR1 positions with images taken about eight years earlier gives the motion of stars too faint for the Gaia satellite. {m["wd"]:,} of them move like white dwarfs, the dense remains of dead stars. Fitting each one with white dwarf models leaves {m["kept"]} that cannot be explained without strong absorption of near-infrared light by molecular hydrogen, the signature of very cool white dwarfs. About {m["known"]} of that kind have been studied in detail. Each entry is an unverified candidate with no spectrum.</p></section>
 <section class="method"><div class="panel"><span class="eyebrow"><b>01</b>Method</span><h2>How the list was <em>made</em></h2>
-<p>No language model takes part in the selection. For each Euclid tile, the positions of point sources are compared with the Legacy Surveys DR10 catalogue (2013 to 2019), after tying both to the galaxies of the tile, which do not move. A source is kept when it is absent from Gaia and moved by more than 30 mas per year at more than 5 times the error. White dwarf candidates are picked by reduced proper motion: faint for their colour and fast. Their Euclid near-infrared colours are then compared with a blackbody.</p>
-<p>The rules were tuned on one 10° × 10° region and published before the rest of the sky was read. Stars already measured by Gaia come out with the right motion to 0.9 mas per year. Claude Fable 5.2 then looked at the images of the near-infrared candidates, only to remove data faults: {m["removed"]} were removed. {m["dev"]} of the {m["kept"]} lie in the tuning region and are not blind.</p>
-<p class="small">{e(m["date"])} · selection: catalogue and pixel measurements, no model call · image check: {e(m["model"])}, {e(m["harness"])}</p></div>
+<p>No language model takes part in the selection. For each Euclid tile, the positions of point sources are compared with the Legacy Surveys DR10 catalogue (2013 to 2019), after tying both to the galaxies of the tile, which do not move. A source is kept when it is absent from Gaia and moved by more than 30 mas per year at more than 5 times the error. White dwarf candidates are picked by reduced proper motion: faint for their colour and fast.</p>
+<p>Each candidate is then fitted in seven bands (g, r, i, z from Legacy Surveys, Y, J, H from Euclid) with public white dwarf model spectra of five compositions. The method was first tested on 3,364 white dwarfs that Gaia already knows in the same fields: it recovers their temperatures within 3 % and their distances within about 20 %. A candidate is kept when no model without strong absorption comes close, with two different flux measurements and clean pixels. Claude Fable 5.2 looked at the images only to remove data faults. The rules were published before any fit of a candidate was read.</p>
+<p class="small">{e(m["date"])} · selection: catalogue measurements and model fits, no language model · image check: {e(m["model"])}, {e(m["harness"])}</p></div>
 <div class="panel"><span class="eyebrow"><b>02</b>Counts</span><h2>What was <em>kept</em></h2>
 <div class="rows">{steps}</div>
-<p>About {m["area"]:,} square degrees. The same cuts applied to galaxies, which cannot move, predict at most {m["false_box"]} false white dwarf candidates of {m["wd"]:,}. The near-infrared rule with signs reversed selects {m["excess"]} sources, so part of the {m["kept"]} is scatter. A check made after the results were read shows that the blackbody is a biased reference for the reddest stars: compared with white dwarf candidates of the same colour, {m["local"]} of the {m["kept"]} are still selected, and {m["firm"]} are firm in two colours. None of the {m["kept"]} has an entry in SIMBAD within 10″.</p>
-<p>How interesting: moderate. These are known kinds of objects at the expected density. The list reaches fainter than published ones and carries Euclid near-infrared photometry.</p>
-<div class="links"><a class="btn" href="{base}/?run=wd">All {m["kept"]} in the gallery →</a><a class="btn" href="{REPO}/tree/main/track-m-moving-faint" rel="noopener">Full tables, rules and code ↗</a></div></div></section>
-<h2 style="margin:8px 0 0">The {len(top)} strongest deficits</h2><p class="small">Left to right: Euclid visible, Y, J, H. 10″ across, north up. A source with a near-infrared deficit fades from J to H more than its neighbours.</p>
+<p>About {m["area"]:,} square degrees. Noise alone, simulated with the real errors, produces no such source. For {m["firm"]} of the {m["kept"]} the near-infrared deficit is clear whatever the composition. The other {m["kept"] - m["firm"]} fit a pure-hydrogen white dwarf below 4000 K and depend on that one family of models. None has an entry in SIMBAD within 10″.</p>
+<p>A first, simpler list of {m["stage1"]} sources (fainter than a blackbody in the near infrared) was published earlier the same day. The model fits keep {m["stage1_in"]} of them: most of the others are ordinary cool white dwarfs, which are fainter than a blackbody anyway.</p>
+<p>How interesting: this is the part of the search that a specialist may want to look at. Limits: no parallax, simpler models than those used for this class, thresholds tuned on Gaia stars, and the temperatures are indicative.</p>
+<div class="links"><a class="btn" href="{base}/?run=wd">All {m["kept"]} in the gallery →</a><a class="btn" href="{REPO}/blob/main/track-m-moving-faint/RESULTS_M2.md" rel="noopener">Full results, tables and code ↗</a></div></div>
+<div class="panel"><span class="eyebrow"><b>03</b>By-product</span><h2>Five known white dwarfs with the same <em>signature</em></h2>
+<p>The same rule, applied to the Gaia white dwarfs used for the test, flags five of them. They are bright enough for a spectrum on a 4 m telescope, and their parallaxes agree with the distances given by the models. SIMBAD lists them only in catalogue papers, none about this kind of white dwarf. We did not search further than SIMBAD.</p>
+<div class="rows"><div class="row" style="grid-template-columns:1.6fr 60px 1fr 1fr"><span>Star</span><span class="num">G</span><span class="num">Parallax</span><span class="num">Model</span></div>{grow}</div></div></section>
+<h2 style="margin:8px 0 0">The {len(top)} strongest deficits</h2><p class="small">Left to right: Euclid visible, Y, J, H. 10″ across, north up. The source fades from Y to H while its neighbours do not.</p>
 <div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(420px,1fr))">{"".join(wcard(c) for c in top)}</div>
 <p class="small">Unverified candidates. Recognise one, or can rule it out? <a href="{REPO}/issues/new?title=Track%20M">Tell us on GitHub</a>.</p></main>"""
     return page("Faint white dwarf candidates that moved | Euclid Oddities",
-                f"{m['wd']:,} faint white dwarf candidates from Euclid DR1 proper motions, {m['kept']} with a near-infrared deficit. Unverified candidates.", body, base, f"{base}/moving-faint",
+                f"{m['wd']:,} faint white dwarf candidates from Euclid DR1 proper motions; {m['kept']} need strong near-infrared absorption. Unverified candidates.", body, base, f"{base}/moving-faint",
                 f"{base}/img/wd/{top[0]['slug']}-thumb.jpg" if top else None)
 
 
