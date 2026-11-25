@@ -716,6 +716,8 @@ def radio_page(base):
     body = f"""<main class="wrap"><div class="crumbs"><a href="{base}/">All finds</a> / Radio sources with no Euclid counterpart</div>
 <section class="hero"><h1>Radio sources Euclid <em>cannot see</em></h1>
 <p class="lede">{m["kept"]} compact radio sources from the RACS-mid survey have nothing, or almost nothing, at their position in the Euclid DR1 visible and 1.8 µm images. This is a known class of object (infrared-faint radio sources, where distant radio galaxies are looked for). The list is new for this sky as far as we checked, each entry is an unverified candidate, and a pulsar would look the same.</p></section>
+<h2 style="margin:8px 0 0">The {len(top)} brightest</h2><p class="small">Left: Euclid visible band. Right: Euclid 1.8 µm. 32″ across, north up. The circle (1.5″ radius) marks the corrected radio position.</p>
+<div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(420px,1fr))">{"".join(rcard(c) for c in top)}</div>
 <section class="method"><div class="panel"><span class="eyebrow"><b>01</b>Method</span><h2>How the list was <em>made</em></h2>
 <p>No language model takes part in the selection. Radio positions were corrected field by field against bright Euclid galaxies, then the flux was summed in a 1.5″ aperture on the Euclid visible and 1.8 µm mosaics, with the noise measured around each position. A source is kept when both bands show less than 3 times the noise, the data are deep enough, and a second radio survey (RACS-high) sees the same compact source.</p>
 <p>The rules were tuned on one 10° × 10° region and published before the rest of the sky was measured. Claude Fable 5.2 then looked at every image, only to remove data faults: {m["removed"]} were removed. {m["dev"]} of the {m["kept"]} lie in the tuning region and are not blind.</p>
@@ -724,8 +726,6 @@ def radio_page(base):
 <div class="rows">{steps}</div>
 <p>Of the {m["kept"]}, {m["empty"]} are empty in both bands and {m["faint"]} show a barely visible host. Median radio spectral index: {m["alpha_med"]:.1f} (steep). {e(m["lit"])}</p>
 <div class="links"><a class="btn" href="{base}/?run=radio">All {m["kept"]} in the gallery →</a><a class="btn" href="{REPO}/tree/main/track-r-radio-dark" rel="noopener">Full table, rules and code ↗</a></div></div></section>
-<h2 style="margin:8px 0 0">The {len(top)} brightest</h2><p class="small">Left: Euclid visible band. Right: Euclid 1.8 µm. 32″ across, north up. The circle (1.5″ radius) marks the corrected radio position.</p>
-<div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(420px,1fr))">{"".join(rcard(c) for c in top)}</div>
 <p class="small">Unverified candidates. Recognise one, or can rule it out? <a href="{REPO}/issues/new?title=Track%20R">Tell us on GitHub</a>.</p></main>"""
     return page("Radio sources with no Euclid counterpart | Euclid Oddities",
                 f"{m['kept']} compact radio sources with nothing at their position in Euclid DR1 images. Unverified candidates.", body, base, f"{base}/radio-dark",
