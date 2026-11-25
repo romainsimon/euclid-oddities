@@ -208,7 +208,8 @@ def wd_finds():
     out = []
     for c in D["candidates"]:
         desc = (f'Faint point source (r = {c["r"]:.1f}) that moved {c["pm"] * c["base_yr"] / 1000:.2f}″ in {c["base_yr"]:.0f} years. White dwarf candidate, '
-                + ("fainter than expected in the near infrared in two colours." if c["firm"] else "somewhat fainter than expected in the near infrared."))
+                + ("fainter than expected in the near infrared in two colours." if c["firm"] else "somewhat fainter than expected in the near infrared."
+                   if c.get("local", True) else "slightly fainter than a blackbody in the near infrared, but not against similar stars."))
         out.append(dict(c, kind="wd", feature="wd_irfaint", date_found="2026-11-25", run="Faint white dwarf candidates that moved (Track M)",
                         model="No model (measured)", model_id="", interest=0, weirdness=0, confidence="none", catalogued=False,
                         description=desc, status="unverified candidate"))
@@ -235,7 +236,7 @@ def radio_finds():
 
 def tags(f):
     if is_wd(f):
-        return (f'<span class="tag hi">{f["pm"]:.0f} mas/yr</span><span class="tag">{"two colours" if f["firm"] else "mild deficit"}</span>'
+        return (f'<span class="tag hi">{f["pm"]:.0f} mas/yr</span><span class="tag">{"two colours" if f["firm"] else "mild deficit" if f.get("local", True) else "weak"}</span>'
                 + ('<span class="tag">tuning region</span>' if f.get("dev") else ""))
     if is_radio(f):
         return (f'<span class="tag hi">{f["peak"]:.0f} mJy</span><span class="tag">{"empty in Euclid" if f["cls"] == "empty" else "faint host"}</span>'
@@ -294,7 +295,7 @@ def promise(f):
     against = sum(r.get("verdict") in ("likely ordinary", "likely star or foreground", "likely artefact") for r in R)
     penalty = 2 if R and against > len(R) / 2 else 0
     if is_wd(f):      # no model score: firm two-colour deficits first, then by significance
-        return round(closer * 2 - penalty + (0.6 if f["firm"] else 0.4) + min(-f["sig_jh"], 8) / 40, 3)
+        return round(closer * 2 - penalty + (0.6 if f["firm"] else 0.4 if f.get("local", True) else 0.2) + min(-f["sig_jh"], 8) / 40, 3)
     if is_radio(f):   # no model score: emptier and brighter first, on the same 0-1 scale as interest / 5
         return round(closer * 2 - penalty + (0.6 if f["cls"] == "empty" else 0.4) + min(f["peak"], 70) / 200, 3)
     return round(closer * 2 - penalty + f["interest"] / 5, 3)
@@ -386,7 +387,7 @@ c.style.setProperty('--mx',x*100+'%');c.style.setProperty('--my',y*100+'%');c.st
 c.style.setProperty('--hyp',Math.min(1,Math.hypot(x-.5,y-.5)*2));c.classList.add('on')}});
 c.addEventListener('pointerleave',()=>{{c.classList.remove('on');c.style.setProperty('--rx','0deg');c.style.setProperty('--ry','0deg')}})}});
 </script>"""
-    return page("Oddities in Euclid DR1: odd galaxies, lens candidates, radio sources with no counterpart | Euclid Oddities", f"{len(F)} unverified finds in ESA Euclid DR1 images: possible gravitational lenses, tidal streams and odd galaxies flagged by Claude Fable 5.2, and radio sources with nothing at their position in Euclid.", body, base, base,
+    return page("Oddities in Euclid DR1: odd galaxies, lens candidates, radio sources with no counterpart | Euclid Oddities", f"{len(F)} unverified finds in ESA Euclid DR1 images: possible gravitational lenses, tidal streams and odd galaxies flagged by Claude Fable 5.2, radio sources with nothing at their position in Euclid, and faint white dwarf candidates found by their motion.", body, base, base,
                 f"{img_base(F[0], base)}-thumb.jpg")
 
 
@@ -567,7 +568,10 @@ def wd_detail(f, prev, nxt, base):
              ("Reduced proper motion", f'H_r = {f["Hr"]:.1f} (white dwarf box of the rules: above {17.0 + 3.5 * max(f["rz"], -0.5):.1f} at this colour)'),
              ("Near infrared, catalogue", f'J − H = {f["jh"]:.2f} against {f["bb_jh"]:.2f} for a blackbody of the same g − r ({f["sig_jh"]:.1f} σ) · Y − J {f["sig_yj"]:+.1f} σ'),
              ("Near infrared, pixels", f'J − H {abs(f["pix_d_jh"]):.2f} mag below the blackbody in a 0.8″ aperture' + (" (H not detected: lower limit)" if f["h_limit"] else "")),
-             ("Signal", f'J {f["j_snr"]:.0f} σ, H {f["h_snr"]:.0f} σ in the Euclid catalogue')]
+             ("Signal", f'J {f["j_snr"]:.0f} σ, H {f["h_snr"]:.0f} σ in the Euclid catalogue'),
+             ("Against similar stars", ("still selected when compared with white dwarf candidates of the same colour" if f.get("local", True)
+                                        else "not selected when compared with white dwarf candidates of the same colour (check made after the results were read)")),
+             ("SIMBAD within 10″", "nothing (checked 25 Nov 2026)" if f.get("simbad", "none") == "none" else e(f.get("simbad", "")))]
     if f.get("j_high"):
         facts.append(("Caution", "J is high against both Y and H: this looks more like a fault in J than a deficit in H"))
     if f.get("dev"):
@@ -613,7 +617,7 @@ def wd_page(base):
 <p class="small">{e(m["date"])} · selection: catalogue and pixel measurements, no model call · image check: {e(m["model"])}, {e(m["harness"])}</p></div>
 <div class="panel"><span class="eyebrow"><b>02</b>Counts</span><h2>What was <em>kept</em></h2>
 <div class="rows">{steps}</div>
-<p>About {m["area"]:,} square degrees. The same cuts applied to galaxies, which cannot move, predict at most {m["false_box"]} false white dwarf candidates of {m["wd"]:,}. The near-infrared rule with signs reversed selects {m["excess"]} sources, so part of the {m["kept"]} is scatter; {m["firm"]} are firm in two colours.</p>
+<p>About {m["area"]:,} square degrees. The same cuts applied to galaxies, which cannot move, predict at most {m["false_box"]} false white dwarf candidates of {m["wd"]:,}. The near-infrared rule with signs reversed selects {m["excess"]} sources, so part of the {m["kept"]} is scatter. A check made after the results were read shows that the blackbody is a biased reference for the reddest stars: compared with white dwarf candidates of the same colour, {m["local"]} of the {m["kept"]} are still selected, and {m["firm"]} are firm in two colours. None of the {m["kept"]} has an entry in SIMBAD within 10″.</p>
 <p>How interesting: moderate. These are known kinds of objects at the expected density. The list reaches fainter than published ones and carries Euclid near-infrared photometry.</p>
 <div class="links"><a class="btn" href="{base}/?run=wd">All {m["kept"]} in the gallery →</a><a class="btn" href="{REPO}/tree/main/track-m-moving-faint" rel="noopener">Full tables, rules and code ↗</a></div></div></section>
 <h2 style="margin:8px 0 0">The {len(top)} strongest deficits</h2><p class="small">Left to right: Euclid visible, Y, J, H. 10″ across, north up. A source with a near-infrared deficit fades from J to H more than its neighbours.</p>

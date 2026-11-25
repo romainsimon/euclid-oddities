@@ -9,7 +9,7 @@
   "wd": 9407,
   "cat": 221,
   "kept": 143,
-  "firm": 66,
+  "firm": 49,
   "excess": 89,
   "removed": 5,
   "dev": 7,
@@ -35,7 +35,8 @@
     "Kept after pixel and eye checks",
     143
    ]
-  ]
+  ],
+  "local": 102
  },
  "candidates": [
   {
@@ -69,7 +70,9 @@
    "nsc_pmdec": -58.5,
    "nsc_e": 9.7,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj053517.1-591711",
@@ -102,7 +105,9 @@
    "nsc_pmdec": 44.7,
    "nsc_e": 4.3,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj034154.3-374017",
@@ -135,7 +140,9 @@
    "nsc_pmdec": 60.2,
    "nsc_e": 5.3,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj040018.3-372923",
@@ -168,7 +175,9 @@
    "nsc_pmdec": 8.5,
    "nsc_e": 9.5,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj031243.7-334619",
@@ -201,7 +210,9 @@
    "nsc_pmdec": -87.9,
    "nsc_e": 8.9,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj022027.4-331040",
@@ -234,7 +245,9 @@
    "nsc_pmdec": -21.1,
    "nsc_e": 14.2,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj042723.7-231443",
@@ -267,7 +280,9 @@
    "nsc_pmdec": -82.5,
    "nsc_e": 6.6,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj024315.0-625301",
@@ -300,7 +315,9 @@
    "nsc_pmdec": -60.5,
    "nsc_e": 8.8,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj051630.9-424400",
@@ -333,7 +350,9 @@
    "nsc_pmdec": -0.7,
    "nsc_e": 4.0,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj050904.6-400520",
@@ -366,7 +385,9 @@
    "nsc_pmdec": 70.7,
    "nsc_e": 2.9,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj043501.3-294503",
@@ -399,7 +420,9 @@
    "nsc_pmdec": -21.8,
    "nsc_e": 12.4,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj004518.6-640321",
@@ -432,7 +455,9 @@
    "nsc_pmdec": -63.8,
    "nsc_e": 7.3,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj045351.3-285239",
@@ -465,7 +490,9 @@
    "nsc_pmdec": -5.9,
    "nsc_e": 21.0,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj025138.8-461402",
@@ -498,7 +525,9 @@
    "nsc_pmdec": -41.3,
    "nsc_e": 4.5,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj031707.4-333356",
@@ -531,7 +560,9 @@
    "nsc_pmdec": 22.8,
    "nsc_e": 5.9,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj035738.2-480657",
@@ -564,7 +595,9 @@
    "nsc_pmdec": -27.7,
    "nsc_e": 3.3,
    "firm": true,
-   "dev": true
+   "dev": true,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj043523.5-391235",
@@ -597,7 +630,9 @@
    "nsc_pmdec": 52.5,
    "nsc_e": 17.4,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj042804.2-182850",
@@ -630,7 +665,9 @@
    "nsc_pmdec": -31.9,
    "nsc_e": 9.3,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj010301.6-512804",
@@ -663,7 +700,9 @@
    "nsc_pmdec": 13.6,
    "nsc_e": 6.8,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj025355.3-451815",
@@ -696,7 +735,9 @@
    "nsc_pmdec": -52.3,
    "nsc_e": 3.1,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj031827.1-621240",
@@ -729,7 +770,9 @@
    "nsc_pmdec": 25.2,
    "nsc_e": 6.0,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj060300.7-401103",
@@ -762,7 +805,9 @@
    "nsc_pmdec": -62.9,
    "nsc_e": 4.7,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj025938.3-445254",
@@ -795,7 +840,9 @@
    "nsc_pmdec": -18.6,
    "nsc_e": 11.5,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj034726.4-514506",
@@ -828,7 +875,9 @@
    "nsc_pmdec": -36.1,
    "nsc_e": 5.5,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj023430.9-611710",
@@ -861,7 +910,9 @@
    "nsc_pmdec": 25.3,
    "nsc_e": 5.2,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj035133.1-332348",
@@ -894,7 +945,9 @@
    "nsc_pmdec": 29.8,
    "nsc_e": 11.3,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj053548.6-465702",
@@ -926,8 +979,10 @@
    "nsc_pmra": -1.4,
    "nsc_pmdec": 56.6,
    "nsc_e": 12.4,
-   "firm": true,
-   "dev": false
+   "firm": false,
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj021223.5-334442",
@@ -960,7 +1015,9 @@
    "nsc_pmdec": 16.2,
    "nsc_e": 6.9,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj044450.6-460514",
@@ -993,7 +1050,9 @@
    "nsc_pmdec": -18.1,
    "nsc_e": 5.3,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj034742.7-560145",
@@ -1026,7 +1085,9 @@
    "nsc_pmdec": -3.3,
    "nsc_e": 16.9,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj045810.5-454305",
@@ -1059,7 +1120,9 @@
    "nsc_pmdec": -84.0,
    "nsc_e": 2.8,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj020509.6-582229",
@@ -1091,8 +1154,10 @@
    "nsc_pmra": 34.5,
    "nsc_pmdec": -9.1,
    "nsc_e": 3.8,
-   "firm": true,
-   "dev": false
+   "firm": false,
+   "dev": false,
+   "local": false,
+   "simbad": "none"
   },
   {
    "slug": "mj022611.9-330134",
@@ -1125,7 +1190,9 @@
    "nsc_pmdec": 6.8,
    "nsc_e": 16.7,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj020125.3-531856",
@@ -1158,7 +1225,9 @@
    "nsc_pmdec": -125.6,
    "nsc_e": 12.3,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": false,
+   "simbad": "none"
   },
   {
    "slug": "mj045632.3-414122",
@@ -1191,7 +1260,9 @@
    "nsc_pmdec": 30.7,
    "nsc_e": 10.9,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj021913.6-304252",
@@ -1223,8 +1294,10 @@
    "nsc_pmra": 95.9,
    "nsc_pmdec": 10.4,
    "nsc_e": 2.9,
-   "firm": true,
-   "dev": false
+   "firm": false,
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj000559.1-651846",
@@ -1256,8 +1329,10 @@
    "nsc_pmra": 36.6,
    "nsc_pmdec": -2.1,
    "nsc_e": 22.8,
-   "firm": true,
-   "dev": false
+   "firm": false,
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj050619.9-542022",
@@ -1290,7 +1365,9 @@
    "nsc_pmdec": 2.5,
    "nsc_e": 5.3,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj054150.8-544223",
@@ -1322,8 +1399,10 @@
    "nsc_pmra": 21.6,
    "nsc_pmdec": -35.0,
    "nsc_e": 5.5,
-   "firm": true,
-   "dev": false
+   "firm": false,
+   "dev": false,
+   "local": false,
+   "simbad": "none"
   },
   {
    "slug": "mj040622.2-244916",
@@ -1356,7 +1435,9 @@
    "nsc_pmdec": 38.2,
    "nsc_e": 5.9,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj030024.4-580851",
@@ -1389,7 +1470,9 @@
    "nsc_pmdec": 41.5,
    "nsc_e": 8.0,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj022207.2-532411",
@@ -1422,7 +1505,9 @@
    "nsc_pmdec": 4.7,
    "nsc_e": 11.2,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj004718.9-525345",
@@ -1450,12 +1535,14 @@
    "pix_d_jh": -0.5,
    "h_limit": false,
    "j_high": false,
-   "nsc": "query failed",
+   "nsc": "compatible",
    "nsc_pmra": null,
    "nsc_pmdec": null,
    "nsc_e": null,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj041445.5-310731",
@@ -1483,12 +1570,14 @@
    "pix_d_jh": -0.6,
    "h_limit": false,
    "j_high": false,
-   "nsc": "query failed",
+   "nsc": "compatible",
    "nsc_pmra": null,
    "nsc_pmdec": null,
    "nsc_e": null,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": false,
+   "simbad": "none"
   },
   {
    "slug": "mj020211.2-523650",
@@ -1516,12 +1605,14 @@
    "pix_d_jh": -0.57,
    "h_limit": false,
    "j_high": false,
-   "nsc": "query failed",
+   "nsc": "disagrees",
    "nsc_pmra": null,
    "nsc_pmdec": null,
    "nsc_e": null,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": false,
+   "simbad": "none"
   },
   {
    "slug": "mj000304.9-635621",
@@ -1549,12 +1640,14 @@
    "pix_d_jh": -0.73,
    "h_limit": false,
    "j_high": false,
-   "nsc": "query failed",
+   "nsc": "compatible",
    "nsc_pmra": null,
    "nsc_pmdec": null,
    "nsc_e": null,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj060658.6-480639",
@@ -1582,12 +1675,14 @@
    "pix_d_jh": -0.54,
    "h_limit": false,
    "j_high": false,
-   "nsc": "query failed",
+   "nsc": "compatible",
    "nsc_pmra": null,
    "nsc_pmdec": null,
    "nsc_e": null,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj035705.7-280801",
@@ -1615,12 +1710,14 @@
    "pix_d_jh": -0.47,
    "h_limit": false,
    "j_high": false,
-   "nsc": "query failed",
+   "nsc": "compatible",
    "nsc_pmra": null,
    "nsc_pmdec": null,
    "nsc_e": null,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj041620.2-440347",
@@ -1648,12 +1745,14 @@
    "pix_d_jh": -0.56,
    "h_limit": false,
    "j_high": false,
-   "nsc": "query failed",
+   "nsc": "compatible",
    "nsc_pmra": null,
    "nsc_pmdec": null,
    "nsc_e": null,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj233357.9-602720",
@@ -1686,7 +1785,9 @@
    "nsc_pmdec": -205.2,
    "nsc_e": 22.7,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj042347.1-190115",
@@ -1718,8 +1819,10 @@
    "nsc_pmra": 32.3,
    "nsc_pmdec": -39.6,
    "nsc_e": 8.4,
-   "firm": true,
-   "dev": false
+   "firm": false,
+   "dev": false,
+   "local": false,
+   "simbad": "none"
   },
   {
    "slug": "mj011954.3-540753",
@@ -1752,7 +1855,9 @@
    "nsc_pmdec": -29.8,
    "nsc_e": 6.8,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": false,
+   "simbad": "none"
   },
   {
    "slug": "mj040841.1-203438",
@@ -1784,8 +1889,10 @@
    "nsc_pmra": 106.3,
    "nsc_pmdec": -10.8,
    "nsc_e": 7.7,
-   "firm": true,
-   "dev": false
+   "firm": false,
+   "dev": false,
+   "local": false,
+   "simbad": "none"
   },
   {
    "slug": "mj012934.2-545008",
@@ -1818,7 +1925,9 @@
    "nsc_pmdec": 9.6,
    "nsc_e": 4.4,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj015434.1-472545",
@@ -1851,7 +1960,9 @@
    "nsc_pmdec": -82.5,
    "nsc_e": 12.0,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj015543.0-494136",
@@ -1884,7 +1995,9 @@
    "nsc_pmdec": -10.6,
    "nsc_e": 10.8,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj043152.8-200910",
@@ -1916,8 +2029,10 @@
    "nsc_pmra": 92.2,
    "nsc_pmdec": 57.5,
    "nsc_e": 16.6,
-   "firm": true,
-   "dev": false
+   "firm": false,
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj051855.5-280907",
@@ -1949,8 +2064,10 @@
    "nsc_pmra": -4.8,
    "nsc_pmdec": -20.8,
    "nsc_e": 18.2,
-   "firm": true,
-   "dev": false
+   "firm": false,
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj024946.4-480036",
@@ -1982,8 +2099,10 @@
    "nsc_pmra": 61.8,
    "nsc_pmdec": -67.7,
    "nsc_e": 10.6,
-   "firm": true,
-   "dev": false
+   "firm": false,
+   "dev": false,
+   "local": false,
+   "simbad": "none"
   },
   {
    "slug": "mj041257.9-541105",
@@ -2016,7 +2135,9 @@
    "nsc_pmdec": 50.1,
    "nsc_e": 12.4,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": false,
+   "simbad": "none"
   },
   {
    "slug": "mj033747.3-400615",
@@ -2049,7 +2170,9 @@
    "nsc_pmdec": -41.9,
    "nsc_e": 6.6,
    "firm": false,
-   "dev": true
+   "dev": true,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj020338.3-320230",
@@ -2082,7 +2205,9 @@
    "nsc_pmdec": -55.9,
    "nsc_e": 13.5,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj053954.2-495928",
@@ -2115,7 +2240,9 @@
    "nsc_pmdec": -49.9,
    "nsc_e": 3.1,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj055319.1-474718",
@@ -2148,7 +2275,9 @@
    "nsc_pmdec": -109.7,
    "nsc_e": 7.6,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj041245.4-223035",
@@ -2181,7 +2310,9 @@
    "nsc_pmdec": 19.3,
    "nsc_e": 8.2,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj021759.2-344459",
@@ -2214,7 +2345,9 @@
    "nsc_pmdec": -100.9,
    "nsc_e": 9.6,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": false,
+   "simbad": "none"
   },
   {
    "slug": "mj041216.6-441317",
@@ -2247,7 +2380,9 @@
    "nsc_pmdec": -29.3,
    "nsc_e": 5.5,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj012101.3-515228",
@@ -2279,8 +2414,10 @@
    "nsc_pmra": 8.7,
    "nsc_pmdec": -44.5,
    "nsc_e": 20.2,
-   "firm": true,
-   "dev": false
+   "firm": false,
+   "dev": false,
+   "local": false,
+   "simbad": "none"
   },
   {
    "slug": "mj014246.1-544544",
@@ -2313,7 +2450,9 @@
    "nsc_pmdec": -19.2,
    "nsc_e": 4.9,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj030726.4-530948",
@@ -2346,7 +2485,9 @@
    "nsc_pmdec": -26.5,
    "nsc_e": 13.6,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj035944.4-253246",
@@ -2379,7 +2520,9 @@
    "nsc_pmdec": -28.6,
    "nsc_e": 5.0,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj054338.6-493717",
@@ -2412,7 +2555,9 @@
    "nsc_pmdec": -92.8,
    "nsc_e": 12.2,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj021026.0-552300",
@@ -2444,8 +2589,10 @@
    "nsc_pmra": 36.3,
    "nsc_pmdec": 59.2,
    "nsc_e": 10.0,
-   "firm": true,
-   "dev": false
+   "firm": false,
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj032545.1-415326",
@@ -2478,7 +2625,9 @@
    "nsc_pmdec": -0.0,
    "nsc_e": 4.0,
    "firm": true,
-   "dev": true
+   "dev": true,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj020759.6-561834",
@@ -2511,7 +2660,9 @@
    "nsc_pmdec": -11.1,
    "nsc_e": 5.3,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj051945.3-403439",
@@ -2544,7 +2695,9 @@
    "nsc_pmdec": -77.1,
    "nsc_e": 9.3,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj015909.6-571657",
@@ -2577,7 +2730,9 @@
    "nsc_pmdec": -57.5,
    "nsc_e": 3.2,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj052455.1-463739",
@@ -2609,8 +2764,10 @@
    "nsc_pmra": null,
    "nsc_pmdec": null,
    "nsc_e": null,
-   "firm": true,
-   "dev": false
+   "firm": false,
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj051722.5-370259",
@@ -2643,7 +2800,9 @@
    "nsc_pmdec": -47.0,
    "nsc_e": 17.1,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": false,
+   "simbad": "none"
   },
   {
    "slug": "mj005417.5-551711",
@@ -2676,7 +2835,9 @@
    "nsc_pmdec": 10.0,
    "nsc_e": 17.8,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": false,
+   "simbad": "none"
   },
   {
    "slug": "mj052053.6-382557",
@@ -2709,7 +2870,9 @@
    "nsc_pmdec": 13.3,
    "nsc_e": 5.5,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj041908.3-641757",
@@ -2741,8 +2904,10 @@
    "nsc_pmra": 31.9,
    "nsc_pmdec": -33.2,
    "nsc_e": 12.5,
-   "firm": true,
-   "dev": false
+   "firm": false,
+   "dev": false,
+   "local": false,
+   "simbad": "none"
   },
   {
    "slug": "mj043129.9-535732",
@@ -2775,7 +2940,9 @@
    "nsc_pmdec": 105.6,
    "nsc_e": 7.6,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": false,
+   "simbad": "none"
   },
   {
    "slug": "mj031407.8-340114",
@@ -2808,7 +2975,9 @@
    "nsc_pmdec": 51.8,
    "nsc_e": 11.9,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj011015.3-522351",
@@ -2840,8 +3009,10 @@
    "nsc_pmra": 30.5,
    "nsc_pmdec": -67.1,
    "nsc_e": 16.6,
-   "firm": true,
-   "dev": false
+   "firm": false,
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj052505.8-314825",
@@ -2874,7 +3045,9 @@
    "nsc_pmdec": 3.1,
    "nsc_e": 7.8,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": false,
+   "simbad": "none"
   },
   {
    "slug": "mj041501.1-401757",
@@ -2906,8 +3079,10 @@
    "nsc_pmra": -3.4,
    "nsc_pmdec": -32.4,
    "nsc_e": 9.7,
-   "firm": true,
-   "dev": false
+   "firm": false,
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj033539.0-610028",
@@ -2939,8 +3114,10 @@
    "nsc_pmra": 48.2,
    "nsc_pmdec": 43.6,
    "nsc_e": 16.1,
-   "firm": true,
-   "dev": false
+   "firm": false,
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj045322.0-414102",
@@ -2973,7 +3150,9 @@
    "nsc_pmdec": -11.2,
    "nsc_e": 5.7,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj043913.3-344117",
@@ -3006,7 +3185,9 @@
    "nsc_pmdec": 57.5,
    "nsc_e": 26.4,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": false,
+   "simbad": "none"
   },
   {
    "slug": "mj051819.6-553134",
@@ -3039,7 +3220,9 @@
    "nsc_pmdec": 31.8,
    "nsc_e": 8.2,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": false,
+   "simbad": "none"
   },
   {
    "slug": "mj041553.9-420631",
@@ -3072,7 +3255,9 @@
    "nsc_pmdec": -79.5,
    "nsc_e": 4.2,
    "firm": true,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj052254.5-372704",
@@ -3105,7 +3290,9 @@
    "nsc_pmdec": -45.4,
    "nsc_e": 14.3,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj030718.0-472640",
@@ -3138,7 +3325,9 @@
    "nsc_pmdec": 35.2,
    "nsc_e": 7.7,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": false,
+   "simbad": "none"
   },
   {
    "slug": "mj002835.7-624020",
@@ -3171,7 +3360,9 @@
    "nsc_pmdec": -96.1,
    "nsc_e": 9.4,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": false,
+   "simbad": "none"
   },
   {
    "slug": "mj024153.2-392300",
@@ -3204,7 +3395,9 @@
    "nsc_pmdec": -43.6,
    "nsc_e": 8.4,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj054213.1-513339",
@@ -3237,7 +3430,9 @@
    "nsc_pmdec": 47.7,
    "nsc_e": 6.9,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj044427.3-174901",
@@ -3270,7 +3465,9 @@
    "nsc_pmdec": 54.7,
    "nsc_e": 9.7,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj043330.4-511708",
@@ -3303,7 +3500,9 @@
    "nsc_pmdec": 29.8,
    "nsc_e": 10.6,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": false,
+   "simbad": "none"
   },
   {
    "slug": "mj053616.1-380630",
@@ -3336,7 +3535,9 @@
    "nsc_pmdec": -43.1,
    "nsc_e": 8.9,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": false,
+   "simbad": "none"
   },
   {
    "slug": "mj031716.0-492304",
@@ -3369,7 +3570,9 @@
    "nsc_pmdec": -31.6,
    "nsc_e": 3.5,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj051850.3-302530",
@@ -3402,7 +3605,9 @@
    "nsc_pmdec": -54.0,
    "nsc_e": 17.2,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj021923.2-330812",
@@ -3435,7 +3640,9 @@
    "nsc_pmdec": 44.9,
    "nsc_e": 11.4,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj031412.4-442815",
@@ -3468,7 +3675,9 @@
    "nsc_pmdec": -139.0,
    "nsc_e": 8.5,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj023843.9-572940",
@@ -3501,7 +3710,9 @@
    "nsc_pmdec": 26.4,
    "nsc_e": 9.5,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj032220.7-481439",
@@ -3534,7 +3745,9 @@
    "nsc_pmdec": 22.0,
    "nsc_e": 10.8,
    "firm": false,
-   "dev": true
+   "dev": true,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj055804.6-503228",
@@ -3567,7 +3780,9 @@
    "nsc_pmdec": -21.7,
    "nsc_e": 11.5,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": false,
+   "simbad": "none"
   },
   {
    "slug": "mj030727.0-504648",
@@ -3600,7 +3815,9 @@
    "nsc_pmdec": 40.8,
    "nsc_e": 8.4,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": false,
+   "simbad": "none"
   },
   {
    "slug": "mj022151.8-591404",
@@ -3633,7 +3850,9 @@
    "nsc_pmdec": -2.4,
    "nsc_e": 12.2,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj050346.2-504837",
@@ -3666,7 +3885,9 @@
    "nsc_pmdec": -35.3,
    "nsc_e": 5.1,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj030630.2-555634",
@@ -3699,7 +3920,9 @@
    "nsc_pmdec": 37.7,
    "nsc_e": 4.4,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj045853.3-552707",
@@ -3732,7 +3955,9 @@
    "nsc_pmdec": -39.2,
    "nsc_e": 8.7,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": false,
+   "simbad": "none"
   },
   {
    "slug": "mj035821.4-661026",
@@ -3765,7 +3990,9 @@
    "nsc_pmdec": -3423.8,
    "nsc_e": 5262.1,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj034700.7-430141",
@@ -3798,7 +4025,9 @@
    "nsc_pmdec": 58.1,
    "nsc_e": 12.8,
    "firm": false,
-   "dev": true
+   "dev": true,
+   "local": false,
+   "simbad": "none"
   },
   {
    "slug": "mj044240.8-494754",
@@ -3831,7 +4060,9 @@
    "nsc_pmdec": 37.0,
    "nsc_e": 2.8,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj040714.0-302942",
@@ -3864,7 +4095,9 @@
    "nsc_pmdec": 37.2,
    "nsc_e": 27.1,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": false,
+   "simbad": "none"
   },
   {
    "slug": "mj031757.2-454912",
@@ -3897,7 +4130,9 @@
    "nsc_pmdec": -93.7,
    "nsc_e": 3.4,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj050547.2-434801",
@@ -3930,7 +4165,9 @@
    "nsc_pmdec": 45.6,
    "nsc_e": 8.7,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj051036.7-443624",
@@ -3963,7 +4200,9 @@
    "nsc_pmdec": -70.6,
    "nsc_e": 9.5,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj060625.5-332550",
@@ -3996,7 +4235,9 @@
    "nsc_pmdec": 19.7,
    "nsc_e": 11.1,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": false,
+   "simbad": "none"
   },
   {
    "slug": "mj050022.2-340951",
@@ -4029,7 +4270,9 @@
    "nsc_pmdec": 34.9,
    "nsc_e": 6.1,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj032849.3-554809",
@@ -4062,7 +4305,9 @@
    "nsc_pmdec": -13.8,
    "nsc_e": 19.9,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj032254.2-484343",
@@ -4095,7 +4340,9 @@
    "nsc_pmdec": -16.3,
    "nsc_e": 19.5,
    "firm": false,
-   "dev": true
+   "dev": true,
+   "local": false,
+   "simbad": "none"
   },
   {
    "slug": "mj034030.2-441454",
@@ -4128,7 +4375,9 @@
    "nsc_pmdec": -67.8,
    "nsc_e": 9.6,
    "firm": false,
-   "dev": true
+   "dev": true,
+   "local": false,
+   "simbad": "none"
   },
   {
    "slug": "mj024852.7-552838",
@@ -4161,7 +4410,9 @@
    "nsc_pmdec": -64.2,
    "nsc_e": 21.9,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": false,
+   "simbad": "none"
   },
   {
    "slug": "mj024842.6-391057",
@@ -4194,7 +4445,9 @@
    "nsc_pmdec": 84.6,
    "nsc_e": 82.4,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": false,
+   "simbad": "none"
   },
   {
    "slug": "mj050010.9-433819",
@@ -4227,7 +4480,9 @@
    "nsc_pmdec": -10.8,
    "nsc_e": 8.4,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": false,
+   "simbad": "none"
   },
   {
    "slug": "mj030014.5-425623",
@@ -4260,7 +4515,9 @@
    "nsc_pmdec": 65.9,
    "nsc_e": 21.9,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": false,
+   "simbad": "none"
   },
   {
    "slug": "mj025047.0-362958",
@@ -4293,7 +4550,9 @@
    "nsc_pmdec": -13.5,
    "nsc_e": 27.9,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj020647.4-542916",
@@ -4326,7 +4585,9 @@
    "nsc_pmdec": 44.9,
    "nsc_e": 12.0,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": false,
+   "simbad": "none"
   },
   {
    "slug": "mj024841.5-404031",
@@ -4359,7 +4620,9 @@
    "nsc_pmdec": 29.3,
    "nsc_e": 6.3,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj051635.5-483702",
@@ -4392,7 +4655,9 @@
    "nsc_pmdec": -109.1,
    "nsc_e": 10.6,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": false,
+   "simbad": "none"
   },
   {
    "slug": "mj052131.4-584317",
@@ -4425,7 +4690,9 @@
    "nsc_pmdec": -1499.2,
    "nsc_e": 2757.8,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj025330.6-581738",
@@ -4458,7 +4725,9 @@
    "nsc_pmdec": 39.2,
    "nsc_e": 10.8,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj043916.3-321316",
@@ -4491,7 +4760,9 @@
    "nsc_pmdec": -34.9,
    "nsc_e": 19.5,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": false,
+   "simbad": "none"
   },
   {
    "slug": "mj060706.1-424721",
@@ -4524,7 +4795,9 @@
    "nsc_pmdec": -12.0,
    "nsc_e": 21.1,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": false,
+   "simbad": "none"
   },
   {
    "slug": "mj023112.1-421426",
@@ -4557,7 +4830,9 @@
    "nsc_pmdec": -49.9,
    "nsc_e": 4.6,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj051921.9-555145",
@@ -4590,7 +4865,9 @@
    "nsc_pmdec": -34.0,
    "nsc_e": 5.3,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj034616.8-310923",
@@ -4623,7 +4900,9 @@
    "nsc_pmdec": 20.2,
    "nsc_e": 27.9,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj041248.8-335559",
@@ -4656,7 +4935,9 @@
    "nsc_pmdec": -69.3,
    "nsc_e": 22.0,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": false,
+   "simbad": "none"
   },
   {
    "slug": "mj062306.0-481942",
@@ -4689,7 +4970,9 @@
    "nsc_pmdec": -20.4,
    "nsc_e": 15.7,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": false,
+   "simbad": "none"
   },
   {
    "slug": "mj041428.7-583522",
@@ -4722,7 +5005,9 @@
    "nsc_pmdec": 38.1,
    "nsc_e": 3.8,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   },
   {
    "slug": "mj042311.8-342750",
@@ -4755,7 +5040,9 @@
    "nsc_pmdec": 51.2,
    "nsc_e": 9.7,
    "firm": false,
-   "dev": false
+   "dev": false,
+   "local": true,
+   "simbad": "none"
   }
  ]
 }
